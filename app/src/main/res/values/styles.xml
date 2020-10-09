@@ -1,10 +1,40 @@
 <resources>
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+
+
+    <style name="BaseTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="backgroundColor">#FFFFFF</item>
+    </style>
+
+
+    <style name="AppTheme" parent="BaseTheme">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+
+    </style>
+
+
+    <style name="SplashScreen" parent="AppTheme">
+        <item name="android:statusBarColor">#000000</item>
+    </style>
+
+    <style name="DarkTheme" parent="AppTheme"
+
+        >
+
+    </style>
+
+
+    <style name="LightTheme" parent="AppTheme">
+        <item name="backgroundColor">#FFFFFF</item>
+
+    </style>
+
+
+    <style name="BottomNavigation.ActiveItemTextAppearance" parent="TextAppearance.AppCompat">
+        <item name="android:textStyle">bold</item>
     </style>
 
 </resources>
