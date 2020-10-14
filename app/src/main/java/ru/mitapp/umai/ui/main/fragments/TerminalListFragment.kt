@@ -7,27 +7,27 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import ru.mitapp.umai.R
-import ru.mitapp.umai.ui.main.view_model.MapFragmentViewModel
+import ru.mitapp.umai.ui.main.view_model.TerminalListViewModel
 
-class MapFragment : Fragment() {
+class TerminalListFragment : Fragment() {
 
     companion object {
-        fun newInstance() = MapFragment()
+        fun newInstance() = TerminalListFragment()
     }
 
-    private lateinit var viewModel: MapFragmentViewModel
+    private lateinit var viewModel: TerminalListViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.map_fragment, container, false)
+        return inflater.inflate(R.layout.terminal_list_fragment, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(MapFragmentViewModel::class.java)
-        // TODO: Use the ViewModel
+        viewModel = ViewModelProviders.of(this).get(TerminalListViewModel::class.java)
+
     }
 
 }

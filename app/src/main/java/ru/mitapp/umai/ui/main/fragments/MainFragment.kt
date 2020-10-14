@@ -2,9 +2,6 @@ package ru.mitapp.umai.ui.main.fragments
 
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
@@ -17,17 +14,14 @@ import androidx.recyclerview.widget.SnapHelper
 import ru.mitapp.umai.R
 import ru.mitapp.umai.base.BaseFragment
 import ru.mitapp.umai.databinding.MainFragmentBinding
+import ru.mitapp.umai.ui.camera.CameraActivity
 import ru.mitapp.umai.ui.main.adapter.BannerRecyclerAdapter
 import ru.mitapp.umai.ui.main.view_model.MainFragmentViewModel
+import ru.mitapp.umai.ui.web_view.WebViewActivity
 import java.util.*
 import kotlin.collections.ArrayList
 
 class MainFragment : BaseFragment<MainFragmentBinding>(R.layout.main_fragment), BannerRecyclerAdapter.Listener {
-
-
-    companion object {
-        fun newInstance() = MainFragment()
-    }
 
     private lateinit var viewModel: MainFragmentViewModel
     private lateinit var adapter: BannerRecyclerAdapter
@@ -74,6 +68,15 @@ class MainFragment : BaseFragment<MainFragmentBinding>(R.layout.main_fragment), 
                 }
             }
         }, 0, 5000)
+
+
+        binding.termsOfUse.setOnClickListener{
+            WebViewActivity.start(activity!!, "https://play.google.com/store/apps/details?id=kg.bmt.uw", getString(R.string.terms_of_use))
+        }
+
+        binding.loginButton.setOnClickListener{
+            CameraActivity.start(context!!)
+        }
     }
 
     override fun init() {

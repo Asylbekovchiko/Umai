@@ -4,7 +4,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import ru.mitapp.umai.ui.main.fragments.MainFragment
-import ru.mitapp.umai.ui.main.fragments.MapFragment
+import ru.mitapp.umai.ui.main.fragments.TerminalFragment
 import ru.mitapp.umai.ui.main.fragments.NewsFragment
 
 class MainPagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
@@ -13,7 +13,7 @@ class MainPagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
 
         return when(position){
             0 -> MainFragment()
-            1 -> MapFragment()
+            1 -> TerminalFragment()
             else -> NewsFragment()
         }
     }

@@ -90,6 +90,8 @@ dependencies {
     implementation 'ru.egslava:MaskedEditText:1.0.5'
 
     implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.19'
+    implementation 'com.chaos.view:pinview:1.4.3'
+
 
     /* // firebase
     implementation 'com.google.firebase:firebase-analytics:17.4.4'

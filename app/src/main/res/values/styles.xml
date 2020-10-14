@@ -12,6 +12,8 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="backgroundColor">#FFFFFF</item>
+        <item name="titleTextColor">@color/titleTextColor</item>
 
     </style>
 
@@ -20,15 +22,16 @@
         <item name="android:statusBarColor">#000000</item>
     </style>
 
-    <style name="DarkTheme" parent="AppTheme"
-
-        >
-
+    <style name="DarkTheme" parent="AppTheme">
+        <item name="titleTextColor">#FFFFFF</item>
+        <item name="backgroundColor">#000000</item>
+        <item name="subTitleTextColor">#FFFFFF</item>
     </style>
 
 
     <style name="LightTheme" parent="AppTheme">
         <item name="backgroundColor">#FFFFFF</item>
+        <item name="titleTextColor">@color/titleTextColor</item>
 
     </style>
 

@@ -21,6 +21,7 @@ abstract class BaseFragment<DataBinding : ViewDataBinding>(private val layoutId 
 
         binding = DataBindingUtil.inflate(inflater, layoutId, container, false)
 
+        init()
         return binding.root
     }
 

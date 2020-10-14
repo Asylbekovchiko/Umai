@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.registration.SmsCodeActivity"
+    >
+
+
+    <data>
+
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="?attr/backgroundColor"
+        >
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar_back"
+            />
+
+
+        <ImageButton
+            android:id="@+id/sms_icon"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/bg_active_button"
+            app:srcCompat="@drawable/ic_sms_code"
+            android:clickable="false"
+            />
+        
+        
+        <TextView
+            android:id="@+id/sms_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/sms_icon"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="53dp"
+            android:layout_marginEnd="53dp"
+            android:textSize="18sp"
+            android:textAlignment="center"
+            android:text="На номер +996(555)31-31-20 выслан смс код"
+            android:textColor="?attr/titleTextColor"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
