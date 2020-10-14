@@ -3,12 +3,14 @@ package ru.mitapp.umai.ui.camera
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.graphics.Bitmap
 import android.hardware.Camera
 import android.hardware.Camera.CameraInfo
 import android.os.Handler
 import android.view.View
 import android.view.WindowManager
 import android.widget.Toast
+import androidx.lifecycle.Observer
 import com.bumptech.glide.Glide
 import ru.mitapp.umai.R
 import ru.mitapp.umai.base.BaseActivity
@@ -55,8 +57,13 @@ class CameraActivity : BaseActivity<ActivityCameraBinding>(R.layout.activity_cam
         }
 
 
-        viewModel.imagePathData.observe(this, androidx.lifecycle.Observer {
+        viewModel.imagePathData.observe(this, Observer {
             imagePath = it
+        })
+
+
+        viewModel.rotateImageBitmap.observe(this, Observer {
+            setupImage(it)
         })
 
 
@@ -111,7 +118,7 @@ class CameraActivity : BaseActivity<ActivityCameraBinding>(R.layout.activity_cam
                 fos.write(data)
                 fos.close()
                 camera!!.startPreview()
-                setupImage()
+                viewModel.rate(imagePath, isFrontCamera)
             } catch (e: Exception) {
                 e.stackTrace
                 showToast(e.message.toString())
@@ -176,8 +183,9 @@ class CameraActivity : BaseActivity<ActivityCameraBinding>(R.layout.activity_cam
         return camId
     }
 
-    private fun setupImage() {
-        Glide.with(this).load(imagePath).into(binding.image)
+    private fun setupImage(bitmap: Bitmap) {
+       /* Glide.with(this).load(imagePath).into(binding.image)*/
+        binding.image.setImageBitmap(bitmap)
         isPicture = true
         binding.cameraButton.setImageResource(R.drawable.ic_done)
         isCamera = false

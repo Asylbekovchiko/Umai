@@ -49,7 +49,7 @@ class CameraViewModel(var callBack: Camera.PictureCallback) : BaseViewModel() {
     }
 
 
-    fun rate(photoPath : String){
+    fun rate(photoPath : String, isFrontCamera : Boolean){
         val ei = ExifInterface(photoPath)
         val orientation: Int = ei.getAttributeInt(
             ExifInterface.TAG_ORIENTATION,
@@ -61,12 +61,11 @@ class CameraViewModel(var callBack: Camera.PictureCallback) : BaseViewModel() {
         val bitmap = BitmapFactory.decodeFile(image.absolutePath, bmOptions)
 
         var rotatedBitmap: Bitmap? = null
-        when (orientation) {
-            ExifInterface.ORIENTATION_ROTATE_90 -> rotatedBitmap = rotateImage(bitmap, 90f)
-            ExifInterface.ORIENTATION_ROTATE_180 -> rotatedBitmap = rotateImage(bitmap, 180f)
-            ExifInterface.ORIENTATION_ROTATE_270 -> rotatedBitmap = rotateImage(bitmap, 270f)
-            ExifInterface.ORIENTATION_NORMAL -> rotatedBitmap = bitmap
-            else -> rotatedBitmap = bitmap
+
+        rotatedBitmap = if (isFrontCamera){
+            rotateImage(bitmap, 270f)
+        } else{
+            rotateImage(bitmap, 90f)
         }
 
         rotateImageBitmap.value = rotatedBitmap
