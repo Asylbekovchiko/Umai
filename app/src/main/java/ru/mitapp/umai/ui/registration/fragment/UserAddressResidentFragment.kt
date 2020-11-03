@@ -42,6 +42,9 @@ class UserAddressResidentFragment(var listener: IdentificationListener) : BaseFr
         binding.districtSpinner.onItemSelectedListener = spinerListener
         binding.citySpinner.onItemSelectedListener = spinerListener
 
+        binding.nextButton.setOnClickListener{
+            listener.onNextButtonClick()
+        }
 
     }
 

@@ -76,77 +76,99 @@ class UserIdentificationActivity :
             override fun onPageSelected(position: Int) {
                 super.onPageSelected(position)
                 pagerPosition = position
-                binding.progressCount.text = "${position + 1} из 7 шагов"
             }
         })
     }
 
 
     override fun onBackPressed() {
-        if (pagerPosition == 0) {
-            super.onBackPressed()
-        } else {
-            when (pagerPosition) {
-                3 -> {
-                    binding.registrationPager.setCurrentItem(pagerPosition - 2, false)
-                }
-
-                4 -> {
-                    if (AppUmai.sharedPreferences.isCitizen) {
-                        binding.registrationPager.setCurrentItem(pagerPosition - 2, false)
-                    } else {
-                        binding.registrationPager.setCurrentItem(pagerPosition - 1, true)
-                    }
-                }
-
-                7 -> {
-                    binding.registrationPager.setCurrentItem(pagerPosition - 2, false)
-                }
-
-                8 -> {
-                    if (AppUmai.sharedPreferences.isCitizen) {
-                        binding.registrationPager.setCurrentItem(pagerPosition - 2, true)
-                    } else {
-                        binding.registrationPager.setCurrentItem(pagerPosition - 1, true)
-                    }
-                }
-
-                else -> {
-                    binding.registrationPager.setCurrentItem(pagerPosition - 1, true)
+        when (pagerPosition) {
+            0 -> super.onBackPressed()
+            1 -> {
+                binding.registrationPager.setCurrentItem(0, true)
+            }
+            2 -> {
+                binding.registrationPager.setCurrentItem(1, true)
+            }
+            3 -> {
+                binding.registrationPager.setCurrentItem(1, false)
+            }
+            4 -> {
+                if (AppUmai.sharedPreferences.isCitizen){
+                    binding.registrationPager.setCurrentItem(2, false)
+                } else{
+                    binding.registrationPager.setCurrentItem(3, true)
                 }
 
             }
+            5 -> {
+                binding.registrationPager.setCurrentItem(4, true)
+            }
+            6 -> {
+                binding.registrationPager.setCurrentItem(5, true)
+            }
+            7 -> {
+                binding.registrationPager.setCurrentItem(5, false)
+            }
+            8 -> {
+                if (AppUmai.sharedPreferences.isCitizen){
+                    binding.registrationPager.setCurrentItem(6, false)
+                } else{
+                    binding.registrationPager.setCurrentItem(7, true)
+                }
+            }
 
-            if (!AppUmai.sharedPreferences.isCitizen && pagerPosition == 2)
-                binding.progressBar.progress = binding.progressBar.progress - 0
-            else binding.progressBar.progress = binding.progressBar.progress - 1
+
         }
 
+        binding.progressCount.text = "${binding.progressBar.progress - 1} из 7 шагов"
+        binding.progressBar.progress = binding.progressBar.progress - 1
     }
+
 
     override fun onNextButtonClick() {
         if (pagerPosition != adapter.count - 1) {
             when (pagerPosition) {
+                0 -> {
+                    binding.registrationPager.setCurrentItem(1, true)
+                }
                 1 -> {
-                    if (!AppUmai.sharedPreferences.isCitizen) {
-                        binding.registrationPager.setCurrentItem(pagerPosition + 2, false)
-                    } else {
-                        binding.registrationPager.setCurrentItem(pagerPosition + 1, true)
+                    if (AppUmai.sharedPreferences.isCitizen){
+                        binding.registrationPager.setCurrentItem(2, true)
+                    } else{
+                        binding.registrationPager.setCurrentItem(3, false)
                     }
+
+                }
+                2 -> {
+                    binding.registrationPager.setCurrentItem(4, false)
+                }
+                3 -> {
+                    binding.registrationPager.setCurrentItem(4, true)
                 }
                 4 -> {
-                    if (!AppUmai.sharedPreferences.isCitizen) {
-                        binding.registrationPager.setCurrentItem(pagerPosition + 2, false)
-                    } else {
-                        binding.registrationPager.setCurrentItem(pagerPosition + 1, true)
+                    binding.registrationPager.setCurrentItem(5, true)
+                }
+                5 -> {
+                    if (AppUmai.sharedPreferences.isCitizen){
+                        binding.registrationPager.setCurrentItem(6, true)
+                    } else{
+                        binding.registrationPager.setCurrentItem(7, false)
                     }
                 }
-
-                else -> {
-                    binding.registrationPager.setCurrentItem(pagerPosition + 1, true)
+                6 -> {
+                    binding.registrationPager.setCurrentItem(8, false)
+                }
+                7 -> {
+                    binding.registrationPager.setCurrentItem(8, true)
+                }
+                8 -> {
                 }
 
+
             }
+
+            binding.progressCount.text = "${binding.progressBar.progress + 1} из 7 шагов"
             binding.progressBar.progress = binding.progressBar.progress + 1
         }
     }
@@ -154,10 +176,18 @@ class UserIdentificationActivity :
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (resultCode == Activity.RESULT_OK){
-            when(requestCode){
-                PASSPORT_PHOTO_REQUEST_CODE -> passportPhotoFragment?.onActivityResult(requestCode, resultCode, data)
-                SELFIE_REQUEST_CODE -> selfieWithPassportFragment?.onActivityResult(requestCode, resultCode, data)
+        if (resultCode == Activity.RESULT_OK) {
+            when (requestCode) {
+                PASSPORT_PHOTO_REQUEST_CODE -> passportPhotoFragment?.onActivityResult(
+                    requestCode,
+                    resultCode,
+                    data
+                )
+                SELFIE_REQUEST_CODE -> selfieWithPassportFragment?.onActivityResult(
+                    requestCode,
+                    resultCode,
+                    data
+                )
             }
         }
 

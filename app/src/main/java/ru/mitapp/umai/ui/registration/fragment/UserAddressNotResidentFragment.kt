@@ -44,6 +44,11 @@ class UserAddressNotResidentFragment(var listener: IdentificationListener) :
         binding.citySpinner.onItemSelectedListener = spinerListener
 
 
+        binding.nextButton.setOnClickListener{
+            listener.onNextButtonClick()
+        }
+
+
     }
 
     private fun fillRegionList() {
