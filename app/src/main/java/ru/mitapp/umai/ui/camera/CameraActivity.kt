@@ -1,5 +1,6 @@
 package ru.mitapp.umai.ui.camera
 
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -31,6 +32,8 @@ class CameraActivity : BaseActivity<ActivityCameraBinding>(R.layout.activity_cam
     private var hasCamera = false
     private var isFrontCamera = false
     private var cameraId = -1
+    private val isSelfie : Boolean?
+    get() = intent.getBooleanExtra("is_selfie", false)
 
     private lateinit var viewModel: CameraViewModel
 
@@ -42,7 +45,15 @@ class CameraActivity : BaseActivity<ActivityCameraBinding>(R.layout.activity_cam
         )
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
 
-        camera = Camera.open()
+        if (isSelfie!!){
+            binding.maskView.setBackgroundResource(R.drawable.ic_front_camera_mask)
+            binding.doneButton.visibility = View.GONE
+            cameraId = getFrontCameraId()
+        } else{
+            binding.maskView.setBackgroundResource(R.drawable.ic_bg_camera)
+            cameraId = getBackCameraId()
+        }
+        camera = Camera.open(cameraId)
         showCamera = ShowCamera(this, camera!!)
         binding.cameraContainer.addView(showCamera)
 
@@ -53,7 +64,13 @@ class CameraActivity : BaseActivity<ActivityCameraBinding>(R.layout.activity_cam
                 if (camera != null) {
                     viewModel.captureImage(camera!!)
                 }
-            } else Toast.makeText(this, "isDone", Toast.LENGTH_SHORT).show()
+            } else {
+                val intent = Intent()
+                intent.putExtra("image_path", imagePath)
+                intent.putExtra("isSelfie", isSelfie!!)
+                setResult(Activity.RESULT_OK, intent)
+                finish()
+            }
         }
 
 
@@ -101,8 +118,10 @@ class CameraActivity : BaseActivity<ActivityCameraBinding>(R.layout.activity_cam
 
 
     companion object {
-        fun start(context: Context) {
-            context.startActivity(Intent(context, CameraActivity::class.java))
+        fun start(activity: Activity, isSelfie : Boolean = false, requestCode : Int) {
+            val intent = Intent(activity, CameraActivity::class.java)
+            intent.putExtra("is_selfie", isSelfie)
+            activity.startActivityForResult(intent, requestCode)
         }
     }
 
@@ -197,6 +216,11 @@ class CameraActivity : BaseActivity<ActivityCameraBinding>(R.layout.activity_cam
 
     override fun onResume() {
         super.onResume()
+        cameraId = if (isSelfie!!){
+            getFrontCameraId()
+        } else{
+            getBackCameraId()
+        }
         if (cameraId != -1) {
             camera = Camera.open(cameraId)
             showCamera = ShowCamera(this, camera!!)

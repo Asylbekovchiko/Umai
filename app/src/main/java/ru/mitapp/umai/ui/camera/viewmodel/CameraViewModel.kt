@@ -50,12 +50,6 @@ class CameraViewModel(var callBack: Camera.PictureCallback) : BaseViewModel() {
 
 
     fun rate(photoPath : String, isFrontCamera : Boolean){
-        val ei = ExifInterface(photoPath)
-        val orientation: Int = ei.getAttributeInt(
-            ExifInterface.TAG_ORIENTATION,
-            ExifInterface.ORIENTATION_UNDEFINED
-        )
-
         val image = File(photoPath)
         val bmOptions = BitmapFactory.Options()
         val bitmap = BitmapFactory.decodeFile(image.absolutePath, bmOptions)

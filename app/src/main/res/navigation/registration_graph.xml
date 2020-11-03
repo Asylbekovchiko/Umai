@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/registration_graph"
+    app:startDestination="@id/user_name_fragment"
+    >
+
+    <fragment
+        android:id="@+id/user_name_fragment"
+        android:name="ru.mitapp.umai.ui.registration.fragment.UserNameFragment"
+        android:label="UserNameFragment"
+        tools:layout="@layout/user_name_fragment">
+
+        <action
+            android:id="@+id/action_user_name_fragment_to_user_citizenship_fragment"
+            app:destination="@id/user_citizenship_fragment" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/user_citizenship_fragment"
+        android:name="ru.mitapp.umai.ui.registration.fragment.UserCitizenshipFragment"
+        android:label="UserCitizenshipFragment"
+        >
+
+        <action
+            android:id="@+id/action_user_citizenship_fragment_to_user_location_fragment"
+            app:destination="@id/user_location_fragment" />
+
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/user_location_fragment"
+        android:name="ru.mitapp.umai.ui.registration.fragment.PassportInfoForResidentFragment"
+        android:label="UserCitizenshipFragment"
+        >
+
+    </fragment>
+
+</navigation>

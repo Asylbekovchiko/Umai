@@ -12,8 +12,9 @@
 
 
     <style name="DarkTheme" parent="AppTheme"
-
         >
+
+        <item name="subTitleTextColor">@color/subTitleTextColor</item>
 
     </style>
 
@@ -26,6 +27,7 @@
     <style name="LightTheme" parent="AppTheme">
         <item name="backgroundColor">#FFFFFF</item>
         <item name="titleTextColor">@color/titleTextColor</item>
+        <item name="subTitleTextColor">@color/subTitleTextColor</item>
 
     </style>
 

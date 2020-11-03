@@ -1,4 +1,4 @@
-package ru.mitapp.umai.ui.registration
+package ru.mitapp.umai.ui.registration.activity
 
 
 import ru.mitapp.umai.R

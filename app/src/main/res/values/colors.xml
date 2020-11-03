@@ -6,9 +6,11 @@
     <color name="backgroundColor">#FFFFFF</color>
     <color name="titleTextColor">#18191C</color>
     <color name="subTitleTextColor">#5E626E</color>
+    <color name="descriptionTextColor">#BABCC4</color>
     <color name="buttonColor">#BABCC4</color>
     <color name="buttonInActiveColor">#E9EAEC</color>
-    <color name="buttonInActiveTextColor">#474A53</color>
+    <color name="buttonInActiveTextColor">#79474A53</color>
+    <color name="buttonActiveTextColor">#FFFFFF</color>
     <color name="inputBgColor">#F3F7FA</color>
     <color name="inputBgBorderColor">#DBE7F0</color>
 

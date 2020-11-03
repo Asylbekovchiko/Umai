@@ -5,6 +5,7 @@ import android.content.SharedPreferences
 import androidx.core.content.edit
 
 private const val IS_FIRST_START = "is_first_start"
+private const val IS_CITIZEN = "is_citizen"
 private const val UMAI_PREFERENCE = "UmaiPrefs"
 private const val THEME_PREFERENCE = "ThemePrefs"
 
@@ -33,6 +34,17 @@ class SharedPreference(context: Context){
 
     set(value) = pref.edit {
         putString(THEME_PREFERENCE, value)
+    }
+
+    var isCitizen : Boolean
+    get() {
+        return pref.getBoolean(IS_CITIZEN, true)
+    }
+
+    set(value) {
+        pref.edit{
+            putBoolean(IS_CITIZEN, value)
+        }
     }
 
 }

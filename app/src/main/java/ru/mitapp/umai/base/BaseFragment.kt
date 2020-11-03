@@ -21,8 +21,14 @@ abstract class BaseFragment<DataBinding : ViewDataBinding>(private val layoutId 
 
         binding = DataBindingUtil.inflate(inflater, layoutId, container, false)
 
-        init()
+
         return binding.root
+    }
+
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        init()
     }
 
     protected abstract fun init()

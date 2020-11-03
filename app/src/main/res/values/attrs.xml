@@ -6,7 +6,10 @@
         <attr name="backgroundColor" format="color"/>
         <attr name="titleTextColor" format="color"/>
         <attr name="subTitleTextColor" format="color"/>
+        <attr name="descriptionTextColor" format="color"/>
         <attr name="buttonColor" format="color"/>
+        <attr name="buttonActiveTextColor" format="color"/>
+        <attr name="buttonInActiveTextColor" format="color"/>
 
     </declare-styleable>
 

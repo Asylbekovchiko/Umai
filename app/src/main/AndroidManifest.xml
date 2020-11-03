@@ -6,9 +6,14 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.CAMERA"/>
-    <uses-feature android:name="android.hardware.camera" android:required="false" />
-    <uses-feature android:name="android.hardware.camera.front" android:required="false" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera.front"
+        android:required="false" />
 
     <application
         android:allowBackup="true"
@@ -18,12 +23,18 @@
         android:roundIcon="@drawable/ic_umai_logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        android:usesCleartextTraffic="true">
+        android:usesCleartextTraffic="true"
+        android:name=".AppUmai"
+        >
+        <activity
+            android:name=".ui.registration.activity.UserIdentificationActivity"
+            android:windowSoftInputMode="adjustResize"
+            />
+        <activity android:name=".ui.registration.activity.RegistrationStartActivity" />
         <activity
             android:name=".ui.camera.CameraActivity"
-            android:screenOrientation="portrait"
-            />
-        <activity android:name=".ui.registration.SmsCodeActivity" />
+            android:screenOrientation="portrait" />
+        <activity android:name=".ui.registration.activity.SmsCodeActivity" />
         <activity
             android:name=".ui.home.HomeActivity"
             android:screenOrientation="portrait" />
@@ -44,19 +55,15 @@
             android:name=".ui.main.activity.MainActivity"
             android:screenOrientation="portrait" />
 
-
         <provider
-            android:authorities="${applicationId}.provider"
             android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.provider"
             android:exported="false"
             android:grantUriPermissions="true">
-
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/provider_path"
-                />
+                android:resource="@xml/provider_path" />
         </provider>
-
     </application>
 
 </manifest>

@@ -13,7 +13,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
 
     override fun init() {
         binding.mainPager.adapter = MainPagerAdapter(supportFragmentManager)
-        binding.mainPager.offscreenPageLimit = 5
+        binding.mainPager.offscreenPageLimit = 3
         binding.mainPager.isEnabled = false
         binding.mainPager.disableScroll(true)
 

@@ -1,5 +1,6 @@
 package ru.mitapp.umai.ui.main.fragments
 
+import android.content.Intent
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
 import android.view.ViewGroup
@@ -14,9 +15,9 @@ import androidx.recyclerview.widget.SnapHelper
 import ru.mitapp.umai.R
 import ru.mitapp.umai.base.BaseFragment
 import ru.mitapp.umai.databinding.MainFragmentBinding
-import ru.mitapp.umai.ui.camera.CameraActivity
 import ru.mitapp.umai.ui.main.adapter.BannerRecyclerAdapter
 import ru.mitapp.umai.ui.main.view_model.MainFragmentViewModel
+import ru.mitapp.umai.ui.registration.activity.RegistrationStartActivity
 import ru.mitapp.umai.ui.web_view.WebViewActivity
 import java.util.*
 import kotlin.collections.ArrayList
@@ -71,11 +72,12 @@ class MainFragment : BaseFragment<MainFragmentBinding>(R.layout.main_fragment), 
 
 
         binding.termsOfUse.setOnClickListener{
-            WebViewActivity.start(activity!!, "https://play.google.com/store/apps/details?id=kg.bmt.uw", getString(R.string.terms_of_use))
+            WebViewActivity.start(requireActivity(), "https://play.google.com/store/apps/details?id=kg.bmt.uw", getString(R.string.terms_of_use))
         }
 
         binding.loginButton.setOnClickListener{
-            CameraActivity.start(context!!)
+            val intent = Intent(activity, RegistrationStartActivity::class.java)
+            startActivity(intent)
         }
     }
 
@@ -100,7 +102,7 @@ class MainFragment : BaseFragment<MainFragmentBinding>(R.layout.main_fragment), 
             imageView[i].apply {
                 this?.setImageDrawable(
                     ContextCompat.getDrawable(
-                        activity!!,
+                        requireActivity(),
                         R.drawable.onboarding_indicator_inactive
                     )
                 )
