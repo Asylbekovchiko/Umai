@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
 android {
@@ -112,8 +113,10 @@ dependencies {
     //spinner date picker
     implementation 'com.github.drawers:SpinnerDatePicker:2.0.1'
 
-    /* // firebase
-    implementation 'com.google.firebase:firebase-analytics:17.4.4'
-    implementation 'com.google.firebase:firebase-messaging:20.2.4'*/
+     //firebase
+    implementation platform('com.google.firebase:firebase-bom:26.1.0')
+    implementation 'com.google.firebase:firebase-analytics-ktx'
+    implementation 'com.google.android.gms:play-services-maps:17.0.0'
+    // implementation 'com.google.firebase:firebase-messaging:20.2.4'
 
 }

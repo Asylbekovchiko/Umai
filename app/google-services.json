@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "438552427849",
+    "firebase_url": "https://umai-android.firebaseio.com",
+    "project_id": "umai-android",
+    "storage_bucket": "umai-android.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:438552427849:android:e70fca73a1ebf6b72aae98",
+        "android_client_info": {
+          "package_name": "ru.mitapp.umai"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "438552427849-8nl8ipgm5qch6m1116mvn8qk2570e5tb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC7ef7imq3fmpezAO5x5S2CQPOxOTVqf74"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "438552427849-8nl8ipgm5qch6m1116mvn8qk2570e5tb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

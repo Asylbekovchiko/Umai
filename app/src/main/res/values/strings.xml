@@ -48,4 +48,8 @@
     <string name="country">Страна</string>
     <string name="enter_data">Укажите данные</string>
     <string name="enter_secret_word">Введите секретное слово</string>
+    <string name="filter">Фильтры</string>
+    <string name="maps">Карта</string>
+    <string name="list">Список</string>
+    <string name="api_key">AIzaSyAACmBp7mn0_8_hsnZza1Gauv4JVe14WDY</string>
 </resources>

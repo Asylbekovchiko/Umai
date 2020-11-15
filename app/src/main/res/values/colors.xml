@@ -17,5 +17,9 @@
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
 
+    <color name="terminalIndicatorColor">#1057C2</color>
+    <color name="atmIndicatorColor">#F99F1F</color>
+    <color name="officeIndicatorColor">#49C210</color>
+
 
 </resources>
