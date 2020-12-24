@@ -36,8 +36,14 @@
             android:screenOrientation="portrait" />
         <activity android:name=".ui.registration.activity.SmsCodeActivity" />
         <activity
-            android:name=".ui.home.HomeActivity"
-            android:screenOrientation="portrait" />
+            android:name=".ui.home.activity.HomeActivity"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".ui.web_view.WebViewActivity"
             android:screenOrientation="portrait" />
@@ -45,11 +51,7 @@
             android:name=".ui.StartActivity"
             android:screenOrientation="portrait"
             android:theme="@style/SplashScreen">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".ui.main.activity.MainActivity"

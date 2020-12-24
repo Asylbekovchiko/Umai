@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item
+        android:id="@+id/main_nav"
+        android:title="Главная"
+        android:icon="@drawable/ic_login_nav"
+        />
+
+
+    <item
+        android:id="@+id/services_nav"
+        android:title="Услуги"
+        android:icon="@drawable/ic_services"
+        />
+
+
+    <item
+        android:id="@+id/top_up_nav"
+        android:title="Пополнение"
+        android:icon="@drawable/ic_cards"
+        />
+
+    <item
+        android:id="@+id/history_nav"
+        android:title="История"
+        android:icon="@drawable/ic_history"
+        />
+
+    <item
+        android:id="@+id/more_nav"
+        android:title="Еще"
+        android:icon="@drawable/ic_more"
+        />
+
+</menu>
