@@ -25,7 +25,7 @@ class TerminalFragment : BaseFragment<TerminalFragmentBinding>(R.layout.terminal
     var terminals : ArrayList<Terminal> = ArrayList()
 
 
-    override fun init() {
+    override fun setupView() {
         viewModel = ViewModelProviders.of(this).get(TerminalFragmentViewModel::class.java)
 
         fillTerminals()

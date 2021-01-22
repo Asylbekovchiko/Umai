@@ -27,7 +27,7 @@ class PassportPhotoFragment(var listener : IdentificationListener) : BaseFragmen
 
     var isFront = false
 
-    override fun init() {
+    override fun setupView() {
         viewModel = ViewModelProvider(this).get(PassportPhotoViewModel::class.java)
 
         binding.nextButton.setOnClickListener{

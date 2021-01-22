@@ -19,7 +19,7 @@ class TerminalListFragment(var listener : TerminalListener, var terminals : Arra
     private lateinit var viewModel: TerminalListViewModel
     private lateinit var adapter : TerminalRvAdapter
 
-    override fun init() {
+    override fun setupView() {
         viewModel = ViewModelProviders.of(this).get(TerminalListViewModel::class.java)
         setupRecycler()
 

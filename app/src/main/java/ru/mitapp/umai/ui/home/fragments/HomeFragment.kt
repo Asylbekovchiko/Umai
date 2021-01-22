@@ -7,6 +7,6 @@ import ru.mitapp.umai.databinding.FragmentHomeBinding
 class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
 
 
-    override fun init() {
+    override fun setupView() {
     }
 }

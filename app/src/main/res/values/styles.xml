@@ -54,6 +54,18 @@
 
     </style>
 
+    <style name="MainTitleTextStyle" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="ServiceItemTextStyle" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:fontFamily">@font/ubuntu_r</item>
+        <item name="android:textStyle">bold</item>
+    </style>
 
     <style name="SubTitleTextStyle" parent="TextAppearance.AppCompat">
         <item name="android:textColor">?attr/subTitleTextColor</item>

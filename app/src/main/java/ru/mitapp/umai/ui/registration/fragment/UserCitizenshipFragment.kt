@@ -17,7 +17,7 @@ class UserCitizenshipFragment(var listener : IdentificationListener) : BaseFragm
 
     private lateinit var viewModel: UserCitizenshipViewModel
 
-    override fun init() {
+    override fun setupView() {
         viewModel = ViewModelProviders.of(this).get(UserCitizenshipViewModel::class.java)
 
         binding.radioGroup.setOnCheckedChangeListener{ _,  buttonId ->

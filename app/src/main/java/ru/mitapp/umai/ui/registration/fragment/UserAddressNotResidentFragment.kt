@@ -24,7 +24,7 @@ class UserAddressNotResidentFragment(var listener: IdentificationListener) :
     private lateinit var districtSpinnerAdapter : SpinnerCustomAdapter
     private lateinit var citySpinnerAdapter : SpinnerCustomAdapter
 
-    override fun init() {
+    override fun setupView() {
         viewModel = ViewModelProvider(this).get(UserAddressNotResidentViewModel::class.java)
 
         fillRegionList()

@@ -13,6 +13,7 @@
     <color name="buttonActiveTextColor">#FFFFFF</color>
     <color name="inputBgColor">#F3F7FA</color>
     <color name="inputBgBorderColor">#DBE7F0</color>
+    <color name="DividerColor">#EDF3F8</color>
 
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>

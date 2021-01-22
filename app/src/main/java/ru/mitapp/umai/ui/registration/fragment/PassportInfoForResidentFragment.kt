@@ -19,7 +19,7 @@ class PassportInfoForResidentFragment(var listener : IdentificationListener)
     private lateinit var viewModel: PassportInfoForResidentViewModel
 
 
-    override fun init() {
+    override fun setupView() {
         viewModel = ViewModelProviders.of(this).get(PassportInfoForResidentViewModel::class.java)
 
         binding.nextButton.setOnClickListener{
