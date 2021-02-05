@@ -36,9 +36,9 @@ class TerminalRvAdapter(var list: ArrayList<Terminal>, var listener: Listener) :
             binding.terminal = terminal
 
             when (terminal.type) {
-                "T" -> binding.typeIndicator.setBackgroundResource(R.color.terminalIndicatorColor)
-                "A" -> binding.typeIndicator.setBackgroundResource(R.color.atmIndicatorColor)
-                "O" -> binding.typeIndicator.setBackgroundResource(R.color.officeIndicatorColor)
+                "terminal" -> binding.typeIndicator.setBackgroundResource(R.color.terminalIndicatorColor)
+                "bank" -> binding.typeIndicator.setBackgroundResource(R.color.atmIndicatorColor)
+                "office" -> binding.typeIndicator.setBackgroundResource(R.color.officeIndicatorColor)
             }
 
             itemView.setOnClickListener {

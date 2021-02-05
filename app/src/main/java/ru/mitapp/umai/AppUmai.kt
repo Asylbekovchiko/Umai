@@ -19,7 +19,7 @@ class AppUmai : Application() {
         super.onCreate()
 
         context = applicationContext
-//        repository = MainRepository(ApiFactory(context).apiInterface)
+        repository = MainRepository(ApiFactory(context).apiInterface)
         sharedPreferences = SharedPreference(applicationContext)
     }
 }

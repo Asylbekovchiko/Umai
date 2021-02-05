@@ -60,7 +60,7 @@ class TerminalMapFragment(var listener: TerminalListener, var terminals: ArrayLi
         mapReady = true
 
         for (items in terminals) {
-            val location1 = LatLng(items.lat!!, items.lon!!)
+            val location1 = LatLng(items.lat!!, items.lng!!)
             val marker = MarkerOptions().position(location1).title(items.name)
             when (items.type) {
                 "T" -> marker.icon(
