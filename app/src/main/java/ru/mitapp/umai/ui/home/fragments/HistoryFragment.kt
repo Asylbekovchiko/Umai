@@ -7,7 +7,7 @@ import ru.mitapp.umai.databinding.FragmentHistoryBinding
 
 
 class HistoryFragment : BaseFragment<FragmentHistoryBinding>(R.layout.fragment_history) {
-    override fun init() {
+    override fun setupView() {
 
     }
 

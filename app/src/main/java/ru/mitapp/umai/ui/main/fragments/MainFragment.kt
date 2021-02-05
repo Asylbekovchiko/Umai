@@ -81,7 +81,7 @@ class MainFragment : BaseFragment<MainFragmentBinding>(R.layout.main_fragment), 
         }
     }
 
-    override fun init() {
+    override fun setupView() {
 
     }
 

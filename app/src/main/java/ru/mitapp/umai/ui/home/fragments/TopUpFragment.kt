@@ -6,7 +6,7 @@ import ru.mitapp.umai.databinding.FragmentTopUpBinding
 
 
 class TopUpFragment : BaseFragment<FragmentTopUpBinding>(R.layout.fragment_top_up) {
-    override fun init() {
+    override fun setupView() {
 
     }
 }

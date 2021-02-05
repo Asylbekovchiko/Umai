@@ -11,7 +11,7 @@ class UserEmailFragment(var listener: IdentificationListener) : BaseFragment<Use
 
     private lateinit var viewModel: UserEmailViewModel
 
-    override fun init() {
+    override fun setupView() {
         viewModel = ViewModelProviders.of(this).get(UserEmailViewModel::class.java)
     }
 }

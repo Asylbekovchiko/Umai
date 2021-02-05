@@ -14,7 +14,7 @@ import java.util.concurrent.TimeUnit
 
 class ApiFactory(var context: Context) {
 
-    private val BASE_URL : String = ""
+    private val BASE_URL : String = "https://umai.kg/"
     private lateinit var retrofit: Retrofit
 
 

@@ -21,7 +21,7 @@ class SelfieWithPassportFragment(var listener : IdentificationListener) : BaseFr
     private lateinit var viewModelWith: SelfieWithPassportViewModel
 
 
-    override fun init() {
+    override fun setupView() {
         viewModelWith = ViewModelProvider(this).get(SelfieWithPassportViewModel::class.java)
 
         binding.selfieStartCameraButton.setOnClickListener{

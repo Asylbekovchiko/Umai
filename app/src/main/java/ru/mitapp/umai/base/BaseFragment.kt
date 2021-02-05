@@ -28,10 +28,10 @@ abstract class BaseFragment<DataBinding : ViewDataBinding>(private val layoutId 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        init()
+        setupView()
     }
 
-    protected abstract fun init()
+    protected abstract fun setupView()
 
 }
 

@@ -14,12 +14,13 @@ import ru.mitapp.umai.models.Terminal
 import ru.mitapp.umai.ui.main.adapter.TerminalRvAdapter
 import ru.mitapp.umai.ui.main.view_model.TerminalListViewModel
 
-class TerminalListFragment(var listener : TerminalListener, var terminals : ArrayList<Terminal>) : BaseFragment<TerminalListFragmentBinding>(R.layout.terminal_list_fragment), TerminalRvAdapter.Listener {
+class TerminalListFragment(var listener : TerminalListener, var terminals : ArrayList<Terminal>) :
+        BaseFragment<TerminalListFragmentBinding>(R.layout.terminal_list_fragment), TerminalRvAdapter.Listener {
 
     private lateinit var viewModel: TerminalListViewModel
     private lateinit var adapter : TerminalRvAdapter
 
-    override fun init() {
+    override fun setupView() {
         viewModel = ViewModelProviders.of(this).get(TerminalListViewModel::class.java)
         setupRecycler()
 

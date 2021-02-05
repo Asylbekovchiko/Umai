@@ -23,7 +23,7 @@ class UserAddressResidentFragment(var listener: IdentificationListener) : BaseFr
     private lateinit var districtSpinnerAdapter : SpinnerCustomAdapter
     private lateinit var citySpinnerAdapter : SpinnerCustomAdapter
 
-    override fun init() {
+    override fun setupView() {
         viewModel = ViewModelProvider(this).get(UserAddressResidentViewModel::class.java)
 
         fillRegionList()

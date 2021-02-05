@@ -29,7 +29,7 @@ class NewsFragment : BaseFragment<NewsFragmentBinding>(R.layout.news_fragment) {
         }
     }
 
-    override fun init() {
+    override fun setupView() {
     }
 
 }

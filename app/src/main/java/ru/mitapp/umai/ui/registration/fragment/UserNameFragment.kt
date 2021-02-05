@@ -22,7 +22,7 @@ class UserNameFragment(var listener: IdentificationListener) :
     private var calendar: Calendar = Calendar.getInstance()
     private var nowCalendar: Calendar = Calendar.getInstance()
 
-    override fun init() {
+    override fun setupView() {
         viewModel = ViewModelProviders.of(this).get(UserNameViewModel::class.java)
 
         binding.nextButton.setOnClickListener {
