@@ -5,6 +5,12 @@
 
     <data>
 
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="ru.mitapp.umai.ui.home.fragments.history_fragment.viewmodel.HistoryViewModel" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -12,11 +18,53 @@
         android:layout_height="match_parent"
         tools:context=".ui.home.fragments.history_fragment.HistoryFragment">
 
-        <include layout="@layout/toolbar_history"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/toolbar_history"
-            />
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="match_parent"
+            android:background="@color/white"
+            android:layout_height="56dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/history_title"
+                android:textAppearance="@style/ToolbarTitleStyle"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginStart="18dp"
+                />
+
+            <ImageView
+
+                android:id="@+id/history_calendar"
+                android:layout_width="wrap_content"
+                android:padding="16dp"
+                android:layout_height="match_parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:src="@drawable/ic_calendar"
+                />
+
+            <ImageView
+                android:id="@+id/history_search"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                app:layout_constraintRight_toLeftOf="@id/history_calendar"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:src="@drawable/ic_search"
+                />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.recyclerview.widget.RecyclerView
+            android:visibility="@{viewModel.isListEmpty() ? View.GONE : View.VISIBLE}"
             android:id="@+id/history_recycler"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             android:orientation="vertical"
@@ -25,6 +73,42 @@
             android:layout_height="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/toolbar_history" />
+
+        <LinearLayout
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="@{viewModel.isListEmpty() ? View.VISIBLE : View.GONE}"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_stubicon" />
+
+            <TextView
+                android:layout_marginTop="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Нет операции"
+                android:textAppearance="@style/TitleTextStyle" />
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/ubuntu_r"
+                android:textColor="@color/lightGray"
+                android:text="Чтобы оставить след в истории, оплатите
+                        что-нибудь - все платежи сохраняться здесь"
+                android:textSize="14sp"
+                android:textAlignment="center"
+                android:layout_marginHorizontal="34dp" />
+
+        </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

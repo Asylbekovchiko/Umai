@@ -5,27 +5,27 @@
     <item
         android:id="@+id/main_nav"
         android:title="Главная"
-        android:icon="@drawable/ic_login_nav"
+        android:icon="@drawable/ic_home"
         />
 
 
     <item
         android:id="@+id/services_nav"
         android:title="Услуги"
-        android:icon="@drawable/ic_services"
+        android:icon="@drawable/ic_category"
         />
 
 
     <item
         android:id="@+id/top_up_nav"
         android:title="Пополнение"
-        android:icon="@drawable/ic_cards"
+        android:icon="@drawable/ic_wallet"
         />
 
     <item
         android:id="@+id/history_nav"
         android:title="История"
-        android:icon="@drawable/ic_history"
+        android:icon="@drawable/ic_time_circle"
         />
 
     <item
