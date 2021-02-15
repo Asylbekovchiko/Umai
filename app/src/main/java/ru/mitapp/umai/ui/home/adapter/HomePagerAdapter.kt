@@ -4,6 +4,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import ru.mitapp.umai.ui.home.fragments.*
+import ru.mitapp.umai.ui.home.fragments.history_fragment.HistoryFragment
 import ru.mitapp.umai.ui.home.fragments.service_fragment.ServiceFragment
 
 class HomePagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {

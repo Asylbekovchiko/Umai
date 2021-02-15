@@ -54,6 +54,51 @@
 
     </style>
 
+    <style name="ListTitleStyle" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">?attr/titleTextColor</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">@font/ubuntu_bold</item>
+    </style>
+
+    <style name="ListTitleLightStyle" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">?attr/titleTextColor</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">@font/ubuntu_r</item>
+    </style>
+
+    <style name="ListSubTitleStyle" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">?attr/titleTextColor</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">@font/ubuntu_r</item>
+
+    </style>
+
+    <style name="HistorySuccessStyle" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/successColor</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">@font/ubuntu_bold</item>
+    </style>
+
+    <style name="HistoryFailStyle" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/failColor</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">@font/ubuntu_bold</item>
+    </style>
+
+    <style name="ListSubTitleLightGrayStyle" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/lightGray</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">@font/ubuntu_r</item>
+
+    </style>
+
+    <style name="ToolbarTitleStyle" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">?attr/titleTextColor</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:fontFamily">@font/ubuntu_bold</item>
+
+    </style>
+
     <style name="MainTitleTextStyle" parent="TextAppearance.AppCompat">
         <item name="android:textColor">@color/black</item>
         <item name="android:textSize">24sp</item>

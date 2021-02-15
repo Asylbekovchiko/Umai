@@ -1,4 +1,4 @@
-package ru.mitapp.umai.ui.home.fragments
+package ru.mitapp.umai.ui.home.fragments.history_fragment
 
 
 import ru.mitapp.umai.R
