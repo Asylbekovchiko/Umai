@@ -61,7 +61,7 @@
                     app:layout_constraintStart_toEndOf="@+id/type_indicator"
                     app:layout_constraintEnd_toStartOf="@+id/distance"
                     app:layout_constraintTop_toTopOf="parent"
-                    android:textAppearance="@style/TitleTextStyle"
+                    android:textAppearance="@style/Black_Bold_18"
                     android:layout_marginStart="12dp"
                     android:layout_marginTop="16dp"
                     android:text="@{terminal.name}"
@@ -76,7 +76,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintBottom_toBottomOf="@+id/name"
                     android:layout_marginEnd="16dp"
-                    android:textAppearance="@style/TitleTextStyle"
+                    android:textAppearance="@style/Black_Bold_18"
                     android:textColor="@color/colorPrimary"
 
                     />

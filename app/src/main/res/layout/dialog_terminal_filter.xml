@@ -23,7 +23,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:textAppearance="@style/TitleTextStyle"
+            android:textAppearance="@style/Black_Bold_18"
             android:text="@string/filter"
             android:layout_marginTop="16dp"
             android:layout_marginStart="18dp"

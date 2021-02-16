@@ -24,7 +24,7 @@
             android:layout_marginStart="18dp"
             android:layout_marginTop="30dp"
             android:text="@string/passport_photo_title"
-            android:textAppearance="@style/TitleTextStyle"
+            android:textAppearance="@style/Black_Bold_18"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

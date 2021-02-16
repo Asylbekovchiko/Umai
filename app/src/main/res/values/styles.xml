@@ -50,18 +50,15 @@
 
     </style>
 
-
-    <style name="TitleTextStyle" parent="TextAppearance.AppCompat">
-        <item name="android:textColor">?attr/titleTextColor</item>
-        <item name="android:textSize">18sp</item>
-        <item name="android:fontFamily">@font/ubuntu_bold</item>
-    </style>
-
-
     <style name="White_Regular_12" parent="TextAppearance.AppCompat">
         <item name="android:fontFamily">@font/ubuntu_regular</item>
         <item name="android:textColor">@color/white</item>
         <item name="android:textSize">12sp</item>
+    </style>
+  <style name="LightGray_Regular_14" parent="TextAppearance.AppCompat">
+        <item name="android:fontFamily">@font/ubuntu_regular</item>
+        <item name="android:textColor">@color/lightGray</item>
+        <item name="android:textSize">14sp</item>
     </style>
 
     <style name="Black_Bold_18" parent="TextAppearance.AppCompat">
@@ -111,13 +108,13 @@
     <style name="ListTitleLightStyle" parent="TextAppearance.AppCompat">
         <item name="android:textColor">?attr/titleTextColor</item>
         <item name="android:textSize">16sp</item>
-        <item name="android:fontFamily">@font/ubuntu_r</item>
+        <item name="android:fontFamily">@font/ubuntu_regular</item>
     </style>
 
     <style name="ListSubTitleStyle" parent="TextAppearance.AppCompat">
         <item name="android:textColor">?attr/titleTextColor</item>
         <item name="android:textSize">14sp</item>
-        <item name="android:fontFamily">@font/ubuntu_r</item>
+        <item name="android:fontFamily">@font/ubuntu_regular</item>
 
     </style>
 
@@ -136,7 +133,7 @@
     <style name="ListSubTitleLightGrayStyle" parent="TextAppearance.AppCompat">
         <item name="android:textColor">@color/lightGray</item>
         <item name="android:textSize">14sp</item>
-        <item name="android:fontFamily">@font/ubuntu_r</item>
+        <item name="android:fontFamily">@font/ubuntu_regular</item>
 
     </style>
 

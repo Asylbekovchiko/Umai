@@ -56,4 +56,6 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="Services">Услуги</string>
     <string name="history_title">История</string>
+    <string name="no_operation">Нет операции</string>
+    <string name="history_empty_message">Чтобы оставить след в истории, оплатите что-нибудь - все платежи сохраняться здесь</string>
 </resources>

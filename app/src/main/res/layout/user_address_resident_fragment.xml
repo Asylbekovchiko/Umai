@@ -36,7 +36,7 @@
                     android:layout_marginTop="30dp"
                     android:layout_marginEnd="18dp"
                     android:text="@string/user_address_title"
-                    android:textAppearance="@style/TitleTextStyle"
+                    android:textAppearance="@style/Black_Bold_18"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
