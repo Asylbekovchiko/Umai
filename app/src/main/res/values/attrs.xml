@@ -10,6 +10,7 @@
         <attr name="buttonColor" format="color"/>
         <attr name="buttonActiveTextColor" format="color"/>
         <attr name="buttonInActiveTextColor" format="color"/>
+        <attr name="white" format="color"/>
 
     </declare-styleable>
 
