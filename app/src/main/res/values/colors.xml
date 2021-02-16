@@ -14,10 +14,13 @@
     <color name="inputBgColor">#F3F7FA</color>
     <color name="inputBgBorderColor">#DBE7F0</color>
     <color name="DividerColor">#EDF3F8</color>
+    <color name="lightGray">#838795</color>
 
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
 
+    <color name="successColor">#1EA200</color>
+    <color name="failColor">#C21010</color>
     <color name="terminalIndicatorColor">#1057C2</color>
     <color name="atmIndicatorColor">#F99F1F</color>
     <color name="officeIndicatorColor">#49C210</color>
