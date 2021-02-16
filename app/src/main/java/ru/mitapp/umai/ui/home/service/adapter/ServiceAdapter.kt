@@ -1,4 +1,4 @@
-package ru.mitapp.umai.ui.home.fragments.service_fragment
+package ru.mitapp.umai.ui.home.service.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -19,7 +19,9 @@ class ServiceAdapter(var list: ArrayList<ServiceModel>, var listener: Listener) 
             )
         )
 
-        return ServiceVH(binding!!)
+        return ServiceVH(
+            binding!!
+        )
     }
 
     override fun getItemCount(): Int {

@@ -1,4 +1,4 @@
-package ru.mitapp.umai.ui.home.fragments.history_fragment
+package ru.mitapp.umai.ui.home.history.fragment
 
 
 import androidx.lifecycle.ViewModelProvider
@@ -6,8 +6,8 @@ import ru.mitapp.umai.R
 import ru.mitapp.umai.base.BaseFragment
 import ru.mitapp.umai.databinding.FragmentHistoryBinding
 import ru.mitapp.umai.models.history_model.HistoryModel
-import ru.mitapp.umai.ui.home.fragments.history_fragment.adapter.HistoryAdapter
-import ru.mitapp.umai.ui.home.fragments.history_fragment.viewmodel.HistoryViewModel
+import ru.mitapp.umai.ui.home.history.viewmodel.HistoryViewModel
+import ru.mitapp.umai.ui.home.history.adapter.HistoryAdapter
 import java.util.ArrayList
 
 

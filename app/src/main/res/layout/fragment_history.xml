@@ -9,14 +9,14 @@
 
         <variable
             name="viewModel"
-            type="ru.mitapp.umai.ui.home.fragments.history_fragment.viewmodel.HistoryViewModel" />
+            type="ru.mitapp.umai.ui.home.history.viewmodel.HistoryViewModel" />
 
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.home.fragments.history_fragment.HistoryFragment">
+        tools:context=".ui.home.history.fragment.HistoryFragment">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/toolbar_history"

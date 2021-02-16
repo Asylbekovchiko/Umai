@@ -1,7 +1,5 @@
-package ru.mitapp.umai.ui.home.fragments.history_fragment.viewmodel
+package ru.mitapp.umai.ui.home.history.viewmodel
 
-import android.view.View
-import androidx.databinding.BindingConversion
 import androidx.databinding.ObservableField
 import ru.mitapp.umai.base.BaseViewModel
 import ru.mitapp.umai.models.history_model.HistoryModel

@@ -1,11 +1,13 @@
-package ru.mitapp.umai.ui.home.adapter
+package ru.mitapp.umai.ui.home
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
-import ru.mitapp.umai.ui.home.fragments.*
-import ru.mitapp.umai.ui.home.fragments.history_fragment.HistoryFragment
-import ru.mitapp.umai.ui.home.fragments.service_fragment.ServiceFragment
+import ru.mitapp.umai.ui.home.cart.fragment.CartFragment
+import ru.mitapp.umai.ui.home.history.fragment.HistoryFragment
+import ru.mitapp.umai.ui.home.service.fragment.ServiceFragment
+import ru.mitapp.umai.ui.home.main.fragment.HomeFragment
+import ru.mitapp.umai.ui.home.more.fragment.MoreFragment
 
 class HomePagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
 
@@ -14,7 +16,7 @@ class HomePagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
         return when(position){
             0 -> HomeFragment()
             1 -> ServiceFragment()
-            2 -> TopUpFragment()
+            2 -> CartFragment()
             3 -> HistoryFragment()
             else -> MoreFragment()
         }

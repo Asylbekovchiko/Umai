@@ -1,18 +1,18 @@
-package ru.mitapp.umai.ui.home.activity
+package ru.mitapp.umai.ui.home
 
 
 import androidx.viewpager.widget.ViewPager
 import ru.mitapp.umai.R
 import ru.mitapp.umai.base.BaseActivity
 import ru.mitapp.umai.databinding.ActivityHomeBinding
-import ru.mitapp.umai.ui.home.adapter.HomePagerAdapter
 
 class HomeActivity : BaseActivity<ActivityHomeBinding>(R.layout.activity_home) {
 
 
     override fun init() {
 
-        binding.homePager.adapter = HomePagerAdapter(supportFragmentManager)
+        binding.homePager.adapter =
+            HomePagerAdapter(supportFragmentManager)
         binding.homePager.offscreenPageLimit = 5
         binding.homePager.isEnabled = false
         binding.homePager.disableScroll(true)

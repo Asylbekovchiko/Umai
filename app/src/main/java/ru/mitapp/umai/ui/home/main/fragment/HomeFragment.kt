@@ -1,4 +1,4 @@
-package ru.mitapp.umai.ui.home.fragments
+package ru.mitapp.umai.ui.home.main.fragment
 
 import ru.mitapp.umai.R
 import ru.mitapp.umai.base.BaseFragment

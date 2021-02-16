@@ -1,4 +1,4 @@
-package ru.mitapp.umai.ui.home.fragments.history_fragment.adapter
+package ru.mitapp.umai.ui.home.history.adapter
 
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
