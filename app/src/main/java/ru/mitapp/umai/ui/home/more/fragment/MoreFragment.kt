@@ -8,5 +8,9 @@ import ru.mitapp.umai.databinding.FragmentMoreBinding
 
 class MoreFragment : BaseFragment<FragmentMoreBinding>(R.layout.fragment_more) {
     override fun setupView() {
+
+        binding.refreshLayout.setOnRefreshListener {
+            binding.refreshLayout.isRefreshing = false
+        }
     }
 }
