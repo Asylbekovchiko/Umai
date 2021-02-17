@@ -39,7 +39,7 @@
             app:cardCornerRadius="20dp">
 
             <ImageView
-                imageUrl="@{model.image}"
+                imageUrl="@{model.icon}"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
 
