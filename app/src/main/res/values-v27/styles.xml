@@ -18,7 +18,7 @@
         <item name="buttonActiveTextColor">#333333</item>
         <item name="buttonInActiveTextColor">#333333</item>
         <item name="android:windowBackground">#000000</item>
-        <item name="secendoryBackgroundColor">#1E1E1E</item>
+        <item name="secendoryBackgroundColor">#212126</item>
         <item name="android:statusBarColor">@color/colorPrimaryDark</item>
     </style>
 
