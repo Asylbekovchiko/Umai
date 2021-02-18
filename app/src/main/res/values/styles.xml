@@ -6,25 +6,17 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="backgroundColor">#FFFFFF</item>
-        <item name="titleTextColor">@color/titleTextColor</item>
-        <item name="descriptionTextColor">@color/descriptionTextColor</item>
-        <item name="subTitleTextColor">@color/subTitleTextColor</item>
-        <item name="buttonActiveTextColor">@color/buttonActiveTextColor</item>
-        <item name="buttonInActiveTextColor">@color/buttonInActiveColor</item>
         <item name="bottomSheetDialogTheme">@style/AppBottomSheetDialogTheme</item>
         <item name="android:windowContentTransitions">true</item>
-        <item name="android:navigationBarColor">@color/white</item>
+        <item name="android:navigationBarColor">?attr/backgroundColor</item>
         <item name="android:windowLightNavigationBar" tools:targetApi="27">true</item>
     </style>
 
 
     <style name="AppTheme" parent="BaseTheme">
-        <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="backgroundColor">#FFFFFF</item>
         <item name="titleTextColor">@color/titleTextColor</item>
         <item name="descriptionTextColor">@color/descriptionTextColor</item>
         <item name="subTitleTextColor">@color/subTitleTextColor</item>
@@ -36,18 +28,29 @@
         <item name="android:statusBarColor">#000000</item>
     </style>
 
-    <style name="DarkTheme" parent="AppTheme">
+    <style name="DarkTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="titleTextColor">#FFFFFF</item>
         <item name="backgroundColor">#000000</item>
         <item name="subTitleTextColor">#FFFFFF</item>
+        <item name="descriptionTextColor">#333333</item>
+        <item name="main_image_shadow_color">#E4000004</item>
+        <item name="buttonActiveTextColor">#333333</item>
+        <item name="buttonInActiveTextColor">#333333</item>
+        <item name="white">#000000</item>
+        <item name="secendoryBackgroundColor">#010101</item>
+        <item name="android:windowBackground">#000000</item>
+        <item name="android:statusBarColor">@color/colorPrimaryDark</item>
     </style>
 
 
-    <style name="LightTheme" parent="AppTheme">
+    <style name="LightTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="backgroundColor">#FFFFFF</item>
         <item name="titleTextColor">@color/titleTextColor</item>
         <item name="subTitleTextColor">@color/subTitleTextColor</item>
-
+        <item name="main_image_shadow_color">#66000014</item>
+        <item name="secendoryBackgroundColor">#FFFFFF</item>
+        <item name="android:windowBackground">#F2F2F2</item>
+        <item name="android:statusBarColor">@color/colorPrimaryDark</item>
     </style>
 
     <style name="White_Regular_12" parent="TextAppearance.AppCompat">
@@ -161,7 +164,6 @@
     </style>
 
     <style name="ListSubTitleStyle" parent="TextAppearance.AppCompat">
-        <item name="android:textColor">?attr/titleTextColor</item>
         <item name="android:textSize">14sp</item>
         <item name="android:fontFamily">@font/ubuntu_regular</item>
 

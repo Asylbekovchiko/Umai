@@ -48,7 +48,7 @@
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="440dp"
-                            android:background="#66000014"
+                            android:background="@drawable/bg_shadow_main_image"
                             app:layout_constraintTop_toTopOf="parent" />
 
 
@@ -270,6 +270,7 @@
                                 android:layout_weight="1"
                                 android:drawableStart="@drawable/ic_star_one"
                                 android:drawablePadding="10dp"
+                                android:textColor="?attr/titleTextColor"
                                 android:gravity="center_vertical"
                                 android:text="Мои бонусы"
                                 android:textAppearance="@style/Black_Bold_18" />
@@ -278,6 +279,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
+                                android:textColor="?attr/titleTextColor"
                                 android:drawableEnd="@drawable/ic_arrow_right_primary"
                                 android:drawablePadding="5dp"
                                 android:gravity="end"
@@ -313,6 +315,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
+                                android:textColor="?attr/titleTextColor"
                                 android:drawablePadding="10dp"
                                 android:gravity="center_vertical"
                                 android:text="@string/my_templates"
@@ -349,6 +352,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="18dp"
                             android:layout_marginTop="30dp"
+                            android:textColor="?attr/titleTextColor"
                             android:layout_weight="1"
                             android:gravity="center_vertical"
                             android:text="@string/useful"
@@ -372,12 +376,12 @@
                                 android:layout_marginTop="5dp"
                                 android:layout_weight="1"
                                 android:layout_marginStart="18dp"
-                                android:background="@color/white"
                                 android:clickable="true"
                                 android:divider="@android:color/transparent"
                                 android:focusable="true"
                                 android:foreground="?selectableItemBackground"
                                 app:cardCornerRadius="15dp"
+                                app:cardBackgroundColor="?attr/secendoryBackgroundColor"
                                 >
 
 
@@ -399,6 +403,7 @@
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:text="Онлайн займ"
+                                        android:textColor="?attr/titleTextColor"
                                         android:textAppearance="@style/Black_Regular_17"
                                         android:layout_marginTop="12dp"
                                         />
@@ -425,12 +430,12 @@
                                 android:layout_marginEnd="18dp"
                                 android:layout_marginStart="6dp"
                                 android:layout_marginBottom="5dp"
-                                android:background="@color/white"
                                 android:clickable="true"
                                 android:divider="@android:color/transparent"
                                 android:focusable="true"
                                 android:foreground="?selectableItemBackground"
                                 app:cardCornerRadius="15dp"
+                                app:cardBackgroundColor="?attr/secendoryBackgroundColor"
                                 >
 
 
@@ -452,6 +457,7 @@
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:text="Штрафы"
+                                        android:textColor="?attr/titleTextColor"
                                         android:textAppearance="@style/Black_Regular_17"
                                         android:layout_marginTop="12dp"
                                         />
@@ -493,6 +499,7 @@
                                 android:focusable="true"
                                 android:foreground="?selectableItemBackground"
                                 app:cardCornerRadius="15dp"
+                                app:cardBackgroundColor="?attr/secendoryBackgroundColor"
                                 >
 
 
@@ -514,6 +521,7 @@
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:text="ЖКХ"
+                                        android:textColor="?attr/titleTextColor"
                                         android:textAppearance="@style/Black_Regular_17"
                                         android:layout_marginTop="12dp"
                                         />
@@ -545,7 +553,7 @@
                                 android:foreground="?selectableItemBackground"
                                 app:cardCornerRadius="15dp"
                                 android:layout_marginBottom="10dp"
-
+                                app:cardBackgroundColor="?attr/secendoryBackgroundColor"
                                 >
 
 
@@ -569,6 +577,7 @@
                                         android:layout_height="wrap_content"
                                         android:text="Терминалы"
                                         android:textAppearance="@style/Black_Regular_17"
+                                        android:textColor="?attr/titleTextColor"
                                         android:layout_marginTop="12dp"
                                         />
 

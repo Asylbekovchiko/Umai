@@ -3,20 +3,25 @@ package ru.mitapp.umai.ui
 import android.content.Intent
 import android.os.Handler
 import android.view.WindowManager
+import ru.mitapp.umai.AppUmai
+import ru.mitapp.umai.AppUmai.Companion.sharedPreferences
 import ru.mitapp.umai.ui.main.activity.MainActivity
 import ru.mitapp.umai.R
 import ru.mitapp.umai.base.BaseActivity
 import ru.mitapp.umai.databinding.ActivityStartBinding
+import ru.mitapp.umai.ui.home.HomeActivity
 
 class StartActivity : BaseActivity<ActivityStartBinding>(R.layout.activity_start) {
 
-    override fun init() {
+    override fun setupView() {
+
+        getAppTheme(sharedPreferences.isDarkThem)
         window.setFlags(
             WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
             WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
         );
         Handler().postDelayed({
-            startActivity(Intent(this, MainActivity::class.java))
+            startActivity(Intent(this, HomeActivity::class.java))
             finish()
 
 

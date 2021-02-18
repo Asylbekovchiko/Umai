@@ -4,6 +4,8 @@
     <declare-styleable name="ds">
 
         <attr name="backgroundColor" format="color"/>
+        <attr name="secendoryBackgroundColor" format="color"/>
+        <attr name="main_image_shadow_color" format="color"/>
         <attr name="titleTextColor" format="color"/>
         <attr name="subTitleTextColor" format="color"/>
         <attr name="descriptionTextColor" format="color"/>

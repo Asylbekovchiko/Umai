@@ -13,7 +13,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/white">
+        android:background="?attr/backgroundColor"
+        >
 
         <TextView
             android:id="@+id/history_date"
@@ -52,7 +53,8 @@
             android:layout_height="wrap_content"
             android:maxLines="1"
             android:ellipsize="end"
-            android:textAppearance="@style/ListTitleStyle"
+            android:textAppearance="@style/White_Bold_16"
+            android:textColor="?attr/titleTextColor"
             app:layout_constraintTop_toTopOf="@id/history_icon"
             app:layout_constraintLeft_toRightOf="@id/history_icon"
             android:layout_marginStart="14dp" />

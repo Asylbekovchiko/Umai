@@ -38,7 +38,7 @@
             app:labelVisibilityMode="labeled"
             app:menu="@menu/home_navigation_menu"
             app:itemIconTint="@color/bottom_nav_item_color"
-            app:itemTextColor="@color/bottom_nav_item_text_color"
+            app:itemTextColor="@color/bottom_nav_item_color"
             app:itemTextAppearanceActive="@style/BottomNavigation.ActiveItemTextAppearance"
             />
 

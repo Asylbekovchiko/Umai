@@ -11,7 +11,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
 
 
 
-    override fun init() {
+    override fun setupView() {
         binding.mainPager.adapter = MainPagerAdapter(supportFragmentManager)
         binding.mainPager.offscreenPageLimit = 3
         binding.mainPager.isEnabled = false

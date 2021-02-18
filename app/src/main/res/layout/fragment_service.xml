@@ -10,6 +10,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="?attr/backgroundColor"
         tools:context=".ui.home.service.fragment.ServiceFragment">
 
 
@@ -28,6 +29,7 @@
                     android:layout_marginStart="18dp"
                     android:layout_weight="1"
                     android:text="@string/Services"
+                    android:textColor="?attr/titleTextColor"
                     android:textAppearance="@style/MainTitleTextStyle" />
 
                 <ImageView

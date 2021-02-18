@@ -6,6 +6,7 @@ import androidx.core.content.edit
 
 private const val IS_FIRST_START = "is_first_start"
 private const val IS_CITIZEN = "is_citizen"
+private const val IS_DARK_THEM = "is_dark_theme"
 private const val UMAI_PREFERENCE = "UmaiPrefs"
 private const val THEME_PREFERENCE = "ThemePrefs"
 
@@ -46,5 +47,18 @@ class SharedPreference(context: Context){
             putBoolean(IS_CITIZEN, value)
         }
     }
+
+
+
+    var isDarkThem : Boolean
+        get() {
+            return pref.getBoolean(IS_DARK_THEM, false)
+        }
+
+        set(value) {
+            pref.edit{
+                putBoolean(IS_DARK_THEM, value)
+            }
+        }
 
 }

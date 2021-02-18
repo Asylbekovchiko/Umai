@@ -31,7 +31,7 @@ class UserIdentificationActivity :
     var userAddressNotResidentFragment: UserAddressNotResidentFragment? = null
     var userEmailFragment: UserEmailFragment? = null
 
-    override fun init() {
+    override fun setupView() {
         userNameFragment = UserNameFragment(this)
         userCitizenshipFragment = UserCitizenshipFragment(this)
         passportInfoForResidentFragment = PassportInfoForResidentFragment(this)

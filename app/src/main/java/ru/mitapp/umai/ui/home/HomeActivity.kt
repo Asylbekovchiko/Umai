@@ -9,7 +9,7 @@ import ru.mitapp.umai.databinding.ActivityHomeBinding
 class HomeActivity : BaseActivity<ActivityHomeBinding>(R.layout.activity_home) {
 
 
-    override fun init() {
+    override fun setupView() {
 
         binding.homePager.adapter =
             HomePagerAdapter(supportFragmentManager)

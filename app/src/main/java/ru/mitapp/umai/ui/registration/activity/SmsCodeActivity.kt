@@ -8,7 +8,7 @@ import ru.mitapp.umai.databinding.ActivitySmsCodeBinding
 class SmsCodeActivity : BaseActivity<ActivitySmsCodeBinding>(R.layout.activity_sms_code) {
 
 
-    override fun init() {
+    override fun setupView() {
 
     }
 

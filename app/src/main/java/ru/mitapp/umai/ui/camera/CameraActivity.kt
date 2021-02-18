@@ -38,7 +38,7 @@ class CameraActivity : BaseActivity<ActivityCameraBinding>(R.layout.activity_cam
     private lateinit var viewModel: CameraViewModel
 
 
-    override fun init() {
+    override fun setupView() {
         window.setFlags(
             WindowManager.LayoutParams.FLAG_FULLSCREEN,
             WindowManager.LayoutParams.FLAG_FULLSCREEN
