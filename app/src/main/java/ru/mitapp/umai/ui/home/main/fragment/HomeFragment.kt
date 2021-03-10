@@ -1,5 +1,6 @@
 package ru.mitapp.umai.ui.home.main.fragment
 
+import android.content.Intent
 import ru.mitapp.umai.R
 import ru.mitapp.umai.base.BaseFragment
 import ru.mitapp.umai.databinding.FragmentHomeBinding
@@ -7,6 +8,7 @@ import ru.mitapp.umai.models.home.Banner
 import ru.mitapp.umai.models.home.Template
 import ru.mitapp.umai.ui.home.main.adapter.HomeBannerAdapter
 import ru.mitapp.umai.ui.home.main.adapter.TemplatesAdapter
+import ru.mitapp.umai.ui.home.main.templates.activity.templatesactivity.TemplatesActivity
 import ru.mitapp.umai.utils.Backgrounds
 import kotlin.collections.ArrayList
 
@@ -26,6 +28,12 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home), 
         fillTemplates()
         setupTemplates()
         setupBanners()
+
+        binding.txtTmplates.setOnClickListener {
+            val intent = Intent(requireContext(), TemplatesActivity::class.java)
+            startActivity(intent)
+        }
+
     }
 
 

@@ -25,8 +25,9 @@
         android:requestLegacyExternalStorage="true"
         android:roundIcon="@drawable/ic_umai_logo"
         android:supportsRtl="true"
-        android:theme="@style/BaseTheme"
-        >
+        android:theme="@style/BaseTheme">
+        <activity android:name=".ui.home.main.templates.activity.templatesactivity.TemplatesActivity"
+            android:parentActivityName=".ui.home.HomeActivity"/>
         <activity
             android:name=".ui.registration.activity.UserIdentificationActivity"
             android:windowSoftInputMode="adjustResize" />
@@ -37,9 +38,7 @@
         <activity android:name=".ui.registration.activity.SmsCodeActivity" />
         <activity
             android:name=".ui.home.HomeActivity"
-            android:screenOrientation="portrait">
-
-        </activity>
+            android:screenOrientation="portrait"></activity>
         <activity
             android:name=".ui.web_view.WebViewActivity"
             android:screenOrientation="portrait" />
@@ -47,19 +46,15 @@
             android:name=".ui.StartActivity"
             android:screenOrientation="portrait"
             android:theme="@style/SplashScreen">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
         <activity
             android:name=".ui.main.activity.MainActivity"
-            android:screenOrientation="portrait" >
-
-        </activity>
+            android:screenOrientation="portrait"></activity>
 
         <provider
             android:name="androidx.core.content.FileProvider"
@@ -75,6 +70,5 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyAACmBp7mn0_8_hsnZza1Gauv4JVe14WDY" />
     </application>
-
 
 </manifest>

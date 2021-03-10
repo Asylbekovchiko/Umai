@@ -8,7 +8,8 @@ import ru.mitapp.umai.R
 import ru.mitapp.umai.databinding.TemplateItemBinding
 import ru.mitapp.umai.models.home.Template
 
-class TemplatesAdapter(var items : ArrayList<Template>, var listener : Listener) : RecyclerView.Adapter<TemplatesAdapter.TemplatesViewHolder>() {
+class TemplatesAdapter(var items : ArrayList<Template>,
+                       var listener : Listener) : RecyclerView.Adapter<TemplatesAdapter.TemplatesViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TemplatesViewHolder {
         val binding : TemplateItemBinding? = DataBindingUtil.bind(LayoutInflater.from(parent.context).inflate(
