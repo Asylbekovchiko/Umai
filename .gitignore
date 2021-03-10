@@ -10,5 +10,7 @@
 .DS_Store
 /build
 /captures
+/.idea/codeStyles/Project.xml
+/ .idea/shelf/
 .externalNativeBuild
 .cxx

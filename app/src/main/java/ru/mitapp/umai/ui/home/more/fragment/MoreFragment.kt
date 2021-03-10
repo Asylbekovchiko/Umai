@@ -1,6 +1,4 @@
 package ru.mitapp.umai.ui.home.more.fragment
-
-
 import android.content.Intent
 import androidx.lifecycle.ViewModelProvider
 import ru.mitapp.umai.AppUmai.Companion.sharedPreferences
@@ -8,8 +6,8 @@ import ru.mitapp.umai.R
 import ru.mitapp.umai.base.BaseFragment
 import ru.mitapp.umai.databinding.FragmentMoreBinding
 import ru.mitapp.umai.ui.StartActivity
+import ru.mitapp.umai.ui.home.more.partners.activity.PartnersActivity
 import ru.mitapp.umai.ui.home.more.viewmodel.MoreViewModel
-
 
 class MoreFragment : BaseFragment<FragmentMoreBinding>(R.layout.fragment_more) {
 
@@ -36,6 +34,11 @@ class MoreFragment : BaseFragment<FragmentMoreBinding>(R.layout.fragment_more) {
                 intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK
                 startActivity(intent)
                 requireActivity().finish()
+            }
+
+            binding.partners.setOnClickListener {
+                val intent = Intent(requireContext(), PartnersActivity::class.java)
+                startActivity(intent)
             }
 
         }
