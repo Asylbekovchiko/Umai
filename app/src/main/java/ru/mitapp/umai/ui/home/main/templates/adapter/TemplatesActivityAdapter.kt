@@ -6,11 +6,10 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import ru.mitapp.umai.R
 import ru.mitapp.umai.databinding.TemplatesListViewBinding
-import ru.mitapp.umai.ui.home.main.templates.model.MyTemplatesModel
-import ru.mitapp.umai.ui.home.service.adapter.ServiceAdapter
+import ru.mitapp.umai.models.templates_models.MyTemplatesModel
 
 class TemplatesActivityAdapter(var myTemplatesList: ArrayList<MyTemplatesModel>,
-    var listener: Listener):
+                               var listener: Listener):
     RecyclerView.Adapter<TemplatesActivityAdapter.TemplatesVH>() {
 
     override fun onCreateViewHolder(
@@ -41,12 +40,12 @@ class TemplatesActivityAdapter(var myTemplatesList: ArrayList<MyTemplatesModel>,
 
         fun onBind(templatesModel: MyTemplatesModel, listener: Listener) {
             binding.templatesView = templatesModel
-//            itemView.setOnClickListener {
-//                listener.onItemClick(position)
-//            }
-            binding.imgMore.setOnClickListener {
-                listener.onItemClick(position = position)
+            itemView.setOnClickListener {
+                listener.onItemClick(position)
             }
+//            binding.imgMore.setOnClickListener {
+//                listener.onItemClick(position = position)
+//            }
         }
     }
     interface Listener {

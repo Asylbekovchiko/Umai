@@ -1,4 +1,4 @@
-package ru.mitapp.umai.ui.home.main.templates.model
+package ru.mitapp.umai.models.templates_models
 
 data class MyTemplatesModel (
     var icon: String? = null,

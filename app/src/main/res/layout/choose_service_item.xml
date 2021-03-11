@@ -6,7 +6,7 @@
     <data>
         <variable
             name="choose_view"
-            type="ru.mitapp.umai.ui.home.main.templates.model.ChooseServiceModel" />
+            type="ru.mitapp.umai.models.templates_models.ChooseServiceModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

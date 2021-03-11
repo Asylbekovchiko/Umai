@@ -1,13 +1,14 @@
 package ru.mitapp.umai.ui.home.main.templates.activity.chooseservices
 
+import android.app.Activity
 import android.content.Intent
 import ru.mitapp.umai.R
 import ru.mitapp.umai.base.BaseActivity
 import ru.mitapp.umai.databinding.ActivityChooseServicesBinding
 import ru.mitapp.umai.ui.home.main.templates.activity.secondservice.SecondServiceActivity
 import ru.mitapp.umai.ui.home.main.templates.adapter.ChooseServiceAdapter
-import ru.mitapp.umai.ui.home.main.templates.model.ChooseServiceModel
-import ru.mitapp.umai.utils.RecyclerAnimation
+import ru.mitapp.umai.models.templates_models.ChooseServiceModel
+import ru.mitapp.umai.utils.TITLE_TEXT
 
 class ChooseServicesActivity
     : BaseActivity<ActivityChooseServicesBinding>(R.layout.activity_choose_services), ChooseServiceAdapter.Listener{
@@ -27,15 +28,31 @@ class ChooseServicesActivity
         binding.chooseRecyclerService.adapter = adapter
     }
 
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (resultCode == Activity.RESULT_OK){
+            if (requestCode == 4) {
+                if (data != null) {
+                    val titleN: String? = data.getStringExtra(TITLE_TEXT)
+                    val intent = Intent()
+                    intent.putExtra(TITLE_TEXT, titleN)
+                    setResult(Activity.RESULT_OK, intent)
+                    finish()
+                }
+
+            }
+        }
+    }
+
     override fun onSupportNavigateUp(): Boolean {
-        finish()
+        onBackPressed()
         return super.onSupportNavigateUp()
     }
 
-    override fun onItemClick(position: Int) {
+    override fun onItemClick(chooseServiceModel: ChooseServiceModel) {
         val intent = Intent(this@ChooseServicesActivity, SecondServiceActivity::class.java)
-        intent.putExtra("title",list[position].title)
-        startActivity(intent)
+        intent.putExtra("title",chooseServiceModel.title)
+        startActivityForResult(intent, 4)
     }
     private fun fillList() {
         list.add(ChooseServiceModel("https://i.ibb.co/PtbSWSM/iphone.png", "Сотовая связь"))

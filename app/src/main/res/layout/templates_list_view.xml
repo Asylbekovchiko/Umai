@@ -7,7 +7,7 @@
 
         <variable
             name="templates_view"
-            type="ru.mitapp.umai.ui.home.main.templates.model.MyTemplatesModel" />
+            type="ru.mitapp.umai.models.templates_models.MyTemplatesModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

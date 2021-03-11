@@ -5,11 +5,10 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import ru.mitapp.umai.R
-import ru.mitapp.umai.databinding.ChooseServiceItemBinding
 import ru.mitapp.umai.databinding.SecondServiceItemBinding
-import ru.mitapp.umai.ui.home.main.templates.model.SecondServiceModel
+import ru.mitapp.umai.models.templates_models.SecondServiceModel
 
-class SecondServiceAdapter(val secondServiceList: ArrayList<SecondServiceModel>,var listener: Listener)
+class SecondServiceAdapter(val secondServiceList: ArrayList<SecondServiceModel>, var listener: Listener)
     : RecyclerView.Adapter<SecondServiceAdapter.SecondSerVH>() {
 
 

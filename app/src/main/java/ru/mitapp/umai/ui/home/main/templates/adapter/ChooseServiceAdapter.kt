@@ -6,10 +6,9 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import ru.mitapp.umai.R
 import ru.mitapp.umai.databinding.ChooseServiceItemBinding
-import ru.mitapp.umai.ui.home.main.templates.model.ChooseServiceModel
-import ru.mitapp.umai.ui.home.service.viewmodel.ServiceViewModel
+import ru.mitapp.umai.models.templates_models.ChooseServiceModel
 
-class ChooseServiceAdapter(var serviceList: ArrayList<ChooseServiceModel>,var listener: Listener)
+class ChooseServiceAdapter(var serviceList: ArrayList<ChooseServiceModel>, var listener: Listener)
     : RecyclerView.Adapter<ChooseServiceAdapter.ChooseVH>() {
 
 
@@ -37,11 +36,11 @@ class ChooseServiceAdapter(var serviceList: ArrayList<ChooseServiceModel>,var li
     class ChooseVH(val binding: ChooseServiceItemBinding)
         :RecyclerView.ViewHolder(binding.root){
 
-            fun onBind(serviceViewModel: ChooseServiceModel, listener: Listener){
-                binding.chooseView = serviceViewModel
+            fun onBind(chooseServiceModel: ChooseServiceModel, listener: Listener){
+                binding.chooseView = chooseServiceModel
 
                 itemView.setOnClickListener {
-                    listener.onItemClick(position)
+                    listener.onItemClick(chooseServiceModel)
                 }
 
             }
@@ -49,6 +48,6 @@ class ChooseServiceAdapter(var serviceList: ArrayList<ChooseServiceModel>,var li
     }
 
     interface Listener {
-        fun onItemClick(position: Int)
+        fun onItemClick(chooseServiceModel: ChooseServiceModel)
     }
 }

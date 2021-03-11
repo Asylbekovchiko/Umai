@@ -4,16 +4,13 @@ import android.content.Intent
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
-import android.widget.Toast
-import androidx.core.content.ContentProviderCompat.requireContext
-import ru.mitapp.umai.AppUmai.Companion.context
 import ru.mitapp.umai.R
 import ru.mitapp.umai.base.BaseActivity
 import ru.mitapp.umai.databinding.ActivityTemplatesBinding
-import ru.mitapp.umai.extension.showToast
 import ru.mitapp.umai.ui.home.main.templates.activity.createtemplates.CreateTemplatesActivity
+import ru.mitapp.umai.ui.home.main.templates.activity.detail.PayTemplatesActivity
 import ru.mitapp.umai.ui.home.main.templates.adapter.TemplatesActivityAdapter
-import ru.mitapp.umai.ui.home.main.templates.model.MyTemplatesModel
+import ru.mitapp.umai.models.templates_models.MyTemplatesModel
 import ru.mitapp.umai.utils.RecyclerAnimation
 
 class TemplatesActivity
@@ -61,11 +58,14 @@ TemplatesActivityAdapter.Listener{
         return super.onOptionsItemSelected(item)
     }
 
+    //При клике переходит в PayTemplatesActivity это детальне активити
+    override fun onItemClick(position: Int) {
+        val intent = Intent(this@TemplatesActivity, PayTemplatesActivity::class.java)
+        startActivityForResult(intent, 2)
+    }
     override fun onSupportNavigateUp(): Boolean {
-       finish()
+        onBackPressed()
         return super.onSupportNavigateUp()
     }
-    override fun onItemClick(position: Int) {
-        context.showToast(position.toString())
-    }
+
 }

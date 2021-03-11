@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:mask="http://schemas.android.com/apk/res-auto">
 
     <data>
+
+        <variable
+            name="viewModel"
+            type="ru.mitapp.umai.ui.home.main.templates.viewmodel.CreateTemplatesViewModel" />
 
     </data>
 
@@ -55,15 +60,15 @@
             app:layout_constraintVertical_bias="0.0" />
 
         <EditText
-            android:id="@+id/editTextTextPersonName"
+            android:id="@+id/name_et"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="18dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="18dp"
-            android:background="@drawable/edt_backgroung"
+            android:background="@drawable/edt_not_active"
             android:ems="10"
-
+            android:imeOptions="actionNext"
             android:hint="@string/enter_name"
             android:inputType="textPersonName"
             android:padding="17dp"
@@ -81,10 +86,10 @@
             android:textAppearance="@style/Black_Regular_17"
             android:textColor="?attr/titleTextColor"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName"
+            app:layout_constraintEnd_toEndOf="@+id/name_et"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName"
+            app:layout_constraintStart_toStartOf="@+id/name_et"
+            app:layout_constraintTop_toBottomOf="@+id/name_et"
             app:layout_constraintVertical_bias="0.0" />
 
         <TextView
@@ -93,7 +98,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="18dp"
-            android:background="@drawable/edt_backgroung"
+            android:background="@drawable/edt_not_active"
             android:padding="17dp"
             android:text="@string/choose_service"
             android:textAlignment="textStart"
@@ -122,23 +127,28 @@
             app:layout_constraintTop_toBottomOf="@+id/txt_choose_service"
             app:layout_constraintVertical_bias="0.0" />
 
-        <EditText
-            android:id="@+id/edt_password_perconal"
-            android:layout_width="0dp"
+        <br.com.sapereaude.maskedEditText.MaskedEditText
+            android:id="@+id/edt_personal"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="18dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="18dp"
-            android:background="@drawable/edt_backgroung"
+            android:background="@drawable/edt_not_active"
             android:ems="10"
-            android:hint="@string/xxxx_xxxx_xxxx"
-            android:inputType="textPassword"
+            android:imeOptions="actionNext"
             android:padding="17dp"
+            android:inputType="number"
             android:textAppearance="@style/LightGray_Regular_16"
+            android:textSize="16sp"
+            app:keep_hint="true"
+            android:hint="@string/xxxx_xxxx_xxxx"
+            mask:allowed_chars="123456789012"
+            mask:char_representation="_"
+            mask:mask="____-____-____"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txt_perconal" />
-
         <TextView
             android:id="@+id/txt_sum"
             android:layout_width="wrap_content"
@@ -147,10 +157,10 @@
             android:text="@string/sum"
             android:textAppearance="@style/Black_Regular_17"
             android:textColor="?attr/titleTextColor"
-            app:layout_constraintEnd_toEndOf="@+id/edt_password_perconal"
+            app:layout_constraintEnd_toEndOf="@+id/edt_personal"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/edt_password_perconal"
-            app:layout_constraintTop_toBottomOf="@+id/edt_password_perconal" />
+            app:layout_constraintStart_toStartOf="@+id/edt_personal"
+            app:layout_constraintTop_toBottomOf="@+id/edt_personal" />
 
         <Button
             android:id="@+id/button"
@@ -160,8 +170,9 @@
             android:layout_marginTop="20dp"
             android:layout_marginEnd="18dp"
             android:layout_marginBottom="20dp"
-            android:background="@drawable/bg_in_active_button"
+            android:background="@{viewModel.isButtonActive ? @drawable/bg_active_button : @drawable/bg_in_active_button}"
             android:text="@string/create"
+            android:clickable="@{viewModel.isButtonActive()}"
             android:textAppearance="@style/White_Regular_16"
             android:textColor="?attr/titleTextColor"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -177,10 +188,11 @@
             android:layout_marginStart="18dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="18dp"
-            android:background="@drawable/edt_backgroung"
+            android:background="@drawable/edt_not_active"
             android:ems="10"
             android:hint="@string/sum_zero"
-            android:inputType="textPersonName"
+            android:inputType="numberDecimal"
+            android:imeOptions="actionDone"
             android:padding="17dp"
             android:textAppearance="@style/LightGray_Regular_16"
             app:layout_constraintBottom_toBottomOf="parent"

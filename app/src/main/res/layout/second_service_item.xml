@@ -6,7 +6,7 @@
     <data>
         <variable
             name="second_service_view"
-            type="ru.mitapp.umai.ui.home.main.templates.model.SecondServiceModel" />
+            type="ru.mitapp.umai.models.templates_models.SecondServiceModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
