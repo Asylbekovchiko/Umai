@@ -26,8 +26,11 @@
         android:roundIcon="@drawable/ic_umai_logo"
         android:supportsRtl="true"
         android:theme="@style/BaseTheme">
-        <activity android:name=".ui.home.main.templates.activity.templatesactivity.TemplatesActivity"
-            android:parentActivityName=".ui.home.HomeActivity"/>
+        <activity android:name=".ui.home.main.templates.activity.secondservice.SecondServiceActivity"/>
+        <activity android:name=".ui.home.main.templates.activity.chooseservices.ChooseServicesActivity" />
+        <activity android:name=".ui.home.main.templates.activity.createtemplates.CreateTemplatesActivity"
+            android:parentActivityName=".ui.home.main.templates.activity.templatesactivity.TemplatesActivity"/>
+        <activity android:name=".ui.home.main.templates.activity.templatesactivity.TemplatesActivity" />
         <activity
             android:name=".ui.registration.activity.UserIdentificationActivity"
             android:windowSoftInputMode="adjustResize" />
@@ -38,7 +41,7 @@
         <activity android:name=".ui.registration.activity.SmsCodeActivity" />
         <activity
             android:name=".ui.home.HomeActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ui.web_view.WebViewActivity"
             android:screenOrientation="portrait" />
@@ -54,7 +57,7 @@
         </activity>
         <activity
             android:name=".ui.main.activity.MainActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
 
         <provider
             android:name="androidx.core.content.FileProvider"

@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="?attr/backgroundColor"
+        tools:context=".ui.home.main.templates.activity.createtemplates.CreateTemplatesActivity">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/createTempToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/backgroundColor"
+            app:layout_collapseMode="pin"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_scrollFlags="scroll|enterAlways|snap"
+            app:navigationIcon="@drawable/ic_arrow_back_24">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/create_templates"
+                android:textAlignment="center"
+                android:textAppearance="@style/Black_Bold_18"
+                android:textColor="?attr/titleTextColor"
+                tools:ignore="RtlCompat"
+                android:layout_marginEnd="58dp"
+                tools:layout_editor_absoluteX="72dp"
+                tools:layout_editor_absoluteY="18dp" />
+        </androidx.appcompat.widget.Toolbar>
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/txt_create_name"
+            android:textAppearance="@style/Black_Regular_17"
+            android:textColor="?attr/titleTextColor"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/createTempToolbar"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <EditText
+            android:id="@+id/editTextTextPersonName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="18dp"
+            android:background="@drawable/edt_backgroung"
+            android:ems="10"
+
+            android:hint="@string/enter_name"
+            android:inputType="textPersonName"
+            android:padding="17dp"
+            android:textAppearance="@style/LightGray_Regular_16"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+        <TextView
+            android:id="@+id/txt_service"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/Services"
+            android:textAppearance="@style/Black_Regular_17"
+            android:textColor="?attr/titleTextColor"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName"
+            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/txt_choose_service"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="18dp"
+            android:background="@drawable/edt_backgroung"
+            android:padding="17dp"
+            android:text="@string/choose_service"
+            android:textAlignment="textStart"
+            android:textAppearance="@style/Black_Bold_18"
+            android:textColor="?attr/titleTextColor"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/txt_service"
+            app:layout_constraintTop_toBottomOf="@+id/txt_service"
+            app:layout_constraintVertical_bias="0.0"
+            app:drawableEndCompat="@drawable/ic_arrow_right_txt" />
+
+        <TextView
+            android:id="@+id/txt_perconal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/personal_account"
+            android:textAppearance="@style/Black_Regular_17"
+            android:textColor="?attr/titleTextColor"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/txt_choose_service"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/txt_choose_service"
+            app:layout_constraintTop_toBottomOf="@+id/txt_choose_service"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <EditText
+            android:id="@+id/edt_password_perconal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="18dp"
+            android:background="@drawable/edt_backgroung"
+            android:ems="10"
+            android:hint="@string/xxxx_xxxx_xxxx"
+            android:inputType="textPassword"
+            android:padding="17dp"
+            android:textAppearance="@style/LightGray_Regular_16"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_perconal" />
+
+        <TextView
+            android:id="@+id/txt_sum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/sum"
+            android:textAppearance="@style/Black_Regular_17"
+            android:textColor="?attr/titleTextColor"
+            app:layout_constraintEnd_toEndOf="@+id/edt_password_perconal"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/edt_password_perconal"
+            app:layout_constraintTop_toBottomOf="@+id/edt_password_perconal" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="18dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/bg_in_active_button"
+            android:text="@string/create"
+            android:textAppearance="@style/White_Regular_16"
+            android:textColor="?attr/titleTextColor"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edt_sum"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <EditText
+            android:id="@+id/edt_sum"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="18dp"
+            android:background="@drawable/edt_backgroung"
+            android:ems="10"
+            android:hint="@string/sum_zero"
+            android:inputType="textPersonName"
+            android:padding="17dp"
+            android:textAppearance="@style/LightGray_Regular_16"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_sum"
+            app:layout_constraintVertical_bias="0.0" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

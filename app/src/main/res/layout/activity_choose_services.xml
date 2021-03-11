@@ -11,10 +11,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="?attr/backgroundColor"
-        tools:context=".ui.home.main.templates.activity.templatesactivity.TemplatesActivity">
+        tools:context=".ui.home.main.templates.activity.chooseservices.ChooseServicesActivity">
 
         <androidx.appcompat.widget.Toolbar
-            android:id="@+id/templatesToolbar"
+            android:id="@+id/choose_service_toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/backgroundColor"
@@ -26,10 +26,11 @@
             app:navigationIcon="@drawable/ic_arrow_back_24">
 
             <TextView
-                android:id="@+id/toolbar_title"
+                android:id="@+id/create_recycler_service"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/my_templates"
+                android:layout_marginEnd="58dp"
+                android:text="@string/category_services"
                 android:textAlignment="center"
                 android:textAppearance="@style/Black_Bold_18"
                 android:textColor="?attr/titleTextColor"
@@ -38,19 +39,16 @@
                 tools:layout_editor_absoluteY="18dp" />
         </androidx.appcompat.widget.Toolbar>
 
-
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/templates_recycler_view"
-            android:layout_width="0dp"
+            android:id="@+id/choose_recycler_service"
+            android:layout_width="match_parent"
             android:layout_height="0dp"
             android:orientation="vertical"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/templatesToolbar"
+            app:layout_constraintTop_toBottomOf="@+id/choose_service_toolbar"
             tools:listitem="@layout/templates_list_view" />
-
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -4,7 +4,7 @@
 
     <item
         android:id="@+id/templates_menu_add"
-        android:icon="@drawable/ic_add"
+        android:icon="@drawable/ic_baseline_add_blue"
         android:title="@string/templates_menu_add"
         app:showAsAction="ifRoom" />
 
