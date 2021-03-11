@@ -29,7 +29,7 @@
             >
 
             <include
-                android:id="@+id/toolbar"
+                android:id="@+id/toolbarPartners"
                 layout="@layout/toolbar_back"
                 />
 

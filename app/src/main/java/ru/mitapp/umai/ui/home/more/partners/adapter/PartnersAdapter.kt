@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
+import kotlinx.android.synthetic.main.partners_item.view.*
 import ru.mitapp.umai.R
 import ru.mitapp.umai.databinding.PartnersItemBinding
 import ru.mitapp.umai.databinding.ServiceItemBinding
@@ -25,26 +26,34 @@ class PartnersAdapter(var list: ArrayList<Partners>, var listener: Listener) :
     }
 
     override fun getItemCount(): Int {
-        return 20
+        return list.size
     }
 
     override fun onBindViewHolder(holder: PartnersVH, position: Int) {
+        holder.onBind(list[position], listener)
+
+
     }
 
 
     class PartnersVH(var binding: PartnersItemBinding) : RecyclerView.ViewHolder(binding.root) {
 
-        fun onBind(serviceModel: ServiceModel, listener: Listener) {
+        fun onBind(partners: Partners, listener: Listener) {
+            itemView.titlePartners.text = partners.title
+            itemView.descriptionPartners.text = partners.description
+
+
             itemView.setOnClickListener {
-                listener.onItemClick(position)
+                listener.onClick(partners)
             }
 
         }
 
     }
 
+
     interface Listener {
-        fun onItemClick(position: Int)
+        fun onClick(partners: Partners)
     }
 
 }

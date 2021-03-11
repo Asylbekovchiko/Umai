@@ -1,6 +1,7 @@
 package ru.mitapp.umai.models.partner
 
 data class Partners(
-    var firstP: String? = null,
-    var secondP: String? = null
+    var title: String? = null,
+    var imageUrl: String? = null,
+    var description: String? = null
 )
