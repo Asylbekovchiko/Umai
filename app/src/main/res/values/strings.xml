@@ -62,4 +62,5 @@
     <string name="all">Все</string>
     <string name="my_templates">Мои шаблоны</string>
     <string name="dark_theme">Темная тема</string>
+    <string name="qr_code">Это ваш персональный QR-код.<br/>Используйте его для принятие средств</string>
 </resources>

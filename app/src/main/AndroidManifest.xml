@@ -26,10 +26,13 @@
         android:roundIcon="@drawable/ic_umai_logo"
         android:supportsRtl="true"
         android:theme="@style/BaseTheme">
-        <activity android:name=".ui.home.more.partners.activity.DetailPartnersActivity"></activity>
-        <activity
-            android:name=".ui.home.more.partners.activity.PartnersActivity"
-            android:parentActivityName=".ui.main.activity.MainActivity" />
+        <activity android:name=".ui.home.more.qr_code.QRCodeActivity"></activity>
+        <activity android:name=".ui.home.more.personal_data.PersonalDataActivity"></activity>
+        <activity android:name=".ui.home.more.settings.activity.AboutAppActivity" />
+        <activity android:name=".ui.home.more.settings.activity.LanguagesActivity" />
+        <activity android:name=".ui.home.more.settings.SettingsActivity" />
+        <activity android:name=".ui.home.more.partners.activity.DetailPartnersActivity" />
+        <activity android:name=".ui.home.more.partners.activity.PartnersActivity" />
         <activity
             android:name=".ui.registration.activity.UserIdentificationActivity"
             android:windowSoftInputMode="adjustResize" />
