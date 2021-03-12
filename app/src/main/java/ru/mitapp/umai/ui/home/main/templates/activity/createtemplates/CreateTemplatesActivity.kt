@@ -61,17 +61,16 @@ class CreateTemplatesActivity
                         binding.txtChooseService.text = title
                         checkButtonActive()
                     }
-
                 }
             }
         }
 
     }
 
+
     private fun checkButtonActive(){
         viewModel!!.checkInputs(binding.nameEt.text.toString(), title,
             binding.edtPersonal.text.toString(), binding.edtSum.text.toString())
-
     }
 
     override fun onSupportNavigateUp(): Boolean {

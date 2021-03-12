@@ -1,21 +1,45 @@
 package ru.mitapp.umai.ui.home.main.templates.activity.detail
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
+import android.text.Editable
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
+import androidx.lifecycle.ViewModelProvider
 import ru.mitapp.umai.R
 import ru.mitapp.umai.base.BaseActivity
 import ru.mitapp.umai.databinding.ActivityPayTemplatesBinding
-import ru.mitapp.umai.ui.home.main.templates.activity.createtemplates.CreateTemplatesActivity
+import ru.mitapp.umai.helper.BaseTextChangeListener
 import ru.mitapp.umai.ui.home.main.templates.activity.edit.EditTemplatesActivity
+import ru.mitapp.umai.ui.home.main.templates.viewmodel.CreateTemplatesViewModel
+import ru.mitapp.umai.ui.home.main.templates.viewmodel.PayTempViewModel
 
 class PayTemplatesActivity: BaseActivity<ActivityPayTemplatesBinding>(R.layout.activity_pay_templates) {
+
+    var viewModel: PayTempViewModel? = null
+
     override fun setupView() {
-        setSupportActionBar(binding.payTempToolbar)
-        supportActionBar?.setDisplayShowTitleEnabled(false)
+
+        if(viewModel == null){
+
+            viewModel = ViewModelProvider(this)[PayTempViewModel::class.java]
+            binding.viewModel = viewModel
+
+            setSupportActionBar(binding.payTempToolbar)
+            supportActionBar?.setDisplayShowTitleEnabled(false)
+
+            binding.edtSum.addTextChangedListener(object : BaseTextChangeListener() {
+                override fun afterTextChanged(p1: Editable?) {
+                    checkInputs()
+                }
+            })
+        }
+
+
+    }
+
+    private fun checkInputs(){
+        viewModel!!.checkInputs(binding.edtSum.text.toString())
     }
 
     override fun onSupportNavigateUp(): Boolean {

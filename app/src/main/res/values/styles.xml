@@ -37,8 +37,11 @@
         <item name="buttonActiveTextColor">#333333</item>
         <item name="buttonInActiveTextColor">#333333</item>
         <item name="white">#000000</item>
+        <item name="colorHint">#838795</item>
         <item name="secendoryBackgroundColor">#212126</item>
         <item name="android:windowBackground">#000000</item>
+        <item name="inputBgBorderColor">#474A53</item>
+        <item name="inputBgColor">#474A53</item>
         <item name="android:statusBarColor">@color/colorPrimaryDark</item>
     </style>
 
@@ -50,6 +53,9 @@
         <item name="main_image_shadow_color">#66000014</item>
         <item name="secendoryBackgroundColor">#FFFFFF</item>
         <item name="android:windowBackground">#F2F2F2</item>
+        <item name="colorHint">#838795</item>
+        <item name="inputBgBorderColor">#DBE7F0</item>
+        <item name="inputBgColor">#F3F7FA</item>
         <item name="android:statusBarColor">@color/colorPrimaryDark</item>
     </style>
 
