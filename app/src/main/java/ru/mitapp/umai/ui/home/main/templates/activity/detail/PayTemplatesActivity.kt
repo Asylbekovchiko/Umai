@@ -10,13 +10,16 @@ import ru.mitapp.umai.R
 import ru.mitapp.umai.base.BaseActivity
 import ru.mitapp.umai.databinding.ActivityPayTemplatesBinding
 import ru.mitapp.umai.helper.BaseTextChangeListener
-import ru.mitapp.umai.ui.home.main.templates.activity.edit.EditTemplatesActivity
-import ru.mitapp.umai.ui.home.main.templates.viewmodel.CreateTemplatesViewModel
+import ru.mitapp.umai.models.templates_models.MyTemplate
+import ru.mitapp.umai.ui.home.main.templates.activity.createtemplates.CreateTemplatesActivity
 import ru.mitapp.umai.ui.home.main.templates.viewmodel.PayTempViewModel
+import ru.mitapp.umai.utils.IS_EDIT
 
 class PayTemplatesActivity: BaseActivity<ActivityPayTemplatesBinding>(R.layout.activity_pay_templates) {
 
     var viewModel: PayTempViewModel? = null
+
+    var myTemplate : MyTemplate =  MyTemplate()
 
     override fun setupView() {
 
@@ -53,7 +56,7 @@ class PayTemplatesActivity: BaseActivity<ActivityPayTemplatesBinding>(R.layout.a
     }
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == R.id.edit_templates_menu){
-            val intent = Intent(this@PayTemplatesActivity, EditTemplatesActivity::class.java)
+            val intent = CreateTemplatesActivity.start(this, true, myTemplate)
             startActivity(intent)
         }
         return super.onOptionsItemSelected(item)

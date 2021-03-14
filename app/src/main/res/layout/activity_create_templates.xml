@@ -6,10 +6,15 @@
 
     <data>
 
+        <import type="android.view.View" />
+
         <variable
             name="viewModel"
             type="ru.mitapp.umai.ui.home.main.templates.viewmodel.CreateTemplatesViewModel" />
 
+        <variable
+            name="isEdit"
+            type="Boolean" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -31,6 +36,7 @@
             app:navigationIcon="@drawable/ic_arrow_back_24">
 
             <TextView
+                android:id="@+id/toolbar_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="58dp"
@@ -38,6 +44,21 @@
                 android:textAlignment="center"
                 android:textAppearance="@style/Black_Bold_18"
                 android:textColor="?attr/titleTextColor"
+                android:visibility="@{isEdit ? View.GONE: View.VISIBLE}"
+                tools:ignore="RtlCompat"
+                tools:layout_editor_absoluteX="72dp"
+                tools:layout_editor_absoluteY="18dp" />
+
+            <TextView
+                android:id="@+id/toolbar_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="58dp"
+                android:text="@string/edit_templates"
+                android:textAlignment="center"
+                android:textAppearance="@style/Black_Bold_18"
+                android:textColor="?attr/titleTextColor"
+                android:visibility="@{isEdit ? View.VISIBLE: View.GONE}"
                 tools:ignore="RtlCompat"
                 tools:layout_editor_absoluteX="72dp"
                 tools:layout_editor_absoluteY="18dp" />
@@ -61,11 +82,47 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/edit_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="18dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginEnd="18dp"
+                        android:orientation="horizontal"
+                        android:visibility="gone"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <TextView
+                            android:id="@+id/txt_templates_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Акнет"
+                            android:textAppearance="@style/Black_Bold_22"
+                            android:textColor="?attr/titleTextColor"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintHorizontal_bias="0.0"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <ImageView
+                            android:id="@+id/imageView"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/ic_walete_primary" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
                     <TextView
                         android:id="@+id/textView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="18dp"
+                        android:layout_marginTop="20dp"
                         android:text="@string/txt_create_name"
                         android:textAppearance="@style/Black_Regular_17"
                         android:textColor="?attr/titleTextColor"
@@ -73,8 +130,48 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/edit_layout"
                         app:layout_constraintVertical_bias="0.0" />
+
+                    <LinearLayout
+                        android:id="@+id/lin_service"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="18dp"
+                        android:layout_marginEnd="18dp"
+                        android:orientation="vertical"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="@+id/name_et"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="@+id/name_et"
+                        app:layout_constraintTop_toBottomOf="@+id/name_et"
+                        app:layout_constraintVertical_bias="0.0">
+
+                        <TextView
+                            android:id="@+id/txt_service"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:text="@string/Services"
+                            android:textAppearance="@style/Black_Regular_17"
+                            android:textColor="?attr/titleTextColor"
+                            android:visibility="@{isEdit ? View.GONE: View.VISIBLE}" />
+
+                        <TextView
+                            android:id="@+id/txt_choose_service"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:background="@{viewModel.isChooseActive() ? @drawable/edt_active : @drawable/edt_not_active}"
+                            android:padding="17dp"
+                            android:text="@string/choose_service"
+                            android:textAlignment="textStart"
+                            android:textAppearance="@style/Black_Bold_18"
+                            android:textColor="?attr/titleTextColor"
+                            android:visibility="@{isEdit ? View.GONE: View.VISIBLE}"
+                            app:drawableEndCompat="@drawable/ic_arrow_right_txt" />
+                    </LinearLayout>
+
 
                     <EditText
                         android:id="@+id/name_et"
@@ -97,41 +194,6 @@
                         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
                     <TextView
-                        android:id="@+id/txt_service"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp"
-                        android:text="@string/Services"
-                        android:textAppearance="@style/Black_Regular_17"
-                        android:textColor="?attr/titleTextColor"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="@+id/name_et"
-                        app:layout_constraintHorizontal_bias="0.0"
-                        app:layout_constraintStart_toStartOf="@+id/name_et"
-                        app:layout_constraintTop_toBottomOf="@+id/name_et"
-                        app:layout_constraintVertical_bias="0.0" />
-
-                    <TextView
-                        android:id="@+id/txt_choose_service"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginEnd="18dp"
-                        android:background="@{viewModel.isChooseActive() ? @drawable/edt_active : @drawable/edt_not_active}"
-                        android:padding="17dp"
-                        android:text="@string/choose_service"
-                        android:textAlignment="textStart"
-                        android:textAppearance="@style/Black_Bold_18"
-                        android:textColor="?attr/titleTextColor"
-                        app:drawableEndCompat="@drawable/ic_arrow_right_txt"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.0"
-                        app:layout_constraintStart_toStartOf="@+id/txt_service"
-                        app:layout_constraintTop_toBottomOf="@+id/txt_service"
-                        app:layout_constraintVertical_bias="0.0" />
-
-                    <TextView
                         android:id="@+id/txt_perconal"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -140,10 +202,10 @@
                         android:textAppearance="@style/Black_Regular_17"
                         android:textColor="?attr/titleTextColor"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="@+id/txt_choose_service"
+                        app:layout_constraintEnd_toEndOf="@+id/lin_service"
                         app:layout_constraintHorizontal_bias="0.0"
-                        app:layout_constraintStart_toStartOf="@+id/txt_choose_service"
-                        app:layout_constraintTop_toBottomOf="@+id/txt_choose_service"
+                        app:layout_constraintStart_toStartOf="@+id/lin_service"
+                        app:layout_constraintTop_toBottomOf="@+id/lin_service"
                         app:layout_constraintVertical_bias="0.0" />
 
                     <br.com.sapereaude.maskedEditText.MaskedEditText
@@ -195,7 +257,7 @@
                         android:layout_marginEnd="18dp"
                         android:layout_marginBottom="10dp"
                         android:autofillHints="00.00"
-                        android:background="@drawable/edt_not_active"
+                        android:background="@{viewModel.isSumActive() ?  @drawable/edt_active : @drawable/edt_not_active}"
                         android:ems="10"
                         android:hint="@string/sum_zero"
                         android:imeOptions="actionDone"
@@ -223,6 +285,7 @@
             android:layout_marginBottom="20dp"
             android:background="@{viewModel.isButtonActive ? @drawable/bg_active_button : @drawable/bg_in_active_button}"
             android:clickable="@{viewModel.isButtonActive()}"
+            android:visibility="@{isEdit ? View.GONE: View.VISIBLE}"
             android:text="@string/create"
             android:textAppearance="@style/White_Regular_16"
             android:textColor="?attr/titleTextColor"
@@ -230,6 +293,22 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
+        <Button
+            android:id="@+id/edit_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18dp"
+            android:layout_marginEnd="18dp"
+            android:layout_marginBottom="20dp"
+            android:background="@{viewModel.isEditButtonActive() ? @drawable/bg_active_button : @drawable/bg_in_active_button}"
+            android:clickable="@{viewModel.isEditButtonActive()}"
+            android:text="@string/button_edit"
+            android:textAppearance="@style/White_Regular_16"
+            android:textColor="?attr/titleTextColor"
+            android:visibility="@{isEdit ? View.VISIBLE: View.GONE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

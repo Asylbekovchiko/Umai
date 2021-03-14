@@ -64,7 +64,7 @@
     <string name="dark_theme">Темная тема</string>
     <string name="templates_menu_add">Add</string>
     <string name="enter_name">Введите название</string>
-    <string name="txt_create_name">Название</string>
+    <string name="txt_create_name">Название платежа</string>
     <string name="create_templates">Создать шаблон</string>
     <string name="choose_service">Выбрать услугу</string>
     <string name="personal_account">Лицевой счёт</string>
@@ -73,4 +73,7 @@
     <string name="sum_zero">00.00</string>
     <string name="create">Создать</string>
     <string name="category_services">Категории услуги</string>
+    <string name="edit">Edit</string>
+    <string name="edit_templates">Изменить шаблон</string>
+    <string name="button_edit">Сохранить измения</string>
 </resources>

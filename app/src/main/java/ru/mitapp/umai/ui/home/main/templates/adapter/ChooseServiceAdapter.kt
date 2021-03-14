@@ -25,7 +25,7 @@ class ChooseServiceAdapter(var serviceList: ArrayList<ChooseServiceModel>, var l
         return ChooseVH(binding!!)
     }
 
-    override fun onBindViewHolder(holder: ChooseServiceAdapter.ChooseVH, position: Int) {
+    override fun onBindViewHolder(holder: ChooseVH, position: Int) {
         holder.onBind(serviceList[position], listener)
     }
 

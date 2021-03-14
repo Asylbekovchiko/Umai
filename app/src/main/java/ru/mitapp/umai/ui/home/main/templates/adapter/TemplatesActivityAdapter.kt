@@ -6,9 +6,9 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import ru.mitapp.umai.R
 import ru.mitapp.umai.databinding.TemplatesListViewBinding
-import ru.mitapp.umai.models.templates_models.MyTemplatesModel
+import ru.mitapp.umai.models.templates_models.MyTemplate
 
-class TemplatesActivityAdapter(var myTemplatesList: ArrayList<MyTemplatesModel>,
+class TemplatesActivityAdapter(var myTemplatesList: ArrayList<MyTemplate>,
                                var listener: Listener):
     RecyclerView.Adapter<TemplatesActivityAdapter.TemplatesVH>() {
 
@@ -38,17 +38,18 @@ class TemplatesActivityAdapter(var myTemplatesList: ArrayList<MyTemplatesModel>,
     class TemplatesVH(var binding: TemplatesListViewBinding)
         : RecyclerView.ViewHolder(binding.root) {
 
-        fun onBind(templatesModel: MyTemplatesModel, listener: Listener) {
-            binding.templatesView = templatesModel
+        fun onBind(template: MyTemplate, listener: Listener) {
+            binding.templatesView = template
             itemView.setOnClickListener {
-                listener.onItemClick(position)
+                listener.onItemClick(template)
             }
-//            binding.imgMore.setOnClickListener {
-//                listener.onItemClick(position = position)
-//            }
+            binding.imgMore.setOnClickListener {
+                listener.onItemMoreClick(template)
+            }
         }
     }
     interface Listener {
-        fun onItemClick(position: Int)
+        fun onItemClick(template: MyTemplate)
+        fun onItemMoreClick(template: MyTemplate)
     }
 }
