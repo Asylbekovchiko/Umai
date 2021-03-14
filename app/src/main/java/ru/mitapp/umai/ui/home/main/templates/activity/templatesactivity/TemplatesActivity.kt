@@ -22,7 +22,6 @@ TemplatesActivityAdapter.Listener{
 
     private lateinit var adapter: TemplatesActivityAdapter
     private var list = ArrayList<MyTemplate>()
-    private val isEdit = true
 
     override fun setupView() {
         setSupportActionBar(binding.templatesToolbar)

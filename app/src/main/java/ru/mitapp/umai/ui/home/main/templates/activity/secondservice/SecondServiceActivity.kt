@@ -6,6 +6,7 @@ import ru.mitapp.umai.base.BaseActivity
 import ru.mitapp.umai.databinding.ActivitySecondCategoryBinding
 import ru.mitapp.umai.ui.home.main.templates.adapter.SecondServiceAdapter
 import ru.mitapp.umai.models.templates_models.SecondServiceModel
+import ru.mitapp.umai.utils.SERVICE_TEMPLATE
 import ru.mitapp.umai.utils.TITLE_TEXT
 
 class SecondServiceActivity
@@ -15,7 +16,7 @@ class SecondServiceActivity
     override fun setupView() {
         setSupportActionBar(binding.secondServiceToolbar)
         supportActionBar?.setDisplayShowTitleEnabled(false)
-        val title: String = intent.getStringExtra("title").toString()
+        val title: String = intent.getStringExtra(SERVICE_TEMPLATE).toString()
         binding.secondTxtService.text = title
 
         setupRecycler()

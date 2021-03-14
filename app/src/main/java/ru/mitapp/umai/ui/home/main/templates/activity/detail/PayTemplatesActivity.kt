@@ -13,7 +13,6 @@ import ru.mitapp.umai.helper.BaseTextChangeListener
 import ru.mitapp.umai.models.templates_models.MyTemplate
 import ru.mitapp.umai.ui.home.main.templates.activity.createtemplates.CreateTemplatesActivity
 import ru.mitapp.umai.ui.home.main.templates.viewmodel.PayTempViewModel
-import ru.mitapp.umai.utils.IS_EDIT
 
 class PayTemplatesActivity: BaseActivity<ActivityPayTemplatesBinding>(R.layout.activity_pay_templates) {
 

@@ -8,6 +8,8 @@ import ru.mitapp.umai.databinding.ActivityChooseServicesBinding
 import ru.mitapp.umai.ui.home.main.templates.activity.secondservice.SecondServiceActivity
 import ru.mitapp.umai.ui.home.main.templates.adapter.ChooseServiceAdapter
 import ru.mitapp.umai.models.templates_models.ChooseServiceModel
+import ru.mitapp.umai.utils.CHOOSE_REQUEST_CODE
+import ru.mitapp.umai.utils.SERVICE_TEMPLATE
 import ru.mitapp.umai.utils.TITLE_TEXT
 
 class ChooseServicesActivity
@@ -51,8 +53,8 @@ class ChooseServicesActivity
 
     override fun onItemClick(chooseServiceModel: ChooseServiceModel) {
         val intent = Intent(this@ChooseServicesActivity, SecondServiceActivity::class.java)
-        intent.putExtra("title",chooseServiceModel.title)
-        startActivityForResult(intent, 4)
+        intent.putExtra(SERVICE_TEMPLATE, chooseServiceModel.title)
+        startActivity(intent)
     }
     private fun fillList() {
         list.add(ChooseServiceModel("https://i.ibb.co/PtbSWSM/iphone.png", "Сотовая связь"))
