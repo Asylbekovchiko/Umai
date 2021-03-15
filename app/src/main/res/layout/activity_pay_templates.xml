@@ -27,7 +27,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_scrollFlags="scroll|enterAlways|snap"
-            app:navigationIcon="@drawable/ic_arrow_back_24"></androidx.appcompat.widget.Toolbar>
+            app:navigationIcon="@drawable/ic_arrow_back_24"/>
 
         <ScrollView
             android:layout_width="match_parent"

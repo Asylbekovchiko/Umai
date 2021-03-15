@@ -196,6 +196,7 @@
                                 android:orientation="vertical">
 
                                 <ImageButton
+                                    android:id="@+id/transaction_image"
                                     android:layout_width="48dp"
                                     android:layout_height="48dp"
                                     android:background="@drawable/bg_primary_oval"

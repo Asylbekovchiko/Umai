@@ -9,6 +9,7 @@ import ru.mitapp.umai.models.home.Template
 import ru.mitapp.umai.ui.home.main.adapter.HomeBannerAdapter
 import ru.mitapp.umai.ui.home.main.adapter.TemplatesAdapter
 import ru.mitapp.umai.ui.home.main.templates.activity.templatesactivity.TemplatesActivity
+import ru.mitapp.umai.ui.home.main.transactions.activities.TransactionActivity
 import ru.mitapp.umai.utils.Backgrounds
 import kotlin.collections.ArrayList
 
@@ -31,6 +32,10 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home), 
 
         binding.txtTmplates.setOnClickListener {
             val intent = Intent(requireContext(), TemplatesActivity::class.java)
+            startActivity(intent)
+        }
+        binding.transactionImage.setOnClickListener{
+            val intent = Intent(requireContext(), TransactionActivity::class.java)
             startActivity(intent)
         }
 

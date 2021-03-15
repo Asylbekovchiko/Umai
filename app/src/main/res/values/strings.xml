@@ -76,4 +76,6 @@
     <string name="edit">Edit</string>
     <string name="edit_templates">Изменить шаблон</string>
     <string name="button_edit">Сохранить измения</string>
+    <string name="xxxx_xxxx_xxxx_xxxx">XXXXXXXXXXXXXXXX</string>
+    <string name="success_send">Успешно отправлено!</string>
 </resources>
