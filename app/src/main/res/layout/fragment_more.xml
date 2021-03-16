@@ -84,6 +84,7 @@
 
 
                         <TextView
+                            android:id="@+id/personal_data"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:drawableStart="@drawable/ic_personal_data"
@@ -133,6 +134,7 @@
                             />
 
                         <TextView
+                            android:id="@+id/linked_cards"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:drawableStart="@drawable/ic_linked_cards"

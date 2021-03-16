@@ -33,18 +33,18 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
+
             <TextView
-                android:layout_weight="1"
                 android:id="@+id/service_title"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
+                android:layout_weight="1"
                 android:gravity="center"
                 android:text="@{service.title}"
-                android:textColor="?attr/titleTextColor"
                 android:textAlignment="textStart"
                 android:textAppearance="@style/ServiceItemTextStyle"
+                android:textColor="?attr/titleTextColor"
                 tools:ignore="RtlCompat" />
-
 
             <View
                 android:layout_width="match_parent"

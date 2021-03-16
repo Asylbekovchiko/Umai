@@ -92,8 +92,5 @@ class PartnersActivity : BaseActivity<ActivityPartnersBinding>(R.layout.activity
         intent.putExtra("title", partners.title)
         intent.putExtra("description", partners.description)
         startActivity(intent)
-
-
     }
-
 }

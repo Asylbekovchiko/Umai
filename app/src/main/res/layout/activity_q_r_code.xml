@@ -18,11 +18,21 @@
             layout="@layout/toolbar_back"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"></include>
+        <ImageButton
+            android:id="@+id/imageButton2"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="4dp"
+            app:layout_constraintBottom_toBottomOf="@+id/qr_code_toolbar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@android:drawable/ic_menu_share" />
 
         <TextView
             android:id="@+id/textView2"
-            android:layout_width="312dp"
-            android:layout_height="40dp"
+            android:layout_width="355dp"
+            android:layout_height="60dp"
             android:layout_marginTop="110dp"
             android:gravity="center"
             android:text="@string/qr_code"
@@ -54,6 +64,17 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/qr_code_image" />
 
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="373dp"
+            android:layout_height="63dp"
+            android:layout_marginBottom="44dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.421"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView4"
+            app:layout_constraintVertical_bias="0.13" />
+
         <TextView
             android:id="@+id/textView5"
             android:layout_width="280dp"
@@ -76,17 +97,9 @@
             android:layout_marginStart="37dp"
             app:layout_constraintVertical_bias="0.0"
             app:srcCompat="@drawable/ic_selected_filter" />
+        androidx.constraintlayout.widget.ConstraintLayout>
 
-        <ImageButton
-            android:id="@+id/imageButton2"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginTop="4dp"
-            android:layout_marginEnd="4dp"
-            app:layout_constraintBottom_toBottomOf="@+id/qr_code_toolbar"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@android:drawable/ic_menu_share" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

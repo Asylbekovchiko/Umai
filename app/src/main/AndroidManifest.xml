@@ -26,8 +26,11 @@
         android:roundIcon="@drawable/ic_umai_logo"
         android:supportsRtl="true"
         android:theme="@style/BaseTheme">
-        <activity android:name=".ui.home.more.qr_code.QRCodeActivity"></activity>
-        <activity android:name=".ui.home.more.personal_data.PersonalDataActivity"></activity>
+        <activity android:name=".ui.home.more.personal_data.ChangeDataActivity"></activity>
+        <activity android:name=".ui.home.more.linked_cards.AddingNewCardsActivity" />
+        <activity android:name=".ui.home.more.linked_cards.LinkedCardsActivity" />
+        <activity android:name=".ui.home.more.qr_code.QRCodeActivity" />
+        <activity android:name=".ui.home.more.personal_data.PersonalDataActivity" />
         <activity android:name=".ui.home.more.settings.activity.AboutAppActivity" />
         <activity android:name=".ui.home.more.settings.activity.LanguagesActivity" />
         <activity android:name=".ui.home.more.settings.SettingsActivity" />
