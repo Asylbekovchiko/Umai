@@ -16,7 +16,7 @@ class SecondServiceActivity
     override fun setupView() {
         setSupportActionBar(binding.secondServiceToolbar)
         supportActionBar?.setDisplayShowTitleEnabled(false)
-        val title: String = intent.getStringExtra(SERVICE_TEMPLATE).toString()
+        val title: String = intent.getStringExtra(TITLE_TEXT).toString()
         binding.secondTxtService.text = title
 
         setupRecycler()

@@ -8,7 +8,6 @@ import ru.mitapp.umai.databinding.ActivityChooseServicesBinding
 import ru.mitapp.umai.ui.home.main.templates.activity.secondservice.SecondServiceActivity
 import ru.mitapp.umai.ui.home.main.templates.adapter.ChooseServiceAdapter
 import ru.mitapp.umai.models.templates_models.ChooseServiceModel
-import ru.mitapp.umai.utils.CHOOSE_REQUEST_CODE
 import ru.mitapp.umai.utils.SERVICE_REQUEST_CODE
 import ru.mitapp.umai.utils.SERVICE_TEMPLATE
 import ru.mitapp.umai.utils.TITLE_TEXT

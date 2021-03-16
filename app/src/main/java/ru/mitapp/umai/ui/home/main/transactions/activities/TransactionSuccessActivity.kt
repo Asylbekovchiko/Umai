@@ -7,6 +7,7 @@ import ru.mitapp.umai.R
 import ru.mitapp.umai.base.BaseActivity
 import ru.mitapp.umai.databinding.ActivityTransactionSuccessBinding
 import ru.mitapp.umai.ui.home.HomeActivity
+import ru.mitapp.umai.utils.REQUEST_CODE
 
 class TransactionSuccessActivity : BaseActivity<ActivityTransactionSuccessBinding>(R.layout.activity_transaction_success) {
     override fun setupView() {
@@ -14,9 +15,8 @@ class TransactionSuccessActivity : BaseActivity<ActivityTransactionSuccessBindin
         supportActionBar?.setDisplayShowTitleEnabled(false)
 
         binding.buttonClose.setOnClickListener {
-            val intent = Intent(this, HomeActivity::class.java)
+            setResult(RESULT_OK, intent)
             finish()
-            startActivity(intent)
         }
         binding.textRepeat.setOnClickListener{
             onSupportNavigateUp()
