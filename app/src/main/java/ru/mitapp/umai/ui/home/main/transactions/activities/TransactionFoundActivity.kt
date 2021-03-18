@@ -13,7 +13,7 @@ class TransactionFoundActivity : BaseActivity<ActivityTransactionFoundBinding>(R
         supportActionBar?.setDisplayShowTitleEnabled(false)
 
         binding.payButton.setOnClickListener {
-            val intent = Intent(this, TransactionSuccessActivity::class.java)
+            val intent = TransactionSuccessActivity.startToSuccess(this, false)
             startActivityForResult(intent,  REQUEST_CODE)
         }
 

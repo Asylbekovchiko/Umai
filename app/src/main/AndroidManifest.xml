@@ -26,7 +26,8 @@
         android:roundIcon="@drawable/ic_umai_logo"
         android:supportsRtl="true"
         android:theme="@style/BaseTheme">
-        <activity android:name=".ui.home.main.transactions.activities.TransactionSuccessActivity"></activity>
+        <activity android:name=".ui.home.history.detail.DetailHistoryActivity"></activity>
+        <activity android:name=".ui.home.main.transactions.activities.TransactionSuccessActivity" />
         <activity android:name=".ui.home.main.transactions.activities.TransactionFoundActivity" />
         <activity android:name=".ui.home.main.transactions.activities.TransactionActivity" />
         <activity android:name=".ui.home.main.templates.activity.edit.EditTemplatesActivity" />

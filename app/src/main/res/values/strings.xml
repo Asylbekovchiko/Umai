@@ -78,4 +78,5 @@
     <string name="button_edit">Сохранить измения</string>
     <string name="xxxx_xxxx_xxxx_xxxx">XXXXXXXXXXXXXXXX</string>
     <string name="success_send">Успешно отправлено!</string>
+    <string name="share">Share</string>
 </resources>

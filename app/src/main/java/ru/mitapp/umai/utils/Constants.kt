@@ -10,6 +10,7 @@ const val REQUEST_CODE = 15
 
 const val TITLE_TEXT = "title_text"
 const val IS_EDIT = "is_edit"
+const val IS_SUCCESS = "is_success"
 const val MY_TEMPLATE = "my_template"
 const val SERVICE_TEMPLATE = "service_title"
 
