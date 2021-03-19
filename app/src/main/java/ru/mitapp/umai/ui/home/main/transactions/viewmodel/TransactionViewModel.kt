@@ -11,7 +11,7 @@ class TransactionViewModel : ViewModel() {
 
     fun checkInputs(account: String?, sum: String?) {
         val repAccount = account?.replace("X", "")?.replace("-", "")
-        if (!repAccount.isNullOrEmpty() && repAccount.length > 11 && !sum.isNullOrEmpty() && sum.toInt() >= 50
+        if (!repAccount.isNullOrEmpty() && repAccount.length > 15 && !sum.isNullOrEmpty() && sum.toInt() >= 50
         ) {
             isButtonActive.set(true)
         } else {

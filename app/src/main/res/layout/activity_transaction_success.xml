@@ -62,7 +62,7 @@
             android:layout_marginTop="4dp"
             android:text="20 декабря 2019, 20:31"
             android:textAppearance="@style/LightGray_Regular_14"
-            android:textColor="?attr/subTitleTextColor"
+            android:textColor="@color/colorHint"
             app:layout_constraintEnd_toEndOf="@+id/textView5"
             app:layout_constraintStart_toStartOf="@+id/textView5"
             app:layout_constraintTop_toBottomOf="@+id/textView5" />
@@ -166,7 +166,7 @@
                     <TextView
                         android:id="@+id/txt_detail"
                         android:layout_width="0dp"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:layout_marginStart="13dp"
                         android:layout_marginEnd="13dp"
                         android:text="Детально"
@@ -214,7 +214,7 @@
                     <TextView
                         android:id="@+id/text_repeat"
                         android:layout_width="0dp"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:layout_marginStart="13dp"
                         android:layout_marginEnd="13dp"
                         android:text="Повторить операцию"

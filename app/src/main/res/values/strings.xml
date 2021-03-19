@@ -79,10 +79,6 @@
     <string name="xxxx_xxxx_xxxx_xxxx">XXXXXXXXXXXXXXXX</string>
     <string name="success_send">Успешно отправлено!</string>
     <string name="share">Share</string>
-    <string name="info">г.Бишкек, Ауэзова 1/2
-                        Тел.: +996 (312) 637738
-                        Факс: +996 (312) 637738
-                        E-mail: support@ipc.kg
-                        Сайт: www.ipc.kg"</string>
+    <string name="info">г.Бишкек, Ауэзова 1/2 \nТел.: +996 (312) 637738 \nФакс: +996 (312) 637738 \nE-mail: support@ipc.kg \nСайт: www.ipc.kg"</string>
     <string name="_720083">ЗАО Межбанковский процессинговый центр 720083, Кыргызская Республика</string>
 </resources>

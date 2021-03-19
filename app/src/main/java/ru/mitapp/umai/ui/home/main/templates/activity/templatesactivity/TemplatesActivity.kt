@@ -35,7 +35,7 @@ TemplatesActivityAdapter.Listener{
         adapter = TemplatesActivityAdapter(list, this)
         binding.templatesRecyclerView.adapter = adapter
         RecyclerAnimation.startAnimation(
-            binding!!.templatesRecyclerView,
+            binding.templatesRecyclerView,
             R.anim.main_recycler_anim_layout
         )
     }
