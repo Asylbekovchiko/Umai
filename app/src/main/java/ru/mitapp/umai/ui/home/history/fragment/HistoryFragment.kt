@@ -1,6 +1,7 @@
 package ru.mitapp.umai.ui.home.history.fragment
 
 
+import android.content.Intent
 import androidx.lifecycle.ViewModelProvider
 import ru.mitapp.umai.R
 import ru.mitapp.umai.base.BaseFragment
@@ -8,6 +9,8 @@ import ru.mitapp.umai.databinding.FragmentHistoryBinding
 import ru.mitapp.umai.models.history.HistoryModel
 import ru.mitapp.umai.ui.home.history.viewmodel.HistoryViewModel
 import ru.mitapp.umai.ui.home.history.adapter.HistoryAdapter
+import ru.mitapp.umai.ui.home.main.transactions.activities.TransactionSuccessActivity
+import ru.mitapp.umai.utils.REQUEST_CODE
 import ru.mitapp.umai.utils.RecyclerAnimation
 import java.util.ArrayList
 
@@ -47,7 +50,8 @@ class HistoryFragment : BaseFragment<FragmentHistoryBinding>(R.layout.fragment_h
     }
 
     override fun onItemClick(position: Int) {
-
+        val intent = TransactionSuccessActivity.startToSuccess(requireContext(), true)
+        startActivity(intent)
     }
 
 

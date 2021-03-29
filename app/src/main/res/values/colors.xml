@@ -18,6 +18,7 @@
     <color name="DividerColor">#EDF3F8</color>
     <color name="lightGray">#838795</color>
     <color name="pag">#F857A6</color>
+    <color name="colorHint">#838795</color>
 
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>

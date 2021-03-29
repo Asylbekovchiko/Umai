@@ -29,6 +29,17 @@
         <activity
             android:name=".ui.home.service.activity.SubCategoryActivity"
             />
+        android:theme="@style/BaseTheme">
+        <activity android:name=".ui.home.history.detail.DetailHistoryActivity"></activity>
+        <activity android:name=".ui.home.main.transactions.activities.TransactionSuccessActivity" />
+        <activity android:name=".ui.home.main.transactions.activities.TransactionFoundActivity" />
+        <activity android:name=".ui.home.main.transactions.activities.TransactionActivity" />
+        <activity android:name=".ui.home.main.templates.activity.edit.EditTemplatesActivity" />
+        <activity android:name=".ui.home.main.templates.activity.detail.PayTemplatesActivity" />
+        <activity android:name=".ui.home.main.templates.activity.secondservice.SecondServiceActivity" />
+        <activity android:name=".ui.home.main.templates.activity.chooseservices.ChooseServicesActivity" />
+        <activity android:name=".ui.home.main.templates.activity.createtemplates.CreateTemplatesActivity" />
+        <activity android:name=".ui.home.main.templates.activity.templatesactivity.TemplatesActivity" />
         <activity
             android:name=".ui.registration.activity.UserIdentificationActivity"
             android:windowSoftInputMode="adjustResize" />

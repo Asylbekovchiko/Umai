@@ -196,6 +196,7 @@
                                 android:orientation="vertical">
 
                                 <ImageButton
+                                    android:id="@+id/transaction_image"
                                     android:layout_width="48dp"
                                     android:layout_height="48dp"
                                     android:background="@drawable/bg_primary_oval"
@@ -322,6 +323,7 @@
                                 android:textAppearance="@style/Black_Bold_18" />
 
                             <TextView
+                                android:id="@+id/txt_tmplates"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"

@@ -64,4 +64,23 @@
     <string name="my_templates">Мои шаблоны</string>
     <string name="dark_theme">Темная тема</string>
     <string name="balls">Баллы</string>
+    <string name="templates_menu_add">Add</string>
+    <string name="enter_name">Введите название</string>
+    <string name="txt_create_name">Название платежа</string>
+    <string name="create_templates">Создать шаблон</string>
+    <string name="choose_service">Выбрать услугу</string>
+    <string name="personal_account">Лицевой счёт</string>
+    <string name="xxxx_xxxx_xxxx">XXXXXXXXXXXX</string>
+    <string name="sum">Сумма</string>
+    <string name="sum_zero">00.00</string>
+    <string name="create">Создать</string>
+    <string name="category_services">Категории услуги</string>
+    <string name="edit">Edit</string>
+    <string name="edit_templates">Изменить шаблон</string>
+    <string name="button_edit">Сохранить измения</string>
+    <string name="xxxx_xxxx_xxxx_xxxx">XXXXXXXXXXXXXXXX</string>
+    <string name="success_send">Успешно отправлено!</string>
+    <string name="share">Share</string>
+    <string name="info">г.Бишкек, Ауэзова 1/2 \nТел.: +996 (312) 637738 \nФакс: +996 (312) 637738 \nE-mail: support@ipc.kg \nСайт: www.ipc.kg"</string>
+    <string name="_720083">ЗАО Межбанковский процессинговый центр 720083, Кыргызская Республика</string>
 </resources>

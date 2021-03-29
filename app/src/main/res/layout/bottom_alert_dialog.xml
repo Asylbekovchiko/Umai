@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bottom_circle">
+
+    <ImageView
+        android:id="@+id/image_edit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="27dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_edit_dioalog" />
+
+    <TextView
+        android:id="@+id/txt_edit"
+        style="@style/Black_medium_16"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="25dp"
+        android:text="Редактировать"
+        android:textSize="16sp"
+        android:textColor="?attr/titleTextColor"
+        android:textAlignment="textStart"
+        android:textAppearance="@style/Black_Bold_18"
+        app:layout_constraintBottom_toBottomOf="@+id/image_edit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/image_edit"
+        app:layout_constraintTop_toTopOf="@+id/image_edit" />
+
+    <ImageView
+        android:id="@+id/image_delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="26dp"
+        app:layout_constraintEnd_toEndOf="@+id/image_edit"
+        app:layout_constraintStart_toStartOf="@+id/image_edit"
+        app:layout_constraintTop_toBottomOf="@+id/image_edit"
+        app:srcCompat="@drawable/ic_delete_blue" />
+
+    <TextView
+        android:id="@+id/txt_delete"
+        style="@style/Black_medium_16"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="25dp"
+        android:text="Удалить"
+        android:textAlignment="textStart"
+        android:textAppearance="@style/Black_Bold_18"
+        android:textColor="?attr/titleTextColor"
+        app:layout_constraintBottom_toBottomOf="@+id/image_delete"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/image_delete"
+        app:layout_constraintTop_toTopOf="@+id/image_delete" />
+
+    <View
+        android:id="@+id/view2"
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:layout_marginTop="22dp"
+        android:background="@color/DividerColor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/image_delete" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="Отмена"
+        android:textAlignment="center"
+        android:textColor="#10A0C2"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/view2"
+        app:layout_constraintStart_toStartOf="@+id/view2"
+        app:layout_constraintTop_toBottomOf="@+id/view2" />
+</androidx.constraintlayout.widget.ConstraintLayout>

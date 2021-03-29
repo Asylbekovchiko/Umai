@@ -13,6 +13,9 @@
         <attr name="buttonActiveTextColor" format="color"/>
         <attr name="buttonInActiveTextColor" format="color"/>
         <attr name="white" format="color"/>
+        <attr name="colorHint" format="color"/>
+        <attr name="inputBgBorderColor" format="color"/>
+        <attr name="inputBgColor" format="color"/>
 
     </declare-styleable>
 

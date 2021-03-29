@@ -37,9 +37,13 @@
         <item name="buttonActiveTextColor">#333333</item>
         <item name="buttonInActiveTextColor">#333333</item>
         <item name="white">#000000</item>
+        <item name="colorHint">#838795</item>
         <item name="secendoryBackgroundColor">#212126</item>
         <item name="android:windowBackground">#000000</item>
         <item name="android:statusBarColor">@color/black</item>
+        <item name="inputBgBorderColor">#474A53</item>
+        <item name="inputBgColor">#474A53</item>
+        <item name="android:statusBarColor">@color/colorPrimaryDark</item>
     </style>
 
 
@@ -50,6 +54,10 @@
         <item name="main_image_shadow_color">#66000014</item>
         <item name="secendoryBackgroundColor">#FFFFFF</item>
         <item name="android:windowBackground">#F2F2F2</item>
+        <item name="colorHint">#838795</item>
+        <item name="inputBgBorderColor">#DBE7F0</item>
+        <item name="inputBgColor">#F3F7FA</item>
+        <item name="android:statusBarColor">@color/colorPrimaryDark</item>
         <item name="buttonActiveTextColor">#333333</item>
         <item name="android:statusBarColor">@color/white</item>
         <item name="android:windowLightStatusBar">true</item>
@@ -113,7 +121,11 @@
         <item name="android:textSize">16sp</item>
     </style>
 
-
+    <style name="Black_Bold_16" parent="TextAppearance.AppCompat">
+        <item name="android:fontFamily">@font/ubuntu_bold</item>
+        <item name="android:textColor">@color/titleTextColor</item>
+        <item name="android:textSize">16sp</item>
+    </style>
     <style name="White_medium_13" parent="TextAppearance.AppCompat">
         <item name="android:fontFamily">@font/ubuntu_medium</item>
         <item name="android:textColor">@color/white</item>
@@ -214,6 +226,12 @@
         <item name="android:textColor">?attr/subTitleTextColor</item>
         <item name="android:textSize">14sp</item>
         <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="Black_Bold_32" parent="TextAppearance.AppCompat">
+        <item name="android:fontFamily">@font/ubuntu_bold</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">32sp</item>
     </style>
 
  <style name="DescriptionTextStyle" parent="TextAppearance.AppCompat">
