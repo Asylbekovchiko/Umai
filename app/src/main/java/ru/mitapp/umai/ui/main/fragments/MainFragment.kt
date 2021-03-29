@@ -39,16 +39,16 @@ class MainFragment : BaseFragment<MainFragmentBinding>(R.layout.main_fragment), 
         images.add(R.drawable.banner_3)
 
         val snapHelper : SnapHelper = PagerSnapHelper()
-        snapHelper.attachToRecyclerView(binding.bannerRecycler)
+        snapHelper.attachToRecyclerView(binding!!.bannerRecycler)
 
-        binding.bannerRecycler.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
+        binding!!.bannerRecycler.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
         adapter = BannerRecyclerAdapter(images, this)
-        binding.bannerRecycler.adapter = adapter
+        binding!!.bannerRecycler.adapter = adapter
 
         setupOnboardingIndicators()
         setCurrentIndicator(0)
 
-        binding.bannerRecycler.addOnScrollListener(object : RecyclerView.OnScrollListener(){
+        binding!!.bannerRecycler.addOnScrollListener(object : RecyclerView.OnScrollListener(){
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                 super.onScrolled(recyclerView, dx, dy)
                 recyclerView.layoutManager?.let { layoutManager ->
@@ -63,19 +63,19 @@ class MainFragment : BaseFragment<MainFragmentBinding>(R.layout.main_fragment), 
         Timer().scheduleAtFixedRate(object : TimerTask() {
             override fun run() {
                 if (adapter.itemCount - 1 == bannerPosition) {
-                    binding.bannerRecycler.smoothScrollToPosition(0)
+                    binding!!.bannerRecycler.smoothScrollToPosition(0)
                 } else {
-                    binding.bannerRecycler.smoothScrollToPosition(bannerPosition + 1)
+                    binding!!.bannerRecycler.smoothScrollToPosition(bannerPosition + 1)
                 }
             }
         }, 0, 5000)
 
 
-        binding.termsOfUse.setOnClickListener{
+        binding!!.termsOfUse.setOnClickListener{
             WebViewActivity.start(requireActivity(), "https://play.google.com/store/apps/details?id=kg.bmt.uw", getString(R.string.terms_of_use))
         }
 
-        binding.loginButton.setOnClickListener{
+        binding!!.loginButton.setOnClickListener{
             val intent = Intent(activity, RegistrationStartActivity::class.java)
             startActivity(intent)
         }
@@ -108,15 +108,15 @@ class MainFragment : BaseFragment<MainFragmentBinding>(R.layout.main_fragment), 
                 )
                 this?.layoutParams = layoutParams
             }
-            binding.layoutBannerIndicators.addView(imageView[i])
+            binding!!.layoutBannerIndicators.addView(imageView[i])
         }
 
     }
 
     private fun setCurrentIndicator(index : Int){
-        val chaildCount = binding.layoutBannerIndicators.childCount
+        val chaildCount = binding!!.layoutBannerIndicators.childCount
         for (i in 0 until  chaildCount){
-            val imageView = binding.layoutBannerIndicators[i] as ImageView
+            val imageView = binding!!.layoutBannerIndicators[i] as ImageView
             if (i == index){
                 imageView.setImageResource(R.drawable.onboarding_indicator_active)
             } else{

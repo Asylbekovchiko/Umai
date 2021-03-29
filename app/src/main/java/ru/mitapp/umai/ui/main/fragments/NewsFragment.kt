@@ -22,10 +22,10 @@ class NewsFragment : BaseFragment<NewsFragmentBinding>(R.layout.news_fragment) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(NewsFragmentViewModel::class.java)
 
-        binding.refreshLayout.setOnRefreshListener {
+        binding!!.refreshLayout.setOnRefreshListener {
             index++
-            binding.textView.text = index.toString()
-            binding.refreshLayout.isRefreshing = false
+            binding!!.textView.text = index.toString()
+            binding!!.refreshLayout.isRefreshing = false
         }
     }
 

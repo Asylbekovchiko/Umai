@@ -6,7 +6,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import ru.mitapp.umai.R
 import ru.mitapp.umai.databinding.ServiceItemBinding
-import ru.mitapp.umai.models.service_model.ServiceModel
+import ru.mitapp.umai.models.service.ServiceModel
 import java.util.ArrayList
 
 class ServiceAdapter(var list: ArrayList<ServiceModel>, var listener: Listener) :
@@ -39,7 +39,7 @@ class ServiceAdapter(var list: ArrayList<ServiceModel>, var listener: Listener) 
             binding.service = serviceModel
 
             itemView.setOnClickListener {
-                listener.onItemClick(position)
+                listener.onItemClick(serviceModel)
             }
 
         }
@@ -47,7 +47,7 @@ class ServiceAdapter(var list: ArrayList<ServiceModel>, var listener: Listener) 
     }
 
     interface Listener {
-        fun onItemClick(position: Int)
+        fun onItemClick(serviceModel: ServiceModel)
     }
 
 }

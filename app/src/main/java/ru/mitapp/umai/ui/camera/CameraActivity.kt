@@ -46,20 +46,20 @@ class CameraActivity : BaseActivity<ActivityCameraBinding>(R.layout.activity_cam
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
 
         if (isSelfie!!){
-            binding.maskView.setBackgroundResource(R.drawable.ic_front_camera_mask)
-            binding.doneButton.visibility = View.GONE
+            binding!!.maskView.setBackgroundResource(R.drawable.ic_front_camera_mask)
+            binding!!.doneButton.visibility = View.GONE
             cameraId = getFrontCameraId()
         } else{
-            binding.maskView.setBackgroundResource(R.drawable.ic_bg_camera)
+            binding!!.maskView.setBackgroundResource(R.drawable.ic_bg_camera)
             cameraId = getBackCameraId()
         }
         camera = Camera.open(cameraId)
         showCamera = ShowCamera(this, camera!!)
-        binding.cameraContainer.addView(showCamera)
+        binding!!.cameraContainer.addView(showCamera)
 
         viewModel = CameraViewModel(this)
 
-        binding.cameraButton.setOnClickListener {
+        binding!!.cameraButton.setOnClickListener {
             if (isCamera) {
                 if (camera != null) {
                     viewModel.captureImage(camera!!)
@@ -84,12 +84,12 @@ class CameraActivity : BaseActivity<ActivityCameraBinding>(R.layout.activity_cam
         })
 
 
-        binding.closeButton.setOnClickListener {
+        binding!!.closeButton.setOnClickListener {
             if (isPicture) {
-                binding.cameraContainer.visibility = View.VISIBLE
-                binding.maskView.visibility = View.VISIBLE
-                binding.image.visibility = View.GONE
-                binding.cameraButton.setImageResource(R.drawable.ic_camera_button)
+                binding!!.cameraContainer.visibility = View.VISIBLE
+                binding!!.maskView.visibility = View.VISIBLE
+                binding!!.image.visibility = View.GONE
+                binding!!.cameraButton.setImageResource(R.drawable.ic_camera_button)
                 isCamera = true
                 isPicture = false
             } else {
@@ -98,7 +98,7 @@ class CameraActivity : BaseActivity<ActivityCameraBinding>(R.layout.activity_cam
         }
 
 
-        binding.doneButton.setOnClickListener {
+        binding!!.doneButton.setOnClickListener {
             if (packageManager.hasSystemFeature(PackageManager.FEATURE_CAMERA)) {
                 cameraId = if (isFrontCamera){
                     getBackCameraId()
@@ -157,7 +157,7 @@ class CameraActivity : BaseActivity<ActivityCameraBinding>(R.layout.activity_cam
                 Handler().postDelayed({
                     camera = Camera.open(cameraId)
                     showCamera = ShowCamera(this, camera!!)
-                    binding.cameraContainer.addView(showCamera)
+                    binding!!.cameraContainer.addView(showCamera)
                 }, 200)
 
 
@@ -204,13 +204,13 @@ class CameraActivity : BaseActivity<ActivityCameraBinding>(R.layout.activity_cam
 
     private fun setupImage(bitmap: Bitmap) {
        /* Glide.with(this).load(imagePath).into(binding.image)*/
-        binding.image.setImageBitmap(bitmap)
+        binding!!.image.setImageBitmap(bitmap)
         isPicture = true
-        binding.cameraButton.setImageResource(R.drawable.ic_done)
+        binding!!.cameraButton.setImageResource(R.drawable.ic_done)
         isCamera = false
-        binding.cameraContainer.visibility = View.GONE
-        binding.maskView.visibility = View.GONE
-        binding.image.visibility = View.VISIBLE
+        binding!!.cameraContainer.visibility = View.GONE
+        binding!!.maskView.visibility = View.GONE
+        binding!!.image.visibility = View.VISIBLE
 
     }
 
@@ -224,7 +224,7 @@ class CameraActivity : BaseActivity<ActivityCameraBinding>(R.layout.activity_cam
         if (cameraId != -1) {
             camera = Camera.open(cameraId)
             showCamera = ShowCamera(this, camera!!)
-            binding.cameraContainer.addView(showCamera)
+            binding!!.cameraContainer.addView(showCamera)
         }
 
 

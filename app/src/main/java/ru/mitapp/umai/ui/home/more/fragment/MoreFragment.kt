@@ -19,18 +19,18 @@ class MoreFragment : BaseFragment<FragmentMoreBinding>(R.layout.fragment_more) {
         if (viewModel == null){
             viewModel = ViewModelProvider(this)[MoreViewModel::class.java]
 
-            binding.viewModel = viewModel
+            binding!!.viewModel = viewModel
 
-            binding.refreshLayout.setOnRefreshListener {
-                binding.refreshLayout.isRefreshing = false
+            binding!!.refreshLayout.setOnRefreshListener {
+                binding!!.refreshLayout.isRefreshing = false
             }
 
-            binding.darkThemeSwitch.setOnCheckedChangeListener{_ , isChecked ->
+            binding!!.darkThemeSwitch.setOnCheckedChangeListener{_ , isChecked ->
                 sharedPreferences.isDarkThem = isChecked
 
             }
 
-            binding.darkThemeSwitch.setOnClickListener{
+            binding!!.darkThemeSwitch.setOnClickListener{
                 val intent = Intent(requireContext(), StartActivity::class.java)
                 intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
                 intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK

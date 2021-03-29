@@ -7,7 +7,7 @@
 
         <variable
             name="service"
-            type="ru.mitapp.umai.models.service_model.ServiceModel" />
+            type="ru.mitapp.umai.models.service.ServiceModel" />
 
     </data>
 

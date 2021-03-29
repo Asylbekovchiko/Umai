@@ -1,4 +1,4 @@
-package ru.mitapp.umai.models.history_model
+package ru.mitapp.umai.models.history
 
 data class HistoryModel(
     var icon : String? = null,

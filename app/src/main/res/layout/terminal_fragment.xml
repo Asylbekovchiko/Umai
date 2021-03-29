@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".ui.main.fragments.TerminalFragment"
-        android:background="@color/white"
+        android:background="?attr/backgroundColor"
         >
 
 
@@ -24,7 +24,10 @@
                     android:layout_height="wrap_content"
                     app:layout_constraintTop_toTopOf="parent"
                     app:tabTextAppearance="@style/MyTextAppearanceTab"
-                    tools:ignore="MissingConstraints" />
+                    app:tabTextColor="?attr/titleTextColor"
+                    tools:ignore="MissingConstraints"
+                    android:background="?attr/backgroundColor"
+                    />
 
 
                 <androidx.viewpager.widget.ViewPager

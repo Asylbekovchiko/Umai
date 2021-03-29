@@ -19,7 +19,7 @@ class RegistrationStartActivity :
         supportActionBar?.setDisplayShowHomeEnabled(true)
 
 
-        binding.registrationStartButton.setOnClickListener{
+        binding!!.registrationStartButton.setOnClickListener{
             startActivity(Intent(this, UserIdentificationActivity::class.java))
         }
 

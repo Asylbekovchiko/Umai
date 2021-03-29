@@ -20,13 +20,13 @@ class UserCitizenshipFragment(var listener : IdentificationListener) : BaseFragm
     override fun setupView() {
         viewModel = ViewModelProviders.of(this).get(UserCitizenshipViewModel::class.java)
 
-        binding.radioGroup.setOnCheckedChangeListener{ _,  buttonId ->
+        binding!!.radioGroup.setOnCheckedChangeListener{ _,  buttonId ->
             AppUmai.sharedPreferences.isCitizen = buttonId == R.id.citizen_button
         }
 
-        binding.citizenButton.isChecked = AppUmai.sharedPreferences.isCitizen
+        binding!!.citizenButton.isChecked = AppUmai.sharedPreferences.isCitizen
 
-        binding.nextButton.setOnClickListener{
+        binding!!.nextButton.setOnClickListener{
             listener.onNextButtonClick()
         }
 

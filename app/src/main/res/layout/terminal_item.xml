@@ -36,12 +36,14 @@
             android:clipChildren="false"
             card_view:cardElevation="10dp"
             card_view:cardPreventCornerOverlap="false"
+            app:cardBackgroundColor="?attr/secendoryBackgroundColor"
             >
 
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                card_view:background="?attr/secendoryBackgroundColor"
                 >
 
                 <View
@@ -64,6 +66,7 @@
                     android:textAppearance="@style/Black_Bold_18"
                     android:layout_marginStart="12dp"
                     android:layout_marginTop="16dp"
+                    android:textColor="?attr/titleTextColor"
                     android:text="@{terminal.name}"
                     />
 

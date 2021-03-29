@@ -24,16 +24,16 @@ class SelfieWithPassportFragment(var listener : IdentificationListener) : BaseFr
     override fun setupView() {
         viewModelWith = ViewModelProvider(this).get(SelfieWithPassportViewModel::class.java)
 
-        binding.selfieStartCameraButton.setOnClickListener{
+        binding!!.selfieStartCameraButton.setOnClickListener{
             CameraActivity.start(requireActivity(), true, SELFIE_REQUEST_CODE)
         }
 
-        binding.reshootPhotoPhoto.setOnClickListener{
+        binding!!.reshootPhotoPhoto.setOnClickListener{
             CameraActivity.start(requireActivity(), true, SELFIE_REQUEST_CODE)
         }
 
 
-        binding.nextButton.setOnClickListener{
+        binding!!.nextButton.setOnClickListener{
             listener.onNextButtonClick()
         }
 
@@ -47,8 +47,8 @@ class SelfieWithPassportFragment(var listener : IdentificationListener) : BaseFr
                 val imagePath = data?.getStringExtra("image_path")
                 val isSelfie = data?.getBooleanExtra("isSelfie", false)
                 rate(imagePath, isSelfie!!)
-                binding.startSelfieContainer.visibility = View.GONE
-                binding.selfiePreviewContainer.visibility = View.VISIBLE
+                binding!!.startSelfieContainer.visibility = View.GONE
+                binding!!.selfiePreviewContainer.visibility = View.VISIBLE
             }
         }
     }
@@ -68,7 +68,7 @@ class SelfieWithPassportFragment(var listener : IdentificationListener) : BaseFr
                 rotateImage(bitmap, 0f)
             }
 
-           binding.selfieImage.setImageBitmap(rotatedBitmap)
+           binding!!.selfieImage.setImageBitmap(rotatedBitmap)
         }
 
     }

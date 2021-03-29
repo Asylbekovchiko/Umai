@@ -3,9 +3,7 @@ package ru.mitapp.umai.ui
 import android.content.Intent
 import android.os.Handler
 import android.view.WindowManager
-import ru.mitapp.umai.AppUmai
 import ru.mitapp.umai.AppUmai.Companion.sharedPreferences
-import ru.mitapp.umai.ui.main.activity.MainActivity
 import ru.mitapp.umai.R
 import ru.mitapp.umai.base.BaseActivity
 import ru.mitapp.umai.databinding.ActivityStartBinding

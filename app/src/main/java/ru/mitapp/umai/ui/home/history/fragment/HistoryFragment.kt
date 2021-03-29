@@ -5,7 +5,7 @@ import androidx.lifecycle.ViewModelProvider
 import ru.mitapp.umai.R
 import ru.mitapp.umai.base.BaseFragment
 import ru.mitapp.umai.databinding.FragmentHistoryBinding
-import ru.mitapp.umai.models.history_model.HistoryModel
+import ru.mitapp.umai.models.history.HistoryModel
 import ru.mitapp.umai.ui.home.history.viewmodel.HistoryViewModel
 import ru.mitapp.umai.ui.home.history.adapter.HistoryAdapter
 import ru.mitapp.umai.utils.RecyclerAnimation
@@ -20,12 +20,12 @@ class HistoryFragment : BaseFragment<FragmentHistoryBinding>(R.layout.fragment_h
     override fun setupView() {
         viewModel = ViewModelProvider(this).get(HistoryViewModel::class.java)
 
-        binding.viewModel = viewModel
+        binding!!.viewModel = viewModel
 
         setupRecycler()
 
-        binding.refreshLayout.setOnRefreshListener {
-            binding.refreshLayout.isRefreshing = false
+        binding!!.refreshLayout.setOnRefreshListener {
+            binding!!.refreshLayout.isRefreshing = false
             fillList()
             setupRecycler()
         }
@@ -54,8 +54,8 @@ class HistoryFragment : BaseFragment<FragmentHistoryBinding>(R.layout.fragment_h
     private fun setupRecycler() {
         viewModel.checkList(list)
         adapter = HistoryAdapter(list, this)
-        binding.historyRecycler.adapter = adapter
-        RecyclerAnimation.startAnimation(binding.historyRecycler, R.anim.main_recycler_anim_layout)
+        binding!!.historyRecycler.adapter = adapter
+        RecyclerAnimation.startAnimation(binding!!.historyRecycler, R.anim.main_recycler_anim_layout)
     }
 
 }

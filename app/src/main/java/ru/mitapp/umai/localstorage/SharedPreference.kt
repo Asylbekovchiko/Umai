@@ -52,7 +52,7 @@ class SharedPreference(context: Context){
 
     var isDarkThem : Boolean
         get() {
-            return pref.getBoolean(IS_DARK_THEM, false)
+            return pref.getBoolean(IS_DARK_THEM, true)
         }
 
         set(value) {

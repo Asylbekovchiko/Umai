@@ -30,18 +30,18 @@ class PassportPhotoFragment(var listener : IdentificationListener) : BaseFragmen
     override fun setupView() {
         viewModel = ViewModelProvider(this).get(PassportPhotoViewModel::class.java)
 
-        binding.nextButton.setOnClickListener{
+        binding!!.nextButton.setOnClickListener{
             listener.onNextButtonClick()
         }
 
 
-        binding.passportBackButton.setOnClickListener{
+        binding!!.passportBackButton.setOnClickListener{
             isFront = false
             CameraActivity.start(requireActivity(), false, PASSPORT_PHOTO_REQUEST_CODE)
         }
 
 
-        binding.passportFrontButton.setOnClickListener{
+        binding!!.passportFrontButton.setOnClickListener{
             isFront = true
             CameraActivity.start(requireActivity(), false, PASSPORT_PHOTO_REQUEST_CODE)
         }
@@ -63,13 +63,13 @@ class PassportPhotoFragment(var listener : IdentificationListener) : BaseFragmen
             }
 
             if (isFront) {
-                binding.frontPassportImage.setImageBitmap(rotatedBitmap)
-                binding.frontPassportImage.visibility = View.VISIBLE
-                binding.frontPassportShadow.visibility = View.VISIBLE
+                binding!!.frontPassportImage.setImageBitmap(rotatedBitmap)
+                binding!!.frontPassportImage.visibility = View.VISIBLE
+                binding!!.frontPassportShadow.visibility = View.VISIBLE
             } else {
-                binding.backPassportImage.setImageBitmap(rotatedBitmap)
-                binding.backPassportImage.visibility = View.VISIBLE
-                binding.backPassportShadow.visibility = View.VISIBLE
+                binding!!.backPassportImage.setImageBitmap(rotatedBitmap)
+                binding!!.backPassportImage.visibility = View.VISIBLE
+                binding!!.backPassportShadow.visibility = View.VISIBLE
             }
         }
 

@@ -31,8 +31,8 @@ class TerminalListFragment(var listener : TerminalListener, var terminals : Arra
 
 
     private fun setupRecycler(){
-        binding.terminalRecycler.layoutManager = LinearLayoutManager(requireActivity())
-        binding.terminalRecycler.adapter = TerminalRvAdapter(terminals, this)
+        binding!!.terminalRecycler.layoutManager = LinearLayoutManager(requireActivity())
+        binding!!.terminalRecycler.adapter = TerminalRvAdapter(terminals, this)
     }
 
     override fun onTerminalClick(terminal: Terminal) {

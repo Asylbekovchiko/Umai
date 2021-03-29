@@ -24,7 +24,7 @@ class PassportInfoForNotResidentFragment(var listener : IdentificationListener)
     override fun setupView() {
         viewModel = ViewModelProviders.of(this).get(PassportInfoForNotResidentViewModel::class.java)
 
-        binding.nextButton.setOnClickListener{
+        binding!!.nextButton.setOnClickListener{
             listener.onNextButtonClick()
         }
     }

@@ -32,6 +32,9 @@ class TerminalFragment : BaseFragment<TerminalFragmentBinding>(R.layout.terminal
         viewModel.getTerminals()
 
         viewModel.terminalsData.observe(this, Observer {
+            if (it.data != null){
+                terminals = it.data!!
+            }
             terminalMapFragment = TerminalMapFragment(this, terminals)
             terminalListFragment = TerminalListFragment(this, terminals)
             tabTitles.add(getString(R.string.maps))
@@ -41,7 +44,7 @@ class TerminalFragment : BaseFragment<TerminalFragmentBinding>(R.layout.terminal
 
             setupPager()
 
-            binding.terminalFilter.setOnClickListener{
+            binding!!.terminalFilter.setOnClickListener{
                 if (filterDialog != null)
                     filterDialog!!.show(requireActivity().supportFragmentManager, "filterDialog")
             }
@@ -52,11 +55,11 @@ class TerminalFragment : BaseFragment<TerminalFragmentBinding>(R.layout.terminal
     }
 
     private fun setupPager() {
-        binding.terminalTab.tabGravity = TabLayout.GRAVITY_FILL
-        binding.terminalTab.tabMode = TabLayout.MODE_FIXED
-        binding.terminalPager.offscreenPageLimit = tabTitles.size
-        binding.terminalPager.adapter = pagerAdapter
-        binding.terminalTab.setupWithViewPager(binding.terminalPager)
+        binding!!.terminalTab.tabGravity = TabLayout.GRAVITY_FILL
+        binding!!.terminalTab.tabMode = TabLayout.MODE_FIXED
+        binding!!.terminalPager.offscreenPageLimit = tabTitles.size
+        binding!!.terminalPager.adapter = pagerAdapter
+        binding!!.terminalTab.setupWithViewPager(binding!!.terminalPager)
     }
 
     override fun onApplyFilter(filter: TerminalFilter) {

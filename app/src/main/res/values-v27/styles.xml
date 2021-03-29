@@ -19,7 +19,7 @@
         <item name="buttonInActiveTextColor">#333333</item>
         <item name="android:windowBackground">#000000</item>
         <item name="secendoryBackgroundColor">#212126</item>
-        <item name="android:statusBarColor">@color/colorPrimaryDark</item>
+        <item name="android:statusBarColor">@color/black</item>
     </style>
 
     <style name="SplashScreen" parent="AppTheme">
@@ -33,9 +33,12 @@
         <item name="titleTextColor">@color/titleTextColor</item>
         <item name="subTitleTextColor">@color/subTitleTextColor</item>
         <item name="main_image_shadow_color">#66000014</item>
+        <item name="buttonActiveTextColor">#333333</item>
         <item name="android:windowBackground">@color/black</item>
         <item name="secendoryBackgroundColor">#FFFFFF</item>
-        <item name="android:statusBarColor">@color/colorPrimaryDark</item>
+        <item name="android:statusBarColor">@color/white</item>
+        <item name="android:windowLightStatusBar">true</item>
+
 
     </style>
 

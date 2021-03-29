@@ -63,19 +63,19 @@ class TerminalMapFragment(var listener: TerminalListener, var terminals: ArrayLi
             val location1 = LatLng(items.lat!!, items.lng!!)
             val marker = MarkerOptions().position(location1).title(items.name)
             when (items.type) {
-                "T" -> marker.icon(
+                "terminal" -> marker.icon(
                     bitmapDescriptorFromVector(
                         requireContext(),
                         R.drawable.ic_atm_marker
                     )
                 )
-                "A" -> marker.icon(
+                "bank" -> marker.icon(
                     bitmapDescriptorFromVector(
                         requireContext(),
                         R.drawable.ic_bank_marker
                     )
                 )
-                "O" -> marker.icon(
+                "office" -> marker.icon(
                     bitmapDescriptorFromVector(
                         requireContext(),
                         R.drawable.ic_ofice_marker

@@ -13,7 +13,9 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.main.activity.MainActivity">
+        tools:context=".ui.main.activity.MainActivity"
+        android:background="?attr/backgroundColor"
+        >
 
         <ru.mitapp.umai.base.UnScrollViewPager
             android:id="@+id/main_pager"
@@ -36,7 +38,7 @@
             android:background="?attr/backgroundColor"
             app:menu="@menu/main_navigation_menu"
             app:itemIconTint="@color/bottom_nav_item_color"
-            app:itemTextColor="@color/bottom_nav_item_text_color"
+            app:itemTextColor="@color/bottom_nav_item_color"
             app:itemTextAppearanceActive="@style/BottomNavigation.ActiveItemTextAppearance"
             />
 

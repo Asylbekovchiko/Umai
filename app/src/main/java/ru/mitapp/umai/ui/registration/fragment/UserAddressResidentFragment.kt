@@ -34,15 +34,15 @@ class UserAddressResidentFragment(var listener: IdentificationListener) : BaseFr
         districtSpinnerAdapter = SpinnerCustomAdapter(requireActivity(), districtList)
         citySpinnerAdapter = SpinnerCustomAdapter(requireActivity(), cityList)
 
-        binding.regionSpinner.adapter = regionSpinnerAdapter
-        binding.districtSpinner.adapter = districtSpinnerAdapter
-        binding.citySpinner.adapter = citySpinnerAdapter
+        binding!!.regionSpinner.adapter = regionSpinnerAdapter
+        binding!!.districtSpinner.adapter = districtSpinnerAdapter
+        binding!!.citySpinner.adapter = citySpinnerAdapter
 
-        binding.regionSpinner.onItemSelectedListener = spinerListener
-        binding.districtSpinner.onItemSelectedListener = spinerListener
-        binding.citySpinner.onItemSelectedListener = spinerListener
+        binding!!.regionSpinner.onItemSelectedListener = spinerListener
+        binding!!.districtSpinner.onItemSelectedListener = spinerListener
+        binding!!.citySpinner.onItemSelectedListener = spinerListener
 
-        binding.nextButton.setOnClickListener{
+        binding!!.nextButton.setOnClickListener{
             listener.onNextButtonClick()
         }
 

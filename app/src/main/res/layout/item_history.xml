@@ -6,7 +6,7 @@
 
         <variable
             name="model"
-            type="ru.mitapp.umai.models.history_model.HistoryModel" />
+            type="ru.mitapp.umai.models.history.HistoryModel" />
 
     </data>
 

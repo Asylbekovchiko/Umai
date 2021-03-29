@@ -6,6 +6,18 @@
     app:layout_collapseMode="pin"
     app:layout_scrollFlags="scroll|enterAlways|snap"
     app:navigationIcon="@drawable/ic_arrow_back"
-    android:background="@color/white">
+    android:background="?attr/backgroundColor"
+    app:title=" "
+    >
+
+
+    <TextView
+        android:id="@+id/toolbar_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textAppearance="@style/Black_Bold_18"
+        android:textColor="?attr/titleTextColor"
+        />
 
 </androidx.appcompat.widget.Toolbar>

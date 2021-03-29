@@ -19,8 +19,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home), 
 
     override fun setupView() {
 
-        binding.refreshLayout.setOnRefreshListener {
-            binding.refreshLayout.isRefreshing = false
+        binding!!.refreshLayout.setOnRefreshListener {
+            binding!!.refreshLayout.isRefreshing = false
         }
         fillBanners()
         fillTemplates()
@@ -47,11 +47,11 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home), 
     }
 
     private fun setupTemplates(){
-        binding.templatesRecycler.adapter = TemplatesAdapter(templates, this)
+        binding!!.templatesRecycler.adapter = TemplatesAdapter(templates, this)
     }
 
     private fun  setupBanners(){
-        binding.bannerRecycler.adapter = HomeBannerAdapter(baners, this)
+        binding!!.bannerRecycler.adapter = HomeBannerAdapter(baners, this)
     }
 
     override fun onBannerClickListener(banner: Banner) {

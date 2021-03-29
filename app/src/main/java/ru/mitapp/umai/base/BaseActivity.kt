@@ -10,14 +10,17 @@ import ru.mitapp.umai.R
 abstract class BaseActivity<DataBinding : ViewDataBinding>(private val layoutId: Int) :
     AppCompatActivity() {
 
-    protected lateinit var binding: DataBinding
+    protected var binding: DataBinding? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         getAppTheme(sharedPreferences.isDarkThem)
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this, layoutId)
-        setupView()
+        if (binding == null){
+            binding = DataBindingUtil.setContentView(this, layoutId)
+            setupView()
+        }
+
 
 
     }

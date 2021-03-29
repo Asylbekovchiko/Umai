@@ -1,4 +1,4 @@
-package ru.mitapp.umai.models.service_model
+package ru.mitapp.umai.models.service
 
 data class ServiceModel (
 

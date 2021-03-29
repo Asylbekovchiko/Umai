@@ -5,7 +5,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import ru.mitapp.umai.R
 import ru.mitapp.umai.databinding.ItemHistoryBinding
-import ru.mitapp.umai.models.history_model.HistoryModel
+import ru.mitapp.umai.models.history.HistoryModel
 import java.util.ArrayList
 
 class HistoryAdapter(var list: ArrayList<HistoryModel>, var listener: Listener): RecyclerView.Adapter<HistoryAdapter.HistoryViewHolder>() {

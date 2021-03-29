@@ -25,11 +25,11 @@ class UserNameFragment(var listener: IdentificationListener) :
     override fun setupView() {
         viewModel = ViewModelProviders.of(this).get(UserNameViewModel::class.java)
 
-        binding.nextButton.setOnClickListener {
+        binding!!.nextButton.setOnClickListener {
             listener.onNextButtonClick()
         }
 
-        binding.dateBirthInput.setOnClickListener {
+        binding!!.dateBirthInput.setOnClickListener {
             showDataPickerDialog(it)
         }
     }
@@ -87,7 +87,7 @@ class UserNameFragment(var listener: IdentificationListener) :
         calendar.set(Calendar.MONTH, monthOfYear)
         calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth)
 
-        binding.dateBirthInput.text = DateConverter.converterDateToString("dd-MM-yyyy", calendar.time)
+        binding!!.dateBirthInput.text = DateConverter.converterDateToString("dd-MM-yyyy", calendar.time)
     }
 
 

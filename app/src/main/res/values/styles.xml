@@ -30,7 +30,7 @@
 
     <style name="DarkTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="titleTextColor">#FFFFFF</item>
-        <item name="backgroundColor">#000000</item>
+        <item name="backgroundColor">#18181B</item>
         <item name="subTitleTextColor">#FFFFFF</item>
         <item name="descriptionTextColor">#333333</item>
         <item name="main_image_shadow_color">#E4000004</item>
@@ -39,7 +39,7 @@
         <item name="white">#000000</item>
         <item name="secendoryBackgroundColor">#212126</item>
         <item name="android:windowBackground">#000000</item>
-        <item name="android:statusBarColor">@color/colorPrimaryDark</item>
+        <item name="android:statusBarColor">@color/black</item>
     </style>
 
 
@@ -50,7 +50,9 @@
         <item name="main_image_shadow_color">#66000014</item>
         <item name="secendoryBackgroundColor">#FFFFFF</item>
         <item name="android:windowBackground">#F2F2F2</item>
-        <item name="android:statusBarColor">@color/colorPrimaryDark</item>
+        <item name="buttonActiveTextColor">#333333</item>
+        <item name="android:statusBarColor">@color/white</item>
+        <item name="android:windowLightStatusBar">true</item>
     </style>
 
     <style name="White_Regular_12" parent="TextAppearance.AppCompat">
@@ -267,6 +269,7 @@
     <style name="MyTextAppearanceTab" parent="TextAppearance.Design.Tab">
         <item name="textAllCaps">false</item>
         <item name="android:textAllCaps">false</item>
+        <item name="android:textColor">?attr/titleTextColor</item>
     </style>
 
 
