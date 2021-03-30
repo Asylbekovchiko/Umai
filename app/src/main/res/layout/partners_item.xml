@@ -12,7 +12,12 @@
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:background="@color/black"
-        android:padding="500dp">
+        android:padding="500dp"
+        android:divider="@android:color/transparent"
+        android:focusable="true"
+        android:foreground="?selectableItemBackground"
+        app:cardCornerRadius="15dp"
+        app:cardBackgroundColor="?attr/secendoryBackgroundColor">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -46,7 +51,6 @@
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/imagePartners"
                 android:layout_width="50dp"
-                android:background="@drawable/bg_primary_oval"
                 android:layout_height="50dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="12dp"

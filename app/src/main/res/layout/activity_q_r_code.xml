@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.home.more.qr_code.QRCodeActivity"
+        android:background="?attr/backgroundColor">
+
+        <include
+            android:id="@+id/qr_code_toolbar"
+            layout="@layout/toolbar_back"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"></include>
+        <ImageButton
+            android:id="@+id/imageButton2"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="4dp"
+            app:layout_constraintBottom_toBottomOf="@+id/qr_code_toolbar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@android:drawable/ic_menu_share" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="355dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="110dp"
+            android:gravity="center"
+            android:text="@string/qr_code"
+            android:textAppearance="@style/Black_Bold_18"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/qr_code_toolbar" />
+
+        <ImageView
+            android:id="@+id/qr_code_image"
+            android:layout_width="280dp"
+            android:layout_height="280dp"
+            android:layout_marginTop="208dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.496"
+            app:layout_constraintStart_toStartOf="parent"
+            android:src="@drawable/banner_1"
+            app:layout_constraintTop_toTopOf="@+id/qr_code_toolbar"></ImageView>
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="Платежная ссылка"
+            android:textAppearance="@style/Black_Bold_18"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/qr_code_image" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="373dp"
+            android:layout_height="63dp"
+            android:layout_marginBottom="44dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.421"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView4"
+            app:layout_constraintVertical_bias="0.13" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="46dp"
+            android:layout_marginTop="28dp"
+            android:text="https://umai.kg/p/996700499299"
+            android:textAppearance="@style/Black_Bold_18"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+        <ImageButton
+            android:id="@+id/imageButton"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_marginEnd="28dp"
+            app:layout_constraintBottom_toBottomOf="@+id/textView5"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/textView5"
+            android:layout_marginStart="37dp"
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@drawable/ic_selected_filter" />
+        androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

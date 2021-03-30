@@ -84,6 +84,7 @@
 
 
                         <TextView
+                            android:id="@+id/personal_data"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:drawableStart="@drawable/ic_personal_data"
@@ -95,6 +96,7 @@
 
 
                         <TextView
+                            android:id="@+id/qr_code"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:drawableStart="@drawable/ic_my_qr_code"
@@ -132,6 +134,7 @@
                             />
 
                         <TextView
+                            android:id="@+id/linked_cards"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:drawableStart="@drawable/ic_linked_cards"
@@ -155,6 +158,7 @@
 
 
                         <TextView
+                            android:id="@+id/settings"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:drawableStart="@drawable/ic_setting"

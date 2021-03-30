@@ -3,6 +3,7 @@ package ru.mitapp.umai.ui.home.more.partners.activity
 import android.content.Intent
 import android.view.Menu
 import android.view.MenuInflater
+import android.view.MenuItem
 import android.widget.TextView
 import androidx.appcompat.widget.Toolbar
 import ru.mitapp.umai.R
@@ -40,7 +41,18 @@ class PartnersActivity : BaseActivity<ActivityPartnersBinding>(R.layout.activity
         supportActionBar?.setDisplayShowTitleEnabled(false)
         toolbarTitle.text = "Партнеры"
 
+
+
+
+
     }
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == android.R.id.home){
+            onBackPressed()
+        }
+        return true
+    }
+
 
     private fun setupRecyclerS() {
 
@@ -80,8 +92,5 @@ class PartnersActivity : BaseActivity<ActivityPartnersBinding>(R.layout.activity
         intent.putExtra("title", partners.title)
         intent.putExtra("description", partners.description)
         startActivity(intent)
-
-
     }
-
 }

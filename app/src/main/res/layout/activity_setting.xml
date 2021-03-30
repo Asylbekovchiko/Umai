@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.home.more.settings.SettingsActivity"
+        android:background="?attr/backgroundColor"
+        >>>
+
+        <include
+            android:id="@+id/toolSettings"
+            layout="@layout/toolbar_back"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"></include>
+
+
+        <ImageView
+            android:id="@+id/language_icon"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="88dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_atm_marker" />
+
+        <ImageView
+            android:id="@+id/pin_code_icon"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="40dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/language_icon"
+            app:srcCompat="@drawable/ic_atm_marker" />
+
+        <TextView
+            android:id="@+id/language"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="23dp"
+            android:text="Язык"
+            app:layout_constraintStart_toEndOf="@+id/language_icon"
+            app:layout_constraintTop_toTopOf="@+id/language_icon"
+            android:textAppearance="@style/Black_Bold_18" />
+
+
+        <TextView
+            android:id="@+id/pin_code"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="32dp"
+            android:text="Пин-код"
+            android:textAppearance="@style/Black_Bold_18"
+            app:layout_constraintStart_toEndOf="@+id/pin_code_icon"
+            app:layout_constraintTop_toBottomOf="@+id/language" />
+
+        <TextView
+            android:id="@+id/about_app"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="32dp"
+            android:text="О приложении"
+            android:textAppearance="@style/Black_Bold_18"
+            app:layout_constraintStart_toEndOf="@+id/about_app_icon"
+            app:layout_constraintTop_toBottomOf="@+id/pin_code" />
+
+        <ImageView
+            android:id="@+id/about_app_icon"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="19dp"
+            app:layout_constraintBottom_toBottomOf="@+id/about_app"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/pin_code_icon"
+            app:layout_constraintVertical_bias="1.0"
+            app:srcCompat="@drawable/ic_avatar_place_holder" />
+
+        <TextView
+            android:id="@+id/toolbarTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            app:layout_constraintBottom_toBottomOf="@+id/toolSettings"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/toolSettings" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
+
+

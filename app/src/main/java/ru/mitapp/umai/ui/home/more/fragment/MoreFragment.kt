@@ -6,7 +6,11 @@ import ru.mitapp.umai.R
 import ru.mitapp.umai.base.BaseFragment
 import ru.mitapp.umai.databinding.FragmentMoreBinding
 import ru.mitapp.umai.ui.StartActivity
+import ru.mitapp.umai.ui.home.more.linked_cards.LinkedCardsActivity
 import ru.mitapp.umai.ui.home.more.partners.activity.PartnersActivity
+import ru.mitapp.umai.ui.home.more.personal_data.PersonalDataActivity
+import ru.mitapp.umai.ui.home.more.qr_code.QRCodeActivity
+import ru.mitapp.umai.ui.home.more.settings.SettingsActivity
 import ru.mitapp.umai.ui.home.more.viewmodel.MoreViewModel
 
 class MoreFragment : BaseFragment<FragmentMoreBinding>(R.layout.fragment_more) {
@@ -40,6 +44,26 @@ class MoreFragment : BaseFragment<FragmentMoreBinding>(R.layout.fragment_more) {
                 val intent = Intent(requireContext(), PartnersActivity::class.java)
                 startActivity(intent)
             }
+            binding.settings.setOnClickListener {
+                val intent = Intent(requireContext(), SettingsActivity::class.java)
+                startActivity(intent)
+            }
+
+            binding.qrCode.setOnClickListener {
+                val intent = Intent(requireContext(), QRCodeActivity::class.java)
+                startActivity(intent)
+            }
+
+            binding.linkedCards.setOnClickListener {
+                val intent = Intent(requireContext(), LinkedCardsActivity::class.java)
+                startActivity(intent)
+            }
+            binding.personalData.setOnClickListener {
+                val intent = Intent(requireContext(), PersonalDataActivity::class.java)
+                startActivity(intent)
+            }
+
+
 
         }
 

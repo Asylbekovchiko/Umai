@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.home.more.linked_cards.LinkedCardsActivity"
+        android:background="?attr/backgroundColor">
+    <include
+        android:id="@+id/toolbar_cards"
+        layout="@layout/toolbar_back"
+        ></include>
+
+        <ImageView
+            android:id="@+id/linked_cards_icon"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="212dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/toolbar_cards"
+            app:srcCompat="@drawable/ic_stubicon" />
+
+        <TextView
+            android:id="@+id/title_llinked_cards"
+            android:layout_width="255dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:text="Привяжите карту к кошельку-для лёгких и удобных платежей."
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linked_cards_icon" />
+
+        <TextView
+            android:id="@+id/text_add_card"
+            android:layout_width="180dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="32dp"
+            android:gravity="center"
+            android:text="Привязать карту"
+            android:background="@color/lightGray"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title_llinked_cards" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
