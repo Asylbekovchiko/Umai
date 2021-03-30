@@ -24,7 +24,7 @@ TemplatesActivityAdapter.Listener{
     private var list = ArrayList<MyTemplate>()
 
     override fun setupView() {
-        setSupportActionBar(binding.templatesToolbar)
+        setSupportActionBar(binding!!.templatesToolbar)
         supportActionBar?.setDisplayShowTitleEnabled(false)
 
         setupRecycler()
@@ -33,9 +33,9 @@ TemplatesActivityAdapter.Listener{
 
     private fun setupRecycler() {
         adapter = TemplatesActivityAdapter(list, this)
-        binding.templatesRecyclerView.adapter = adapter
+        binding!!.templatesRecyclerView.adapter = adapter
         RecyclerAnimation.startAnimation(
-            binding.templatesRecyclerView,
+            binding!!.templatesRecyclerView,
             R.anim.main_recycler_anim_layout
         )
     }

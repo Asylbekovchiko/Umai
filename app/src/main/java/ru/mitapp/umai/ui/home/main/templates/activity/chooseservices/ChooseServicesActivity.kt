@@ -19,7 +19,7 @@ class ChooseServicesActivity
     private var list = ArrayList<ChooseServiceModel>()
 
     override fun setupView() {
-        setSupportActionBar(binding.chooseServiceToolbar)
+        setSupportActionBar(binding!!.chooseServiceToolbar)
         supportActionBar?.setDisplayShowTitleEnabled(false)
         setupRecycler()
         fillList()
@@ -27,7 +27,7 @@ class ChooseServicesActivity
 
     private fun setupRecycler() {
         adapter = ChooseServiceAdapter(list, this)
-        binding.chooseRecyclerService.adapter = adapter
+        binding!!.chooseRecyclerService.adapter = adapter
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

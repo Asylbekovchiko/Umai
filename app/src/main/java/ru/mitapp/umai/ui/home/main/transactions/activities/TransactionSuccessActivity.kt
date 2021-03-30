@@ -28,17 +28,17 @@ class TransactionSuccessActivity
     }
 
     override fun setupView() {
-        setSupportActionBar(binding.successToolbar)
+        setSupportActionBar(binding!!.successToolbar)
         supportActionBar?.setDisplayShowTitleEnabled(false)
-        binding.isHistory = isHistory
-        binding.buttonClose.setOnClickListener {
+        binding!!.isHistory = isHistory
+        binding!!.buttonClose.setOnClickListener {
             setResult(RESULT_OK, intent)
             finish()
         }
-        binding.textRepeat.setOnClickListener{
+        binding!!.textRepeat.setOnClickListener{
             onSupportNavigateUp()
         }
-        binding.txtDetail.setOnClickListener {
+        binding!!.txtDetail.setOnClickListener {
             val intent = Intent(this, DetailHistoryActivity::class.java)
             startActivity(intent)
         }

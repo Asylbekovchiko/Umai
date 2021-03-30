@@ -34,11 +34,11 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home), 
         setupTemplates()
         setupBanners()
 
-        binding.txtTmplates.setOnClickListener {
+        binding!!.txtTmplates.setOnClickListener {
             val intent = Intent(requireContext(), TemplatesActivity::class.java)
             startActivity(intent)
         }
-        binding.transactionImage.setOnClickListener{
+        binding!!.transactionImage.setOnClickListener{
             val intent = Intent(requireContext(), TransactionActivity::class.java)
             startActivityForResult(intent, REQUEST_CODE)
         }

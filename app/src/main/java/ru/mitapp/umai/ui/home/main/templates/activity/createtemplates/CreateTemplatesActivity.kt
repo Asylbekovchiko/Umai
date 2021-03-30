@@ -41,32 +41,32 @@ class CreateTemplatesActivity
     override fun setupView() {
         if (viewModel == null) {
             viewModel = ViewModelProvider(this)[CreateTemplatesViewModel::class.java]
-            binding.viewModel = viewModel
-            binding.isEdit = isEdit
+            binding!!.viewModel = viewModel
+            binding!!.isEdit = isEdit
 
-            setSupportActionBar(binding.createTempToolbar)
+            setSupportActionBar(binding!!.createTempToolbar)
             supportActionBar?.setDisplayShowTitleEnabled(false)
 
-            binding.nameEt.addTextChangedListener(object : BaseTextChangeListener() {
+            binding!!.nameEt.addTextChangedListener(object : BaseTextChangeListener() {
                 override fun afterTextChanged(p1: Editable?) {
                     checkButtonActive()
                     checkEditButtonActive()
                 }
             })
-            binding.edtSum.addTextChangedListener(object : BaseTextChangeListener() {
+            binding!!.edtSum.addTextChangedListener(object : BaseTextChangeListener() {
                 override fun afterTextChanged(p1: Editable?) {
                     checkButtonActive()
                     checkEditButtonActive()
                 }
             })
-            binding.edtPersonal.addTextChangedListener(object : BaseTextChangeListener() {
+            binding!!.edtPersonal.addTextChangedListener(object : BaseTextChangeListener() {
                 override fun afterTextChanged(p1: Editable?) {
                     checkButtonActive()
                     checkEditButtonActive()
                 }
             })
 
-            binding.txtChooseService.setOnClickListener {
+            binding!!.txtChooseService.setOnClickListener {
                 val intent =
                     Intent(this, ChooseServicesActivity::class.java)
                 startActivityForResult(intent, SERVICE_REQUEST_CODE)
@@ -83,7 +83,7 @@ class CreateTemplatesActivity
                 SERVICE_REQUEST_CODE -> {
                     if (data != null) {
                         title = data.getStringExtra(TITLE_TEXT)
-                        binding.txtChooseService.text = title
+                        binding!!.txtChooseService.text = title
                         checkButtonActive()
                     }
                 }
@@ -93,15 +93,15 @@ class CreateTemplatesActivity
 
     private fun checkButtonActive() {
         viewModel!!.checkInputs(
-            binding.nameEt.text.toString(), title,
-            binding.edtPersonal.text.toString(), binding.edtSum.text.toString()
+            binding!!.nameEt.text.toString(), title,
+            binding!!.edtPersonal.text.toString(), binding!!.edtSum.text.toString()
         )
     }
 
     private fun checkEditButtonActive() {
         viewModel!!.checkEditInputs(
-            binding.nameEt.text.toString(),
-            binding.edtPersonal.text.toString(), binding.edtSum.text.toString()
+            binding!!.nameEt.text.toString(),
+            binding!!.edtPersonal.text.toString(), binding!!.edtSum.text.toString()
         )
     }
     override fun onSupportNavigateUp(): Boolean {

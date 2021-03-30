@@ -9,10 +9,10 @@ import ru.mitapp.umai.utils.REQUEST_CODE
 
 class TransactionFoundActivity : BaseActivity<ActivityTransactionFoundBinding>(R.layout.activity_transaction_found){
     override fun setupView() {
-        setSupportActionBar(binding.foundToolbar)
+        setSupportActionBar(binding!!.foundToolbar)
         supportActionBar?.setDisplayShowTitleEnabled(false)
 
-        binding.payButton.setOnClickListener {
+        binding!!.payButton.setOnClickListener {
             val intent = TransactionSuccessActivity.startToSuccess(this, false)
             startActivityForResult(intent,  REQUEST_CODE)
         }

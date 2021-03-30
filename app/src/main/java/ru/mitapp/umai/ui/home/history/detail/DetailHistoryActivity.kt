@@ -12,7 +12,7 @@ import ru.mitapp.umai.databinding.ActivityDetailHistoryBinding
 
 class DetailHistoryActivity : BaseActivity<ActivityDetailHistoryBinding>(R.layout.activity_detail_history){
     override fun setupView() {
-        setSupportActionBar(binding.toolbar)
+        setSupportActionBar(binding!!.toolbar)
         supportActionBar?.setDisplayShowTitleEnabled(false)
     }
 

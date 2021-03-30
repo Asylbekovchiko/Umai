@@ -14,10 +14,10 @@ class SecondServiceActivity
     private lateinit var adapter: SecondServiceAdapter
     private var list = ArrayList<SecondServiceModel>()
     override fun setupView() {
-        setSupportActionBar(binding.secondServiceToolbar)
+        setSupportActionBar(binding!!.secondServiceToolbar)
         supportActionBar?.setDisplayShowTitleEnabled(false)
         val title: String = intent.getStringExtra(TITLE_TEXT).toString()
-        binding.secondTxtService.text = title
+        binding!!.secondTxtService.text = title
 
         setupRecycler()
         fillList()
@@ -26,7 +26,7 @@ class SecondServiceActivity
 
     private fun setupRecycler() {
         adapter = SecondServiceAdapter(list, this)
-        binding.secondRecyclerService.adapter = adapter
+        binding!!.secondRecyclerService.adapter = adapter
     }
 
     override fun onSupportNavigateUp(): Boolean {

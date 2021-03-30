@@ -25,12 +25,12 @@ class PayTemplatesActivity: BaseActivity<ActivityPayTemplatesBinding>(R.layout.a
         if(viewModel == null){
 
             viewModel = ViewModelProvider(this)[PayTempViewModel::class.java]
-            binding.viewModel = viewModel
+            binding!!.viewModel = viewModel
 
-            setSupportActionBar(binding.payTempToolbar)
+            setSupportActionBar(binding!!.payTempToolbar)
             supportActionBar?.setDisplayShowTitleEnabled(false)
 
-            binding.edtSum.addTextChangedListener(object : BaseTextChangeListener() {
+            binding!!.edtSum.addTextChangedListener(object : BaseTextChangeListener() {
                 override fun afterTextChanged(p1: Editable?) {
                     checkInputs()
                 }
@@ -41,7 +41,7 @@ class PayTemplatesActivity: BaseActivity<ActivityPayTemplatesBinding>(R.layout.a
     }
 
     private fun checkInputs(){
-        viewModel!!.checkInputs(binding.edtSum.text.toString())
+        viewModel!!.checkInputs(binding!!.edtSum.text.toString())
     }
 
     override fun onSupportNavigateUp(): Boolean {
