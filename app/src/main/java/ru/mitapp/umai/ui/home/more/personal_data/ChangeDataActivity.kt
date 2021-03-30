@@ -54,16 +54,16 @@ class ChangeDataActivity : BaseActivity<ActivityChangeDataBinding>(R.layout.acti
 
     private fun addData() {
         if (firstName != null) {
-            binding.changingLabel.text = firstName
+            binding!!.changingLabel.text = firstName
 
         } else if (secondNameLabel != null) {
-            binding.changingLabel.text = secondNameLabel
+            binding!!.changingLabel.text = secondNameLabel
 
         } else if (numberLabel != null) {
-            binding.changingLabel.text = numberLabel
+            binding!!.changingLabel.text = numberLabel
 
         } else if (emailLabel != null) {
-            binding.changingLabel.text = emailLabel
+            binding!!.changingLabel.text = emailLabel
         }
     }
     private fun setResult(){

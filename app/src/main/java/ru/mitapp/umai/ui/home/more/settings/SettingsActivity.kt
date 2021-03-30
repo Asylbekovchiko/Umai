@@ -40,13 +40,13 @@ class SettingsActivity : BaseActivity<ActivitySettingBinding>(R.layout.activity_
     }
 
     private fun onClickSettingsItem(){
-        binding.language.setOnClickListener {
+        binding!!.language.setOnClickListener {
             val intent = Intent(this, LanguagesActivity::class.java)
             startActivity(intent)
         }
         setupToolbar()
 
-        binding.aboutApp.setOnClickListener {
+        binding!!.aboutApp.setOnClickListener {
             val intent = Intent(this, AboutAppActivity::class.java)
             startActivity(intent)
         }

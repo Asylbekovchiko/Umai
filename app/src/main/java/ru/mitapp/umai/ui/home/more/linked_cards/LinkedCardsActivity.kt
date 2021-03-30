@@ -32,7 +32,7 @@ class LinkedCardsActivity : BaseActivity<ActivityLinkedCardsBinding>(R.layout.ac
     }
 
     private fun addNewCard(){
-        binding.textAddCard.setOnClickListener {
+        binding!!.textAddCard.setOnClickListener {
             val intent = Intent(this, AddingNewCardsActivity::class.java)
             startActivity(intent)
         }

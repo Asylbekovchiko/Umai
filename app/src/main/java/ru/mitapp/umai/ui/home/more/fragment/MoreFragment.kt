@@ -44,21 +44,21 @@ class MoreFragment : BaseFragment<FragmentMoreBinding>(R.layout.fragment_more) {
                 val intent = Intent(requireContext(), PartnersActivity::class.java)
                 startActivity(intent)
             }
-            binding.settings.setOnClickListener {
+            binding!!.settings.setOnClickListener {
                 val intent = Intent(requireContext(), SettingsActivity::class.java)
                 startActivity(intent)
             }
 
-            binding.qrCode.setOnClickListener {
+            binding!!.qrCode.setOnClickListener {
                 val intent = Intent(requireContext(), QRCodeActivity::class.java)
                 startActivity(intent)
             }
 
-            binding.linkedCards.setOnClickListener {
+            binding!!.linkedCards.setOnClickListener {
                 val intent = Intent(requireContext(), LinkedCardsActivity::class.java)
                 startActivity(intent)
             }
-            binding.personalData.setOnClickListener {
+            binding!!.personalData.setOnClickListener {
                 val intent = Intent(requireContext(), PersonalDataActivity::class.java)
                 startActivity(intent)
             }

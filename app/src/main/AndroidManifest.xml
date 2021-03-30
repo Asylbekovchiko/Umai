@@ -53,8 +53,6 @@
         <activity android:name=".ui.home.more.settings.activity.AboutAppActivity" />
         <activity android:name=".ui.home.more.settings.activity.LanguagesActivity" />
         <activity android:name=".ui.home.more.settings.SettingsActivity" />
-        <activity android:name=".ui.home.more.partners.activity.DetailPartnersActivity" />
-        <activity android:name=".ui.home.more.partners.activity.PartnersActivity" />
         <activity
             android:name=".ui.registration.activity.UserIdentificationActivity"
             android:windowSoftInputMode="adjustResize" />
