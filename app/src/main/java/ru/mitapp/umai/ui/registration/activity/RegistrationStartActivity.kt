@@ -14,7 +14,7 @@ class RegistrationStartActivity :
     private lateinit var toolbar: Toolbar
 
     override fun setupView() {
-        toolbar = findViewById(R.id.toolbar)
+        toolbar = findViewById(R.id.toolbarPartners)
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayShowHomeEnabled(true)
 

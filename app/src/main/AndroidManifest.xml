@@ -40,6 +40,11 @@
         <activity android:name=".ui.home.main.templates.activity.chooseservices.ChooseServicesActivity" />
         <activity android:name=".ui.home.main.templates.activity.createtemplates.CreateTemplatesActivity" />
         <activity android:name=".ui.home.main.templates.activity.templatesactivity.TemplatesActivity" />
+        android:theme="@style/BaseTheme">
+        <activity android:name=".ui.home.more.partners.activity.DetailPartnersActivity"></activity>
+        <activity
+            android:name=".ui.home.more.partners.activity.PartnersActivity"
+            android:parentActivityName=".ui.main.activity.MainActivity" />
         <activity
             android:name=".ui.registration.activity.UserIdentificationActivity"
             android:windowSoftInputMode="adjustResize" />
@@ -58,11 +63,13 @@
             android:name=".ui.StartActivity"
             android:screenOrientation="portrait"
             android:theme="@style/SplashScreen">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
         <activity
             android:name=".ui.main.activity.MainActivity"
@@ -82,5 +89,6 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyAACmBp7mn0_8_hsnZza1Gauv4JVe14WDY" />
     </application>
+
 
 </manifest>
