@@ -27,8 +27,8 @@ class DetailPartnersActivity : BaseActivity<ActivityDetailPartnersBinding>(R.lay
     private fun fileListAdd(){
 
 
-        binding.partnersTitle.text = title
-        binding.partnersDescription.text = description
+        binding!!.partnersTitle.text = title
+        binding!!.partnersDescription.text = description
 
     }
 

@@ -46,7 +46,7 @@ class PartnersActivity : BaseActivity<ActivityPartnersBinding>(R.layout.activity
 
 
         adapter = PartnersAdapter(list, this)
-        binding.recyclerPartners.adapter = adapter
+        binding!!.recyclerPartners.adapter = adapter
         RecyclerAnimation.startAnimation(
             binding!!.recyclerPartners,
             R.anim.main_recycler_anim_layout

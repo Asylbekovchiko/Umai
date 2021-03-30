@@ -36,7 +36,7 @@ class MoreFragment : BaseFragment<FragmentMoreBinding>(R.layout.fragment_more) {
                 requireActivity().finish()
             }
 
-            binding.partners.setOnClickListener {
+            binding!!.partners.setOnClickListener {
                 val intent = Intent(requireContext(), PartnersActivity::class.java)
                 startActivity(intent)
             }

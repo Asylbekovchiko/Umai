@@ -9,7 +9,6 @@ import ru.mitapp.umai.R
 import ru.mitapp.umai.databinding.PartnersItemBinding
 import ru.mitapp.umai.databinding.ServiceItemBinding
 import ru.mitapp.umai.models.partner.Partners
-import ru.mitapp.umai.models.service_model.ServiceModel
 import java.util.ArrayList
 
 class PartnersAdapter(var list: ArrayList<Partners>, var listener: Listener) :
