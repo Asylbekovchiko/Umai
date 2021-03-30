@@ -15,7 +15,7 @@ class ChangeDataActivity : BaseActivity<ActivityChangeDataBinding>(R.layout.acti
     private lateinit var toolbar: Toolbar
 
     private val firstName: String?
-        get() = intent.getStringExtra("name_label")
+        get()  = intent.getStringExtra("name_label")
 
     val nameVar: String?
         get() = intent.getStringExtra("name_var")

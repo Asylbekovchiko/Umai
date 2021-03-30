@@ -28,7 +28,8 @@ class DetailPartnersActivity : BaseActivity<ActivityDetailPartnersBinding>(R.lay
 
 
         binding.partnersTitle.text = title
-        binding.partnersDescription.text = description
+        binding.
+        partnersDescription.text = description
 
     }
 
