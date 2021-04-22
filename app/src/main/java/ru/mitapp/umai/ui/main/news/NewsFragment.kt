@@ -1,12 +1,7 @@
-package ru.mitapp.umai.ui.main.fragments
+package ru.mitapp.umai.ui.main.news
 
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import ru.mitapp.umai.R
 import ru.mitapp.umai.base.BaseFragment
 import ru.mitapp.umai.databinding.NewsFragmentBinding
