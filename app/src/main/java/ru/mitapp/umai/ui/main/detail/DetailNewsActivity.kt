@@ -9,8 +9,6 @@ import java.util.*
 
 class DetailNewsActivity : BaseActivity<ActivityDetailNewsBinding>(R.layout.activity_detail_news) {
 
-
-    @SuppressLint("SimpleDateFormat")
     override fun setupView() {
         setSupportActionBar(binding!!.detailToolbar)
         supportActionBar?.setDisplayShowTitleEnabled(false)
@@ -18,13 +16,17 @@ class DetailNewsActivity : BaseActivity<ActivityDetailNewsBinding>(R.layout.acti
         val content = intent.getStringExtra("Content")
         val time = intent.getStringExtra("Time")
 
-        val format = SimpleDateFormat("dd-MM-yyyy'T'", Locale.ENGLISH)
-        val date: String = format.parse(time!!)!!.toString()
-        binding!!.newsTime.text = date
+        binding!!.newsTime.text = parseDate(time.toString())
         binding!!.newsDesc.text = content
         binding!!.newsTitle.text = title
     }
-
+    @SuppressLint("SimpleDateFormat")
+    fun parseDate(serverDate: String): String {
+        var sdf = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SS'Z'")
+        val date = sdf.parse(serverDate)
+        sdf = SimpleDateFormat("d MMMM yyyy")
+        return sdf.format(date!!)
+    }
     override fun onSupportNavigateUp(): Boolean {
         onBackPressed()
         return super.onSupportNavigateUp()

@@ -1,5 +1,6 @@
 package ru.mitapp.umai.ui.main.news
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
@@ -9,6 +10,7 @@ import ru.mitapp.umai.databinding.ItemNewsBinding
 import ru.mitapp.umai.models.news.News
 import ru.mitapp.umai.models.service.ServiceModel
 import ru.mitapp.umai.ui.home.service.adapter.ServiceAdapter
+import java.text.SimpleDateFormat
 import java.util.ArrayList
 
 class NewsAdapter(var newsList: ArrayList<News>, var listener: Listener)
@@ -38,7 +40,14 @@ class NewsAdapter(var newsList: ArrayList<News>, var listener: Listener)
             itemView.setOnClickListener {
                 listener.onItemClick(news)
             }
-
+            binding.newsTime.text = parseDate(news.createdAt.toString())
+        }
+        @SuppressLint("SimpleDateFormat")
+        fun parseDate(serverDate: String): String {
+            var sdf = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SS'Z'")
+            val date = sdf.parse(serverDate)
+            sdf = SimpleDateFormat("d MMMM yyyy")
+            return sdf.format(date!!)
         }
     }
 
