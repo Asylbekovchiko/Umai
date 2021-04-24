@@ -2,6 +2,7 @@ package ru.mitapp.umai.ui
 
 import android.content.Intent
 import android.os.Handler
+import android.os.Looper
 import android.view.WindowManager
 import ru.mitapp.umai.AppUmai.Companion.sharedPreferences
 import ru.mitapp.umai.R
@@ -19,7 +20,7 @@ class StartActivity : BaseActivity<ActivityStartBinding>(R.layout.activity_start
             WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
             WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
         );
-        Handler().postDelayed({
+        Handler(Looper.getMainLooper()).postDelayed({
             startActivity(Intent(this, MainActivity::class.java))
             finish()
 

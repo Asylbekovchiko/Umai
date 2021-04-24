@@ -1,12 +1,11 @@
 package ru.mitapp.umai.base
-
-import android.text.Layout
-import android.view.View
+import android.annotation.SuppressLint
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
-import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import java.text.SimpleDateFormat
+import java.util.*
 
 
 @BindingAdapter("imageUrl")
@@ -19,4 +18,11 @@ fun loadImage(imageView: ImageView, url: String?) {
        imageView.setImageResource(imageId)
     }
 
+}
+
+@SuppressLint("SimpleDateFormat")
+@BindingAdapter("convertDate")
+fun parseDate(textView: TextView, serverDate: Date){
+    val sdf = SimpleDateFormat("dd MMMM yyyy")
+    textView.text = sdf.format(serverDate)
 }

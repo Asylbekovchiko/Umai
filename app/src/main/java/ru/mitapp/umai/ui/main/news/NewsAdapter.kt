@@ -40,15 +40,15 @@ class NewsAdapter(var newsList: ArrayList<News>, var listener: Listener)
             itemView.setOnClickListener {
                 listener.onItemClick(news)
             }
-            binding.newsTime.text = parseDate(news.createdAt.toString())
+//            binding.newsTime.text = parseDate(news.createdAt.toString())
         }
-        @SuppressLint("SimpleDateFormat")
-        fun parseDate(serverDate: String): String {
-            var sdf = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SS'Z'")
-            val date = sdf.parse(serverDate)
-            sdf = SimpleDateFormat("d MMMM yyyy")
-            return sdf.format(date!!)
-        }
+//        @SuppressLint("SimpleDateFormat")
+//        fun parseDate(serverDate: String): String {
+//            var sdf = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SS'Z'")
+//            val date = sdf.parse(serverDate)
+//            sdf = SimpleDateFormat("d MMMM yyyy")
+//            return sdf.format(date!!)
+//        }
     }
 
     interface Listener {

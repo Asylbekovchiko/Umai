@@ -14,6 +14,7 @@ import ru.mitapp.umai.models.news.News
 import ru.mitapp.umai.models.service.SubCategory
 import ru.mitapp.umai.ui.home.service.adapter.SubCategoryAdapter
 import ru.mitapp.umai.ui.main.detail.DetailNewsActivity
+import ru.mitapp.umai.ui.main.detail.DetailNewsViewModel
 import ru.mitapp.umai.utils.RecyclerAnimation
 
 class NewsFragment : BaseFragment<NewsFragmentBinding>(R.layout.news_fragment),
@@ -24,7 +25,6 @@ class NewsFragment : BaseFragment<NewsFragmentBinding>(R.layout.news_fragment),
 
     override fun setupView() {
         viewModel = ViewModelProvider(this).get(NewsFragmentViewModel::class.java)
-
         binding!!.refreshLayout.setOnRefreshListener {
             newsList.clear()
             getNews()
@@ -53,9 +53,7 @@ class NewsFragment : BaseFragment<NewsFragmentBinding>(R.layout.news_fragment),
 
     override fun onItemClick(news: News) {
         val intent = Intent(requireContext(), DetailNewsActivity::class.java)
-        intent.putExtra("Title", news.title)
-        intent.putExtra("Content", news.content)
-        intent.putExtra("Time", news.createdAt)
+        intent.putExtra("news", news)
         startActivity(intent)
     }
 
