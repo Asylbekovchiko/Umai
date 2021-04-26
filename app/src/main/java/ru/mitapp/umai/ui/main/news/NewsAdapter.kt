@@ -13,8 +13,8 @@ import ru.mitapp.umai.ui.home.service.adapter.ServiceAdapter
 import java.text.SimpleDateFormat
 import java.util.ArrayList
 
-class NewsAdapter(var newsList: ArrayList<News>, var listener: Listener)
-    : RecyclerView.Adapter<NewsAdapter.NewsViewHolder>() {
+class NewsAdapter(var newsList: ArrayList<News>, var listener: Listener) :
+    RecyclerView.Adapter<NewsAdapter.NewsViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NewsViewHolder {
         val binding: ItemNewsBinding? = DataBindingUtil.bind(
@@ -33,22 +33,14 @@ class NewsAdapter(var newsList: ArrayList<News>, var listener: Listener)
         return newsList.size
     }
 
-    class NewsViewHolder(var binding: ItemNewsBinding): RecyclerView.ViewHolder(binding.root) {
+    class NewsViewHolder(var binding: ItemNewsBinding) : RecyclerView.ViewHolder(binding.root) {
         fun onBind(news: News, listener: Listener) {
             binding.news = news
 
             itemView.setOnClickListener {
                 listener.onItemClick(news)
             }
-//            binding.newsTime.text = parseDate(news.createdAt.toString())
         }
-//        @SuppressLint("SimpleDateFormat")
-//        fun parseDate(serverDate: String): String {
-//            var sdf = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SS'Z'")
-//            val date = sdf.parse(serverDate)
-//            sdf = SimpleDateFormat("d MMMM yyyy")
-//            return sdf.format(date!!)
-//        }
     }
 
     interface Listener {

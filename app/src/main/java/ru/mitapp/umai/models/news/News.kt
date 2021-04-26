@@ -11,6 +11,8 @@ data class News(
     @SerializedName("content")var content: String? = null,
     @SerializedName("createdBy")var createdBy: String? = null,
     @SerializedName("__v")var v: Int? = null,
+    //Добавить @SerializedName("ссылку на фото"), когда на сервере добават фото
+    @SerializedName("imageUrl")var imageUrl: String? = null,
     @SerializedName("updatedAt")var updatedAt: Date? = null,
     @SerializedName("updatedBy")var updatedBy: String? = null,
     @SerializedName("createdAt")var createdAt: Date? = null
