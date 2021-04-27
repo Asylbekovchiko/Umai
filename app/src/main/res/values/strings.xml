@@ -84,4 +84,5 @@
     <string name="info">г.Бишкек, Ауэзова 1/2 \nТел.: +996 (312) 637738 \nФакс: +996 (312) 637738 \nE-mail: support@ipc.kg \nСайт: www.ipc.kg"</string>
     <string name="_720083">ЗАО Межбанковский процессинговый центр 720083, Кыргызская Республика</string>
     <string name="qr_code">Это ваш персональный QR-код.<br />Используйте его для принятие средств</string>
+    <string name="format_dd_MMMM_yyyy">dd MMMM yyyy</string>
 </resources>

@@ -23,8 +23,8 @@ fun loadImage(imageView: ImageView, url: String?) {
 }
 
 @SuppressLint("SimpleDateFormat")
-@BindingAdapter("convertDate")
-fun parseDate(textView: TextView, serverDate: Date) {
-    val sdf = SimpleDateFormat("dd MMMM yyyy")
-    textView.text = sdf.format(serverDate)
+@BindingAdapter("convertDate","formatDate")
+fun parseDate(textView: TextView, date: Date, formatDate: String) {
+    val sdf = SimpleDateFormat(formatDate)
+    textView.text = sdf.format(date)
 }

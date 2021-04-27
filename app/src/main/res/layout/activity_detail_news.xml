@@ -5,8 +5,6 @@
 
     <data>
 
-        <import type="android.view.View" />
-
         <variable
             name="news"
             type="ru.mitapp.umai.models.news.News" />
@@ -24,17 +22,9 @@
             tools:context=".ui.main.detail.DetailNewsActivity">
 
 
-            <androidx.appcompat.widget.Toolbar
-                android:id="@+id/detail_toolbar"
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                android:background="?attr/backgroundColor"
-                app:layout_collapseMode="pin"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_scrollFlags="scroll|enterAlways|snap"
-                app:navigationIcon="@drawable/ic_arrow_back_24" />
+            <include
+                layout="@layout/toolbar_back"
+                android:id="@+id/detail_toolbar"/>
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/card_image"
@@ -59,7 +49,8 @@
 
             <TextView
                 android:id="@+id/news_time"
-                convertDate="@{news.createdAt}"
+                app:convertDate="@{news.createdAt}"
+                app:formatDate="@{@string/format_dd_MMMM_yyyy}"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
