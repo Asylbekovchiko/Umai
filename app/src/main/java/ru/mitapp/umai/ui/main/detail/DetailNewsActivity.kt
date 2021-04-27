@@ -7,7 +7,9 @@ import ru.mitapp.umai.databinding.ActivityDetailNewsBinding
 import ru.mitapp.umai.models.news.News
 
 class DetailNewsActivity : BaseActivity<ActivityDetailNewsBinding>(R.layout.activity_detail_news) {
+
     lateinit var toolbar: Toolbar
+
     override fun setupView() {
         toolbar = findViewById(R.id.detail_toolbar)
         setSupportActionBar(toolbar)

@@ -3,8 +3,6 @@ package ru.mitapp.umai.ui.web_view
 import android.app.Activity
 import android.content.Intent
 import android.net.http.SslError
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
 import android.view.KeyEvent
 import android.view.MenuItem
 import android.webkit.SslErrorHandler
@@ -13,18 +11,17 @@ import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.ProgressBar
 import androidx.appcompat.widget.Toolbar
-import androidx.databinding.DataBindingUtil
 import ru.mitapp.umai.R
+import ru.mitapp.umai.base.BaseActivity
 import ru.mitapp.umai.databinding.ActivityWebViewBinding
 
-class WebViewActivity : AppCompatActivity() {
+class WebViewActivity : BaseActivity<ActivityWebViewBinding>(R.layout.activity_web_view) {
 
-    private lateinit var binding : ActivityWebViewBinding
     private val url : String?
     get() = intent.getStringExtra("url")
     private val titleText : String?
     get() = intent.getStringExtra("title")
-    private var  toolbar : Toolbar? = null
+    lateinit var toolbar: Toolbar
 
 
     companion object{
@@ -36,52 +33,56 @@ class WebViewActivity : AppCompatActivity() {
         }
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_web_view)
+    override fun setupView() {
         toolbar = findViewById(R.id.toolbarPartners)
 
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         title = titleText
 
-        binding.webView.settings.javaScriptEnabled = true
-        binding.webView.settings.loadWithOverviewMode = true
-        binding.webView.settings.useWideViewPort = true
-        binding.webView.settings.domStorageEnabled = true
-        /*binding.webView.settings.builtInZoomControls = true*/
+        binding!!.webView.settings.javaScriptEnabled = true
+        binding!!.webView.settings.loadWithOverviewMode = true
+        binding!!.webView.settings.useWideViewPort = true
+        binding!!.webView.settings.domStorageEnabled = true
+        /*bindi!!ng.webView.settings.builtInZoomControls = true*/
 
 
-        binding.webView.webViewClient = object : WebViewClient() {
+        binding!!.webView.webViewClient = object : WebViewClient() {
             override
             fun onReceivedSslError(view: WebView?, handler: SslErrorHandler?, error: SslError?) {
                 handler?.proceed()
             }
         }
 
-        binding.webView.webChromeClient = object : WebChromeClient() {
+        binding!!.webView.webChromeClient = object : WebChromeClient() {
             override fun onProgressChanged(
                 view: WebView,
                 newProgress: Int
             ) {
                 super.onProgressChanged(view, newProgress)
-                binding.progress.progress = newProgress
-                if (newProgress < 100 && binding.progress.visibility == ProgressBar.GONE) {
-                    binding.progress.visibility = ProgressBar.VISIBLE
+                binding!!.progress.progress = newProgress
+                if (newProgress < 100 && binding!!.progress.visibility == ProgressBar.GONE) {
+                    binding!!.progress.visibility = ProgressBar.VISIBLE
                 }
                 if (newProgress == 100) {
-                    binding.progress.visibility = ProgressBar.GONE
+                    binding!!.progress.visibility = ProgressBar.GONE
                 }
             }
         }
 
-        url?.let { binding.webView.loadUrl(it) }
+        url?.let { binding!!.webView.loadUrl(it) }
     }
+
+//    override fun onCreate(savedInstanceState: Bundle?) {
+//        super.onCreate(savedInstanceState)
+//        binding = DataBindingUtil.setContentView(this, R.layout.activity_web_view)
+//
+//    }
 
     override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
 
-        if (keyCode == KeyEvent.KEYCODE_BACK && binding.webView.canGoBack()) {
-            binding.webView.goBack()
+        if (keyCode == KeyEvent.KEYCODE_BACK && binding!!.webView.canGoBack()) {
+            binding!!.webView.goBack()
             return true
         }
         return super.onKeyDown(keyCode, event)
@@ -93,4 +94,6 @@ class WebViewActivity : AppCompatActivity() {
             onBackPressed()
         return true
     }
+
+
 }

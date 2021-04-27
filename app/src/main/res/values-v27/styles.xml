@@ -73,7 +73,16 @@
         <item name="android:textSize">18sp</item>
     </style>
 
-
+    <style name="LightGray_Regular_12" parent="TextAppearance.AppCompat">
+        <item name="android:fontFamily">@font/ubuntu_regular</item>
+        <item name="android:textColor">@color/titleTextColor</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+    <style name="Black_Bold_20" parent="TextAppearance.AppCompat">
+        <item name="android:fontFamily">@font/ubuntu_bold</item>
+        <item name="android:textColor">@color/titleTextColor</item>
+        <item name="android:textSize">20sp</item>
+    </style>
     <style name="Black_Bold_22" parent="TextAppearance.AppCompat">
         <item name="android:fontFamily">@font/ubuntu_bold</item>
         <item name="android:textColor">@color/titleTextColor</item>

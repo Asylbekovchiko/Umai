@@ -1,4 +1,4 @@
-package ru.mitapp.umai.ui.main.fragments
+package ru.mitapp.umai.ui.main.main
 
 import android.content.Intent
 import androidx.lifecycle.ViewModelProviders
@@ -15,8 +15,8 @@ import androidx.recyclerview.widget.SnapHelper
 import ru.mitapp.umai.R
 import ru.mitapp.umai.base.BaseFragment
 import ru.mitapp.umai.databinding.MainFragmentBinding
+import ru.mitapp.umai.ui.home.HomeActivity
 import ru.mitapp.umai.ui.main.adapter.BannerRecyclerAdapter
-import ru.mitapp.umai.ui.main.view_model.MainFragmentViewModel
 import ru.mitapp.umai.ui.registration.activity.RegistrationStartActivity
 import ru.mitapp.umai.ui.web_view.WebViewActivity
 import java.util.*
@@ -59,6 +59,9 @@ class MainFragment : BaseFragment<MainFragmentBinding>(R.layout.main_fragment), 
             }
         })
 
+        binding!!.textView9.setOnClickListener {
+            startActivity(Intent(requireContext(), HomeActivity::class.java))
+        }
 
         Timer().scheduleAtFixedRate(object : TimerTask() {
             override fun run() {

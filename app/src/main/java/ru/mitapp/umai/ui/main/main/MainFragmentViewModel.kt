@@ -1,4 +1,4 @@
-package ru.mitapp.umai.ui.main.view_model
+package ru.mitapp.umai.ui.main.main
 
 import androidx.lifecycle.ViewModel
 
