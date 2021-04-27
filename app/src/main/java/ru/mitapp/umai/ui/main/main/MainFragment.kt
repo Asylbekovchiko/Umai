@@ -1,13 +1,15 @@
 package ru.mitapp.umai.ui.main.main
 
 import android.content.Intent
-import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
+import android.text.Editable
 import android.view.ViewGroup
+import android.widget.CompoundButton
 import android.widget.ImageView
 import android.widget.LinearLayout
 import androidx.core.content.ContextCompat
 import androidx.core.view.get
+import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.PagerSnapHelper
 import androidx.recyclerview.widget.RecyclerView
@@ -15,12 +17,14 @@ import androidx.recyclerview.widget.SnapHelper
 import ru.mitapp.umai.R
 import ru.mitapp.umai.base.BaseFragment
 import ru.mitapp.umai.databinding.MainFragmentBinding
+import ru.mitapp.umai.helper.BaseTextChangeListener
 import ru.mitapp.umai.ui.home.HomeActivity
 import ru.mitapp.umai.ui.main.adapter.BannerRecyclerAdapter
 import ru.mitapp.umai.ui.registration.activity.RegistrationStartActivity
 import ru.mitapp.umai.ui.web_view.WebViewActivity
 import java.util.*
 import kotlin.collections.ArrayList
+
 
 class MainFragment : BaseFragment<MainFragmentBinding>(R.layout.main_fragment), BannerRecyclerAdapter.Listener {
 
@@ -34,6 +38,7 @@ class MainFragment : BaseFragment<MainFragmentBinding>(R.layout.main_fragment), 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(MainFragmentViewModel::class.java)
+        binding!!.viewModel = viewModel
         images.add(R.drawable.banner_1)
         images.add(R.drawable.banner_2)
         images.add(R.drawable.banner_3)
@@ -58,6 +63,18 @@ class MainFragment : BaseFragment<MainFragmentBinding>(R.layout.main_fragment), 
                 }
             }
         })
+
+        binding!!.loginInput.addTextChangedListener(object : BaseTextChangeListener(){
+            override fun afterTextChanged(p1: Editable?) {
+                super.afterTextChanged(p1)
+                checkInputs()
+            }
+        })
+
+        binding!!.checkbox.setOnCheckedChangeListener { _, _ ->
+            checkInputs()
+        }
+
 
         binding!!.textView9.setOnClickListener {
             startActivity(Intent(requireContext(), HomeActivity::class.java))
@@ -92,6 +109,9 @@ class MainFragment : BaseFragment<MainFragmentBinding>(R.layout.main_fragment), 
 
     }
 
+    fun checkInputs(){
+        viewModel.checkInputs(binding!!.loginInput.text.toString(), binding!!.checkbox.isChecked)
+    }
 
     private fun setupOnboardingIndicators()  {
         val imageView  = arrayOfNulls<ImageView>(adapter.itemCount)

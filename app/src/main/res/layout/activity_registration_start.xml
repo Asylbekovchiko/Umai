@@ -15,6 +15,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="?attr/backgroundColor"
         >
 
         <include
@@ -31,6 +32,7 @@
             android:layout_marginStart="18dp"
             android:layout_marginTop="20dp"
             android:textAppearance="@style/Black_Bold_18"
+            android:textColor="?attr/titleTextColor"
             android:text="@string/registration"
             />
 
@@ -46,6 +48,7 @@
             android:layout_marginEnd="18dp"
             android:layout_marginStart="18dp"
             android:textAppearance="@style/SubTitleTextStyle"
+            android:textColor="?attr/subTitleTextColor"
             android:text="@string/registration_info_message"
             android:lineSpacingExtra="5dp"
             />
@@ -62,6 +65,7 @@
             android:layout_marginEnd="18dp"
             android:layout_marginStart="18dp"
             android:textAppearance="@style/DescriptionTextStyle"
+            android:textColor="?attr/descriptionTextColor"
             android:text="@string/registration_info_message_2"
             android:lineSpacingExtra="5dp"
             />
@@ -79,6 +83,7 @@
             android:layout_marginBottom="24dp"
             android:background="@drawable/bg_active_button"
             android:textAppearance="@style/ActiveButtonTextStyle"
+            android:textColor="?attr/buttonActiveTextColor"
             android:text="@string/registration_apply"
             />
 

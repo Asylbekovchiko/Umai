@@ -61,6 +61,7 @@
         <item name="buttonActiveTextColor">#333333</item>
         <item name="android:statusBarColor">@color/white</item>
         <item name="android:windowLightStatusBar">true</item>
+        <item name="descriptionTextColor">#333333</item>
     </style>
 
     <style name="White_Regular_12" parent="TextAppearance.AppCompat">

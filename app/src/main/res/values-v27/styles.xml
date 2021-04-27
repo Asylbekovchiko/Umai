@@ -6,7 +6,7 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="titleTextColor">@color/titleTextColor</item>
-
+        <item name="descriptionTextColor">@color/descriptionTextColor</item>
     </style>
 
 
@@ -14,8 +14,7 @@
         <item name="titleTextColor">#FFFFFF</item>
         <item name="backgroundColor">#000000</item>
         <item name="subTitleTextColor">#FFFFFF</item>
-        <item name="descriptionTextColor">#333333</item>
-        <item name="buttonActiveTextColor">#333333</item>
+        <item name="buttonActiveTextColor">#ffffff</item>
         <item name="buttonInActiveTextColor">#333333</item>
         <item name="android:windowBackground">#000000</item>
         <item name="secendoryBackgroundColor">#212126</item>
@@ -23,6 +22,7 @@
         <item name="android:statusBarColor">@color/colorPrimaryDark</item>
         <item name="inputBgBorderColor">#474A53</item>
         <item name="inputBgColor">#474A53</item>
+        <item name="descriptionTextColor">#333333</item>
     </style>
 
     <style name="SplashScreen" parent="AppTheme">
@@ -36,12 +36,12 @@
         <item name="titleTextColor">@color/titleTextColor</item>
         <item name="subTitleTextColor">@color/subTitleTextColor</item>
         <item name="main_image_shadow_color">#66000014</item>
-        <item name="buttonActiveTextColor">#333333</item>
+        <item name="buttonActiveTextColor">#ffffff</item>
         <item name="android:windowBackground">@color/black</item>
         <item name="secendoryBackgroundColor">#FFFFFF</item>
         <item name="android:statusBarColor">@color/white</item>
         <item name="android:windowLightStatusBar">true</item>
-
+        <item name="descriptionTextColor">#333333</item>
         <item name="android:statusBarColor">@color/colorPrimaryDark</item>
         <item name="inputBgBorderColor">#DBE7F0</item>
         <item name="inputBgColor">#F3F7FA</item>
