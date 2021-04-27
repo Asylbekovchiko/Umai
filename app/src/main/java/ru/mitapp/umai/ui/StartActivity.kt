@@ -8,6 +8,7 @@ import ru.mitapp.umai.R
 import ru.mitapp.umai.base.BaseActivity
 import ru.mitapp.umai.databinding.ActivityStartBinding
 import ru.mitapp.umai.ui.home.HomeActivity
+import ru.mitapp.umai.ui.main.activity.MainActivity
 
 class StartActivity : BaseActivity<ActivityStartBinding>(R.layout.activity_start) {
 
@@ -19,7 +20,7 @@ class StartActivity : BaseActivity<ActivityStartBinding>(R.layout.activity_start
             WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
         );
         Handler().postDelayed({
-            startActivity(Intent(this, HomeActivity::class.java))
+            startActivity(Intent(this, MainActivity::class.java))
             finish()
 
 

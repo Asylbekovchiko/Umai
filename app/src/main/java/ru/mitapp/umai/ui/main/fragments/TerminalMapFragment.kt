@@ -1,6 +1,7 @@
 package ru.mitapp.umai.ui.main.fragments
 
 import android.content.Context
+import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.drawable.Drawable
@@ -12,26 +13,26 @@ import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentActivity
+import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.ViewModelProviders
+import com.bumptech.glide.manager.SupportRequestManagerFragment
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.*
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import ru.mitapp.umai.R
 import ru.mitapp.umai.databinding.TerminalMapFragmentBinding
 import ru.mitapp.umai.models.Terminal
+import ru.mitapp.umai.ui.main.dialog.TerminalMapDialog
 import ru.mitapp.umai.ui.main.view_model.TerminalMapViewModel
 
 
 class TerminalMapFragment(var listener: TerminalListener, var terminals: ArrayList<Terminal>) :
     Fragment(), OnMapReadyCallback {
 
-
+    private lateinit var dialogSheet: TerminalMapDialog
     lateinit var mapFragment: SupportMapFragment
     lateinit var binding: TerminalMapFragmentBinding
     private lateinit var viewModel: TerminalMapViewModel
@@ -43,7 +44,7 @@ class TerminalMapFragment(var listener: TerminalListener, var terminals: ArrayLi
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
+        dialogSheet = TerminalMapDialog()
         binding =
             DataBindingUtil.inflate(inflater, R.layout.terminal_map_fragment, container, false)
         viewModel = ViewModelProviders.of(this).get(TerminalMapViewModel::class.java)
@@ -92,21 +93,28 @@ class TerminalMapFragment(var listener: TerminalListener, var terminals: ArrayLi
             marker.title
 
 
+
+
             for (ter in terminals) {
                 if (ter.name == marker.title) {
+                    val bundle = Bundle()
+                    bundle.putParcelable("terminal",ter)
+                    bundle.putString("key", ter.address.toString())
+                    bundle.putString("time", ter.workingTime.toString())
+                    dialogSheet.arguments = bundle
+                    dialogSheet.show(activity?.supportFragmentManager!!, "")
+
                     Log.d("atms", ter.toString())
                     break
                 }
             }
-
-
-
             true
         }
-
-
     }
 
+    fun moveCamera(terminal: Terminal){
+        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(LatLng(terminal.lat?.toDouble()!!,terminal.lng?.toDouble()!!),20f))
+    }
 
     private fun bitmapDescriptorFromVector(
         context: Context,

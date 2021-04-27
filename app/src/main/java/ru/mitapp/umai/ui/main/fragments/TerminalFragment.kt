@@ -2,6 +2,7 @@ package ru.mitapp.umai.ui.main.fragments
 
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
+import android.util.Log
 import android.widget.TableLayout
 import androidx.lifecycle.Observer
 import com.google.android.material.tabs.TabLayout
@@ -54,6 +55,12 @@ class TerminalFragment : BaseFragment<TerminalFragmentBinding>(R.layout.terminal
 
     }
 
+    fun setLocation(terminal: Terminal){
+        Log.d("LocationUpdate", "setLocation: ")
+        binding!!.terminalTab.selectTab(binding?.terminalTab?.getTabAt(0))
+        terminalMapFragment?.moveCamera(terminal)
+    }
+
     private fun setupPager() {
         binding!!.terminalTab.tabGravity = TabLayout.GRAVITY_FILL
         binding!!.terminalTab.tabMode = TabLayout.MODE_FIXED
@@ -67,7 +74,9 @@ class TerminalFragment : BaseFragment<TerminalFragmentBinding>(R.layout.terminal
     }
 
     override fun showInMap(terminal: Terminal) {
-
+        Log.d("loc", "Location: ")
+        binding!!.terminalTab.selectTab(binding?.terminalTab?.getTabAt(0))
+        terminalMapFragment?.moveCamera(terminal)
     }
 
 }

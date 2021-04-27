@@ -1,7 +1,10 @@
 package ru.mitapp.umai.models
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
+@Parcelize
 data class Terminal(
         @SerializedName("_id") var id: String? = null,
         @SerializedName("name") var name: String? = null,
@@ -14,4 +17,4 @@ data class Terminal(
         @SerializedName("deleted") var deleted: Boolean? = null,
         @SerializedName("workingTime") var workingTime: String? = null
 
-)
+):Parcelable

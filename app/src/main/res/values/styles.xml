@@ -227,6 +227,11 @@
         <item name="android:textSize">14sp</item>
         <item name="android:textStyle">normal</item>
     </style>
+    <style name="StreetTitle" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">?attr/subTitleTextColor</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">normal</item>
+    </style>
 
     <style name="Black_Bold_32" parent="TextAppearance.AppCompat">
         <item name="android:fontFamily">@font/ubuntu_bold</item>
