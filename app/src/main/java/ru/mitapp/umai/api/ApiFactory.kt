@@ -1,6 +1,7 @@
 package ru.mitapp.umai.api
 
 import android.content.Context
+import com.google.gson.GsonBuilder
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import okhttp3.JavaNetCookieJar
 import okhttp3.OkHttpClient
@@ -14,34 +15,37 @@ import java.util.concurrent.TimeUnit
 
 class ApiFactory(var context: Context) {
 
-    private val BASE_URL : String = "https://umai.kg/"
+    private val BASE_URL: String = "https://umai.kg/"
     private lateinit var retrofit: Retrofit
 
 
-
     private fun getRetrofitClient(): Retrofit? {
-            val cookieManager = CookieManager()
-            cookieManager.setCookiePolicy(CookiePolicy.ACCEPT_ALL)
-            val logging = HttpLoggingInterceptor().apply {
-                level = if (BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BODY else HttpLoggingInterceptor.Level.NONE
-            }
-            val oktHttpClient = OkHttpClient.Builder()
-                .connectTimeout(
-                    30,
-                    TimeUnit.MINUTES
-                )
-                .writeTimeout(30, TimeUnit.MINUTES)
-                .readTimeout(30, TimeUnit.MINUTES)
-                .addInterceptor(ConnectivityInterceptor(context))
-                .cookieJar(JavaNetCookieJar(cookieManager))
+        val cookieManager = CookieManager()
+        cookieManager.setCookiePolicy(CookiePolicy.ACCEPT_ALL)
+        val logging = HttpLoggingInterceptor().apply {
+            level =
+                if (BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BODY else HttpLoggingInterceptor.Level.NONE
+        }
+
+        val date = GsonBuilder().setDateFormat("yyyy-MM-dd'T'HH:mm:ss.SS'Z'").create()
+
+        val oktHttpClient = OkHttpClient.Builder()
+            .connectTimeout(
+                30,
+                TimeUnit.MINUTES
+            )
+            .writeTimeout(30, TimeUnit.MINUTES)
+            .readTimeout(30, TimeUnit.MINUTES)
+            .addInterceptor(ConnectivityInterceptor(context))
+            .cookieJar(JavaNetCookieJar(cookieManager))
         oktHttpClient.addInterceptor(logging)
 
-            retrofit = Retrofit.Builder()
-                .baseUrl(BASE_URL)
-                .client(oktHttpClient.build())
-                .addConverterFactory(GsonConverterFactory.create())
-                .addCallAdapterFactory(CoroutineCallAdapterFactory())
-                .build()
+        retrofit = Retrofit.Builder()
+            .baseUrl(BASE_URL)
+            .client(oktHttpClient.build())
+            .addConverterFactory(GsonConverterFactory.create(date))
+            .addCallAdapterFactory(CoroutineCallAdapterFactory())
+            .build()
 
         return retrofit
     }
@@ -50,7 +54,8 @@ class ApiFactory(var context: Context) {
         val cookieManager = CookieManager()
         cookieManager.setCookiePolicy(CookiePolicy.ACCEPT_ALL)
         val logging = HttpLoggingInterceptor().apply {
-            level = if (BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BODY else HttpLoggingInterceptor.Level.BODY
+            level =
+                if (BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BODY else HttpLoggingInterceptor.Level.BODY
         }
         val oktHttpClient = OkHttpClient.Builder()
             .connectTimeout(
@@ -59,16 +64,16 @@ class ApiFactory(var context: Context) {
             )
             .writeTimeout(5, TimeUnit.MINUTES)
             .readTimeout(5, TimeUnit.MINUTES)
-           /* .addInterceptor{
-                if (!NetworkUtil.isOnline(context)) {
-                    throw NoConnectivityException()
-                }
+            /* .addInterceptor{
+                 if (!NetworkUtil.isOnline(context)) {
+                     throw NoConnectivityException()
+                 }
 
-                val builder = it.request().newBuilder()
-                return@addInterceptor it.proceed(builder.build())
-            }*/
+                 val builder = it.request().newBuilder()
+                 return@addInterceptor it.proceed(builder.build())
+             }*/
             .cookieJar(JavaNetCookieJar(cookieManager))
-             oktHttpClient.addInterceptor(logging)
+        oktHttpClient.addInterceptor(logging)
 
         retrofit = Retrofit.Builder()
             .baseUrl(BASE_URL)
@@ -80,8 +85,9 @@ class ApiFactory(var context: Context) {
         return retrofit
     }
 
-    val apiInterface : ApiInterface = getRetrofitClient()!!.create(ApiInterface::class.java)
-    val loginApiInterface : ApiInterface = getLoginRetrofitClient()!!.create(ApiInterface::class.java)
+    val apiInterface: ApiInterface = getRetrofitClient()!!.create(ApiInterface::class.java)
+    val loginApiInterface: ApiInterface =
+        getLoginRetrofitClient()!!.create(ApiInterface::class.java)
 
 }
 

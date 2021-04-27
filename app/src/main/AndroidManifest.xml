@@ -30,6 +30,9 @@
         <activity android:name=".ui.main.dialog.TerminalMapDialog"></activity>
         <activity android:name=".ui.home.service.activity.SubCategoryActivity" />
         <activity android:name=".ui.home.history.detail.DetailHistoryActivity" />
+        <activity android:name=".ui.main.detail.DetailNewsActivity"/>
+        <activity android:name=".ui.home.service.activity.SubCategoryActivity" />
+        <activity android:name=".ui.home.history.detail.DetailHistoryActivity" />
         <activity android:name=".ui.home.main.transactions.activities.TransactionSuccessActivity" />
         <activity android:name=".ui.home.main.transactions.activities.TransactionFoundActivity" />
         <activity android:name=".ui.home.main.transactions.activities.TransactionActivity" />
@@ -69,11 +72,13 @@
             android:name=".ui.StartActivity"
             android:screenOrientation="portrait"
             android:theme="@style/SplashScreen">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
         <activity
             android:name=".ui.main.activity.MainActivity"
@@ -93,5 +98,6 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyAACmBp7mn0_8_hsnZza1Gauv4JVe14WDY" />
     </application>
+
 
 </manifest>

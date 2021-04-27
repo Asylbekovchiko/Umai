@@ -5,7 +5,7 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import ru.mitapp.umai.ui.main.fragments.MainFragment
 import ru.mitapp.umai.ui.main.fragments.TerminalFragment
-import ru.mitapp.umai.ui.main.fragments.NewsFragment
+import ru.mitapp.umai.ui.main.news.NewsFragment
 
 class MainPagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
 
