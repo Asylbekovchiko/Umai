@@ -9,6 +9,7 @@ private const val IS_CITIZEN = "is_citizen"
 private const val IS_DARK_THEM = "is_dark_theme"
 private const val UMAI_PREFERENCE = "UmaiPrefs"
 private const val THEME_PREFERENCE = "ThemePrefs"
+private const val TOKEN = "token"
 
 
 class SharedPreference(context: Context){
@@ -25,6 +26,16 @@ class SharedPreference(context: Context){
         set(value) {
             pref.edit {
                 putBoolean(IS_FIRST_START, value)
+            }
+        }
+
+    var token: String?
+        get() {
+            return pref.getString(TOKEN, null)
+        }
+        set(value) {
+            pref.edit {
+                putString(TOKEN, value)
             }
         }
 

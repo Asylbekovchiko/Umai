@@ -13,6 +13,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.PagerSnapHelper
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.SnapHelper
+import com.android.tools.build.jetifier.core.utils.Log
+import ru.mitapp.umai.AppUmai.Companion.sharedPreferences
 import ru.mitapp.umai.R
 import ru.mitapp.umai.base.BaseFragment
 import ru.mitapp.umai.databinding.MainFragmentBinding
@@ -110,6 +112,11 @@ class MainFragment : BaseFragment<MainFragmentBinding>(R.layout.main_fragment),
             setPhone()
             createUser()
         }
+//        if (sharedPreferences.token!=null){
+//            val intent = Intent(activity, RegistrationStartActivity::class.java)
+//            startActivity(intent)
+//        }
+        requireContext().showToast("token: ${sharedPreferences.token.toString()}")
 
     }
 
@@ -178,6 +185,12 @@ class MainFragment : BaseFragment<MainFragmentBinding>(R.layout.main_fragment),
         viewModel.createUser.observe(requireActivity(), androidx.lifecycle.Observer {
             if (it.data != null){
                 requireActivity().showToast("Success")
+//                Log.i("SuccessToken", it.data!!.token.toString())
+                sharedPreferences.token = it.data!!.token
+                if (sharedPreferences.token!=null){
+                    val intent = Intent(activity, RegistrationStartActivity::class.java)
+                    startActivity(intent)
+                }
             }else{
                 requireActivity().showToast(it.errorMessage)
             }
