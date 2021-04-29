@@ -4,6 +4,8 @@ import ru.mitapp.umai.api.ApiInterface
 import ru.mitapp.umai.base.BaseModel
 import ru.mitapp.umai.models.Terminal
 import ru.mitapp.umai.models.news.News
+import ru.mitapp.umai.models.register.CreateUser
+import ru.mitapp.umai.models.register.UserToken
 
 
 class MainRepository(var api: ApiInterface) : BaseRepository() {
@@ -20,5 +22,9 @@ class MainRepository(var api: ApiInterface) : BaseRepository() {
         return response as BaseModel<ArrayList<News>>
     }
 
+    suspend fun createUser(user: CreateUser) : BaseModel<UserToken>{
+        val response = safeApiCall {api.createUser(user).await()}
 
+        return response as BaseModel<UserToken>
+    }
 }

@@ -146,6 +146,7 @@
                 android:checked="true"
                 android:textAppearance="@style/Black_Regular_14"
                 android:textColor="?attr/titleTextColor"
+                android:buttonTint="@color/colorPrimary"
                 android:text="Регистрируясь, вы соглашаетесь с"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/forgot_password" />

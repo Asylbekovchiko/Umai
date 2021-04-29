@@ -22,7 +22,7 @@
         <item name="android:statusBarColor">@color/colorPrimaryDark</item>
         <item name="inputBgBorderColor">#474A53</item>
         <item name="inputBgColor">#474A53</item>
-        <item name="descriptionTextColor">#333333</item>
+        <item name="descriptionTextColor">#BABCC4</item>
     </style>
 
     <style name="SplashScreen" parent="AppTheme">
@@ -41,7 +41,7 @@
         <item name="secendoryBackgroundColor">#FFFFFF</item>
         <item name="android:statusBarColor">@color/white</item>
         <item name="android:windowLightStatusBar">true</item>
-        <item name="descriptionTextColor">#333333</item>
+        <item name="descriptionTextColor">#BABCC4</item>
         <item name="android:statusBarColor">@color/colorPrimaryDark</item>
         <item name="inputBgBorderColor">#DBE7F0</item>
         <item name="inputBgColor">#F3F7FA</item>
