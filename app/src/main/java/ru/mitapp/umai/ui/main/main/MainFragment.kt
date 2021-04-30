@@ -106,7 +106,7 @@ class MainFragment : BaseFragment<MainFragmentBinding>(R.layout.main_fragment),
         }
 //        createUser()
         binding!!.loginButton.setOnClickListener {
-            val intent = Intent(activity, SmsCodeActivity::class.java)
+            val intent = Intent(activity, RegistrationStartActivity::class.java)
             val phone = binding!!.loginInput.text.toString()
             intent.putExtra("phone", phone)
 //            setPhone(phone)

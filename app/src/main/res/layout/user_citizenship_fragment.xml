@@ -24,6 +24,7 @@
             android:layout_marginTop="30dp"
             android:layout_marginEnd="18dp"
             android:text="@string/user_citizenship_title"
+            android:textColor="?attr/titleTextColor"
             android:textAppearance="@style/Black_Bold_18"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -45,14 +46,16 @@
                 android:id="@+id/citizen_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/iam_citizen_kyrgyzstan" />
+                android:text="@string/iam_citizen_kyrgyzstan"
+                android:textColor="?attr/titleTextColor"/>
 
 
             <RadioButton
                 android:id="@+id/not_citizen_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/iam_not_citizen_kyrgyzstan" />
+                android:text="@string/iam_not_citizen_kyrgyzstan"
+                android:textColor="?attr/titleTextColor"/>
 
         </RadioGroup>
 

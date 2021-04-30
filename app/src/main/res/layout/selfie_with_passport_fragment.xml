@@ -23,6 +23,7 @@
             android:id="@+id/start_selfie_container"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="?attr/backgroundColor"
             >
 
 
@@ -47,6 +48,7 @@
                 android:layout_marginEnd="18dp"
                 android:text="@string/selfie_title"
                 android:textAppearance="@style/Black_Bold_18"
+                android:textColor="?attr/titleTextColor"
                 android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
