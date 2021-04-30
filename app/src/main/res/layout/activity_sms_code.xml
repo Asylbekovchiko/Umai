@@ -4,8 +4,7 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".ui.registration.activity.SmsCodeActivity"
-    >
+    tools:context=".ui.registration.activity.SmsCodeActivity">
 
 
     <data>
@@ -16,45 +15,179 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="?attr/backgroundColor"
-        >
+        android:background="?attr/backgroundColor">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/pin_edit_tetxt">
+
+            <TextView
+
+                android:id="@+id/textView22"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Код придет через:"
+                android:textAlignment="center"
+                android:textAppearance="@style/Black_Regular_14"
+                android:textColor="?attr/subTitleTextColor"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/text_timer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:text="20"
+                android:textAppearance="@style/Black_Regular_14"
+                android:textColor="?attr/titleTextColor"
+                app:layout_constraintStart_toEndOf="@+id/textView22"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <include
             android:id="@+id/toolbarPartners"
-            layout="@layout/toolbar_back"
-            />
+            layout="@layout/toolbar_back" />
 
 
         <ImageButton
             android:id="@+id/sms_icon"
             android:layout_width="48dp"
             android:layout_height="48dp"
-            app:layout_constraintTop_toBottomOf="@+id/toolbarPartners"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="8dp"
-            android:background="@drawable/bg_active_button"
-            app:srcCompat="@drawable/ic_sms_code"
             android:clickable="false"
-            />
-        
-        
-        <TextView
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbarPartners"
+            app:srcCompat="@drawable/ic_icon_message" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/sms_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="50dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sms_icon">
+
+            <TextView
+
+                android:id="@+id/textView21"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="На номер"
+                android:textAlignment="center"
+                android:textAppearance="@style/Black_Regular_18"
+                android:textColor="?attr/titleTextColor"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView19"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:textAppearance="@style/Black_Bold_18"
+                android:textColor="?attr/titleTextColor"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/textView21"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView20"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="выслан смс код"
+                android:textAppearance="@style/Black_Regular_18"
+                android:textColor="?attr/titleTextColor"
+                app:layout_constraintEnd_toEndOf="@+id/textView19"
+                app:layout_constraintStart_toStartOf="@+id/textView21"
+                app:layout_constraintTop_toBottomOf="@+id/textView19" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/textView18"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="64dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="64dp"
+            android:text="Пожалуйста введите его для входа в электронный кошелек Umai"
+            android:textAlignment="center"
+            android:textAppearance="@style/White_Regular_12"
+            android:textColor="?attr/subTitleTextColor"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sms_title"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <com.chaos.view.PinView
+            android:id="@+id/pin_edit_tetxt"
+            style="@style/PinWidget.PinView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:inputType="number"
+            android:itemBackground="@drawable/pin_bg"
+            app:itemHeight="56dp"
+            app:itemSpacing="12dp"
+            app:itemWidth="48dp"
+            app:lineWidth="0dp"
+            app:itemCount="5"
+            app:lineColor="#00ffffff"
+            android:textAppearance="@style/Black_Bold_16"
+            android:textColor="?attr/subTitleTextColor"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView18"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <Button
+            android:id="@+id/login_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@+id/sms_icon"
-            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="74dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="74dp"
+            android:padding="16dp"
+            android:text="Отправить"
+            android:textAllCaps="false"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:background="@drawable/bg_in_active_button"
+            android:textColor="@color/buttonInActiveTextColor"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="20dp"
-            android:layout_marginStart="53dp"
-            android:layout_marginEnd="53dp"
-            android:textSize="18sp"
-            android:textAlignment="center"
-            android:text="На номер +996(555)31-31-20 выслан смс код"
-            android:textColor="?attr/titleTextColor"
-            />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout3" />
 
+        <TextView
+            android:id="@+id/not_true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:padding="20dp"
+            android:text="Неверный номер?"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/login_button" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>

@@ -24,6 +24,7 @@ import ru.mitapp.umai.models.register.CreateUser
 import ru.mitapp.umai.ui.home.HomeActivity
 import ru.mitapp.umai.ui.main.adapter.BannerRecyclerAdapter
 import ru.mitapp.umai.ui.registration.activity.RegistrationStartActivity
+import ru.mitapp.umai.ui.registration.activity.SmsCodeActivity
 import ru.mitapp.umai.ui.web_view.WebViewActivity
 import java.util.*
 import kotlin.collections.ArrayList
@@ -39,8 +40,7 @@ class MainFragment : BaseFragment<MainFragmentBinding>(R.layout.main_fragment),
     var images: ArrayList<Int> = ArrayList()
 
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
+    override fun setupView() {
         viewModel = ViewModelProvider(this).get(MainFragmentViewModel::class.java)
         binding!!.viewModel = viewModel
         images.add(R.drawable.banner_1)
@@ -104,23 +104,20 @@ class MainFragment : BaseFragment<MainFragmentBinding>(R.layout.main_fragment),
                 getString(R.string.terms_of_use)
             )
         }
-
+//        createUser()
         binding!!.loginButton.setOnClickListener {
-//            val intent = Intent(activity, RegistrationStartActivity::class.java)
-//            startActivity(intent)
-
-            setPhone()
-            createUser()
+            val intent = Intent(activity, SmsCodeActivity::class.java)
+            val phone = binding!!.loginInput.text.toString()
+            intent.putExtra("phone", phone)
+//            setPhone(phone)
+//            viewModel.createUser(user)
+            startActivity(intent)
         }
 //        if (sharedPreferences.token!=null){
 //            val intent = Intent(activity, RegistrationStartActivity::class.java)
 //            startActivity(intent)
 //        }
-        requireContext().showToast("token: ${sharedPreferences.token.toString()}")
-
-    }
-
-    override fun setupView() {
+//        requireContext().showToast("token: ${sharedPreferences.token.toString()}")
 
     }
 
@@ -168,8 +165,8 @@ class MainFragment : BaseFragment<MainFragmentBinding>(R.layout.main_fragment),
         }
     }
 
-    private fun setPhone(){
-        val phone = binding!!.loginInput.text.toString()
+    private fun setPhone(phone: String){
+
         val replacePhone = phone.replace("+", "").replace("(", "")
             .replace(")", "")
             .replace("-", "")
@@ -181,18 +178,19 @@ class MainFragment : BaseFragment<MainFragmentBinding>(R.layout.main_fragment),
     }
 
     private fun createUser() {
-        viewModel.createUser(user)
+
         viewModel.createUser.observe(requireActivity(), androidx.lifecycle.Observer {
             if (it.data != null){
                 requireActivity().showToast("Success")
-//                Log.i("SuccessToken", it.data!!.token.toString())
                 sharedPreferences.token = it.data!!.token
                 if (sharedPreferences.token!=null){
                     val intent = Intent(activity, RegistrationStartActivity::class.java)
                     startActivity(intent)
                 }
+            }else if (it.responseCode == 422){
+                requireActivity().showToast("Такой номер уже существует")
             }else{
-                requireActivity().showToast(it.errorMessage)
+                requireActivity().showToast("Неизвестная ошибка сервера")
             }
         })
     }
