@@ -225,7 +225,7 @@
                         android:padding="16dp"
                         android:textAppearance="@style/LightGray_Regular_16"
                         android:textColor="?attr/titleTextColor"
-                        android:textColorHint="@color/colorHint"/>
+                        android:textColorHint="@color/colorHint" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 

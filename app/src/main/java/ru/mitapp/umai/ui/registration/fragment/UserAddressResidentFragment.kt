@@ -1,30 +1,37 @@
 package ru.mitapp.umai.ui.registration.fragment
 
+import android.text.Editable
 import android.view.View
 import android.widget.AdapterView
+import android.widget.AdapterView.OnItemSelectedListener
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import ru.mitapp.umai.R
 import ru.mitapp.umai.base.BaseFragment
 import ru.mitapp.umai.databinding.UserAddressResidentFragmentBinding
+import ru.mitapp.umai.helper.BaseTextChangeListener
 import ru.mitapp.umai.models.SpinnerModel
 import ru.mitapp.umai.ui.registration.adapter.SpinnerCustomAdapter
 import ru.mitapp.umai.ui.registration.listener.IdentificationListener
 import ru.mitapp.umai.ui.registration.viewmodel.UserAddressResidentViewModel
 
-class UserAddressResidentFragment(var listener: IdentificationListener) : BaseFragment<UserAddressResidentFragmentBinding>(R.layout.user_address_resident_fragment){
+
+class UserAddressResidentFragment(var listener: IdentificationListener) :
+    BaseFragment<UserAddressResidentFragmentBinding>(R.layout.user_address_resident_fragment) {
 
 
     private lateinit var viewModel: UserAddressResidentViewModel
-    var regionList : ArrayList<SpinnerModel> = ArrayList()
-    var districtList : ArrayList<SpinnerModel> = ArrayList()
-    var cityList : ArrayList<SpinnerModel> = ArrayList()
-    private lateinit var regionSpinnerAdapter : SpinnerCustomAdapter
-    private lateinit var districtSpinnerAdapter : SpinnerCustomAdapter
-    private lateinit var citySpinnerAdapter : SpinnerCustomAdapter
+    var regionList: ArrayList<SpinnerModel> = ArrayList()
+    var districtList: ArrayList<SpinnerModel> = ArrayList()
+    var cityList: ArrayList<SpinnerModel> = ArrayList()
+    private lateinit var regionSpinnerAdapter: SpinnerCustomAdapter
+    private lateinit var districtSpinnerAdapter: SpinnerCustomAdapter
+    private lateinit var citySpinnerAdapter: SpinnerCustomAdapter
 
     override fun setupView() {
         viewModel = ViewModelProvider(this).get(UserAddressResidentViewModel::class.java)
+
+        binding!!.viewModel = viewModel
 
         fillRegionList()
         fillDistrictList()
@@ -42,10 +49,91 @@ class UserAddressResidentFragment(var listener: IdentificationListener) : BaseFr
         binding!!.districtSpinner.onItemSelectedListener = spinerListener
         binding!!.citySpinner.onItemSelectedListener = spinerListener
 
-        binding!!.nextButton.setOnClickListener{
+        binding!!.nextButton.setOnClickListener {
             listener.onNextButtonClick()
         }
 
+        setUpInputs()
+    }
+
+    fun setUpInputs(){
+        binding!!.regionSpinner.onItemSelectedListener = object : OnItemSelectedListener {
+            override fun onItemSelected(
+                parentView: AdapterView<*>?,
+                selectedItemView: View,
+                position: Int,
+                id: Long
+            ) {
+                checkInputs()
+            }
+
+            override fun onNothingSelected(parentView: AdapterView<*>?) {
+                // Here comes when you didnt choose anything from your spinner logic
+            }
+        }
+        binding!!.districtSpinner.onItemSelectedListener = object : OnItemSelectedListener {
+            override fun onItemSelected(
+                parentView: AdapterView<*>?,
+                selectedItemView: View,
+                position: Int,
+                id: Long
+            ) {
+                checkInputs()
+            }
+
+            override fun onNothingSelected(parentView: AdapterView<*>?) {
+                // Here comes when you didnt choose anything from your spinner logic
+            }
+        }
+        binding!!.citySpinner.onItemSelectedListener = object : OnItemSelectedListener {
+            override fun onItemSelected(
+                parentView: AdapterView<*>?,
+                selectedItemView: View,
+                position: Int,
+                id: Long
+            ) {
+                checkInputs()
+            }
+
+            override fun onNothingSelected(parentView: AdapterView<*>?) {
+                // Here comes when you didnt choose anything from your spinner logic
+            }
+        }
+
+        binding!!.streetInput.addTextChangedListener(object : BaseTextChangeListener(){
+            override fun afterTextChanged(p1: Editable?) {
+                super.afterTextChanged(p1)
+                checkInputs()
+            }
+        })
+        binding!!.houseInput.addTextChangedListener(object : BaseTextChangeListener(){
+            override fun afterTextChanged(p1: Editable?) {
+                super.afterTextChanged(p1)
+                checkInputs()
+            }
+        })
+        binding!!.apartmentInput.addTextChangedListener(object : BaseTextChangeListener(){
+            override fun afterTextChanged(p1: Editable?) {
+                super.afterTextChanged(p1)
+                checkInputs()
+            }
+        })
+        binding!!.addressCb.setOnCheckedChangeListener { _, _ ->
+            checkInputs()
+        }
+
+    }
+
+    fun checkInputs() {
+        viewModel.checkInputs(
+            binding!!.regionSpinner.selectedItem.toString(),
+            binding!!.districtSpinner.selectedItem.toString(),
+            binding!!.citySpinner.selectedItem.toString(),
+            binding!!.streetInput.text.toString(),
+            binding!!.houseInput.text.toString(),
+            binding!!.apartmentInput.text.toString(),
+            binding!!.addressCb.isChecked
+        )
     }
 
     private fun fillRegionList() {
@@ -84,14 +172,18 @@ class UserAddressResidentFragment(var listener: IdentificationListener) : BaseFr
     }
 
 
-    var spinerListener = object : AdapterView.OnItemSelectedListener{
+    var spinerListener = object : AdapterView.OnItemSelectedListener {
         override fun onNothingSelected(p0: AdapterView<*>?) {
 
         }
 
         override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
-            if (p0!!.selectedItemPosition != 0){
-                Toast.makeText(requireActivity(), "${regionList[p0.selectedItemPosition].name} ${regionList[p0.selectedItemPosition].id}", Toast.LENGTH_LONG).show()
+            if (p0!!.selectedItemPosition != 0) {
+                Toast.makeText(
+                    requireActivity(),
+                    "${regionList[p0.selectedItemPosition].name} ${regionList[p0.selectedItemPosition].id}",
+                    Toast.LENGTH_LONG
+                ).show()
             }
 
         }

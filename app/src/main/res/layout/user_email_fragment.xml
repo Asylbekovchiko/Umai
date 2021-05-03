@@ -7,6 +7,9 @@
 
     <data>
 
+        <variable
+            name="viewModel"
+            type="ru.mitapp.umai.ui.registration.viewmodel.UserEmailViewModel" />
 
     </data>
 
@@ -105,11 +108,12 @@
             android:layout_marginStart="18dp"
             android:layout_marginEnd="18dp"
             android:layout_marginBottom="20dp"
-            android:background="@drawable/bg_in_active_button"
             android:text="@string/next_button"
             android:textAllCaps="false"
-            android:textColor="@color/buttonInActiveTextColor"
             android:textStyle="bold"
+            android:background="@{viewModel.isButtonActive() ? @drawable/bg_active_button : @drawable/bg_in_active_button}"
+            android:enabled="@{viewModel.isButtonActive()}"
+            android:textColor="@{viewModel.isButtonActive() ? @color/buttonActiveTextColor : @color/buttonInActiveTextColor}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
