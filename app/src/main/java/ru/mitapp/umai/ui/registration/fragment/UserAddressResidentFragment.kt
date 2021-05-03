@@ -62,25 +62,25 @@ class UserAddressResidentFragment(var listener: IdentificationListener) : BaseFr
 
     private fun fillDistrictList() {
         districtList.add(SpinnerModel("Выбрать район", 0))
-//        districtList.add(SpinnerModel("Чуйская область", 1))
-//        districtList.add(SpinnerModel("Ошская область", 2))
-//        districtList.add(SpinnerModel("Нарынска область", 3))
-//        districtList.add(SpinnerModel("Таласка область", 4))
-//        districtList.add(SpinnerModel("Жалалабадская область", 5))
-//        districtList.add(SpinnerModel("Ысыкульская область", 6))
-//        districtList.add(SpinnerModel("Баткенская область", 7))
+        districtList.add(SpinnerModel("Чуйская область", 1))
+        districtList.add(SpinnerModel("Ошская область", 2))
+        districtList.add(SpinnerModel("Нарынска область", 3))
+        districtList.add(SpinnerModel("Таласка область", 4))
+        districtList.add(SpinnerModel("Жалалабадская область", 5))
+        districtList.add(SpinnerModel("Ысыкульская область", 6))
+        districtList.add(SpinnerModel("Баткенская область", 7))
     }
 
 
     private fun fillCityList() {
         cityList.add(SpinnerModel("Выбрать город", 0))
-//        cityList.add(SpinnerModel("Чуйская область", 1))
-//        cityList.add(SpinnerModel("Ошская область", 2))
-//        cityList.add(SpinnerModel("Нарынска область", 3))
-//        cityList.add(SpinnerModel("Таласка область", 4))
-//        cityList.add(SpinnerModel("Жалалабадская область", 5))
-//        cityList.add(SpinnerModel("Ысыкульская область", 6))
-//        cityList.add(SpinnerModel("Баткенская область", 7))
+        cityList.add(SpinnerModel("Чуйская область", 1))
+        cityList.add(SpinnerModel("Ошская область", 2))
+        cityList.add(SpinnerModel("Нарынска область", 3))
+        cityList.add(SpinnerModel("Таласка область", 4))
+        cityList.add(SpinnerModel("Жалалабадская область", 5))
+        cityList.add(SpinnerModel("Ысыкульская область", 6))
+        cityList.add(SpinnerModel("Баткенская область", 7))
     }
 
 

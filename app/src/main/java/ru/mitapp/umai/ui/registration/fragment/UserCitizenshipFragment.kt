@@ -13,20 +13,25 @@ import ru.mitapp.umai.databinding.UserCitizenshipFragmentBinding
 import ru.mitapp.umai.ui.registration.listener.IdentificationListener
 import ru.mitapp.umai.ui.registration.viewmodel.UserCitizenshipViewModel
 
-class UserCitizenshipFragment(var listener : IdentificationListener) : BaseFragment<UserCitizenshipFragmentBinding>(R.layout.user_citizenship_fragment) {
+class UserCitizenshipFragment(var listener: IdentificationListener) :
+    BaseFragment<UserCitizenshipFragmentBinding>(R.layout.user_citizenship_fragment) {
 
     private lateinit var viewModel: UserCitizenshipViewModel
 
     override fun setupView() {
         viewModel = ViewModelProviders.of(this).get(UserCitizenshipViewModel::class.java)
 
-        binding!!.radioGroup.setOnCheckedChangeListener{ _,  buttonId ->
+        binding!!.radioGroup.setOnCheckedChangeListener { _, buttonId ->
             AppUmai.sharedPreferences.isCitizen = buttonId == R.id.citizen_button
         }
 
-        binding!!.citizenButton.isChecked = AppUmai.sharedPreferences.isCitizen
+        if (AppUmai.sharedPreferences.isCitizen) {
+            binding!!.citizenButton.isChecked = AppUmai.sharedPreferences.isCitizen
+        }else{
+            binding!!.citizenButton.isChecked = true
+        }
 
-        binding!!.nextButton.setOnClickListener{
+        binding!!.nextButton.setOnClickListener {
             listener.onNextButtonClick()
         }
 

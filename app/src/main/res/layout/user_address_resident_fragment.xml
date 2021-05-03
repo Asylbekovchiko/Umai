@@ -36,10 +36,11 @@
                     android:layout_marginTop="30dp"
                     android:layout_marginEnd="18dp"
                     android:text="@string/user_address_title"
-                    android:textAppearance="@style/Black_Bold_18"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:textAppearance="@style/Black_Bold_18"
+                    android:textColor="?attr/titleTextColor"/>
 
 
                 <LinearLayout
@@ -58,20 +59,21 @@
                         android:id="@+id/region_title"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/region_title" />
+                        android:text="@string/region_title"
+                        android:textColor="?attr/subTitleTextColor"/>
 
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
-                        android:background="@drawable/bg_main_input">
+                        android:background="@drawable/edt_active">
 
                         <Spinner
                             android:id="@+id/region_spinner"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-
+                            android:popupBackground="?attr/backgroundColor"
                             />
                     </LinearLayout>
 
@@ -95,20 +97,21 @@
                         android:id="@+id/district_title"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/district_title" />
+                        android:text="@string/district_title"
+                        android:textColor="?attr/subTitleTextColor"/>
 
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
-                        android:background="@drawable/bg_main_input">
+                        android:background="@drawable/edt_active">
 
                         <Spinner
                             android:id="@+id/district_spinner"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-
+                            android:popupBackground="?attr/backgroundColor"
                             />
                     </LinearLayout>
 
@@ -131,20 +134,21 @@
                         android:id="@+id/city_title"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/city_title" />
+                        android:text="@string/city_title"
+                        android:textColor="?attr/subTitleTextColor"/>
 
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
-                        android:background="@drawable/bg_main_input">
+                        android:background="@drawable/edt_active">
 
                         <Spinner
                             android:id="@+id/city_spinner"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-
+                            android:popupBackground="?attr/backgroundColor"
                             />
                     </LinearLayout>
 
@@ -159,6 +163,9 @@
                     android:layout_marginTop="30dp"
                     android:layout_marginEnd="18dp"
                     android:orientation="vertical"
+                    android:textAppearance="@style/LightGray_Regular_16"
+                    android:textColor="?attr/titleTextColor"
+                    android:textColorHint="@color/colorHint"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/city_layout">
@@ -168,14 +175,16 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="32dp"
-                        android:background="@drawable/bg_main_input"
+                        android:background="@drawable/edt_active"
                         android:hint="@string/street_name"
                         android:inputType="text"
                         android:paddingStart="16dp"
                         android:paddingTop="16dp"
                         android:paddingEnd="16dp"
                         android:paddingBottom="16dp"
-                        android:textColorHint="@color/titleTextColor" />
+                        android:textAppearance="@style/LightGray_Regular_16"
+                        android:textColor="?attr/titleTextColor"
+                        android:textColorHint="@color/colorHint"/>
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -188,6 +197,9 @@
                     android:layout_marginTop="30dp"
                     android:layout_marginEnd="18dp"
                     android:orientation="vertical"
+                    android:textAppearance="@style/LightGray_Regular_16"
+                    android:textColor="?attr/titleTextColor"
+                    android:textColorHint="@color/colorHint"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/street_layout">
@@ -197,14 +209,16 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="32dp"
-                        android:background="@drawable/bg_main_input"
+                        android:background="@drawable/edt_active"
                         android:hint="@string/house_number"
                         android:inputType="text"
                         android:paddingStart="16dp"
                         android:paddingTop="16dp"
                         android:paddingEnd="16dp"
                         android:paddingBottom="16dp"
-                        android:textColorHint="@color/titleTextColor" />
+                        android:textAppearance="@style/LightGray_Regular_16"
+                        android:textColor="?attr/titleTextColor"
+                        android:textColorHint="@color/colorHint" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -218,6 +232,9 @@
                     android:layout_marginTop="30dp"
                     android:layout_marginEnd="18dp"
                     android:orientation="vertical"
+                    android:textAppearance="@style/LightGray_Regular_16"
+                    android:textColor="?attr/titleTextColor"
+                    android:textColorHint="@color/colorHint"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/house_layout">
@@ -227,14 +244,16 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="32dp"
-                        android:background="@drawable/bg_main_input"
+                        android:background="@drawable/edt_active"
                         android:hint="@string/apartment_number"
                         android:inputType="text"
                         android:paddingStart="16dp"
                         android:paddingTop="16dp"
                         android:paddingEnd="16dp"
                         android:paddingBottom="16dp"
-                        android:textColorHint="@color/titleTextColor" />
+                        android:textAppearance="@style/LightGray_Regular_16"
+                        android:textColor="?attr/titleTextColor"
+                        android:textColorHint="@color/colorHint"/>
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -252,6 +271,9 @@
                     android:textAppearance="@style/DescriptionTextStyle"
                     android:text="Адрес места жительства совпадает с адресом прописки"
                     android:paddingStart="16dp"
+                    android:textColor="?attr/titleTextColor"
+                    android:textColorHint="@color/colorHint"
+                    android:backgroundTint="@color/colorPrimary"
                     />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
