@@ -1,6 +1,7 @@
 package ru.mitapp.umai.ui.registration.fragment
 
 import android.app.DatePickerDialog
+import android.text.Editable
 import android.view.View
 import android.widget.DatePicker
 import androidx.lifecycle.ViewModelProviders
@@ -8,6 +9,7 @@ import com.tsongkha.spinnerdatepicker.SpinnerDatePickerDialogBuilder
 import ru.mitapp.umai.R
 import ru.mitapp.umai.base.BaseFragment
 import ru.mitapp.umai.databinding.UserNameFragmentBinding
+import ru.mitapp.umai.helper.BaseTextChangeListener
 import ru.mitapp.umai.ui.registration.listener.IdentificationListener
 import ru.mitapp.umai.ui.registration.viewmodel.UserNameViewModel
 import ru.mitapp.umai.utils.DateConverter
@@ -25,6 +27,8 @@ class UserNameFragment(var listener: IdentificationListener) :
     override fun setupView() {
         viewModel = ViewModelProviders.of(this).get(UserNameViewModel::class.java)
 
+        binding!!.viewModel = viewModel
+
         binding!!.nextButton.setOnClickListener {
             listener.onNextButtonClick()
         }
@@ -32,8 +36,45 @@ class UserNameFragment(var listener: IdentificationListener) :
         binding!!.dateBirthInput.setOnClickListener {
             showDataPickerDialog(it)
         }
+
+        binding!!.surnameInput.addTextChangedListener(object : BaseTextChangeListener(){
+            override fun afterTextChanged(p1: Editable?) {
+                super.afterTextChanged(p1)
+                checkInputs()
+            }
+        })
+
+        binding!!.nameInput.addTextChangedListener(object : BaseTextChangeListener(){
+            override fun afterTextChanged(p1: Editable?) {
+                super.afterTextChanged(p1)
+                checkInputs()
+            }
+        })
+
+        binding!!.middleNameInput.addTextChangedListener(object : BaseTextChangeListener(){
+            override fun afterTextChanged(p1: Editable?) {
+                super.afterTextChanged(p1)
+                checkInputs()
+            }
+        })
+
+        binding!!.dateBirthInput.addTextChangedListener(object : BaseTextChangeListener(){
+            override fun afterTextChanged(p1: Editable?) {
+                super.afterTextChanged(p1)
+                checkInputs()
+            }
+        })
+
     }
 
+    fun checkInputs(){
+        viewModel.checkInputs(
+            binding!!.surnameInput.text.toString(),
+            binding!!.nameInput.text.toString(),
+            binding!!.middleNameInput.text.toString(),
+            binding!!.dateBirthInput.text.toString()
+        )
+    }
 
     private fun showDataPickerDialog(v: View?) {
         SpinnerDatePickerDialogBuilder()
