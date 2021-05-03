@@ -311,7 +311,7 @@
                     android:textColor="?attr/titleTextColor"
                     android:text="Адрес места жительства совпадает с адресом прописки"
                     android:paddingStart="16dp"
-                    android:backgroundTint="@color/colorPrimary"
+                    android:buttonTint="@color/colorPrimary"
                     />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
