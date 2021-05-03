@@ -22,16 +22,15 @@
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:layout_marginBottom="10dp"
             app:layout_constraintBottom_toTopOf="@+id/next_button"
-            app:layout_constraintTop_toTopOf="parent"
-            >
+            app:layout_constraintTop_toTopOf="parent">
 
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginBottom="20dp"
-                >
+                android:layout_marginBottom="20dp">
 
                 <TextView
                     android:id="@+id/passport_data_title"
@@ -41,42 +40,40 @@
                     android:layout_marginTop="20dp"
                     android:text="@string/passport_data_title"
                     android:textAppearance="@style/Black_Bold_18"
+                    android:textColor="?attr/titleTextColor"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:textColor="?attr/titleTextColor"/>
+                    app:layout_constraintTop_toTopOf="parent" />
 
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/document_name_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    app:layout_constraintTop_toBottomOf="@+id/passport_data_title"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
                     android:layout_marginStart="18dp"
-                    android:layout_marginEnd="18dp"
                     android:layout_marginTop="30dp"
+                    android:layout_marginEnd="18dp"
+                    android:orientation="vertical"
                     android:textColor="?attr/titleTextColor"
                     android:textColorHint="@color/colorHint"
-                    >
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/passport_data_title">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/document_name_input"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/edt_active"
-                        android:paddingTop="16dp"
-                        android:paddingBottom="16dp"
-                        android:paddingStart="16dp"
-                        android:paddingEnd="16dp"
-                        android:hint="@string/document_name_title"
                         android:layout_marginTop="32dp"
+                        android:background="@drawable/edt_active"
+                        android:hint="@string/document_name_title"
                         android:inputType="text"
+                        android:paddingStart="16dp"
+                        android:paddingTop="16dp"
+                        android:paddingEnd="16dp"
+                        android:paddingBottom="16dp"
                         android:textAppearance="@style/LightGray_Regular_16"
                         android:textColor="?attr/titleTextColor"
-                        android:textColorHint="@color/colorHint"
-                        />
+                        android:textColorHint="@color/colorHint" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -85,30 +82,28 @@
                     android:id="@+id/passport_number_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    app:layout_constraintTop_toBottomOf="@+id/document_name_layout"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
                     android:layout_marginStart="18dp"
-                    android:layout_marginEnd="18dp"
                     android:layout_marginTop="20dp"
+                    android:layout_marginEnd="18dp"
+                    android:orientation="vertical"
                     android:textColor="?attr/titleTextColor"
                     android:textColorHint="@color/colorHint"
-                    >
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/document_name_layout">
 
                     <EditText
                         android:id="@+id/passport_number_input"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:padding="16dp"
-                        android:hint="@string/document_seria"
                         android:layout_marginTop="8dp"
-                        android:inputType="text"
                         android:background="@drawable/edt_active"
+                        android:hint="@string/document_seria"
+                        android:inputType="text"
+                        android:padding="16dp"
                         android:textAppearance="@style/LightGray_Regular_16"
                         android:textColor="?attr/titleTextColor"
-                        android:textColorHint="@color/colorHint"
-                        />
+                        android:textColorHint="@color/colorHint" />
 
 
                     <TextView
@@ -116,42 +111,38 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
                         android:layout_marginEnd="20dp"
-                        android:textAppearance="@style/LightGray_Regular_14"
-                        android:textColor="?attr/titleTextColor"
                         android:text="Введите заглавные буквы и номер без пробелов. Например: AN1234567, ID1234567"
-                        />
+                        android:textAppearance="@style/LightGray_Regular_14"
+                        android:textColor="?attr/titleTextColor" />
 
                 </com.google.android.material.textfield.TextInputLayout>
-
 
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/pin_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:layout_constraintTop_toBottomOf="@+id/passport_number_layout"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
                     android:layout_marginStart="18dp"
-                    android:layout_marginEnd="18dp"
                     android:layout_marginTop="20dp"
+                    android:layout_marginEnd="18dp"
                     android:textColor="?attr/titleTextColor"
                     android:textColorHint="@color/colorHint"
-                    >
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/passport_number_layout">
 
                     <EditText
                         android:id="@+id/pin_input"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/edt_active"
-                        android:padding="16dp"
-                        android:hint="@string/document_number"
                         android:layout_marginTop="8dp"
+                        android:background="@drawable/edt_active"
+                        android:hint="@string/document_number"
                         android:inputType="text"
+                        android:padding="16dp"
                         android:textAppearance="@style/LightGray_Regular_16"
                         android:textColor="?attr/titleTextColor"
-                        android:textColorHint="@color/colorHint"
-                        />
+                        android:textColorHint="@color/colorHint" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -160,29 +151,27 @@
                     android:id="@+id/date_of_issue_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:layout_constraintTop_toBottomOf="@+id/who_issued_document_layout"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
                     android:layout_marginStart="18dp"
-                    android:layout_marginEnd="18dp"
                     android:layout_marginTop="20dp"
+                    android:layout_marginEnd="18dp"
                     android:textColor="?attr/titleTextColor"
                     android:textColorHint="@color/colorHint"
-                    >
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/who_issued_document_layout">
 
                     <EditText
                         android:id="@+id/date_issue_input"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/edt_active"
-                        android:padding="16dp"
-                        android:hint="@string/date_of_issue"
                         android:layout_marginTop="8dp"
+                        android:background="@drawable/edt_active"
+                        android:hint="@string/date_of_issue"
                         android:inputType="text"
+                        android:padding="16dp"
                         android:textAppearance="@style/LightGray_Regular_16"
                         android:textColor="?attr/titleTextColor"
-                        android:textColorHint="@color/colorHint"
-                        />
+                        android:textColorHint="@color/colorHint" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -191,29 +180,27 @@
                     android:id="@+id/expiration_date_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:layout_constraintTop_toBottomOf="@+id/date_of_issue_layout"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
                     android:layout_marginStart="18dp"
-                    android:layout_marginEnd="18dp"
                     android:layout_marginTop="20dp"
+                    android:layout_marginEnd="18dp"
                     android:textColor="?attr/titleTextColor"
                     android:textColorHint="@color/colorHint"
-                    >
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/date_of_issue_layout">
 
                     <EditText
                         android:id="@+id/expiration_date_input"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/edt_active"
-                        android:padding="16dp"
-                        android:hint="@string/expiration_date"
                         android:layout_marginTop="8dp"
+                        android:background="@drawable/edt_active"
+                        android:hint="@string/expiration_date"
                         android:inputType="text"
+                        android:padding="16dp"
                         android:textAppearance="@style/LightGray_Regular_16"
                         android:textColor="?attr/titleTextColor"
-                        android:textColorHint="@color/colorHint"
-                        />
+                        android:textColorHint="@color/colorHint" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -222,29 +209,27 @@
                     android:id="@+id/who_issued_document_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:layout_constraintTop_toBottomOf="@+id/pin_layout"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
                     android:layout_marginStart="18dp"
-                    android:layout_marginEnd="18dp"
                     android:layout_marginTop="20dp"
+                    android:layout_marginEnd="18dp"
                     android:textColor="?attr/titleTextColor"
                     android:textColorHint="@color/colorHint"
-                    >
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/pin_layout">
 
                     <EditText
                         android:id="@+id/who_issued_document_input"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/edt_active"
-                        android:padding="16dp"
-                        android:hint="@string/who_issued_document"
                         android:layout_marginTop="8dp"
+                        android:background="@drawable/edt_active"
+                        android:hint="@string/who_issued_document"
                         android:inputType="text"
+                        android:padding="16dp"
                         android:textAppearance="@style/LightGray_Regular_16"
                         android:textColor="?attr/titleTextColor"
-                        android:textColorHint="@color/colorHint"
-                        />
+                        android:textColorHint="@color/colorHint" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 

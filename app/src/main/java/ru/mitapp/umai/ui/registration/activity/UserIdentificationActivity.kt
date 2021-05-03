@@ -54,6 +54,10 @@ class UserIdentificationActivity :
 //        }
 //        onBackPressedDispatcher.addCallback(this, callback)
 
+        binding!!.toolbarPartners.setNavigationOnClickListener {
+            onBackPressed()
+        }
+
         adapter = IdentificationPagerAdapter(
             supportFragmentManager,
             userNameFragment!!,
@@ -79,7 +83,10 @@ class UserIdentificationActivity :
             }
         })
     }
-
+//    override fun onSupportNavigateUp(): Boolean {
+//        onBackPressed()
+//        return super.onSupportNavigateUp()
+//    }
 
     override fun onBackPressed() {
         when (pagerPosition) {
