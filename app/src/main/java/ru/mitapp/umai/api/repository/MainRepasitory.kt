@@ -5,6 +5,7 @@ import ru.mitapp.umai.base.BaseModel
 import ru.mitapp.umai.models.Terminal
 import ru.mitapp.umai.models.news.News
 import ru.mitapp.umai.models.register.CreateUser
+import ru.mitapp.umai.models.register.SmsCode
 import ru.mitapp.umai.models.register.UserToken
 
 
@@ -27,4 +28,11 @@ class MainRepository(var api: ApiInterface) : BaseRepository() {
 
         return response as BaseModel<UserToken>
     }
+
+    suspend fun activationUser(smsCode: SmsCode) : BaseModel<SmsCode>{
+        val response = safeApiCall {api.activation(smsCode).await()}
+
+        return response as BaseModel<SmsCode>
+    }
+
 }

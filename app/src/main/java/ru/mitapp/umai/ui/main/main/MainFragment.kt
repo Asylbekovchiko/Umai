@@ -70,16 +70,7 @@ class MainFragment : BaseFragment<MainFragmentBinding>(R.layout.main_fragment),
             }
         })
 
-        binding!!.loginInput.addTextChangedListener(object : BaseTextChangeListener() {
-            override fun afterTextChanged(p1: Editable?) {
-                super.afterTextChanged(p1)
-                checkInputs()
-            }
-        })
 
-        binding!!.checkbox.setOnCheckedChangeListener { _, _ ->
-            checkInputs()
-        }
 
 
         binding!!.textView9.setOnClickListener {
@@ -104,25 +95,35 @@ class MainFragment : BaseFragment<MainFragmentBinding>(R.layout.main_fragment),
                 getString(R.string.terms_of_use)
             )
         }
-//        createUser()
+        createUser()
         binding!!.loginButton.setOnClickListener {
-            val intent = Intent(activity, RegistrationStartActivity::class.java)
             val phone = binding!!.loginInput.text.toString()
-            intent.putExtra("phone", phone)
-//            setPhone(phone)
-//            viewModel.createUser(user)
-            startActivity(intent)
+            setPhone(phone)
+            viewModel.createUser(user)
         }
 //        if (sharedPreferences.token!=null){
 //            val intent = Intent(activity, RegistrationStartActivity::class.java)
 //            startActivity(intent)
 //        }
 //        requireContext().showToast("token: ${sharedPreferences.token.toString()}")
-
+        setInputs()
     }
 
     override fun onBannerClick() {
 
+    }
+
+    fun setInputs() {
+        binding!!.loginInput.addTextChangedListener(object : BaseTextChangeListener() {
+            override fun afterTextChanged(p1: Editable?) {
+                super.afterTextChanged(p1)
+                checkInputs()
+            }
+        })
+
+        binding!!.checkbox.setOnCheckedChangeListener { _, _ ->
+            checkInputs()
+        }
     }
 
     fun checkInputs() {
@@ -165,7 +166,7 @@ class MainFragment : BaseFragment<MainFragmentBinding>(R.layout.main_fragment),
         }
     }
 
-    private fun setPhone(phone: String){
+    private fun setPhone(phone: String) {
 
         val replacePhone = phone.replace("+", "").replace("(", "")
             .replace(")", "")
@@ -180,17 +181,18 @@ class MainFragment : BaseFragment<MainFragmentBinding>(R.layout.main_fragment),
     private fun createUser() {
 
         viewModel.createUser.observe(requireActivity(), androidx.lifecycle.Observer {
-            if (it.data != null){
-                requireActivity().showToast("Success")
-                sharedPreferences.token = it.data!!.token
-                if (sharedPreferences.token!=null){
-                    val intent = Intent(activity, RegistrationStartActivity::class.java)
-                    startActivity(intent)
+            if (it.data != null) {
+                val intent = Intent(activity, SmsCodeActivity::class.java)
+                startActivity(intent)
+            } else if (it.responseCode == 422) {
+                if (it.errorMessage?.phone != null) {
+                    requireActivity().showToast(it.errorMessage?.phone?.message)
+                } else {
+                    requireActivity().showToast(it.errorMessage?.captcha?.message)
                 }
-            }else if (it.responseCode == 422){
-                requireActivity().showToast("Такой номер уже существует")
-            }else{
-                requireActivity().showToast("Неизвестная ошибка сервера")
+
+            } else {
+                requireActivity().showToast("Неизвестная Ошибка")
             }
         })
     }
