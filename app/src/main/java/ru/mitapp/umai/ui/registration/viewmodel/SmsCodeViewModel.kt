@@ -12,13 +12,29 @@ import ru.mitapp.umai.base.BaseViewModel
 import ru.mitapp.umai.models.register.SmsCode
 import java.lang.Exception
 
-class SmsCodeViewModel(): BaseViewModel(){
+class SmsCodeViewModel : BaseViewModel() {
+
+    var isButtonActive = ObservableField(false)
 
     var isLoad = ObservableField(false)
+
 
     val smsCode: MutableLiveData<BaseModel<SmsCode>> by lazy {
         MutableLiveData<BaseModel<SmsCode>>()
     }
+
+    fun checkInputs(smsCode: String?) {
+
+        if (!smsCode.isNullOrEmpty() && smsCode.length >= 5) {
+            isButtonActive.set(true)
+
+        } else {
+            isButtonActive.set(false)
+
+        }
+
+    }
+
 
 
     fun activateUser(reference: String, smsCode: SmsCode, token: String) {

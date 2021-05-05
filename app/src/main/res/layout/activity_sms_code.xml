@@ -48,9 +48,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
-                android:text="20"
                 android:textAppearance="@style/Black_Regular_14"
                 android:textColor="?attr/titleTextColor"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/textView22"
                 app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -173,8 +173,9 @@
             android:textAllCaps="false"
             android:textSize="16sp"
             android:textStyle="bold"
-            android:background="@drawable/bg_in_active_button"
-            android:textColor="@color/buttonInActiveTextColor"
+            android:background="@{viewModel.isButtonActive() ? @drawable/bg_active_button : @drawable/bg_in_active_button}"
+            android:enabled="@{viewModel.isButtonActive()}"
+            android:textColor="@{viewModel.isButtonActive() ? @color/buttonActiveTextColor : @color/buttonInActiveTextColor}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/constraintLayout3" />
