@@ -29,8 +29,8 @@ class MainRepository(var api: ApiInterface) : BaseRepository() {
         return response as BaseModel<UserToken>
     }
 
-    suspend fun activationUser(smsCode: SmsCode) : BaseModel<SmsCode>{
-        val response = safeApiCall {api.activation(smsCode).await()}
+    suspend fun activationUser( reference: String, smsCode: SmsCode, token: String) : BaseModel<SmsCode>{
+        val response = safeApiCall {api.activation(reference, smsCode, token).await()}
 
         return response as BaseModel<SmsCode>
     }

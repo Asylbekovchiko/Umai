@@ -9,6 +9,9 @@
 
     <data>
 
+        <variable
+            name="viewModel"
+            type="ru.mitapp.umai.ui.registration.viewmodel.SmsCodeViewModel" />
 
     </data>
 

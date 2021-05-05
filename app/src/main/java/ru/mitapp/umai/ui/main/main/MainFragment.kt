@@ -97,6 +97,9 @@ class MainFragment : BaseFragment<MainFragmentBinding>(R.layout.main_fragment),
         }
         createUser()
         binding!!.loginButton.setOnClickListener {
+//            val intent = Intent(activity, SmsCodeActivity::class.java)
+//            intent.putExtra("phone", binding!!.loginInput.text.toString())
+//            startActivity(intent)
             val phone = binding!!.loginInput.text.toString()
             setPhone(phone)
             viewModel.createUser(user)
@@ -171,6 +174,7 @@ class MainFragment : BaseFragment<MainFragmentBinding>(R.layout.main_fragment),
         val replacePhone = phone.replace("+", "").replace("(", "")
             .replace(")", "")
             .replace("-", "")
+
         user.name = null
         user.phone = replacePhone
         user.email = null
@@ -183,6 +187,8 @@ class MainFragment : BaseFragment<MainFragmentBinding>(R.layout.main_fragment),
         viewModel.createUser.observe(requireActivity(), androidx.lifecycle.Observer {
             if (it.data != null) {
                 val intent = Intent(activity, SmsCodeActivity::class.java)
+                intent.putExtra("phone", binding!!.loginInput.text.toString())
+                sharedPreferences.token = it.data!!.token
                 startActivity(intent)
             } else if (it.responseCode == 422) {
                 if (it.errorMessage?.phone != null) {
