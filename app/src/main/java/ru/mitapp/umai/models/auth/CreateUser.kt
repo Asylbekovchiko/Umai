@@ -1,4 +1,4 @@
-package ru.mitapp.umai.models.register
+package ru.mitapp.umai.models.auth
 
 import com.google.gson.annotations.SerializedName
 import java.io.Serializable

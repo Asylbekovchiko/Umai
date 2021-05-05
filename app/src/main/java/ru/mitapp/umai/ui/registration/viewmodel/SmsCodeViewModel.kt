@@ -9,7 +9,7 @@ import kotlinx.coroutines.withContext
 import ru.mitapp.umai.AppUmai
 import ru.mitapp.umai.base.BaseModel
 import ru.mitapp.umai.base.BaseViewModel
-import ru.mitapp.umai.models.register.SmsCode
+import ru.mitapp.umai.models.auth.SmsCode
 import java.lang.Exception
 
 class SmsCodeViewModel : BaseViewModel() {

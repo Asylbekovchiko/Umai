@@ -9,8 +9,9 @@ import kotlinx.coroutines.withContext
 import ru.mitapp.umai.AppUmai
 import ru.mitapp.umai.base.BaseModel
 import ru.mitapp.umai.base.BaseViewModel
-import ru.mitapp.umai.models.register.CreateUser
-import ru.mitapp.umai.models.register.UserToken
+import ru.mitapp.umai.models.auth.CreateUser
+import ru.mitapp.umai.models.auth.UserToken
+import ru.mitapp.umai.models.auth.SingIn
 import java.lang.Exception
 
 class MainFragmentViewModel : BaseViewModel() {
@@ -23,13 +24,16 @@ class MainFragmentViewModel : BaseViewModel() {
         MutableLiveData<BaseModel<UserToken>>()
     }
 
+    val singIn: MutableLiveData<BaseModel<UserToken>> by lazy {
+        MutableLiveData<BaseModel<UserToken>>()
+    }
 
     fun createUser(user: CreateUser) {
         scope.launch {
             try {
                 isLoad.set(true)
                 val userList = AppUmai.repository.createUser(user)
-                setNewsData(userList)
+                setUserData(userList)
                 isLoad.set(false)
             } catch (e: Exception) {
                 e.stackTrace
@@ -39,7 +43,22 @@ class MainFragmentViewModel : BaseViewModel() {
 
     }
 
-    private suspend fun setNewsData(userToken: BaseModel<UserToken>)
+    fun singInUser(singIn: SingIn) {
+        scope.launch {
+            try {
+                isLoad.set(true)
+                val singInList = AppUmai.repository.signIn(singIn)
+                setUserData(singInList)
+                isLoad.set(false)
+            } catch (e: Exception) {
+                e.stackTrace
+                isLoad.set(false)
+            }
+        }
+
+    }
+
+    private suspend fun setUserData(userToken: BaseModel<UserToken>)
             : LiveData<BaseModel<UserToken>> {
         withContext(Dispatchers.Main) {
             createUser.value = userToken

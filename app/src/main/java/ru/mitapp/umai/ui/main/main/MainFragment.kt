@@ -1,7 +1,6 @@
 package ru.mitapp.umai.ui.main.main
 
 import android.content.Intent
-import android.os.Bundle
 import android.text.Editable
 import android.view.ViewGroup
 import android.widget.ImageView
@@ -13,17 +12,15 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.PagerSnapHelper
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.SnapHelper
-import com.android.tools.build.jetifier.core.utils.Log
 import ru.mitapp.umai.AppUmai.Companion.sharedPreferences
 import ru.mitapp.umai.R
 import ru.mitapp.umai.base.BaseFragment
 import ru.mitapp.umai.databinding.MainFragmentBinding
 import ru.mitapp.umai.extension.showToast
 import ru.mitapp.umai.helper.BaseTextChangeListener
-import ru.mitapp.umai.models.register.CreateUser
+import ru.mitapp.umai.models.auth.CreateUser
 import ru.mitapp.umai.ui.home.HomeActivity
 import ru.mitapp.umai.ui.main.adapter.BannerRecyclerAdapter
-import ru.mitapp.umai.ui.registration.activity.RegistrationStartActivity
 import ru.mitapp.umai.ui.registration.activity.SmsCodeActivity
 import ru.mitapp.umai.ui.web_view.WebViewActivity
 import java.util.*

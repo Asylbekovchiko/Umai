@@ -2,18 +2,16 @@ package ru.mitapp.umai.ui.registration.activity
 
 import android.os.CountDownTimer
 import android.text.Editable
-import android.view.View
 import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.android.tools.build.jetifier.core.utils.Log
 import ru.mitapp.umai.AppUmai
 import ru.mitapp.umai.R
 import ru.mitapp.umai.base.BaseActivity
 import ru.mitapp.umai.databinding.ActivitySmsCodeBinding
 import ru.mitapp.umai.extension.showToast
 import ru.mitapp.umai.helper.BaseTextChangeListener
-import ru.mitapp.umai.models.register.SmsCode
+import ru.mitapp.umai.models.auth.SmsCode
 import ru.mitapp.umai.ui.registration.viewmodel.SmsCodeViewModel
 import java.text.SimpleDateFormat
 import java.util.*

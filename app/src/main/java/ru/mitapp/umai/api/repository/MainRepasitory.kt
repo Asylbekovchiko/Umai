@@ -4,9 +4,10 @@ import ru.mitapp.umai.api.ApiInterface
 import ru.mitapp.umai.base.BaseModel
 import ru.mitapp.umai.models.Terminal
 import ru.mitapp.umai.models.news.News
-import ru.mitapp.umai.models.register.CreateUser
-import ru.mitapp.umai.models.register.SmsCode
-import ru.mitapp.umai.models.register.UserToken
+import ru.mitapp.umai.models.auth.CreateUser
+import ru.mitapp.umai.models.auth.SmsCode
+import ru.mitapp.umai.models.auth.UserToken
+import ru.mitapp.umai.models.auth.SingIn
 
 
 class MainRepository(var api: ApiInterface) : BaseRepository() {
@@ -25,6 +26,12 @@ class MainRepository(var api: ApiInterface) : BaseRepository() {
 
     suspend fun createUser(user: CreateUser) : BaseModel<UserToken>{
         val response = safeApiCall {api.createUser(user).await()}
+
+        return response as BaseModel<UserToken>
+    }
+
+    suspend fun signIn(singIn: SingIn) : BaseModel<UserToken>{
+        val response = safeApiCall {api.signInUser(singIn).await()}
 
         return response as BaseModel<UserToken>
     }

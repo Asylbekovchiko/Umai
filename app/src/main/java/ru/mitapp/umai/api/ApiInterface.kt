@@ -5,9 +5,10 @@ import retrofit2.Response
 import retrofit2.http.*
 import ru.mitapp.umai.models.Terminal
 import ru.mitapp.umai.models.news.News
-import ru.mitapp.umai.models.register.CreateUser
-import ru.mitapp.umai.models.register.SmsCode
-import ru.mitapp.umai.models.register.UserToken
+import ru.mitapp.umai.models.auth.CreateUser
+import ru.mitapp.umai.models.auth.SmsCode
+import ru.mitapp.umai.models.auth.UserToken
+import ru.mitapp.umai.models.auth.SingIn
 
 
 interface ApiInterface {
@@ -20,6 +21,9 @@ interface ApiInterface {
 
     @POST("api/users")
     fun createUser(@Body user: CreateUser): Deferred<Response<UserToken>>
+
+    @POST("api/auth/local")
+    fun signInUser(@Body singIn: SingIn): Deferred<Response<UserToken>>
 
     @PUT("api/users/{reference}/activations")
     fun activation(@Path("reference") reference: String, @Body smsCode: SmsCode, @Query("access_token") token: String): Deferred<Response<SmsCode>>
