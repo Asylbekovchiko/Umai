@@ -26,11 +26,12 @@
         android:roundIcon="@drawable/ic_umai_logo"
         android:supportsRtl="true"
         android:theme="@style/BaseTheme">
-        <activity android:name=".ui.main.fragments.TerminalFragment"></activity>
-        <activity android:name=".ui.main.dialog.TerminalMapDialog"></activity>
+        <activity android:name=".ui.main.register.RegisterActivity"></activity>
+        <activity android:name=".ui.main.fragments.TerminalFragment" />
+        <activity android:name=".ui.main.dialog.TerminalMapDialog" />
         <activity android:name=".ui.home.service.activity.SubCategoryActivity" />
         <activity android:name=".ui.home.history.detail.DetailHistoryActivity" />
-        <activity android:name=".ui.main.detail.DetailNewsActivity"/>
+        <activity android:name=".ui.main.detail.DetailNewsActivity" />
         <activity android:name=".ui.home.service.activity.SubCategoryActivity" />
         <activity android:name=".ui.home.history.detail.DetailHistoryActivity" />
         <activity android:name=".ui.home.main.transactions.activities.TransactionSuccessActivity" />
@@ -72,18 +73,16 @@
             android:name=".ui.StartActivity"
             android:screenOrientation="portrait"
             android:theme="@style/SplashScreen">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
         <activity
             android:name=".ui.main.activity.MainActivity"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustResize"/>
+            android:windowSoftInputMode="adjustResize" />
 
         <provider
             android:name="androidx.core.content.FileProvider"
@@ -99,6 +98,5 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyAACmBp7mn0_8_hsnZza1Gauv4JVe14WDY" />
     </application>
-
 
 </manifest>

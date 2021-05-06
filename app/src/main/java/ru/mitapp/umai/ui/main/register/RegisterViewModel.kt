@@ -1,4 +1,4 @@
-package ru.mitapp.umai.ui.main.main
+package ru.mitapp.umai.ui.main.register
 
 import androidx.databinding.ObservableField
 import androidx.lifecycle.LiveData
@@ -11,26 +11,23 @@ import ru.mitapp.umai.base.BaseModel
 import ru.mitapp.umai.base.BaseViewModel
 import ru.mitapp.umai.models.auth.CreateUser
 import ru.mitapp.umai.models.auth.UserToken
-import ru.mitapp.umai.models.auth.SingIn
 import java.lang.Exception
 
-class MainFragmentViewModel : BaseViewModel() {
-
+class RegisterViewModel : BaseViewModel() {
 
     var isButtonActive = ObservableField(false)
     var isLoad = ObservableField(false)
 
-    val singIn: MutableLiveData<BaseModel<UserToken>> by lazy {
+    val createUser: MutableLiveData<BaseModel<UserToken>> by lazy {
         MutableLiveData<BaseModel<UserToken>>()
     }
 
-
-    fun singInUser(singIn: SingIn) {
+    fun createUser(user: CreateUser) {
         scope.launch {
             try {
                 isLoad.set(true)
-                val singInList = AppUmai.repository.signIn(singIn)
-                setSingIn(singInList)
+                val userList = AppUmai.repository.createUser(user)
+                setUserData(userList)
                 isLoad.set(false)
             } catch (e: Exception) {
                 e.stackTrace
@@ -40,27 +37,25 @@ class MainFragmentViewModel : BaseViewModel() {
 
     }
 
-    private suspend fun setSingIn(userToken: BaseModel<UserToken>)
+    private suspend fun setUserData(userToken: BaseModel<UserToken>)
             : LiveData<BaseModel<UserToken>> {
         withContext(Dispatchers.Main) {
-            singIn.value = userToken
+            createUser.value = userToken
         }
 
-        return singIn
+        return createUser
     }
 
-
-    fun checkInputs(phone: String?, password: String?) {
-        if (phone != null && password != null) {
+    fun checkInputs(name: String?, phone: String?, password: String?, confirm: Boolean?) {
+        if (name != null && phone != null  && password != null && confirm != null) {
             val replace = phone.replace("+996", "")
                 .replace("(", "")
                 .replace(")", "")
                 .replace("_", "")
                 .replace("-", "")
 
-            if (replace.isNotEmpty() && replace.length >= 9
-                && password.isNotEmpty() && password.length >= 6
-            ) {
+            if (name.isNotEmpty() && replace.isNotEmpty() && replace.length >= 9
+                && password.isNotEmpty() && password.length >= 6 && confirm) {
                 isButtonActive.set(true)
             } else {
                 isButtonActive.set(false)
@@ -68,5 +63,6 @@ class MainFragmentViewModel : BaseViewModel() {
         }
 
     }
+
 
 }

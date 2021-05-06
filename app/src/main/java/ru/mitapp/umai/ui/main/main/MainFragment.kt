@@ -18,13 +18,10 @@ import ru.mitapp.umai.base.BaseFragment
 import ru.mitapp.umai.databinding.MainFragmentBinding
 import ru.mitapp.umai.extension.showToast
 import ru.mitapp.umai.helper.BaseTextChangeListener
-import ru.mitapp.umai.models.auth.CreateUser
 import ru.mitapp.umai.models.auth.SingIn
 import ru.mitapp.umai.ui.home.HomeActivity
 import ru.mitapp.umai.ui.main.adapter.BannerRecyclerAdapter
-import ru.mitapp.umai.ui.registration.activity.RegistrationStartActivity
-import ru.mitapp.umai.ui.registration.activity.SmsCodeActivity
-import ru.mitapp.umai.ui.web_view.WebViewActivity
+import ru.mitapp.umai.ui.main.register.RegisterActivity
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -35,7 +32,7 @@ class MainFragment : BaseFragment<MainFragmentBinding>(R.layout.main_fragment),
     private lateinit var viewModel: MainFragmentViewModel
     private lateinit var adapter: BannerRecyclerAdapter
     private var bannerPosition: Int = 0
-    private val user = CreateUser()
+
     private val signIn = SingIn()
     var images: ArrayList<Int> = ArrayList()
 
@@ -77,7 +74,7 @@ class MainFragment : BaseFragment<MainFragmentBinding>(R.layout.main_fragment),
 
         binding!!.textView9.setOnClickListener {
 
-//            startActivity(Intent(requireContext(), HomeActivity::class.java))
+            startActivity(Intent(requireContext(), RegisterActivity::class.java))
 
 
         }
@@ -93,28 +90,13 @@ class MainFragment : BaseFragment<MainFragmentBinding>(R.layout.main_fragment),
         }, 0, 5000)
 
 
-        binding!!.termsOfUse.setOnClickListener {
-            WebViewActivity.start(
-                requireActivity(),
-                "https://play.google.com/store/apps/details?id=kg.bmt.uw",
-                getString(R.string.terms_of_use)
-            )
-        }
-//        createUser()
 
         binding!!.loginButton.setOnClickListener {
             val phone = binding!!.loginInput.text.toString().trim()
             val password = binding!!.edtPassword.text.toString().trim()
-//            setPhone(phone)
-//            viewModel.createUser(user)
             setSignIn(phone,password)
             viewModel.singInUser(signIn)
         }
-//        if (sharedPreferences.token!=null){
-//            val intent = Intent(activity, RegistrationStartActivity::class.java)
-//            startActivity(intent)
-//        }
-//        requireContext().showToast("token: ${sharedPreferences.token.toString()}")
         setInputs()
     }
 
@@ -135,10 +117,6 @@ class MainFragment : BaseFragment<MainFragmentBinding>(R.layout.main_fragment),
                 checkInputs()
             }
         })
-
-//        binding!!.checkbox.setOnCheckedChangeListener { _, _ ->
-//            checkInputs()
-//        }
     }
 
     fun checkInputs() {
@@ -181,38 +159,7 @@ class MainFragment : BaseFragment<MainFragmentBinding>(R.layout.main_fragment),
         }
     }
 
-    private fun setPhone(phone: String) {
 
-        val replacePhone = phone.replace("+", "").replace("(", "")
-            .replace(")", "")
-            .replace("-", "")
-
-        user.name = null
-        user.phone = replacePhone
-        user.email = null
-        user.password = null
-        user.noCaptcha = true
-    }
-
-    private fun createUser() {
-
-        viewModel.createUser.observe(requireActivity(), androidx.lifecycle.Observer {
-            if (it.data != null) {
-                val intent = Intent(activity, SmsCodeActivity::class.java)
-                intent.putExtra("phone", binding!!.loginInput.text.toString())
-                sharedPreferences.token = it.data!!.token
-                startActivity(intent)
-            } else if (it.responseCode == 422) {
-                if (it.errors?.phone != null) {
-                    requireActivity().showToast(it.errors?.phone?.message)
-                } else {
-                    requireActivity().showToast(it.errors?.captcha?.message)
-                }
-            } else {
-                requireActivity().showToast(it.errorMessage)
-            }
-        })
-    }
 
     private fun setSignIn(phone: String, password: String){
         val replacePhone = phone.replace("+", "").replace("(", "")
