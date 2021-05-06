@@ -72,13 +72,14 @@ class MainFragment : BaseFragment<MainFragmentBinding>(R.layout.main_fragment),
 
 
         signIn()
-        setSignIn()
+
 
 
         binding!!.textView9.setOnClickListener {
+
 //            startActivity(Intent(requireContext(), HomeActivity::class.java))
 
-            viewModel.singInUser(signIn)
+
         }
 
         Timer().scheduleAtFixedRate(object : TimerTask() {
@@ -99,15 +100,15 @@ class MainFragment : BaseFragment<MainFragmentBinding>(R.layout.main_fragment),
                 getString(R.string.terms_of_use)
             )
         }
-        createUser()
+//        createUser()
 
         binding!!.loginButton.setOnClickListener {
-//            val intent = Intent(activity, RegistrationStartActivity::class.java)
-//            intent.putExtra("phone", binding!!.loginInput.text.toString())
-//            startActivity(intent)
-            val phone = binding!!.loginInput.text.toString()
-            setPhone(phone)
-            viewModel.createUser(user)
+            val phone = binding!!.loginInput.text.toString().trim()
+            val password = binding!!.edtPassword.text.toString().trim()
+//            setPhone(phone)
+//            viewModel.createUser(user)
+            setSignIn(phone,password)
+            viewModel.singInUser(signIn)
         }
 //        if (sharedPreferences.token!=null){
 //            val intent = Intent(activity, RegistrationStartActivity::class.java)
@@ -128,14 +129,20 @@ class MainFragment : BaseFragment<MainFragmentBinding>(R.layout.main_fragment),
                 checkInputs()
             }
         })
+        binding!!.edtPassword.addTextChangedListener(object : BaseTextChangeListener() {
+            override fun afterTextChanged(p1: Editable?) {
+                super.afterTextChanged(p1)
+                checkInputs()
+            }
+        })
 
-        binding!!.checkbox.setOnCheckedChangeListener { _, _ ->
-            checkInputs()
-        }
+//        binding!!.checkbox.setOnCheckedChangeListener { _, _ ->
+//            checkInputs()
+//        }
     }
 
     fun checkInputs() {
-        viewModel.checkInputs(binding!!.loginInput.text.toString(), binding!!.checkbox.isChecked)
+        viewModel.checkInputs(binding!!.loginInput.text.toString(), binding!!.edtPassword.text.toString().trim())
     }
 
     private fun setupOnboardingIndicators() {
@@ -207,9 +214,12 @@ class MainFragment : BaseFragment<MainFragmentBinding>(R.layout.main_fragment),
         })
     }
 
-    private fun setSignIn(){
-        signIn.phone = "996556007825"
-        signIn.password = "kukakuka"
+    private fun setSignIn(phone: String, password: String){
+        val replacePhone = phone.replace("+", "").replace("(", "")
+            .replace(")", "")
+            .replace("-", "")
+        signIn.phone = replacePhone
+        signIn.password = password
         signIn.noCaptcha = true
     }
 

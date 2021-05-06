@@ -77,15 +77,15 @@ class MainFragmentViewModel : BaseViewModel() {
     }
 
 
-    fun checkInputs(phone: String?, isChecked: Boolean) {
-        if (phone != null) {
+    fun checkInputs(phone: String?, password: String?) {
+        if (phone != null && password != null) {
             val replace = phone.replace("+996", "")
                 .replace("(", "")
                 .replace(")", "")
                 .replace("_", "")
                 .replace("-", "")
 
-            if (replace.isNotEmpty() && replace.length >= 9 && isChecked) {
+            if (replace.isNotEmpty() && replace.length >= 9 && password.isNotEmpty()) {
                 isButtonActive.set(true)
             } else {
                 isButtonActive.set(false)
