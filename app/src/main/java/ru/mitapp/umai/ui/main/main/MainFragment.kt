@@ -19,8 +19,10 @@ import ru.mitapp.umai.databinding.MainFragmentBinding
 import ru.mitapp.umai.extension.showToast
 import ru.mitapp.umai.helper.BaseTextChangeListener
 import ru.mitapp.umai.models.auth.CreateUser
+import ru.mitapp.umai.models.auth.SingIn
 import ru.mitapp.umai.ui.home.HomeActivity
 import ru.mitapp.umai.ui.main.adapter.BannerRecyclerAdapter
+import ru.mitapp.umai.ui.registration.activity.RegistrationStartActivity
 import ru.mitapp.umai.ui.registration.activity.SmsCodeActivity
 import ru.mitapp.umai.ui.web_view.WebViewActivity
 import java.util.*
@@ -34,6 +36,7 @@ class MainFragment : BaseFragment<MainFragmentBinding>(R.layout.main_fragment),
     private lateinit var adapter: BannerRecyclerAdapter
     private var bannerPosition: Int = 0
     private val user = CreateUser()
+    private val signIn = SingIn()
     var images: ArrayList<Int> = ArrayList()
 
 
@@ -68,10 +71,14 @@ class MainFragment : BaseFragment<MainFragmentBinding>(R.layout.main_fragment),
         })
 
 
+        signIn()
+        setSignIn()
 
 
         binding!!.textView9.setOnClickListener {
-            startActivity(Intent(requireContext(), HomeActivity::class.java))
+//            startActivity(Intent(requireContext(), HomeActivity::class.java))
+
+            viewModel.singInUser(signIn)
         }
 
         Timer().scheduleAtFixedRate(object : TimerTask() {
@@ -93,8 +100,9 @@ class MainFragment : BaseFragment<MainFragmentBinding>(R.layout.main_fragment),
             )
         }
         createUser()
+
         binding!!.loginButton.setOnClickListener {
-//            val intent = Intent(activity, SmsCodeActivity::class.java)
+//            val intent = Intent(activity, RegistrationStartActivity::class.java)
 //            intent.putExtra("phone", binding!!.loginInput.text.toString())
 //            startActivity(intent)
             val phone = binding!!.loginInput.text.toString()
@@ -188,14 +196,31 @@ class MainFragment : BaseFragment<MainFragmentBinding>(R.layout.main_fragment),
                 sharedPreferences.token = it.data!!.token
                 startActivity(intent)
             } else if (it.responseCode == 422) {
-                if (it.errorMessage?.phone != null) {
-                    requireActivity().showToast(it.errorMessage?.phone?.message)
+                if (it.errors?.phone != null) {
+                    requireActivity().showToast(it.errors?.phone?.message)
                 } else {
-                    requireActivity().showToast(it.errorMessage?.captcha?.message)
+                    requireActivity().showToast(it.errors?.captcha?.message)
                 }
-
             } else {
-                requireActivity().showToast("Неизвестная Ошибка")
+                requireActivity().showToast(it.errorMessage)
+            }
+        })
+    }
+
+    private fun setSignIn(){
+        signIn.phone = "996556007825"
+        signIn.password = "kukakuka"
+        signIn.noCaptcha = true
+    }
+
+    private fun signIn(){
+        viewModel.singIn.observe(this, androidx.lifecycle.Observer {
+            if (it.data!=null){
+                val intent = Intent(requireContext(), HomeActivity::class.java)
+                sharedPreferences.token = it.data!!.token
+                startActivity(intent)
+            }else{
+                requireActivity().showToast(it.errorMessage.toString())
             }
         })
     }

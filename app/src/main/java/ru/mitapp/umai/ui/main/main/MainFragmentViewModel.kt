@@ -48,7 +48,7 @@ class MainFragmentViewModel : BaseViewModel() {
             try {
                 isLoad.set(true)
                 val singInList = AppUmai.repository.signIn(singIn)
-                setUserData(singInList)
+                setSingIn(singInList)
                 isLoad.set(false)
             } catch (e: Exception) {
                 e.stackTrace
@@ -65,6 +65,15 @@ class MainFragmentViewModel : BaseViewModel() {
         }
 
         return createUser
+    }
+
+    private suspend fun setSingIn(userToken: BaseModel<UserToken>)
+            : LiveData<BaseModel<UserToken>> {
+        withContext(Dispatchers.Main) {
+            singIn.value = userToken
+        }
+
+        return singIn
     }
 
 

@@ -71,7 +71,7 @@ class SmsCodeActivity : BaseActivity<ActivitySmsCodeBinding>(R.layout.activity_s
             if (it.data != null) {
                 this.showToast("Success")
             } else {
-                this.showToast(it.error)
+                this.showToast(it.errorMessage)
             }
         })
     }

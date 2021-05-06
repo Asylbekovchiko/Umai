@@ -5,6 +5,6 @@ import com.google.gson.annotations.SerializedName
 data class BaseModel<T>(
         var data : T? = null,
         var responseCode : Int? = null,
-        var error : String? = null,
-        @SerializedName("errors") var errorMessage : ErrorsBase? = null
+        @SerializedName("message") var errorMessage : String? = null,
+        @SerializedName("errors") var errors : ErrorsBase? = null
 )
