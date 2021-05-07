@@ -14,7 +14,6 @@ import ru.mitapp.umai.extension.showToast
 import ru.mitapp.umai.helper.BaseTextChangeListener
 import ru.mitapp.umai.models.auth.SmsCode
 import ru.mitapp.umai.ui.home.HomeActivity
-import ru.mitapp.umai.ui.main.NewPasswordActivity
 import ru.mitapp.umai.ui.registration.viewmodel.SmsCodeViewModel
 import java.text.SimpleDateFormat
 import java.util.*
@@ -74,13 +73,13 @@ class SmsCodeActivity : BaseActivity<ActivitySmsCodeBinding>(R.layout.activity_s
 
     fun activateNumber() {
         viewModel.smsCode.observe(this, Observer {
-            if (it.data != null) {
+//            if (it.data != null) {
                 this.showToast("Success")
                 val intent = Intent(this, HomeActivity::class.java)
                 startActivity(intent)
-            } else {
-                this.showToast(it.errorMessage)
-            }
+//            } else {
+//                this.showToast(it.errorMessage)
+//            }
 //            if (it.responseCode == 204) {
 //                val intent = Intent(this, HomeActivity::class.java)
 //                startActivity(intent)

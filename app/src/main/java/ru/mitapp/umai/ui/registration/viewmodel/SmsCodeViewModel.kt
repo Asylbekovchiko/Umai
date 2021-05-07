@@ -6,6 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import okhttp3.ResponseBody
 import ru.mitapp.umai.AppUmai
 import ru.mitapp.umai.base.BaseModel
 import ru.mitapp.umai.base.BaseViewModel
@@ -19,8 +20,8 @@ class SmsCodeViewModel : BaseViewModel() {
     var isLoad = ObservableField(false)
 
 
-    val smsCode: MutableLiveData<BaseModel<SmsCode>> by lazy {
-        MutableLiveData<BaseModel<SmsCode>>()
+    val smsCode: MutableLiveData<BaseModel<ResponseBody>> by lazy {
+        MutableLiveData<BaseModel<ResponseBody>>()
     }
 
     fun checkInputs(smsCode: String?) {
@@ -52,8 +53,8 @@ class SmsCodeViewModel : BaseViewModel() {
 
     }
 
-    private suspend fun setDataUser(userToken: BaseModel<SmsCode>)
-            : LiveData<BaseModel<SmsCode>> {
+    private suspend fun setDataUser(userToken: BaseModel<ResponseBody>)
+            : LiveData<BaseModel<ResponseBody>> {
         withContext(Dispatchers.Main) {
             smsCode.value = userToken
         }

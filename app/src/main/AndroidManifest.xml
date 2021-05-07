@@ -27,7 +27,7 @@
         android:supportsRtl="true"
         android:theme="@style/BaseTheme">
         <activity android:name=".ui.main.pin_code_restore.PinCodeRestoreActivity"></activity>
-        <activity android:name=".ui.main.NewPasswordActivity" />
+        <activity android:name=".ui.main.activity.NewPasswordActivity" />
         <activity android:name=".ui.main.restore_password.pin_code.PinCodeRestoreActivity" />
         <activity android:name=".ui.main.restore_password.RestorePasswordActivity" />
         <activity android:name=".ui.main.register.RegisterActivity" />

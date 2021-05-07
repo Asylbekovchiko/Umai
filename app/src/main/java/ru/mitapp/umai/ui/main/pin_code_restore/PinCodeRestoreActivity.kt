@@ -1,14 +1,20 @@
 package ru.mitapp.umai.ui.main.pin_code_restore
 
+import android.content.Intent
 import android.text.Editable
 import androidx.appcompat.widget.Toolbar
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import ru.mitapp.umai.R
 import ru.mitapp.umai.base.BaseActivity
 import ru.mitapp.umai.databinding.ActivityPinCodeRestoreBinding
+import ru.mitapp.umai.extension.showToast
 import ru.mitapp.umai.helper.BaseTextChangeListener
+import ru.mitapp.umai.models.auth.PinCode
+import ru.mitapp.umai.ui.main.activity.NewPasswordActivity
 
-class PinCodeRestoreActivity : BaseActivity<ActivityPinCodeRestoreBinding>(R.layout.activity_pin_code_restore){
+class PinCodeRestoreActivity :
+    BaseActivity<ActivityPinCodeRestoreBinding>(R.layout.activity_pin_code_restore) {
 
     private val phone: String?
         get() = intent.getStringExtra("phone")
@@ -28,9 +34,30 @@ class PinCodeRestoreActivity : BaseActivity<ActivityPinCodeRestoreBinding>(R.lay
         if (phone != null) {
             binding!!.textView19.text = phone
         }
+
+
+        checkPin()
         setUpInputs()
 
+        binding!!.loginButton.setOnClickListener {
+            viewModel.checkPinCode(PinCode(binding!!.pinEditTetxt.text.toString().trim()))
+        }
+
+
     }
+
+    private fun checkPin() {
+        viewModel.checkPinCode.observe(this, Observer {
+
+            val intent = Intent(this, NewPasswordActivity::class.java)
+
+            intent.putExtra("pinCode", binding!!.pinEditTetxt.text.toString())
+            startActivity(intent)
+            showToast(it.errorMessage.toString())
+
+        })
+    }
+
 
     fun setUpInputs() {
         binding!!.pinEditTetxt.addTextChangedListener(object : BaseTextChangeListener() {
@@ -42,9 +69,12 @@ class PinCodeRestoreActivity : BaseActivity<ActivityPinCodeRestoreBinding>(R.lay
 
     }
 
-
     fun checkInputs() {
         viewModel.checkInputs(binding!!.pinEditTetxt.text.toString())
     }
 
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return super.onSupportNavigateUp()
+    }
 }

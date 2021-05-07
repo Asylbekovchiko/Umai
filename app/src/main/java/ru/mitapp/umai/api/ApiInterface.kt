@@ -1,6 +1,7 @@
 package ru.mitapp.umai.api
 
 import kotlinx.coroutines.Deferred
+import okhttp3.ResponseBody
 import retrofit2.Response
 import retrofit2.http.*
 import ru.mitapp.umai.models.Terminal
@@ -26,9 +27,14 @@ interface ApiInterface {
     fun activationAsync(@Path("reference") reference: String,
                         @Body smsCode: SmsCode,
                         @Query("access_token")
-                   token: String): Deferred<Response<Void>>
+                   token: String): Deferred<Response<ResponseBody>>
 
     @POST("api/my/password")
     fun restorePasswordAsync(@Body phone: Phone): Deferred<Response<String>>
 
+    @PUT("api/my/password/validate-token")
+    fun checkSmsAsync(@Body pin: PinCode): Deferred<Response<ResponseBody>>
+
+    @PUT("api/my/password/restore")
+    fun newPasswordAsync(@Body newPassword: NewPassword): Deferred<Response<ResponseBody>>
 }

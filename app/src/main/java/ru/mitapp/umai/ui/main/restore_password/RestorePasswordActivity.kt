@@ -5,6 +5,7 @@ import android.text.Editable
 import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.android.tools.build.jetifier.core.utils.Log
 import ru.mitapp.umai.R
 import ru.mitapp.umai.base.BaseActivity
 import ru.mitapp.umai.databinding.ActivityRestorePasswordBinding
@@ -70,7 +71,8 @@ class RestorePasswordActivity
                 intent.putExtra("phone", binding!!.loginInput.text.toString())
                 startActivity(intent)
             }else{
-                showToast(it.responseCode.toString())
+//                showToast(it.responseCode.toString())
+                Log.i("ErrorCode","it.errorMessage!!")
             }
         })
     }
