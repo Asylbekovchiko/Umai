@@ -1,9 +1,9 @@
 package ru.mitapp.umai.ui.home.more.settings.activity
 
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
+
 import android.view.MenuItem
 import androidx.appcompat.widget.Toolbar
+import ru.mitapp.umai.AppUmai.Companion.sharedPreferences
 import ru.mitapp.umai.R
 import ru.mitapp.umai.base.BaseActivity
 import ru.mitapp.umai.databinding.ActivityLanguagesBinding
@@ -13,6 +13,33 @@ class LanguagesActivity: BaseActivity<ActivityLanguagesBinding>(R.layout.activit
 
     override fun setupView() {
         setupToolbar()
+
+        when(sharedPreferences.language){
+            "ru" -> binding.russianButton.isChecked = true
+            "kg" -> binding.kyrgyzButton.isChecked = true
+            "en" -> binding.englishButton.isChecked = true
+        }
+
+        binding.russianButton.setOnCheckedChangeListener { buttonView, isChecked ->
+            if (isChecked){
+                sharedPreferences.language = "ru"
+            }
+        }
+
+        binding.kyrgyzButton.setOnCheckedChangeListener { buttonView, isChecked ->
+            if (isChecked){
+                sharedPreferences.language = "kg"
+            }
+        }
+
+        binding.englishButton.setOnCheckedChangeListener { buttonView, isChecked ->
+            if (isChecked){
+                sharedPreferences.language = "en"
+            }
+        }
+
+
+
     }
 
     private fun setupToolbar(){
@@ -27,6 +54,5 @@ class LanguagesActivity: BaseActivity<ActivityLanguagesBinding>(R.layout.activit
             onBackPressed()
         }
         return true
-
     }
 }

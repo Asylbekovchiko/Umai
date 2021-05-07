@@ -14,13 +14,13 @@
         android:layout_height="match_parent"
         tools:context=".ui.home.more.settings.SettingsActivity"
         android:background="?attr/backgroundColor"
-        >>>
+        >
 
         <include
             android:id="@+id/toolSettings"
             layout="@layout/toolbar_back"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"></include>
+            app:layout_constraintTop_toTopOf="parent"/>
 
 
         <ImageView

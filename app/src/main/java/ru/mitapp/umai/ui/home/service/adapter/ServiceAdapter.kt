@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
+import ru.mitapp.umai.AppUmai.Companion.sharedPreferences
 import ru.mitapp.umai.R
 import ru.mitapp.umai.databinding.ServiceItemBinding
 import ru.mitapp.umai.models.service.Service
@@ -37,7 +38,7 @@ class ServiceAdapter(var list: ArrayList<Service>, var listener: Listener) :
 
         fun onBind(service: Service, listener: Listener) {
             binding.service = service
-
+            binding.locale = sharedPreferences.language
             itemView.setOnClickListener {
                 listener.onItemClick(service)
             }

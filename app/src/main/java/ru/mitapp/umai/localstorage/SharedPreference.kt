@@ -10,6 +10,7 @@ private const val IS_DARK_THEM = "is_dark_theme"
 private const val UMAI_PREFERENCE = "UmaiPrefs"
 private const val THEME_PREFERENCE = "ThemePrefs"
 private const val TOKEN = "token"
+private const val LANGUAGE = "lan"
 
 
 class SharedPreference(context: Context){
@@ -36,6 +37,16 @@ class SharedPreference(context: Context){
         set(value) {
             pref.edit {
                 putString(TOKEN, value)
+            }
+        }
+
+    var language: String?
+        get() {
+            return pref.getString(LANGUAGE, "ru")
+        }
+        set(value){
+            pref.edit{
+                putString(LANGUAGE, value)
             }
         }
 
@@ -71,5 +82,7 @@ class SharedPreference(context: Context){
                 putBoolean(IS_DARK_THEM, value)
             }
         }
+
+
 
 }

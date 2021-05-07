@@ -9,6 +9,10 @@
             name="service"
             type="ru.mitapp.umai.models.service.Service" />
 
+        <variable
+            name="locale"
+            type="String" />
+
     </data>
 
     <LinearLayout
@@ -40,7 +44,7 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:paddingEnd="16dp"
-                android:text="@{service.title.ru}"
+                android:text="@{locale == `ru`? service.title.ru : service.title.kg}"
                 android:textAlignment="textStart"
                 android:textAppearance="@style/ServiceItemTextStyle"
                 android:textColor="?attr/titleTextColor"

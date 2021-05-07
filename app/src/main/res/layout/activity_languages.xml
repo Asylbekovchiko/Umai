@@ -19,74 +19,43 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/rus_lang"
-            android:layout_width="wrap_content"
+
+        <RadioGroup
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="18dp"
-            android:layout_marginTop="50dp"
-            android:text="Русский"
-            android:textSize="16sp"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/toolbarLanguage"
-            android:textAppearance="@style/Black_Bold_18"
-            />
-
-
-        <TextView
-            android:id="@+id/kyrg_lang"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="16sp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="32dp"
-            android:text="Кыргызча"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/rus_lang"
-            android:textAppearance="@style/Black_Bold_18"
-            />
-
-
-        <TextView
-            android:id="@+id/en_lang"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:textSize="16sp"
-            android:layout_marginTop="32dp"
-            android:text="English"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/kyrg_lang"
-            android:textAppearance="@style/Black_Bold_18"
-            />
-
-        <RadioButton
-            android:id="@+id/radioButton2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:layout_marginTop="36dp"
-            android:layout_marginEnd="20dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/toolbarLanguage" />
+            android:layout_marginHorizontal="18dp"
+            >
 
-        <RadioButton
-            android:id="@+id/radioButton3"
-            android:layout_width="wrap_content"
 
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="20dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/radioButton2"></RadioButton>
+            <RadioButton
+                android:id="@+id/russian_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:text="Русский"
+                android:layoutDirection="rtl"
+                />
 
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            <RadioButton
+                android:id="@+id/kyrgyz_button"
+                android:layout_width="match_parent"
+                android:text="Кыргызча"
+                android:layoutDirection="rtl"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                />
 
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="20dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/radioButton3"></RadioButton>
+            <RadioButton
+                android:id="@+id/english_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="English"
+                android:layoutDirection="rtl"
+                />
+        </RadioGroup>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
