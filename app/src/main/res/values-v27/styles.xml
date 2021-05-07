@@ -25,10 +25,12 @@
         <item name="descriptionTextColor">#BABCC4</item>
     </style>
 
-    <style name="SplashScreen" parent="AppTheme">
-        <item name="android:statusBarColor">#000000</item>
-        <item name="android:windowLightStatusBar">true</item>
+    <style name="BaseTheme.Launcher">
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowTranslucentNavigation">true</item>
+        <item name="android:windowBackground">@drawable/launch_screen</item>
     </style>
+
 
 
     <style name="LightTheme" parent="Theme.AppCompat.Light.NoActionBar">

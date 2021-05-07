@@ -24,8 +24,10 @@
     </style>
 
 
-    <style name="SplashScreen" parent="AppTheme">
-        <item name="android:statusBarColor">#000000</item>
+    <style name="BaseTheme.Launcher">
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowTranslucentNavigation">true</item>
+        <item name="android:windowBackground">@drawable/launch_screen</item>
     </style>
 
     <style name="DarkTheme" parent="Theme.AppCompat.Light.NoActionBar">

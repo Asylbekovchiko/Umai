@@ -19,11 +19,7 @@ class StartActivity : BaseActivity<ActivityStartBinding>(R.layout.activity_start
             WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
             WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
         );
-        Handler().postDelayed({
-            startActivity(Intent(this, MainActivity::class.java))
-            finish()
-
-
-        }, 2000)
+        startActivity(Intent(this, MainActivity::class.java))
+        finish()
     }
 }
