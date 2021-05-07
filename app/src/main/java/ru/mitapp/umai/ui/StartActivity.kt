@@ -19,7 +19,13 @@ class StartActivity : BaseActivity<ActivityStartBinding>(R.layout.activity_start
             WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
             WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
         );
-        startActivity(Intent(this, MainActivity::class.java))
-        finish()
+            if (sharedPreferences.token.isNullOrEmpty()){
+                startActivity(Intent(this, MainActivity::class.java))
+            }else{
+                startActivity(Intent(this, HomeActivity::class.java))
+            }
+            finish()
+
+
     }
 }

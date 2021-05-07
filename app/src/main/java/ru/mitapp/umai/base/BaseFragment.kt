@@ -10,7 +10,7 @@ import androidx.fragment.app.Fragment
 
 abstract class BaseFragment<DataBinding : ViewDataBinding>(private val layoutId: Int) : Fragment() {
 
-    protected var binding: DataBinding? = null
+    lateinit var binding: DataBinding
 
 
     override fun onCreateView(
@@ -19,10 +19,9 @@ abstract class BaseFragment<DataBinding : ViewDataBinding>(private val layoutId:
         savedInstanceState: Bundle?
     ): View? {
 
-        if (binding == null)
-            binding = DataBindingUtil.inflate(inflater, layoutId, container, false)
+        binding = DataBindingUtil.inflate(inflater, layoutId, container, false)
 
-        return binding!!.root
+        return binding.root
     }
 
 

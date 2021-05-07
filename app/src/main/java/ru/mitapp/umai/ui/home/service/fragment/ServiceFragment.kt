@@ -2,71 +2,62 @@ package ru.mitapp.umai.ui.home.service.fragment
 
 
 import android.content.Intent
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import ru.mitapp.umai.R
 import ru.mitapp.umai.base.BaseFragment
 import ru.mitapp.umai.databinding.FragmentServiceBinding
-import ru.mitapp.umai.extension.showToast
-import ru.mitapp.umai.models.service.ServiceModel
+import ru.mitapp.umai.models.service.Service
 import ru.mitapp.umai.ui.home.service.activity.SubCategoryActivity
 import ru.mitapp.umai.ui.home.service.adapter.ServiceAdapter
+import ru.mitapp.umai.ui.home.service.viewmodel.ServiceViewModel
 import ru.mitapp.umai.utils.RecyclerAnimation
 import ru.mitapp.umai.utils.TITLE
 import java.util.ArrayList
 
 class ServiceFragment : BaseFragment<FragmentServiceBinding>(R.layout.fragment_service),
     ServiceAdapter.Listener {
+    private lateinit var viewModel: ServiceViewModel
     private lateinit var adapter: ServiceAdapter
-    var list = ArrayList<ServiceModel>()
+    var list = ArrayList<Service>()
 
     override fun setupView() {
 
-        binding!!.refreshLayout.setOnRefreshListener {
-            setupRecycler()
-            binding!!.refreshLayout.isRefreshing = false
+        viewModel = ViewModelProvider(this)[ServiceViewModel::class.java]
+        adapter = ServiceAdapter(list, this)
+        binding.viewModel = viewModel
+        binding.lifecycleOwner = this
+
+        setupRecycler()
+
+        viewModel.getServices()
+
+        binding.refreshLayout.setOnRefreshListener {
+            viewModel.getServices()
+            binding.refreshLayout.isRefreshing = false
         }
 
-        fillList()
-        setupRecycler()
+        viewModel.data.observe(this, Observer {
+            list.addAll(it.data!!)
+            adapter.notifyDataSetChanged()
+            RecyclerAnimation.startAnimation(binding.serviceRecyclerView, R.anim.main_recycler_anim_layout)
+        })
+
 
     }
 
     private fun setupRecycler() {
-        adapter = ServiceAdapter(list, this)
-        binding!!.serviceRecyclerView.adapter = adapter
-        RecyclerAnimation.startAnimation(binding!!.serviceRecyclerView, R.anim.main_recycler_anim_layout)
+        binding.serviceRecyclerView.adapter = adapter
+        RecyclerAnimation.startAnimation(binding.serviceRecyclerView, R.anim.main_recycler_anim_layout)
     }
 
 
 
-    private fun fillList() {
-        list.add(ServiceModel("https://i.ibb.co/PtbSWSM/iphone.png", "Интернет"))
-        list.add(ServiceModel("https://i.ibb.co/PtbSWSM/iphone.png", "Интернет"))
-        list.add(ServiceModel("https://i.ibb.co/PtbSWSM/iphone.png", "Интернет"))
-        list.add(ServiceModel("https://i.ibb.co/PtbSWSM/iphone.png", "Интернет"))
-        list.add(ServiceModel("https://i.ibb.co/PtbSWSM/iphone.png", "Интернет"))
-        list.add(ServiceModel("https://i.ibb.co/PtbSWSM/iphone.png", "Интернет"))
-        list.add(ServiceModel("https://i.ibb.co/PtbSWSM/iphone.png", "Интернет"))
-        list.add(ServiceModel("https://i.ibb.co/PtbSWSM/iphone.png", "Интернет"))
-        list.add(ServiceModel("https://i.ibb.co/PtbSWSM/iphone.png", "Интернет"))
-        list.add(ServiceModel("https://i.ibb.co/PtbSWSM/iphone.png", "Интернет"))
-        list.add(ServiceModel("https://i.ibb.co/PtbSWSM/iphone.png", "Интернет"))
-        list.add(ServiceModel("https://i.ibb.co/PtbSWSM/iphone.png", "Интернет"))
-        list.add(ServiceModel("https://i.ibb.co/PtbSWSM/iphone.png", "Интернет"))
-        list.add(ServiceModel("https://i.ibb.co/PtbSWSM/iphone.png", "Интернет"))
-        list.add(ServiceModel("https://i.ibb.co/PtbSWSM/iphone.png", "Интернет"))
-        list.add(ServiceModel("https://i.ibb.co/PtbSWSM/iphone.png", "Интернет"))
-        list.add(ServiceModel("https://i.ibb.co/PtbSWSM/iphone.png", "Интернет"))
-        list.add(ServiceModel("https://i.ibb.co/PtbSWSM/iphone.png", "Интернет"))
-        list.add(ServiceModel("https://i.ibb.co/PtbSWSM/iphone.png", "Интернет"))
-        list.add(ServiceModel("https://i.ibb.co/PtbSWSM/iphone.png", "Интернет"))
-        list.add(ServiceModel("https://i.ibb.co/PtbSWSM/iphone.png", "Интернет"))
-        list.add(ServiceModel("https://i.ibb.co/PtbSWSM/iphone.png", "Интернет"))
-        list.add(ServiceModel("https://i.ibb.co/PtbSWSM/iphone.png", "Интернет"))
-    }
-
-    override fun onItemClick(serviceModel: ServiceModel) {
+    override fun onItemClick(service: Service) {
         val intent = Intent(requireContext(), SubCategoryActivity::class.java)
-        intent.putExtra(TITLE, serviceModel.title)
+
+        //TODO pass id of category
+        intent.putExtra(TITLE, service.title?.ru)
         startActivity(intent)
     }
 

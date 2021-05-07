@@ -13,7 +13,6 @@ import ru.mitapp.umai.models.news.News
 import java.lang.Exception
 
 class NewsFragmentViewModel : BaseViewModel() {
-    var isLoad = ObservableField(false)
 
     val newsData : MutableLiveData<BaseModel<ArrayList<News>>> by lazy {
         MutableLiveData<BaseModel<ArrayList<News>>>()

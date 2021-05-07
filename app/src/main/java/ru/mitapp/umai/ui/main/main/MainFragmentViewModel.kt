@@ -18,7 +18,6 @@ class MainFragmentViewModel : BaseViewModel() {
 
 
     var isButtonActive = ObservableField(false)
-    var isLoad = ObservableField(false)
 
     val singIn: MutableLiveData<BaseModel<UserToken>> by lazy {
         MutableLiveData<BaseModel<UserToken>>()

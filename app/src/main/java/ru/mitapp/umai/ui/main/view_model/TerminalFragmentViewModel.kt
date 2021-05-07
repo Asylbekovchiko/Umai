@@ -1,6 +1,5 @@
 package ru.mitapp.umai.ui.main.view_model
 
-import androidx.databinding.ObservableField
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import kotlinx.coroutines.Dispatchers
@@ -14,7 +13,6 @@ import java.lang.Exception
 
 class TerminalFragmentViewModel : BaseViewModel() {
 
-    var isLoad = ObservableField(false)
 
 
     val terminalsData : MutableLiveData<BaseModel<ArrayList<Terminal>>> by lazy {

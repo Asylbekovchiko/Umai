@@ -16,7 +16,6 @@ import java.lang.Exception
 class RegisterViewModel : BaseViewModel() {
 
     var isButtonActive = ObservableField(false)
-    var isLoad = ObservableField(false)
 
     val createUser: MutableLiveData<BaseModel<UserToken>> by lazy {
         MutableLiveData<BaseModel<UserToken>>()

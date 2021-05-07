@@ -16,7 +16,6 @@ class SmsCodeViewModel : BaseViewModel() {
 
     var isButtonActive = ObservableField(false)
 
-    var isLoad = ObservableField(false)
 
 
     val smsCode: MutableLiveData<BaseModel<SmsCode>> by lazy {

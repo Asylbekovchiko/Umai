@@ -9,6 +9,7 @@ import ru.mitapp.umai.models.auth.CreateUser
 import ru.mitapp.umai.models.auth.SmsCode
 import ru.mitapp.umai.models.auth.UserToken
 import ru.mitapp.umai.models.auth.SingIn
+import ru.mitapp.umai.models.service.Service
 
 
 interface ApiInterface {
@@ -28,4 +29,6 @@ interface ApiInterface {
     @PUT("api/users/{reference}/activations")
     fun activation(@Path("reference") reference: String, @Body smsCode: SmsCode, @Query("access_token") token: String): Deferred<Response<SmsCode>>
 
+    @GET("api/v2/service-provider-categories")
+    fun getServices(@Query("access_token") token: String): Deferred<Response<ArrayList<Service>>>
 }

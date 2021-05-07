@@ -25,9 +25,7 @@
         <item name="descriptionTextColor">#BABCC4</item>
     </style>
 
-    <style name="BaseTheme.Launcher">
-        <item name="android:windowTranslucentStatus">true</item>
-        <item name="android:windowTranslucentNavigation">true</item>
+    <style name="AppTheme.Launcher">
         <item name="android:windowBackground">@drawable/launch_screen</item>
     </style>
 

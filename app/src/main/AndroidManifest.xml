@@ -72,7 +72,8 @@
         <activity
             android:name=".ui.StartActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/BaseTheme.Launcher">
+            android:theme="@style/AppTheme.Launcher"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

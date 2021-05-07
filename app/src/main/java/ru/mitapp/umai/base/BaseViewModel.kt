@@ -1,5 +1,6 @@
 package ru.mitapp.umai.base
 
+import androidx.databinding.ObservableField
 import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -12,4 +13,6 @@ open class BaseViewModel : ViewModel() {
     private val coroutineContext : CoroutineContext
         get() = jobs + Dispatchers.IO
     val scope = CoroutineScope(coroutineContext)
+    var isLoad = ObservableField(false)
+
 }

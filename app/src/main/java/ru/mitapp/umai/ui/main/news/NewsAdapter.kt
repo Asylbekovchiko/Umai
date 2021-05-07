@@ -1,6 +1,5 @@
 package ru.mitapp.umai.ui.main.news
 
-import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
@@ -8,9 +7,6 @@ import androidx.recyclerview.widget.RecyclerView
 import ru.mitapp.umai.R
 import ru.mitapp.umai.databinding.ItemNewsBinding
 import ru.mitapp.umai.models.news.News
-import ru.mitapp.umai.models.service.ServiceModel
-import ru.mitapp.umai.ui.home.service.adapter.ServiceAdapter
-import java.text.SimpleDateFormat
 import java.util.ArrayList
 
 class NewsAdapter(var newsList: ArrayList<News>, var listener: Listener) :
