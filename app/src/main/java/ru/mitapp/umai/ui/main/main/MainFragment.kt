@@ -22,6 +22,7 @@ import ru.mitapp.umai.models.auth.SingIn
 import ru.mitapp.umai.ui.home.HomeActivity
 import ru.mitapp.umai.ui.main.adapter.BannerRecyclerAdapter
 import ru.mitapp.umai.ui.main.register.RegisterActivity
+import ru.mitapp.umai.ui.main.restore_password.RestorePasswordActivity
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -70,6 +71,10 @@ class MainFragment : BaseFragment<MainFragmentBinding>(R.layout.main_fragment),
 
         signIn()
 
+
+        binding!!.forgotPassword.setOnClickListener {
+            startActivity(Intent(requireContext(), RestorePasswordActivity::class.java))
+        }
 
 
         binding!!.textView9.setOnClickListener {

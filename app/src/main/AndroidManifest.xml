@@ -26,7 +26,11 @@
         android:roundIcon="@drawable/ic_umai_logo"
         android:supportsRtl="true"
         android:theme="@style/BaseTheme">
-        <activity android:name=".ui.main.register.RegisterActivity"></activity>
+        <activity android:name=".ui.main.pin_code_restore.PinCodeRestoreActivity"></activity>
+        <activity android:name=".ui.main.NewPasswordActivity" />
+        <activity android:name=".ui.main.restore_password.pin_code.PinCodeRestoreActivity" />
+        <activity android:name=".ui.main.restore_password.RestorePasswordActivity" />
+        <activity android:name=".ui.main.register.RegisterActivity" />
         <activity android:name=".ui.main.fragments.TerminalFragment" />
         <activity android:name=".ui.main.dialog.TerminalMapDialog" />
         <activity android:name=".ui.home.service.activity.SubCategoryActivity" />

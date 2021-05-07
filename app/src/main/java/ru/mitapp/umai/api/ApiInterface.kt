@@ -4,28 +4,31 @@ import kotlinx.coroutines.Deferred
 import retrofit2.Response
 import retrofit2.http.*
 import ru.mitapp.umai.models.Terminal
+import ru.mitapp.umai.models.auth.*
 import ru.mitapp.umai.models.news.News
-import ru.mitapp.umai.models.auth.CreateUser
-import ru.mitapp.umai.models.auth.SmsCode
-import ru.mitapp.umai.models.auth.UserToken
-import ru.mitapp.umai.models.auth.SingIn
 
 
 interface ApiInterface {
 
     @GET("api/terminals")
-    fun getTerminals() : Deferred<Response<ArrayList<Terminal>>>
+    fun getTerminalsAsync() : Deferred<Response<ArrayList<Terminal>>>
 
     @GET("api/news")
-    fun getNews() : Deferred<Response<ArrayList<News>>>
+    fun getNewsAsync() : Deferred<Response<ArrayList<News>>>
 
     @POST("api/users")
-    fun createUser(@Body user: CreateUser): Deferred<Response<UserToken>>
+    fun createUserAsync(@Body user: CreateUser): Deferred<Response<UserToken>>
 
     @POST("api/auth/local")
-    fun signInUser(@Body singIn: SingIn): Deferred<Response<UserToken>>
+    fun signInUserAsync(@Body singIn: SingIn): Deferred<Response<UserToken>>
 
     @PUT("api/users/{reference}/activations")
-    fun activation(@Path("reference") reference: String, @Body smsCode: SmsCode, @Query("access_token") token: String): Deferred<Response<SmsCode>>
+    fun activationAsync(@Path("reference") reference: String,
+                        @Body smsCode: SmsCode,
+                        @Query("access_token")
+                   token: String): Deferred<Response<Void>>
+
+    @POST("api/my/password")
+    fun restorePasswordAsync(@Body phone: Phone): Deferred<Response<String>>
 
 }
