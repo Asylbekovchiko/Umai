@@ -3,6 +3,7 @@ package ru.mitapp.umai.ui.main.pin_code_restore
 import androidx.databinding.ObservableField
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.android.tools.build.jetifier.core.utils.Log
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -21,8 +22,8 @@ class PinRestoreViewModel: BaseViewModel() {
     var isLoad = ObservableField(false)
 
 
-    val checkPinCode: MutableLiveData<BaseModel<ResponseBody>> by lazy {
-        MutableLiveData<BaseModel<ResponseBody>>()
+    val checkPinCode: MutableLiveData<Boolean> by lazy {
+        MutableLiveData<Boolean>()
     }
 
 
@@ -31,24 +32,30 @@ class PinRestoreViewModel: BaseViewModel() {
             try {
                 isLoad.set(true)
                 val password = AppUmai.repository.checkCode(pinCode)
-                setResorePassword(password)
-                isLoad.set(false)
+                Log.i("responseCode", password.responseCode.toString())
+                if (password.responseCode == 204){
+                    withContext(Dispatchers.Main) {
+                        checkPinCode.value = true
+                    }
+                    isLoad.set(false)
+                }else{
+                    withContext(Dispatchers.Main) {
+                        checkPinCode.value = false
+                    }
+                    isLoad.set(false)
+                }
+
             } catch (e: Exception) {
                 e.stackTrace
+                withContext(Dispatchers.Main) {
+                    checkPinCode.value = false
+                }
                 isLoad.set(false)
             }
         }
 
     }
 
-    private suspend fun setResorePassword(password: BaseModel<ResponseBody>)
-            : LiveData<BaseModel<ResponseBody>> {
-        withContext(Dispatchers.Main) {
-            checkPinCode.value = password
-        }
-
-        return checkPinCode
-    }
 
 
     fun checkInputs(smsCode: String?) {

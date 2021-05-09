@@ -5,6 +5,7 @@ import android.text.Editable
 import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import ru.mitapp.umai.AppUmai.Companion.repository
 import ru.mitapp.umai.R
 import ru.mitapp.umai.base.BaseActivity
 import ru.mitapp.umai.databinding.ActivityPinCodeRestoreBinding
@@ -47,19 +48,21 @@ class PinCodeRestoreActivity :
     }
 
     private fun checkPin() {
-        viewModel.checkPinCode.observe(this, Observer {
+        viewModel.checkPinCode.observe(this, Observer { success ->
 
-            val intent = Intent(this, NewPasswordActivity::class.java)
-
-            intent.putExtra("pinCode", binding!!.pinEditTetxt.text.toString())
-            startActivity(intent)
-            showToast(it.errorMessage.toString())
+            if (success==true) {
+                val intent = Intent(this, NewPasswordActivity::class.java)
+                intent.putExtra("pinCode", binding!!.pinEditTetxt.text.toString())
+                startActivity(intent)
+            }else if (success==false){
+                showToast("Введён неправильный код для восстановления пароля")
+            }
 
         })
     }
 
 
-    fun setUpInputs() {
+    private fun setUpInputs() {
         binding!!.pinEditTetxt.addTextChangedListener(object : BaseTextChangeListener() {
             override fun afterTextChanged(p1: Editable?) {
                 super.afterTextChanged(p1)
