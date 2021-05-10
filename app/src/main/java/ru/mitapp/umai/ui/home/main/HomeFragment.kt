@@ -1,6 +1,5 @@
-package ru.mitapp.umai.ui.home.main.fragment
+package ru.mitapp.umai.ui.home.main
 
-import android.app.Activity
 import android.content.Intent
 import ru.mitapp.umai.R
 import ru.mitapp.umai.base.BaseFragment
@@ -9,12 +8,8 @@ import ru.mitapp.umai.models.home.Banner
 import ru.mitapp.umai.models.home.Template
 import ru.mitapp.umai.ui.home.main.adapter.HomeBannerAdapter
 import ru.mitapp.umai.ui.home.main.adapter.TemplatesAdapter
-import ru.mitapp.umai.ui.home.main.templates.activity.templatesactivity.TemplatesActivity
-import ru.mitapp.umai.ui.home.main.transactions.activities.TransactionActivity
 import ru.mitapp.umai.utils.Backgrounds
-import ru.mitapp.umai.utils.REQUEST_CODE
-import ru.mitapp.umai.utils.SERVICE_REQUEST_CODE
-import ru.mitapp.umai.utils.TITLE_TEXT
+
 import kotlin.collections.ArrayList
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home), HomeBannerAdapter.Listener,
@@ -35,12 +30,10 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home), 
         setupBanners()
 
         binding!!.txtTmplates.setOnClickListener {
-            val intent = Intent(requireContext(), TemplatesActivity::class.java)
-            startActivity(intent)
+
         }
         binding!!.transactionImage.setOnClickListener{
-            val intent = Intent(requireContext(), TransactionActivity::class.java)
-            startActivityForResult(intent, REQUEST_CODE)
+
         }
 
     }
