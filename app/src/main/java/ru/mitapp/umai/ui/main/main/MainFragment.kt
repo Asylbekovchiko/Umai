@@ -20,7 +20,8 @@ import ru.mitapp.umai.extension.showToast
 import ru.mitapp.umai.helper.BaseTextChangeListener
 import ru.mitapp.umai.models.auth.SingIn
 import ru.mitapp.umai.ui.home.HomeActivity
-import ru.mitapp.umai.ui.main.adapter.BannerRecyclerAdapter
+import ru.mitapp.umai.ui.main.main.adapter.BannerRecyclerAdapter
+import ru.mitapp.umai.ui.main.main.viewodel.MainFragmentViewModel
 import ru.mitapp.umai.ui.main.register.RegisterActivity
 import java.util.*
 import kotlin.collections.ArrayList
@@ -72,28 +73,26 @@ class MainFragment : BaseFragment<MainFragmentBinding>(R.layout.main_fragment),
 
 
 
-        binding!!.textView9.setOnClickListener {
-
+        binding.textView9.setOnClickListener {
             startActivity(Intent(requireContext(), RegisterActivity::class.java))
-
 
         }
 
         Timer().scheduleAtFixedRate(object : TimerTask() {
             override fun run() {
                 if (adapter.itemCount - 1 == bannerPosition) {
-                    binding!!.bannerRecycler.smoothScrollToPosition(0)
+                    binding.bannerRecycler.smoothScrollToPosition(0)
                 } else {
-                    binding!!.bannerRecycler.smoothScrollToPosition(bannerPosition + 1)
+                    binding.bannerRecycler.smoothScrollToPosition(bannerPosition + 1)
                 }
             }
         }, 0, 5000)
 
 
 
-        binding!!.loginButton.setOnClickListener {
-            val phone = binding!!.loginInput.text.toString().trim()
-            val password = binding!!.edtPassword.text.toString().trim()
+        binding.loginButton.setOnClickListener {
+            val phone = binding.loginInput.text.toString().trim()
+            val password = binding.edtPassword.text.toString().trim()
             setSignIn(phone,password)
             viewModel.singInUser(signIn)
         }
@@ -141,7 +140,7 @@ class MainFragment : BaseFragment<MainFragmentBinding>(R.layout.main_fragment),
                 )
                 this?.layoutParams = layoutParams
             }
-            binding!!.layoutBannerIndicators.addView(imageView[i])
+            binding.layoutBannerIndicators.addView(imageView[i])
         }
 
     }

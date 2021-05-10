@@ -11,6 +11,7 @@ import ru.mitapp.umai.databinding.ActivityRegisterBinding
 import ru.mitapp.umai.extension.showToast
 import ru.mitapp.umai.helper.BaseTextChangeListener
 import ru.mitapp.umai.models.auth.CreateUser
+import ru.mitapp.umai.ui.main.register.viewmodel.RegisterViewModel
 import ru.mitapp.umai.ui.registration.activity.SmsCodeActivity
 import ru.mitapp.umai.ui.web_view.WebViewActivity
 

@@ -3,7 +3,7 @@
 
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".ui.main.fragments.TerminalListFragment"
+    tools:context=".ui.main.terminal.TerminalListFragment"
     >
 
 

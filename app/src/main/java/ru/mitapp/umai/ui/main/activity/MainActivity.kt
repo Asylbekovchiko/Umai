@@ -5,7 +5,7 @@ import androidx.viewpager.widget.ViewPager
 import ru.mitapp.umai.R
 import ru.mitapp.umai.base.BaseActivity
 import ru.mitapp.umai.databinding.ActivityMainBinding
-import ru.mitapp.umai.ui.main.adapter.MainPagerAdapter
+import ru.mitapp.umai.ui.main.activity.adapter.MainPagerAdapter
 
 class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
 

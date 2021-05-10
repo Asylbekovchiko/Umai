@@ -2,7 +2,6 @@ package ru.mitapp.umai.ui
 
 import android.content.Intent
 import android.content.res.Configuration
-import android.os.Handler
 import android.view.WindowManager
 import ru.mitapp.umai.AppUmai.Companion.sharedPreferences
 import ru.mitapp.umai.R

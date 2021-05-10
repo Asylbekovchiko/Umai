@@ -8,7 +8,9 @@ import ru.mitapp.umai.R
 import ru.mitapp.umai.base.BaseFragment
 import ru.mitapp.umai.databinding.NewsFragmentBinding
 import ru.mitapp.umai.models.news.News
-import ru.mitapp.umai.ui.main.detail.DetailNewsActivity
+import ru.mitapp.umai.ui.main.news_detail.DetailNewsActivity
+import ru.mitapp.umai.ui.main.news.adapter.NewsAdapter
+import ru.mitapp.umai.ui.main.news.viewmodel.NewsFragmentViewModel
 
 class NewsFragment : BaseFragment<NewsFragmentBinding>(R.layout.news_fragment),
     NewsAdapter.Listener {

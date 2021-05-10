@@ -8,7 +8,7 @@
 
         <variable
             name="viewModel"
-            type="ru.mitapp.umai.ui.main.register.RegisterViewModel" />
+            type="ru.mitapp.umai.ui.main.register.viewmodel.RegisterViewModel" />
 
     </data>
 

@@ -1,6 +1,7 @@
 package ru.mitapp.umai.ui.home.service.activity
 
 
+import android.content.Intent
 import android.view.MenuItem
 import android.widget.TextView
 import androidx.appcompat.widget.Toolbar
@@ -10,10 +11,10 @@ import ru.mitapp.umai.R
 import ru.mitapp.umai.base.BaseActivity
 import ru.mitapp.umai.databinding.ActivitySubCategoryServiceBinding
 import ru.mitapp.umai.extension.showToast
-import ru.mitapp.umai.models.service.Service
 import ru.mitapp.umai.models.service.SubCategoryService
 import ru.mitapp.umai.ui.home.service.adapter.SubCategoryAdapter
 import ru.mitapp.umai.ui.home.service.viewmodel.SubCategoryViewModel
+import ru.mitapp.umai.ui.home.payment.activity.PaymentActivity
 import ru.mitapp.umai.utils.RecyclerAnimation
 import ru.mitapp.umai.utils.SERVICE_ID
 import ru.mitapp.umai.utils.TITLE
@@ -88,7 +89,7 @@ class SubCategoryServiceActivity : BaseActivity<ActivitySubCategoryServiceBindin
 
 
     override fun onSubCategoryClickListener(subCategoryService: SubCategoryService) {
-
+        startActivity(Intent(this, PaymentActivity::class.java))
     }
 
 

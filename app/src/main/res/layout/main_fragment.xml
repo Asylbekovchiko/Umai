@@ -10,7 +10,7 @@
 
         <variable
             name="viewModel"
-            type="ru.mitapp.umai.ui.main.main.MainFragmentViewModel" />
+            type="ru.mitapp.umai.ui.main.main.viewodel.MainFragmentViewModel" />
 
     </data>
 

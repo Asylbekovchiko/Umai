@@ -26,18 +26,15 @@
         android:roundIcon="@drawable/ic_umai_logo"
         android:supportsRtl="true"
         android:theme="@style/BaseTheme">
-        <activity android:name=".ui.main.register.RegisterActivity"></activity>
-        <activity android:name=".ui.main.fragments.TerminalFragment" />
-        <activity android:name=".ui.main.dialog.TerminalMapDialog" />
+        <activity android:name="ru.mitapp.umai.ui.home.payment.activity.PaymentActivity"></activity>
+        <activity android:name=".ui.main.register.RegisterActivity" />
+        <activity android:name=".ui.main.terminal.TerminalFragment" />
+        <activity android:name="ru.mitapp.umai.ui.main.terminal.terminal_dialog.TerminalMapDialog" />
         <activity android:name=".ui.home.service.activity.SubCategoryServiceActivity" />
         <activity android:name=".ui.home.history.detail.DetailHistoryActivity" />
-        <activity android:name=".ui.main.detail.DetailNewsActivity" />
+        <activity android:name=".ui.main.news_detail.DetailNewsActivity" />
         <activity android:name=".ui.home.service.activity.SubCategoryServiceActivity" />
         <activity android:name=".ui.home.history.detail.DetailHistoryActivity" />
-        <activity android:name=".ui.home.main.transactions.activities.TransactionSuccessActivity" />
-        <activity android:name=".ui.home.main.transactions.activities.TransactionFoundActivity" />
-        <activity android:name=".ui.home.main.transactions.activities.TransactionActivity" />
-        <activity android:name=".ui.home.main.templates.activity.edit.EditTemplatesActivity" />
         <activity android:name=".ui.home.main.templates.activity.detail.PayTemplatesActivity" />
         <activity android:name=".ui.home.main.templates.activity.secondservice.SecondServiceActivity" />
         <activity android:name=".ui.home.main.templates.activity.chooseservices.ChooseServicesActivity" />
@@ -72,8 +69,7 @@
         <activity
             android:name=".ui.StartActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.Launcher"
-            >
+            android:theme="@style/AppTheme.Launcher">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
