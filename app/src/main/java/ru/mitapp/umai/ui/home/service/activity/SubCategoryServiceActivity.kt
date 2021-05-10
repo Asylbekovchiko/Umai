@@ -38,6 +38,7 @@ class SubCategoryServiceActivity : BaseActivity<ActivitySubCategoryServiceBindin
 
     override fun setupView() {
         viewModel = ViewModelProvider(this)[SubCategoryViewModel::class.java]
+        binding.viewModel = viewModel
         setupToolbar()
         viewModel.getServices(id!!)
         setupRecycler()
