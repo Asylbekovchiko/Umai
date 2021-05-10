@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="ru.mitapp.umai.ui.home.payment.viewmodel.PaymentViewModel" />
+
+    </data>
+
+    <LinearLayout
+        android:paddingHorizontal="@dimen/_12sdp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".ui.home.payment.fragment.PaymentDataFragment">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_23sdp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/personal_account"
+                />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_stroke_blue"
+                android:paddingHorizontal="@dimen/_12sdp"
+                android:paddingVertical="@dimen/_9sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:hint="ХХХХ-ХХХХ-ХХХХ"
+                android:text="@={viewModel.account}"
+                android:inputType="text"
+                android:maxLines="1"
+                android:imeOptions="actionNext"
+                android:textAppearance="@style/LightGray_Regular_16"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_23sdp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/summ"
+                />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_stroke_blue"
+                android:paddingHorizontal="@dimen/_12sdp"
+                android:paddingVertical="@dimen/_9sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:hint="00.00"
+                android:text="@={viewModel.summ}"
+                android:inputType="number"
+                android:maxLines="1"
+                android:imeOptions="actionDone"
+                android:textAppearance="@style/LightGray_Regular_16"
+                />
+
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>

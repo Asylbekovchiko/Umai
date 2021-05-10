@@ -23,7 +23,7 @@
 
 
             <include
-                layout="@layout/toolbar_back"
+                layout="@layout/toolbar_back_title"
                 android:id="@+id/detail_toolbar"/>
 
             <androidx.cardview.widget.CardView

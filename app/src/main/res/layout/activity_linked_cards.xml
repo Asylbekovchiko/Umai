@@ -14,7 +14,7 @@
         android:background="?attr/backgroundColor">
     <include
         android:id="@+id/toolbar_cards"
-        layout="@layout/toolbar_back"
+        layout="@layout/toolbar_back_title"
         ></include>
 
         <ImageView

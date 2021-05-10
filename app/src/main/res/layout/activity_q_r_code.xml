@@ -15,7 +15,7 @@
 
         <include
             android:id="@+id/qr_code_toolbar"
-            layout="@layout/toolbar_back"
+            layout="@layout/toolbar_back_title"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"></include>
         <ImageButton

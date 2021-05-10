@@ -10,10 +10,13 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="?attr/backgroundColor"
         tools:context=".ui.home.payment.activity.PaymentActivity">
 
         <include layout="@layout/toolbar_back"
             android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             />
 
         <fragment
@@ -24,7 +27,7 @@
             app:defaultNavHost="true"
             app:navGraph="@navigation/payment_graph"
             android:name="androidx.navigation.fragment.NavHostFragment"
-            android:id="@+id/payment_graph"
+            android:id="@+id/graph_payment"
 
             />
 

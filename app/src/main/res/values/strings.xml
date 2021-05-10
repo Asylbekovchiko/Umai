@@ -89,4 +89,5 @@
     <string name="have_account">Уже есть аккаунт?</string>
     <string name="enter_password">Введите пароль</string>
     <string name="ent_name">Введите имя</string>
+    <string name="summ">Сумма</string>
 </resources>
