@@ -34,13 +34,13 @@ class SmsCodeActivity : BaseActivity<ActivitySmsCodeBinding>(R.layout.activity_s
         viewModel = ViewModelProvider(this).get(SmsCodeViewModel::class.java)
         binding!!.viewModel = viewModel
 
-        toolbar = findViewById(R.id.toolbarPartners)
+        toolbar = findViewById(R.id.toolbarCode)
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayShowTitleEnabled(false)
 
 
         if (phone != null) {
-            binding!!.textView19.text = phone
+            binding!!.phoneNumber.text = phone
         }
 
         val replacePhone = phone!!.replace("+", "").replace("(", "")
@@ -72,20 +72,14 @@ class SmsCodeActivity : BaseActivity<ActivitySmsCodeBinding>(R.layout.activity_s
     }
 
     fun activateNumber() {
-        viewModel.smsCode.observe(this, Observer {
-//            if (it.data != null) {
-                this.showToast("Success")
+        viewModel.smsCode.observe(this, Observer {success ->
+
+            if (success==true) {
                 val intent = Intent(this, HomeActivity::class.java)
                 startActivity(intent)
-//            } else {
-//                this.showToast(it.errorMessage)
-//            }
-//            if (it.responseCode == 204) {
-//                val intent = Intent(this, HomeActivity::class.java)
-//                startActivity(intent)
-//            } else {
-//                this.showToast(it.responseCode.toString())
-//            }
+            }else if (success==false){
+                showToast("Код активации введен неверно")
+            }
         })
     }
 

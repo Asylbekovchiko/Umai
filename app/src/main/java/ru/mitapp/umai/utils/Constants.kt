@@ -13,6 +13,7 @@ const val KICB_DESCRIPTION = "Когда мы покупаем квартиру 
 
 const val SERVICE_REQUEST_CODE = 11
 const val REQUEST_CODE = 15
+const val REQUEST_PASSWORD_RESTORE = 144
 
 
 

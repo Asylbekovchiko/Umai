@@ -20,8 +20,8 @@ class SmsCodeViewModel : BaseViewModel() {
     var isLoad = ObservableField(false)
 
 
-    val smsCode: MutableLiveData<BaseModel<ResponseBody>> by lazy {
-        MutableLiveData<BaseModel<ResponseBody>>()
+    val smsCode: MutableLiveData<Boolean> by lazy {
+        MutableLiveData<Boolean>()
     }
 
     fun checkInputs(smsCode: String?) {
@@ -38,28 +38,33 @@ class SmsCodeViewModel : BaseViewModel() {
 
 
 
-    fun activateUser(reference: String, smsCode: SmsCode, token: String) {
+    fun activateUser(reference: String, smsCodeModel: SmsCode, token: String) {
         scope.launch {
             try {
                 isLoad.set(true)
-                val smsCodeList = AppUmai.repository.activationUser(reference, smsCode, token)
-                setDataUser(smsCodeList)
+                val smsCodeList = AppUmai.repository.activationUser(reference, smsCodeModel, token)
+                if (smsCodeList.responseCode == 204){
+                    withContext(Dispatchers.Main) {
+                        smsCode.value = true
+                    }
+                    isLoad.set(false)
+                }else{
+                    withContext(Dispatchers.Main) {
+                        smsCode.value = false
+                    }
+                    isLoad.set(false)
+                }
                 isLoad.set(false)
             } catch (e: Exception) {
                 e.stackTrace
+                withContext(Dispatchers.Main) {
+                    smsCode.value = false
+                }
                 isLoad.set(false)
             }
         }
 
     }
 
-    private suspend fun setDataUser(userToken: BaseModel<ResponseBody>)
-            : LiveData<BaseModel<ResponseBody>> {
-        withContext(Dispatchers.Main) {
-            smsCode.value = userToken
-        }
-
-        return smsCode
-    }
 
 }

@@ -3,6 +3,7 @@ package ru.mitapp.umai.ui.main.restore_password
 import androidx.databinding.ObservableField
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.android.tools.build.jetifier.core.utils.Log
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -30,6 +31,7 @@ class RestoreViewModel: BaseViewModel() {
                 isLoad.set(true)
                 val password = AppUmai.repository.restorePassword(phone)
                 setResorePassword(password)
+
                 isLoad.set(false)
             } catch (e: Exception) {
                 e.stackTrace

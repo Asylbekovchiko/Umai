@@ -1,6 +1,5 @@
 package ru.mitapp.umai.ui.main.activity
 
-import android.content.Intent
 import android.text.Editable
 import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.Observer
@@ -46,8 +45,8 @@ class NewPasswordActivity : BaseActivity<ActivityNewPasswordBinding>(R.layout.ac
 
     fun newPassword(){
         viewModel.newsPassword.observe(this, Observer {
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
+            setResult(RESULT_OK, intent)
+            finish()
         })
     }
 
