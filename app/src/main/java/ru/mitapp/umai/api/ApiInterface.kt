@@ -10,6 +10,7 @@ import ru.mitapp.umai.models.auth.SmsCode
 import ru.mitapp.umai.models.auth.UserToken
 import ru.mitapp.umai.models.auth.SingIn
 import ru.mitapp.umai.models.service.Service
+import ru.mitapp.umai.models.service.SubCategoryService
 
 
 interface ApiInterface {
@@ -31,4 +32,8 @@ interface ApiInterface {
 
     @GET("api/v2/service-provider-categories")
     fun getServices(@Query("access_token") token: String): Deferred<Response<ArrayList<Service>>>
+
+    @GET("api/v2/service-providers")
+    fun getServicesSecondLevel(@Query("access_token") token: String, @Query("category") category: String): Deferred<Response<java.util.ArrayList<SubCategoryService>>>
+
 }

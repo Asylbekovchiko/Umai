@@ -7,11 +7,13 @@ import androidx.lifecycle.ViewModelProvider
 import ru.mitapp.umai.R
 import ru.mitapp.umai.base.BaseFragment
 import ru.mitapp.umai.databinding.FragmentServiceBinding
+import ru.mitapp.umai.extension.showToast
 import ru.mitapp.umai.models.service.Service
-import ru.mitapp.umai.ui.home.service.activity.SubCategoryActivity
+import ru.mitapp.umai.ui.home.service.activity.SubCategoryServiceActivity
 import ru.mitapp.umai.ui.home.service.adapter.ServiceAdapter
 import ru.mitapp.umai.ui.home.service.viewmodel.ServiceViewModel
 import ru.mitapp.umai.utils.RecyclerAnimation
+import ru.mitapp.umai.utils.SERVICE_ID
 import ru.mitapp.umai.utils.TITLE
 import java.util.ArrayList
 
@@ -34,13 +36,18 @@ class ServiceFragment : BaseFragment<FragmentServiceBinding>(R.layout.fragment_s
 
         binding.refreshLayout.setOnRefreshListener {
             viewModel.getServices()
-            binding.refreshLayout.isRefreshing = false
+            list.clear()
         }
 
         viewModel.data.observe(this, Observer {
+            binding.refreshLayout.isRefreshing = false
             list.addAll(it.data!!)
-            adapter.notifyDataSetChanged()
-            RecyclerAnimation.startAnimation(binding.serviceRecyclerView, R.anim.main_recycler_anim_layout)
+            if (it.data != null){
+                adapter.notifyDataSetChanged()
+                RecyclerAnimation.startAnimation(binding.serviceRecyclerView, R.anim.main_recycler_anim_layout)
+            }else{
+                showToast(it.errorMessage)
+            }
         })
 
 
@@ -54,10 +61,11 @@ class ServiceFragment : BaseFragment<FragmentServiceBinding>(R.layout.fragment_s
 
 
     override fun onItemClick(service: Service) {
-        val intent = Intent(requireContext(), SubCategoryActivity::class.java)
+        val intent = Intent(requireContext(), SubCategoryServiceActivity::class.java)
 
-        //TODO pass id of category
+        //TODO logic of the lang
         intent.putExtra(TITLE, service.title?.ru)
+        intent.putExtra(SERVICE_ID, service.id)
         startActivity(intent)
     }
 

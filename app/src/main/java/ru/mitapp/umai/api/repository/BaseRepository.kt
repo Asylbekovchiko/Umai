@@ -41,8 +41,6 @@ open class BaseRepository {
             baseModel.responseCode = response.code()
         }
 
-
-
         return Result.Success(baseModel)
     }
 }

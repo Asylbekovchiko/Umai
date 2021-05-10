@@ -29,10 +29,10 @@
         <activity android:name=".ui.main.register.RegisterActivity"></activity>
         <activity android:name=".ui.main.fragments.TerminalFragment" />
         <activity android:name=".ui.main.dialog.TerminalMapDialog" />
-        <activity android:name=".ui.home.service.activity.SubCategoryActivity" />
+        <activity android:name=".ui.home.service.activity.SubCategoryServiceActivity" />
         <activity android:name=".ui.home.history.detail.DetailHistoryActivity" />
         <activity android:name=".ui.main.detail.DetailNewsActivity" />
-        <activity android:name=".ui.home.service.activity.SubCategoryActivity" />
+        <activity android:name=".ui.home.service.activity.SubCategoryServiceActivity" />
         <activity android:name=".ui.home.history.detail.DetailHistoryActivity" />
         <activity android:name=".ui.home.main.transactions.activities.TransactionSuccessActivity" />
         <activity android:name=".ui.home.main.transactions.activities.TransactionFoundActivity" />

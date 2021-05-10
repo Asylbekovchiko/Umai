@@ -11,7 +11,7 @@
 
         <variable
             name="subCategory"
-            type="ru.mitapp.umai.models.service.SubCategory" />
+            type="ru.mitapp.umai.models.service.SubCategoryService" />
 
     </data>
 
@@ -32,7 +32,6 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:imageUrl="@{subCategory.icon}"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="16dp"
             android:layout_marginStart="18dp"
@@ -70,7 +69,6 @@
             android:background="@drawable/bg_ball"
             android:text="@string/balls"
             android:layout_marginEnd="18dp"
-            android:visibility="@{subCategory.isBall ? View.VISIBLE : View.GONE}"
             />
 
 

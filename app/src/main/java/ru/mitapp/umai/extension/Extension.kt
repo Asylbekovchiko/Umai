@@ -6,6 +6,7 @@ import android.content.Context
 import android.content.pm.PackageManager
 import android.os.Build
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 
 
 fun Activity.isPermissionWrite() : Boolean{
@@ -27,6 +28,10 @@ fun Activity.isPermissionWrite() : Boolean{
 
 fun Context.showToast(message : String?){
     Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+}
+
+fun Fragment.showToast(message : String?){
+    Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
 }
 
 
