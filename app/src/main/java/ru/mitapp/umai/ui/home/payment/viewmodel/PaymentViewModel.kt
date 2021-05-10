@@ -11,4 +11,6 @@ class PaymentViewModel: BaseViewModel() {
     var summ = MutableLiveData<String>("")
     val buttontext = ObservableField("Далее")
 
+    var image = "https://www.aknet.kg/ima/aknet.jpg"
+
 }
