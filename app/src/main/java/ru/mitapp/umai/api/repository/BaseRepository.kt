@@ -13,10 +13,10 @@ open class BaseRepository {
 
     suspend fun <T : Any> safeApiCall(call: suspend () -> Response<T>): Any? {
 
-        val result : Result<T> = safeApiResult(call)
-        var data : Any? = null
+        val result: Result<T> = safeApiResult(call)
+        var data: Any? = null
 
-        when(result) {
+        when (result) {
             is Result.Success ->
                 data = result.data
             is Result.Error -> {
@@ -29,15 +29,16 @@ open class BaseRepository {
 
     }
 
-    private suspend fun <T: Any> safeApiResult(call: suspend ()-> Response<T>) : Result<T> {
+    private suspend fun <T : Any> safeApiResult(call: suspend () -> Response<T>): Result<T> {
         val response = call.invoke()
-        var baseModel : BaseModel<T> = BaseModel()
-        if(response.isSuccessful) {
+        var baseModel: BaseModel<T> = BaseModel()
+        if (response.isSuccessful) {
             baseModel.data = response.body()
-        } else{
+            baseModel.responseCode = response.code()
+        }else {
             val errorMsg = JSONObject(response.errorBody()!!.string()).toString()
-            val type : Type = object  : TypeToken<BaseModel<T>>() {}.type
-            baseModel  = Gson().fromJson(errorMsg, type)
+            val type: Type = object : TypeToken<BaseModel<T>>() {}.type
+            baseModel = Gson().fromJson(errorMsg, type)
             baseModel.responseCode = response.code()
         }
 

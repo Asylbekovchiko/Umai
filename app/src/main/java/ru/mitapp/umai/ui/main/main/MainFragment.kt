@@ -1,5 +1,6 @@
 package ru.mitapp.umai.ui.main.main
 
+import android.app.Activity
 import android.content.Intent
 import android.text.Editable
 import android.view.ViewGroup
@@ -20,9 +21,11 @@ import ru.mitapp.umai.extension.showToast
 import ru.mitapp.umai.helper.BaseTextChangeListener
 import ru.mitapp.umai.models.auth.SingIn
 import ru.mitapp.umai.ui.home.HomeActivity
-import ru.mitapp.umai.ui.main.main.adapter.BannerRecyclerAdapter
-import ru.mitapp.umai.ui.main.main.viewodel.MainFragmentViewModel
+import ru.mitapp.umai.ui.main.adapter.BannerRecyclerAdapter
 import ru.mitapp.umai.ui.main.register.RegisterActivity
+import ru.mitapp.umai.ui.main.restore_password.RestorePasswordActivity
+import ru.mitapp.umai.utils.REQUEST_CODE
+import ru.mitapp.umai.utils.REQUEST_PASSWORD_RESTORE
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -72,27 +75,31 @@ class MainFragment : BaseFragment<MainFragmentBinding>(R.layout.main_fragment),
         signIn()
 
 
+        binding!!.forgotPassword.setOnClickListener {
+            val intent = Intent(requireContext(), RestorePasswordActivity::class.java)
+            startActivityForResult(intent, REQUEST_PASSWORD_RESTORE)
+        }
 
-        binding.textView9.setOnClickListener {
+
+        binding!!.textRegister.setOnClickListener {
             startActivity(Intent(requireContext(), RegisterActivity::class.java))
-
         }
 
         Timer().scheduleAtFixedRate(object : TimerTask() {
             override fun run() {
                 if (adapter.itemCount - 1 == bannerPosition) {
-                    binding.bannerRecycler.smoothScrollToPosition(0)
+                    binding!!.bannerRecycler.smoothScrollToPosition(0)
                 } else {
-                    binding.bannerRecycler.smoothScrollToPosition(bannerPosition + 1)
+                    binding!!.bannerRecycler.smoothScrollToPosition(bannerPosition + 1)
                 }
             }
         }, 0, 5000)
 
 
 
-        binding.loginButton.setOnClickListener {
-            val phone = binding.loginInput.text.toString().trim()
-            val password = binding.edtPassword.text.toString().trim()
+        binding!!.loginButton.setOnClickListener {
+            val phone = binding!!.loginInput.text.toString().trim()
+            val password = binding!!.edtPassword.text.toString().trim()
             setSignIn(phone,password)
             viewModel.singInUser(signIn)
         }
@@ -140,7 +147,7 @@ class MainFragment : BaseFragment<MainFragmentBinding>(R.layout.main_fragment),
                 )
                 this?.layoutParams = layoutParams
             }
-            binding.layoutBannerIndicators.addView(imageView[i])
+            binding!!.layoutBannerIndicators.addView(imageView[i])
         }
 
     }
@@ -174,11 +181,15 @@ class MainFragment : BaseFragment<MainFragmentBinding>(R.layout.main_fragment),
             if (it.data!=null){
                 val intent = Intent(requireContext(), HomeActivity::class.java)
                 sharedPreferences.token = it.data!!.token
+                intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK
+                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
                 startActivity(intent)
+                requireActivity().finish()
             }else{
                 requireActivity().showToast(it.errorMessage.toString())
             }
         })
     }
+
 
 }

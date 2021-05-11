@@ -1,6 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -11,7 +9,7 @@
 
         <variable
             name="viewModel"
-            type="ru.mitapp.umai.ui.registration.viewmodel.SmsCodeViewModel" />
+            type="ru.mitapp.umai.ui.main.pin_code_restore.PinRestoreViewModel" />
 
         <import type="android.view.View"/>
 
@@ -23,7 +21,7 @@
         android:background="?attr/backgroundColor">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/con_code"
+            android:id="@+id/constraint_code"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
@@ -33,7 +31,7 @@
 
             <TextView
 
-                android:id="@+id/text_code"
+                android:id="@+id/text_through"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Код придет через:"
@@ -53,12 +51,12 @@
                 android:textAppearance="@style/Black_Regular_14"
                 android:textColor="?attr/titleTextColor"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/text_code"
+                app:layout_constraintStart_toEndOf="@+id/text_through"
                 app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <include
-            android:id="@+id/toolbarCode"
+            android:id="@+id/toolbar_pin_code"
             layout="@layout/toolbar_back" />
 
 
@@ -70,7 +68,7 @@
             android:clickable="false"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/toolbarCode"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar_pin_code"
             app:srcCompat="@drawable/ic_icon_message" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -86,7 +84,7 @@
 
             <TextView
 
-                android:id="@+id/for_number"
+                android:id="@+id/text_for_number"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="На номер"
@@ -99,7 +97,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/phone_number"
+                android:id="@+id/text_phone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
@@ -107,24 +105,24 @@
                 android:textColor="?attr/titleTextColor"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toEndOf="@+id/for_number"
+                app:layout_constraintStart_toEndOf="@+id/text_for_number"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/sms_code"
+                android:id="@+id/textView20"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:text="выслан смс код"
                 android:textAppearance="@style/Black_Regular_18"
                 android:textColor="?attr/titleTextColor"
-                app:layout_constraintEnd_toEndOf="@+id/phone_number"
-                app:layout_constraintStart_toStartOf="@+id/for_number"
-                app:layout_constraintTop_toBottomOf="@+id/phone_number" />
+                app:layout_constraintEnd_toEndOf="@+id/text_phone"
+                app:layout_constraintStart_toStartOf="@+id/text_for_number"
+                app:layout_constraintTop_toBottomOf="@+id/text_phone" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <TextView
-            android:id="@+id/textView18"
+            android:id="@+id/text_enter"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="64dp"
@@ -153,34 +151,15 @@
             app:itemSpacing="12dp"
             app:itemWidth="48dp"
             app:lineWidth="0dp"
-            app:itemCount="5"
+            app:itemCount="6"
             app:lineColor="#00ffffff"
             android:textAppearance="@style/Black_Bold_16"
             android:textColor="?attr/subTitleTextColor"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView18"
+            app:layout_constraintTop_toBottomOf="@+id/text_enter"
             app:layout_constraintVertical_bias="0.0" />
-
-        <Button
-            android:id="@+id/login_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="74dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginEnd="74dp"
-            android:padding="16dp"
-            android:text="Отправить"
-            android:textAllCaps="false"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:background="@{viewModel.isButtonActive() ? @drawable/bg_active_button : @drawable/bg_in_active_button}"
-            android:enabled="@{viewModel.isButtonActive()}"
-            android:textColor="@{viewModel.isButtonActive() ? @color/buttonActiveTextColor : @color/buttonInActiveTextColor}"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/con_code" />
 
         <TextView
             android:id="@+id/not_true"
@@ -195,17 +174,38 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/login_button" />
 
+        <Button
+            android:id="@+id/login_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="74dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="74dp"
+            android:background="@{viewModel.isButtonActive() ? @drawable/bg_active_button : @drawable/bg_in_active_button}"
+            android:enabled="@{viewModel.isButtonActive()}"
+            android:padding="16dp"
+            android:text="Отправить"
+            android:textAllCaps="false"
+            android:textColor="@{viewModel.isButtonActive() ? @color/buttonActiveTextColor : @color/buttonInActiveTextColor}"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraint_code" />
+
         <ProgressBar
             android:id="@+id/progressBar"
             style="?android:attr/progressBarStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:visibility="@{viewModel.isLoad() ? View.VISIBLE : View.GONE}"
-
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.326" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>
