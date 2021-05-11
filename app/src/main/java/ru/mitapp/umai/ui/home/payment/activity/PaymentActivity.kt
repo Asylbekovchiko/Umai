@@ -1,7 +1,6 @@
 package ru.mitapp.umai.ui.home.payment.activity
 
 
-import android.view.MenuItem
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
@@ -29,7 +28,7 @@ class PaymentActivity : BaseActivity<ActivityPaymentBinding>(R.layout.activity_p
         super.onBackPressed()
         viewModel.paymentStep--
         when(viewModel.paymentStep){
-            0 -> viewModel.buttontext.set("Далее")
+            0 -> viewModel.buttontext.set(getString(R.string.next_button))
 
         }
     }

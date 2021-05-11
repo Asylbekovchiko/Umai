@@ -23,7 +23,7 @@ class PaymentFragment : BaseFragment<FragmentPaymentBinding>(R.layout.fragment_p
             viewModel.paymentStep++
             when(viewModel.paymentStep){
                 1 -> {navController.navigate(R.id.action_paymentDataFragment_to_paymentConfirmFragment)
-                    viewModel.buttontext.set("Оплатить")
+                    viewModel.buttontext.set(getString(R.string.pay))
                 }
                 else -> {
                     (activity as PaymentActivity).navController.navigate(R.id.action_paymentFragment_to_paymentSuccessFragment2)

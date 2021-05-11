@@ -17,199 +17,199 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-                <ImageView
-                    android:id="@+id/icon"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_check_icon"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:layout_marginTop="@dimen/_23sdp"
-                    />
+        <ImageView
+            android:id="@+id/icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_check_icon"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="@dimen/_23sdp"
+            />
 
-                <TextView
-                    android:id="@+id/status_title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintTop_toBottomOf="@id/icon"
-                    android:text="Успешно отправлено!"
-                    android:textAppearance="@style/Black_Bold_20"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    android:layout_marginTop="@dimen/_16sdp"
-                    />
+        <TextView
+            android:id="@+id/status_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/icon"
+            android:text="Успешно отправлено!"
+            android:textAppearance="@style/Black_Bold_20"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="@dimen/_16sdp"
+            />
 
-                <TextView
-                    android:id="@+id/payment_date"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintTop_toBottomOf="@id/status_title"
-                    android:text="20 декабря 2019, 20:31"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    />
+        <TextView
+            android:id="@+id/payment_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/status_title"
+            android:text="20 декабря 2019, 20:31"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
 
-                <TextView
-                    android:id="@+id/payment_summ"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintTop_toBottomOf="@id/payment_date"
-                    android:text="@{viewModel.summ}"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    android:layout_marginTop="@dimen/_12sdp"
-                    android:textAppearance="@style/Black_Bold_32"
-                    />
-
-
-                <TextView
-                    android:id="@+id/balls"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Вы получили +40 баллов"
-                    app:layout_constraintTop_toBottomOf="@id/payment_summ"
-                    android:layout_marginTop="@dimen/_8sdp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    android:paddingHorizontal="@dimen/_9sdp"
-                    android:paddingVertical="@dimen/_8sdp"
-                    android:background="@drawable/bg_ball"
-                    android:textAppearance="@style/White_Bold_14"
-                    />
+        <TextView
+            android:id="@+id/payment_summ"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/payment_date"
+            android:text="@{viewModel.summ}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:textAppearance="@style/Black_Bold_32"
+            />
 
 
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/menu_block"
+        <TextView
+            android:id="@+id/balls"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Вы получили +40 баллов"
+            app:layout_constraintTop_toBottomOf="@id/payment_summ"
+            android:layout_marginTop="@dimen/_8sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:paddingHorizontal="@dimen/_9sdp"
+            android:paddingVertical="@dimen/_8sdp"
+            android:background="@drawable/bg_ball"
+            android:textAppearance="@style/White_Bold_14"
+            />
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/menu_block"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_12sdp"
+            app:layout_constraintTop_toBottomOf="@id/balls"
+            android:layout_marginTop="@dimen/_23sdp"
+            app:cardCornerRadius="@dimen/_8sdp"
+            app:cardElevation="@dimen/_8sdp"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
+
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/_12sdp"
-                    app:layout_constraintTop_toBottomOf="@id/balls"
-                    android:layout_marginTop="@dimen/_23sdp"
-                    app:cardCornerRadius="@dimen/_8sdp"
-                    app:cardElevation="@dimen/_8sdp"
-                    >
+                    android:gravity="center_vertical"
+                    android:paddingHorizontal="@dimen/_15sdp"
+                    android:paddingVertical="@dimen/_13sdp"
+                    android:orientation="horizontal">
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
+                    <ImageView
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        >
+                        android:src="@drawable/ic_chart"
+                        />
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:gravity="center_vertical"
-                            android:paddingHorizontal="@dimen/_15sdp"
-                            android:paddingVertical="@dimen/_13sdp"
-                            android:orientation="horizontal">
-
-                            <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:src="@drawable/ic_chart"
-                                />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Детально"
-                                android:layout_marginStart="@dimen/_10sdp"
-                                android:textAppearance="@style/Black_Bold_16"
-                                />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Детально"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:textAppearance="@style/Black_Bold_16"
+                        />
 
 
-                        </LinearLayout>
+                </LinearLayout>
 
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="1dp"
-                            android:background="@color/DividerColor"
-                            />
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:gravity="center_vertical"
-                            android:paddingHorizontal="@dimen/_15sdp"
-                            android:paddingVertical="@dimen/_13sdp"
-                            android:orientation="horizontal">
-
-                            <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:src="@drawable/ic_repeat"
-                                />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Повторить операцию"
-                                android:layout_marginStart="@dimen/_10sdp"
-                                android:textAppearance="@style/Black_Bold_16"
-                                />
-
-
-                        </LinearLayout>
-
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="1dp"
-                            android:background="@color/DividerColor"
-                            />
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:gravity="center_vertical"
-                            android:paddingHorizontal="@dimen/_15sdp"
-                            android:paddingVertical="@dimen/_13sdp"
-                            android:orientation="horizontal">
-
-                            <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:src="@drawable/ic_star"
-                                />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Сделать шаблоном"
-                                android:layout_marginStart="@dimen/_10sdp"
-                                android:textAppearance="@style/Black_Bold_16"
-                                />
-
-
-                        </LinearLayout>
-
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="1dp"
-                            android:background="@color/DividerColor"
-                            />
-
-
-                    </LinearLayout>
-
-                </androidx.cardview.widget.CardView>
-
-
-                <Button
-                    android:id="@+id/close_button"
+                <View
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/_15sdp"
-                    android:layout_marginHorizontal="@dimen/_12sdp"
-                    android:background="@drawable/bg_button"
-                    android:paddingVertical="@dimen/_12sdp"
-                    android:text="@string/close"
-                    android:textColor="@color/button_text_color"
-                    android:textAllCaps="false"
-                    android:textAppearance="@style/Black_Bold_16"
-                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_height="1dp"
+                    android:background="@color/DividerColor"
                     />
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:paddingHorizontal="@dimen/_15sdp"
+                    android:paddingVertical="@dimen/_13sdp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_repeat"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Повторить операцию"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:textAppearance="@style/Black_Bold_16"
+                        />
+
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/DividerColor"
+                    />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:paddingHorizontal="@dimen/_15sdp"
+                    android:paddingVertical="@dimen/_13sdp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_star"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Сделать шаблоном"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:textAppearance="@style/Black_Bold_16"
+                        />
+
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/DividerColor"
+                    />
+
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+
+        <Button
+            android:id="@+id/close_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_15sdp"
+            android:layout_marginHorizontal="@dimen/_12sdp"
+            android:background="@drawable/bg_button"
+            android:paddingVertical="@dimen/_12sdp"
+            android:text="@string/close"
+            android:textColor="@color/button_text_color"
+            android:textAllCaps="false"
+            android:textAppearance="@style/Black_Bold_16"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 
