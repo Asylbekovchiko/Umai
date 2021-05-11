@@ -12,6 +12,8 @@ class PaymentDataFragment : BaseFragment<FragmentPaymentDataBinding>(R.layout.fr
     lateinit var viewModel: PaymentViewModel
     override fun setupView() {
         viewModel = (activity as PaymentActivity).viewModel
+        binding.viewModel = viewModel
+        binding.lifecycleOwner = this
 
     }
 

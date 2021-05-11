@@ -4,18 +4,202 @@
 
     <data>
 
+        <variable
+            name="viewModel"
+            type="ru.mitapp.umai.ui.home.payment.viewmodel.PaymentViewModel" />
+
     </data>
 
-    <FrameLayout
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".ui.home.payment.fragment.PaymentConfirmFragment">
+        android:fillViewport="true"
+        android:layout_height="match_parent">
 
-        <!-- TODO: Update blank fragment layout -->
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="@string/hello_blank_fragment" />
+            android:orientation="vertical">
 
-    </FrameLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_12sdp"
+                android:layout_marginTop="@dimen/_23sdp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Абонент:"
+                    android:textAppearance="@style/LightGray_Regular_14"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Найден"
+                    android:textAppearance="@style/Black_Bold_16"
+                    android:textColor="@color/successColor"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    />
+
+
+            </LinearLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/DividerColor"
+                android:layout_marginTop="@dimen/_9sdp"
+                android:layout_marginStart="@dimen/_12sdp"
+                />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_12sdp"
+                android:layout_marginTop="@dimen/_9sdp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Лицевой счет:"
+                    android:textAppearance="@style/LightGray_Regular_14"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{viewModel.account}"
+                    android:textAppearance="@style/Black_Bold_16"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    />
+
+
+            </LinearLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/DividerColor"
+                android:layout_marginTop="@dimen/_9sdp"
+                android:layout_marginStart="@dimen/_12sdp"
+                />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_12sdp"
+                android:layout_marginTop="@dimen/_9sdp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Способ оплаты:"
+                    android:textAppearance="@style/LightGray_Regular_14"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{viewModel.account}"
+                    android:textAppearance="@style/Black_Bold_16"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    />
+
+
+            </LinearLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/DividerColor"
+                android:layout_marginTop="@dimen/_9sdp"
+                android:layout_marginStart="@dimen/_12sdp"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_12sdp"
+                android:layout_marginTop="@dimen/_9sdp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Сумма к оплате:"
+                    android:textAppearance="@style/LightGray_Regular_14"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{viewModel.summ}"
+                    android:textAppearance="@style/Black_Bold_16"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    />
+
+
+            </LinearLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/DividerColor"
+                android:layout_marginTop="@dimen/_9sdp"
+                android:layout_marginStart="@dimen/_12sdp"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_12sdp"
+                android:layout_marginTop="@dimen/_9sdp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Коммисия:"
+                    android:textAppearance="@style/LightGray_Regular_14"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{viewModel.summ}"
+                    android:textAppearance="@style/Black_Bold_16"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    />
+
+
+            </LinearLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/DividerColor"
+                android:layout_marginTop="@dimen/_9sdp"
+                android:layout_marginStart="@dimen/_12sdp"
+                />
+
+
+
+
+        </LinearLayout>
+
+
+    </androidx.core.widget.NestedScrollView>
+
+
 </layout>

@@ -13,6 +13,7 @@ class PaymentConfirmFragment : BaseFragment<FragmentPaymentConfirmBinding>(R.lay
     lateinit var viewModel: PaymentViewModel
     override fun setupView() {
         viewModel = (activity as PaymentActivity).viewModel
+        binding.viewModel = viewModel
 
     }
 
