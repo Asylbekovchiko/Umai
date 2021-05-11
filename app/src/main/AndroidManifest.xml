@@ -44,6 +44,9 @@
         <activity
             android:name=".ui.home.more.partners.activity.PartnersActivity"
             android:parentActivityName=".ui.main.activity.MainActivity" />
+        <activity android:name=".ui.main.activity.NewPasswordActivity" />
+        <activity android:name=".ui.main.pin_code_restore.PinCodeRestoreActivity" />
+        <activity android:name=".ui.main.restore_password.RestorePasswordActivity" />
         <activity android:name=".ui.home.more.personal_data.ChangeDataActivity" />
         <activity android:name=".ui.home.more.linked_cards.AddingNewCardsActivity" />
         <activity android:name=".ui.home.more.linked_cards.LinkedCardsActivity" />
