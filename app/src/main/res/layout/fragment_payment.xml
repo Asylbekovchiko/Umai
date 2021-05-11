@@ -6,9 +6,15 @@
 
     <data>
 
+        <import type="android.view.View"/>
+
         <variable
             name="viewModel"
             type="ru.mitapp.umai.ui.home.payment.viewmodel.PaymentViewModel" />
+
+        <variable
+            name="model"
+            type="ru.mitapp.umai.models.service.ServiceDetail" />
 
     </data>
 
@@ -33,10 +39,10 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Aknet"
+                android:text="@{model.label}"
                 android:textAppearance="@style/Black_Bold_22"
                 android:paddingEnd="@dimen/_12sdp"
-                />
+                tools:ignore="RtlSymmetry" />
 
             <androidx.cardview.widget.CardView
                 android:layout_width="@dimen/_41sdp"
@@ -45,11 +51,11 @@
                 app:cardCornerRadius="@dimen/_20sdp"
                 >
 
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:scaleType="centerCrop"
-                    imageUrl="@{viewModel.image}"
+                <TextView
+                    android:id="@+id/label__icon"
+                    android:layout_width="@dimen/_41sdp"
+                    android:layout_height="@dimen/_41sdp"
+                    android:textSize="@dimen/_41sdp"
                     />
 
             </androidx.cardview.widget.CardView>
@@ -84,6 +90,16 @@
             android:textAppearance="@style/Black_Bold_16"
             android:enabled="true"
 
+            />
+
+        <androidx.core.widget.ContentLoadingProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:visibility="@{viewModel.isLoad()? View.VISIBLE: View.GONE}"
             />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

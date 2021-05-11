@@ -13,6 +13,7 @@ import ru.mitapp.umai.models.auth.SmsCode
 import ru.mitapp.umai.models.auth.UserToken
 import ru.mitapp.umai.models.auth.SingIn
 import ru.mitapp.umai.models.service.Service
+import ru.mitapp.umai.models.service.ServiceDetail
 import ru.mitapp.umai.models.service.SubCategoryService
 
 
@@ -74,6 +75,11 @@ class MainRepository(var api: ApiInterface) : BaseRepository() {
     suspend fun getServices(): BaseModel<ArrayList<Service>>{
         val response = safeApiCall { api.getServices(sharedPreferences.token!!).await() }
         return response as BaseModel<ArrayList<Service>>
+    }
+
+    suspend fun getServicesDetail(type: String): BaseModel<ServiceDetail>{
+        val response = safeApiCall { api.getServicesId(type, sharedPreferences.token!!).await() }
+        return response as BaseModel<ServiceDetail>
     }
 
     suspend fun getSecondLevelCategory(id: String): BaseModel<java.util.ArrayList<SubCategoryService>>{

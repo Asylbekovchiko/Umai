@@ -17,8 +17,7 @@ const val IS_SUCCESS = "is_success"
 const val MY_TEMPLATE = "my_template"
 const val SERVICE_TEMPLATE = "service_title"
 const val SERVICE_ID = "service_id"
-
-
+const val SERVICE_TYPE = "service_type"
 
 
 

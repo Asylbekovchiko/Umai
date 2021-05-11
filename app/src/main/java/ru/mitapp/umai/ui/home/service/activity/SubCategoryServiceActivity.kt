@@ -17,6 +17,7 @@ import ru.mitapp.umai.ui.home.service.viewmodel.SubCategoryViewModel
 import ru.mitapp.umai.ui.home.payment.activity.PaymentActivity
 import ru.mitapp.umai.utils.RecyclerAnimation
 import ru.mitapp.umai.utils.SERVICE_ID
+import ru.mitapp.umai.utils.SERVICE_TYPE
 import ru.mitapp.umai.utils.TITLE
 import java.util.ArrayList
 
@@ -89,7 +90,9 @@ class SubCategoryServiceActivity : BaseActivity<ActivitySubCategoryServiceBindin
 
 
     override fun onSubCategoryClickListener(subCategoryService: SubCategoryService) {
-        startActivity(Intent(this, PaymentActivity::class.java))
+        val intent = Intent(this, PaymentActivity::class.java)
+        intent.putExtra(SERVICE_TYPE, subCategoryService.type)
+        startActivity(intent)
     }
 
 
