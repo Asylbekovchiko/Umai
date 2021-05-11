@@ -19,8 +19,6 @@ class PinRestoreViewModel: BaseViewModel() {
 
     var isButtonActive = ObservableField(false)
 
-    var isLoad = ObservableField(false)
-
 
     val checkPinCode: MutableLiveData<Boolean> by lazy {
         MutableLiveData<Boolean>()

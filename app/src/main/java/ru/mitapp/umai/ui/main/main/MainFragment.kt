@@ -21,7 +21,8 @@ import ru.mitapp.umai.extension.showToast
 import ru.mitapp.umai.helper.BaseTextChangeListener
 import ru.mitapp.umai.models.auth.SingIn
 import ru.mitapp.umai.ui.home.HomeActivity
-import ru.mitapp.umai.ui.main.adapter.BannerRecyclerAdapter
+import ru.mitapp.umai.ui.main.main.adapter.BannerRecyclerAdapter
+import ru.mitapp.umai.ui.main.main.viewodel.MainFragmentViewModel
 import ru.mitapp.umai.ui.main.register.RegisterActivity
 import ru.mitapp.umai.ui.main.restore_password.RestorePasswordActivity
 import ru.mitapp.umai.utils.REQUEST_CODE

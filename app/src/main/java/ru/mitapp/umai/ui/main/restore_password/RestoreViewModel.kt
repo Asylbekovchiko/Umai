@@ -17,7 +17,6 @@ class RestoreViewModel: BaseViewModel() {
 
     var isButtonActive = ObservableField(false)
 
-    var isLoad = ObservableField(false)
 
 
     val restorePassword: MutableLiveData<BaseModel<String>> by lazy {

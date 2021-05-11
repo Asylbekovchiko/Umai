@@ -17,7 +17,6 @@ class NewPasswordViewModel: BaseViewModel() {
 
     var isButtonActive = ObservableField(false)
 
-    var isLoad = ObservableField(false)
 
 
     val newsPassword: MutableLiveData<BaseModel<ResponseBody>> by lazy {
