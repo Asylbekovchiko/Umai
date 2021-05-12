@@ -92,4 +92,5 @@
     <string name="summ">Сумма</string>
     <string name="close">Закрыть</string>
     <string name="pay">Оплатить</string>
+    <string name="check_internet">Проверьте соединение с интернетом</string>
 </resources>

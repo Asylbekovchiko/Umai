@@ -6,11 +6,13 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import ru.mitapp.umai.AppUmai.Companion.sharedPreferences
 import ru.mitapp.umai.R
+import ru.mitapp.umai.extension.showToast
 
 abstract class BaseActivity<DataBinding : ViewDataBinding>(private val layoutId: Int) :
     AppCompatActivity() {
 
     lateinit var binding: DataBinding
+    var connection = true
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,4 +35,13 @@ abstract class BaseActivity<DataBinding : ViewDataBinding>(private val layoutId:
     }
 
     abstract fun setupView()
+
+    fun checkInternet(click: ()->Unit){
+        if (connection){
+            click()
+        }else{
+            showToast(getString(R.string.check_internet))
+        }
+    }
+
 }

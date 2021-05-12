@@ -5,6 +5,8 @@ import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
+import ru.mitapp.umai.AppUmai
+import ru.mitapp.umai.utils.ConnectionLiveData
 import kotlin.coroutines.CoroutineContext
 
 open class BaseViewModel : ViewModel() {
@@ -14,5 +16,8 @@ open class BaseViewModel : ViewModel() {
         get() = jobs + Dispatchers.IO
     val scope = CoroutineScope(coroutineContext)
     var isLoad = ObservableField(false)
+
+    var connection =  ConnectionLiveData(AppUmai.context)
+
 
 }

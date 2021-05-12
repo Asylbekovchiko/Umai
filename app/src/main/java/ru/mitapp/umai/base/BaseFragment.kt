@@ -7,11 +7,13 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
+import ru.mitapp.umai.R
+import ru.mitapp.umai.extension.showToast
 
 abstract class BaseFragment<DataBinding : ViewDataBinding>(private val layoutId: Int) : Fragment() {
 
     lateinit var binding: DataBinding
-
+    var connection = true
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -31,6 +33,14 @@ abstract class BaseFragment<DataBinding : ViewDataBinding>(private val layoutId:
     }
 
     protected abstract fun setupView()
+
+    fun checkInternet(click: ()->Unit){
+        if (connection){
+            click()
+        }else{
+            showToast(getString(R.string.check_internet))
+        }
+    }
 
 }
 

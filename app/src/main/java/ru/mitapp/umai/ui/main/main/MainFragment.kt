@@ -1,6 +1,5 @@
 package ru.mitapp.umai.ui.main.main
 
-import android.app.Activity
 import android.content.Intent
 import android.text.Editable
 import android.view.ViewGroup
@@ -25,7 +24,6 @@ import ru.mitapp.umai.ui.main.main.adapter.BannerRecyclerAdapter
 import ru.mitapp.umai.ui.main.main.viewodel.MainFragmentViewModel
 import ru.mitapp.umai.ui.main.register.RegisterActivity
 import ru.mitapp.umai.ui.main.restore_password.RestorePasswordActivity
-import ru.mitapp.umai.utils.REQUEST_CODE
 import ru.mitapp.umai.utils.REQUEST_PASSWORD_RESTORE
 import java.util.*
 import kotlin.collections.ArrayList
@@ -44,7 +42,13 @@ class MainFragment : BaseFragment<MainFragmentBinding>(R.layout.main_fragment),
 
     override fun setupView() {
         viewModel = ViewModelProvider(this).get(MainFragmentViewModel::class.java)
-        binding!!.viewModel = viewModel
+
+        binding.viewModel = viewModel
+
+        viewModel.connection.observe(this, androidx.lifecycle.Observer {
+            connection = it
+        })
+
         images.add(R.drawable.banner_1)
         images.add(R.drawable.banner_2)
         images.add(R.drawable.banner_3)
@@ -52,15 +56,15 @@ class MainFragment : BaseFragment<MainFragmentBinding>(R.layout.main_fragment),
         val snapHelper: SnapHelper = PagerSnapHelper()
         snapHelper.attachToRecyclerView(binding!!.bannerRecycler)
 
-        binding!!.bannerRecycler.layoutManager =
+        binding.bannerRecycler.layoutManager =
             LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
         adapter = BannerRecyclerAdapter(images, this)
-        binding!!.bannerRecycler.adapter = adapter
+        binding.bannerRecycler.adapter = adapter
 
         setupOnboardingIndicators()
         setCurrentIndicator(0)
 
-        binding!!.bannerRecycler.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+        binding.bannerRecycler.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                 super.onScrolled(recyclerView, dx, dy)
                 recyclerView.layoutManager?.let { layoutManager ->
@@ -76,33 +80,41 @@ class MainFragment : BaseFragment<MainFragmentBinding>(R.layout.main_fragment),
         signIn()
 
 
-        binding!!.forgotPassword.setOnClickListener {
-            val intent = Intent(requireContext(), RestorePasswordActivity::class.java)
-            startActivityForResult(intent, REQUEST_PASSWORD_RESTORE)
+        binding.forgotPassword.setOnClickListener {
+            checkInternet{
+                val intent = Intent(requireContext(), RestorePasswordActivity::class.java)
+                startActivityForResult(intent, REQUEST_PASSWORD_RESTORE)
+            }
+
         }
 
 
-        binding!!.textRegister.setOnClickListener {
-            startActivity(Intent(requireContext(), RegisterActivity::class.java))
+        binding.textRegister.setOnClickListener {
+            checkInternet {
+                startActivity(Intent(requireContext(), RegisterActivity::class.java))
+            }
         }
 
         Timer().scheduleAtFixedRate(object : TimerTask() {
             override fun run() {
                 if (adapter.itemCount - 1 == bannerPosition) {
-                    binding!!.bannerRecycler.smoothScrollToPosition(0)
+                    binding.bannerRecycler.smoothScrollToPosition(0)
                 } else {
-                    binding!!.bannerRecycler.smoothScrollToPosition(bannerPosition + 1)
+                    binding.bannerRecycler.smoothScrollToPosition(bannerPosition + 1)
                 }
             }
         }, 0, 5000)
 
 
 
-        binding!!.loginButton.setOnClickListener {
-            val phone = binding!!.loginInput.text.toString().trim()
-            val password = binding!!.edtPassword.text.toString().trim()
-            setSignIn(phone,password)
-            viewModel.singInUser(signIn)
+        binding.loginButton.setOnClickListener {
+            checkInternet {
+                val phone = binding.loginInput.text.toString().trim()
+                val password = binding.edtPassword.text.toString().trim()
+                setSignIn(phone,password)
+                viewModel.singInUser(signIn)
+            }
+
         }
         setInputs()
     }

@@ -4,10 +4,12 @@ import android.content.Intent
 import android.content.res.Configuration
 import android.view.WindowManager
 import androidx.lifecycle.ViewModelProvider
+import kotlinx.android.synthetic.main.activity_main.*
 import ru.mitapp.umai.AppUmai.Companion.sharedPreferences
 import ru.mitapp.umai.R
 import ru.mitapp.umai.base.BaseActivity
 import ru.mitapp.umai.databinding.ActivityStartBinding
+import ru.mitapp.umai.extension.showToast
 import ru.mitapp.umai.ui.home.HomeActivity
 import ru.mitapp.umai.ui.home.service.viewmodel.ServiceViewModel
 import ru.mitapp.umai.ui.main.activity.MainActivity
@@ -20,12 +22,18 @@ class StartActivity : BaseActivity<ActivityStartBinding>(R.layout.activity_start
     override fun setupView() {
         viewModel = ViewModelProvider(this)[ServiceViewModel::class.java]
         binding.viewModel = viewModel
-        viewModel.getServices()
         getAppTheme(sharedPreferences.isDarkThem)
         window.setFlags(
             WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
             WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
         )
+
+        if(sharedPreferences.token.isNullOrEmpty()){
+            startActivity(Intent(this, MainActivity::class.java))
+            finish()
+        }else{
+            viewModel.getServices()
+        }
 
         setLocate(sharedPreferences.language!!)
 
@@ -48,4 +56,7 @@ class StartActivity : BaseActivity<ActivityStartBinding>(R.layout.activity_start
         baseContext.resources.updateConfiguration(config, baseContext.resources.displayMetrics)
 
     }
+
+
+
 }

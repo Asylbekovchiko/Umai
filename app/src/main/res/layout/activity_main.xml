@@ -17,6 +17,9 @@
         android:background="?attr/backgroundColor"
         >
 
+
+
+
         <ru.mitapp.umai.base.UnScrollViewPager
             android:id="@+id/main_pager"
             android:layout_width="match_parent"
@@ -41,6 +44,17 @@
             app:itemTextColor="@color/bottom_nav_item_color"
             app:itemTextAppearanceActive="@style/BottomNavigation.ActiveItemTextAppearance"
             />
+
+        <TextView
+            android:id="@+id/connection"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_20sdp"
+            android:background="@color/color_pink"
+            android:text="Проверьте соединение с интернетом"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:visibility="gone"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
