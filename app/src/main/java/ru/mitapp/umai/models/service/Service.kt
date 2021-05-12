@@ -6,5 +6,6 @@ data class Service (
 
     @SerializedName("_id")  var id: String? = null,
     var title: ServiceTitle? = null,
-    var description: ServiceTitle? = null
+    var description: ServiceTitle? = null,
+    var img: ServiceImage? = null
 )

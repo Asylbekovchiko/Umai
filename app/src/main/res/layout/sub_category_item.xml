@@ -25,18 +25,27 @@
         android:foreground="?selectableItemBackground"
         >
 
-        <de.hdodenhof.circleimageview.CircleImageView
+
+        <androidx.cardview.widget.CardView
             android:id="@+id/image"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_marginVertical="16dp"
+            android:layout_marginHorizontal="18dp"
+            android:layout_width="@dimen/_31sdp"
+            android:layout_height="@dimen/_31sdp"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"
-            android:layout_marginStart="18dp"
-            />
+            app:cardElevation="0dp"
+            app:cardCornerRadius="@dimen/_15sdp">
+            <ImageView
+                android:id="@+id/service_item_icon"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                loadBase64="@{subCategory.img.data}"
+                />
 
+        </androidx.cardview.widget.CardView>
 
         <TextView
             android:id="@+id/name"

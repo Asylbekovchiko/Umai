@@ -7,5 +7,6 @@ data class SubCategoryService(
     @SerializedName("type") var type : String? = null,
     @SerializedName("gateway") var gateway: String? = null,
     @SerializedName("category") var category: String? = null,
-    @SerializedName("sequence") var sequence: Int? = null
+    @SerializedName("sequence") var sequence: Int? = null,
+    var img: ServiceImage? = null
 )

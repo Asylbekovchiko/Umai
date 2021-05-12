@@ -51,11 +51,11 @@
                 app:cardCornerRadius="@dimen/_20sdp"
                 >
 
-                <TextView
-                    android:id="@+id/label__icon"
-                    android:layout_width="@dimen/_41sdp"
-                    android:layout_height="@dimen/_41sdp"
-                    android:textSize="@dimen/_41sdp"
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    loadImageForDetailPayment="@{model.type}"
                     />
 
             </androidx.cardview.widget.CardView>
