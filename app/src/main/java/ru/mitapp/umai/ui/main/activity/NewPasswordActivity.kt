@@ -7,11 +7,13 @@ import androidx.lifecycle.ViewModelProvider
 import ru.mitapp.umai.R
 import ru.mitapp.umai.base.BaseActivity
 import ru.mitapp.umai.databinding.ActivityNewPasswordBinding
+import ru.mitapp.umai.extension.showToast
 import ru.mitapp.umai.helper.BaseTextChangeListener
 import ru.mitapp.umai.models.auth.NewPassword
 import ru.mitapp.umai.ui.main.view_model.NewPasswordViewModel
 
-class NewPasswordActivity : BaseActivity<ActivityNewPasswordBinding>(R.layout.activity_new_password){
+class NewPasswordActivity :
+    BaseActivity<ActivityNewPasswordBinding>(R.layout.activity_new_password) {
 
     private lateinit var viewModel: NewPasswordViewModel
     lateinit var toolbar: Toolbar
@@ -35,7 +37,9 @@ class NewPasswordActivity : BaseActivity<ActivityNewPasswordBinding>(R.layout.ac
 
         binding!!.loginButton.setOnClickListener {
             val newPassword = NewPassword(
-                pinCode, binding!!.edtPassword.text.toString().trim(),binding!!.edtPasswordConfirm.text.toString().trim()
+                pinCode,
+                binding!!.edtPassword.text.toString().trim(),
+                binding!!.edtPasswordConfirm.text.toString().trim()
             )
             viewModel.newsPassword(newPassword)
         }
@@ -43,10 +47,14 @@ class NewPasswordActivity : BaseActivity<ActivityNewPasswordBinding>(R.layout.ac
 
     }
 
-    fun newPassword(){
+    fun newPassword() {
         viewModel.newsPassword.observe(this, Observer {
-            setResult(RESULT_OK, intent)
-            finish()
+            if (it.data != null) {
+                setResult(RESULT_OK, intent)
+                finish()
+            }else{
+                showToast(it.errorMessage)
+            }
         })
     }
 
@@ -65,7 +73,11 @@ class NewPasswordActivity : BaseActivity<ActivityNewPasswordBinding>(R.layout.ac
         })
 
     }
+
     fun checkInputs() {
-        viewModel.checkInputs(binding!!.edtPassword.text.toString().trim(),binding!!.edtPasswordConfirm.text.toString().trim())
+        viewModel.checkInputs(
+            binding!!.edtPassword.text.toString().trim(),
+            binding!!.edtPasswordConfirm.text.toString().trim()
+        )
     }
 }

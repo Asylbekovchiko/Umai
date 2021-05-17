@@ -9,6 +9,7 @@ import androidx.lifecycle.ViewModelProvider
 import ru.mitapp.umai.R
 import ru.mitapp.umai.base.BaseActivity
 import ru.mitapp.umai.databinding.ActivityRestorePasswordBinding
+import ru.mitapp.umai.extension.showToast
 import ru.mitapp.umai.helper.BaseTextChangeListener
 import ru.mitapp.umai.models.auth.Phone
 import ru.mitapp.umai.ui.main.pin_code_restore.PinCodeRestoreActivity
@@ -68,6 +69,8 @@ class RestorePasswordActivity
                 val intent = Intent(this, PinCodeRestoreActivity::class.java)
                 intent.putExtra("phone", binding!!.loginInput.text.toString())
                 startActivityForResult(intent, REQUEST_PASSWORD_RESTORE)
+            }else{
+                showToast(it.errorMessage)
             }
         })
     }
