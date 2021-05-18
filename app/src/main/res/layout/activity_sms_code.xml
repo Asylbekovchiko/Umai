@@ -59,7 +59,7 @@
 
         <include
             android:id="@+id/toolbarCode"
-            layout="@layout/toolbar_back" />
+            layout="@layout/toolbar_back_title" />
 
 
         <ImageButton

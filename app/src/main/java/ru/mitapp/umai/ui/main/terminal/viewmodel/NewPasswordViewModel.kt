@@ -29,7 +29,7 @@ class NewPasswordViewModel: BaseViewModel() {
             try {
                 isLoad.set(true)
                 val password = AppUmai.repository.newPassword(newPassword)
-                setResorePassword(password)
+                setRestorePassword(password)
                 isLoad.set(false)
             } catch (e: Exception) {
                 e.stackTrace
@@ -39,7 +39,7 @@ class NewPasswordViewModel: BaseViewModel() {
 
     }
 
-    private suspend fun setResorePassword(password: BaseModel<ResponseBody>)
+    private suspend fun setRestorePassword(password: BaseModel<ResponseBody>)
             : LiveData<BaseModel<ResponseBody>> {
         withContext(Dispatchers.Main) {
             newsPassword.value = password
